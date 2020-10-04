@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Building
+  m_EditorClassIdentifier: 
+  m_GroupName: Building
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0e80d29a34a228e4c9af33332df23e0e
+  m_SerializeEntries:
+  - m_GUID: 1e62b59e87fa8464893764a105598ab8
+    m_Address: Assets/Addressables/Prefabs/Building/Castle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainLobby
+  - m_GUID: 6c52649de3a510e46a196b2df7791ef7
+    m_Address: Assets/Addressables/Prefabs/Building/Warrior Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainLobby
+  - m_GUID: c5f08f889f4e02643be4485fcc5b88a8
+    m_Address: Assets/Addressables/Prefabs/Building/Spearman Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainLobby
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bdd1960d0a5d9d442b2528658fbf419c, type: 2}
+    - {fileID: 11400000, guid: 8cded2a5258a3fa458200c1f0a8ea808, type: 2}

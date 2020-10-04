@@ -1,0 +1,90 @@
+{
+    "name": "MainInputActions",
+    "maps": [
+        {
+            "name": "Main",
+            "id": "6f6bc52e-6bc1-4221-8c95-fbad3f06daaf",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "c7be166f-c15b-47e7-9d9d-ec81fd1b561a",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Chat",
+                    "type": "Button",
+                    "id": "71fc4b3e-ad2b-40f0-a7f9-c0c36523e44f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Position",
+                    "type": "Value",
+                    "id": "d9cd6b0b-830f-460e-9f7e-6cebc2333cdb",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Mouse",
+                    "type": "Button",
+                    "id": "bbd8fabb-65d0-4219-8968-b9e56029c632",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9baf938c-bf90-47a1-a216-b6f738fc63e6",
+                    "path": "<Pointer>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e82d235-8299-41b5-83aa-74f7509651fb",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Chat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fae6e3c5-9d98-408d-a028-36dd889e741c",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01e4ab59-68c5-4dce-818a-373598d3e237",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
