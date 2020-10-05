@@ -134,4 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    buildingType: 0
+    type: 0
+    state: 2

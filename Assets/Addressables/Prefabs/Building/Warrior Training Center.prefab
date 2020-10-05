@@ -135,7 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    buildingType: 2
+    type: 2
+    state: 0
   hologram: {fileID: 8131013728397155367}
 --- !u!1 &8131013728397155367
 GameObject:

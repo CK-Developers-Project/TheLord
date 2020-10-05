@@ -10,17 +10,11 @@ public class Building : MonoBehaviour, IActor
 
     public BuildingInfo info;
 
-    public int Index { get => (int)info.buildingType; }
+    public int Index { get => (int)info.type; }
 
 
-    public virtual void Load ( )
-    {
-    }
-
-
-    public virtual void OnSelect ( )
-    {
-    }
+    public virtual void Load ( ) { }
+    public virtual void OnSelect ( ) { }
 
 
     protected virtual void Awake ( )

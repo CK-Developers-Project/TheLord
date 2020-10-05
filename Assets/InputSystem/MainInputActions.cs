@@ -24,7 +24,7 @@ public class @MainInputActions : IInputActionCollection, IDisposable
                     ""id"": ""c7be166f-c15b-47e7-9d9d-ec81fd1b561a"",
                     ""expectedControlType"": ""Touch"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": ""Press(behavior=1)""
                 },
                 {
                     ""name"": ""Chat"",
@@ -48,7 +48,7 @@ public class @MainInputActions : IInputActionCollection, IDisposable
                     ""id"": ""bbd8fabb-65d0-4219-8968-b9e56029c632"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [

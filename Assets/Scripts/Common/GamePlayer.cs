@@ -7,19 +7,7 @@ using Developers.Structure;
 public class GamePlayer : MonoBehaviour
 {
 
-    public PlayerInfo playerInfo;
-
-
-    
-
-
-
-    public static GamePlayer Create()
-    {
-
-        return null;
-    }
-
+    public PlayerInfo playerInfo = new PlayerInfo();
 
 
     public int GetGold()
@@ -34,17 +22,6 @@ public class GamePlayer : MonoBehaviour
         // TODO : 서버로부터 골드 값 갱신 요청
 
         // FIXME : 현재는 서버연동이 안되어있으므로 로컬 골드값 갱신
-        playerInfo.Gold += gold.Cost;
+        playerInfo.Gold = gold.Cost;
     }
-
-    
-
-    
-
-    public static void Initialize()
-    {
-        //MonoSingleton<GameManager>.Instance.gamePlayers.Add()
-    }
-
-
 }

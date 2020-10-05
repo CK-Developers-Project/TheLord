@@ -216,5 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    buildingType: 1
+    type: 1
+    state: 0
   hologram: {fileID: 4130998352757199374}

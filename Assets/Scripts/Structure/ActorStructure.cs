@@ -37,9 +37,18 @@ namespace Developers.Structure
         WarriorTrainingCenter,             // 전사 훈련소
     }
 
+    public enum BuildingState
+    {
+        Empty,                              // 없음
+        Work,                               // 건설중
+        Completion,                         // 완공
+    }
+
+
     [Serializable]
     public class BuildingInfo
     {
-        public BuildingType buildingType;
+        public BuildingType type;
+        public BuildingState state;
     }
 }
