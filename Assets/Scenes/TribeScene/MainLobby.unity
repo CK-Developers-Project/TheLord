@@ -351,8 +351,9 @@ GameObject:
   - component: {fileID: 98651512}
   - component: {fileID: 98651511}
   - component: {fileID: 98651510}
+  - component: {fileID: 98651513}
   m_Layer: 0
-  m_Name: Work Time
+  m_Name: Work Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,6 +435,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98651513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98651509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88cc5727e0280f46a9a6b35e5a06508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WorkTimeText: {fileID: 1017069902}
 --- !u!1001 &134539404
 PrefabInstance:
   m_ObjectHideFlags: 0
