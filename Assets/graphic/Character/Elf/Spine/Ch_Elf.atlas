@@ -1,0 +1,83 @@
+
+Ch_Elf.png
+size: 1016,348
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_body
+  rotate: true
+  xy: 2, 9
+  size: 337, 487
+  orig: 344, 506
+  offset: 0, 0
+  index: -1
+Ch_body_arm_L
+  rotate: false
+  xy: 590, 13
+  size: 125, 67
+  orig: 127, 74
+  offset: 1, 5
+  index: -1
+Ch_body_arm_R
+  rotate: false
+  xy: 491, 5
+  size: 97, 71
+  orig: 101, 76
+  offset: 1, 1
+  index: -1
+Ch_body_arm_R2
+  rotate: false
+  xy: 717, 16
+  size: 82, 65
+  orig: 84, 68
+  offset: 1, 1
+  index: -1
+Ch_body_leg_L
+  rotate: false
+  xy: 898, 94
+  size: 109, 126
+  orig: 171, 126
+  offset: 62, 0
+  index: -1
+Ch_body_leg_R
+  rotate: false
+  xy: 548, 82
+  size: 115, 138
+  orig: 115, 138
+  offset: 0, 0
+  index: -1
+Ch_body_muffler1
+  rotate: false
+  xy: 728, 93
+  size: 168, 127
+  orig: 180, 134
+  offset: 12, 7
+  index: -1
+Ch_body_muffler2
+  rotate: false
+  xy: 665, 83
+  size: 61, 137
+  orig: 61, 138
+  offset: 0, 0
+  index: -1
+Ch_head_hair
+  rotate: false
+  xy: 801, 2
+  size: 98, 89
+  orig: 100, 91
+  offset: 1, 1
+  index: -1
+Ch_obj_arrow
+  rotate: true
+  xy: 491, 78
+  size: 268, 55
+  orig: 272, 57
+  offset: 2, 1
+  index: -1
+Ch_obj_bow
+  rotate: true
+  xy: 548, 222
+  size: 124, 466
+  orig: 127, 468
+  offset: 2, 1
+  index: -1
