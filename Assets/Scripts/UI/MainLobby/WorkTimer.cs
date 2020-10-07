@@ -4,10 +4,11 @@ using UnityEngine;
 using TMPro;
 using System;
 
+
 public class WorkTimer : MonoBehaviour
 {
     [SerializeField] TextMeshPro WorkTimeText;
-    [SerializeField] SpriteRenderer sprite;
+    SpriteRenderer spriteRenderer;
 
     [HideInInspector] public bool IsComplete { get; set; }
 
@@ -22,6 +23,7 @@ public class WorkTimer : MonoBehaviour
         {
             TimeSpan current = targetTime - DateTime.Now;
             WorkTimeText.SetText(string.Format("{0:D2}:{1:D2}", current.Minutes, current.Seconds));
+            spriteRenderer.size = new Vector2 ( TextWidthApproximation ( WorkTimeText ), spriteRenderer.size.y );
             yield return null;
         }
     }
@@ -47,17 +49,16 @@ public class WorkTimer : MonoBehaviour
         return width;
     }
 
-    
+
+
+    private void Awake ( )
+    {
+        spriteRenderer = GetComponent<SpriteRenderer> ( );
+    }
 
     private void Start()
     {
         targetTime = DateTime.Now + new TimeSpan(2,0, 10);
-        //StartCoroutine(Runnable());
-    }
-
-
-    private void Update() {
-        Debug.LogFormat("Normal : {0}, Extern : {1}", WorkTimeText.GetPreferredValues().x, TextWidthApproximation(WorkTimeText));
-        sprite.size = new Vector2(TextWidthApproximation(WorkTimeText), sprite.size.y);
+        StartCoroutine(Runnable());
     }
 }
