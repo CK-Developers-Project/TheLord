@@ -22,7 +22,7 @@ public class WorkTimer : MonoBehaviour
         while (!IsComplete)
         {
             TimeSpan current = targetTime - DateTime.Now;
-            WorkTimeText.SetText(string.Format("{0:D2}:{1:D2}", current.Minutes, current.Seconds));
+            WorkTimeText.SetText(string.Format("{0}:{1:D2}", (int)current.TotalMinutes, current.Seconds));
             spriteRenderer.size = new Vector2 ( TextWidthApproximation ( WorkTimeText ), spriteRenderer.size.y );
             yield return null;
         }

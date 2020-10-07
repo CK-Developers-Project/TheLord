@@ -25,7 +25,6 @@ public class MainLobbyPage : BasePage
     {
         base.Start ( );
         ResourceUI = gameUIList.Find ( _ => _ is ResourceCanvas ) as ResourceCanvas;
-        Debug.Log ( ResourceUI );
         if(ResourceUI == null)
         {
             // TODO : UI 생성
