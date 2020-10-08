@@ -7,6 +7,7 @@ using Developers.Util;
 public class Building : MonoBehaviour, IActor
 {
     protected SpriteRenderer spriteRenderer = null;
+    protected WorkTimer workTimer = null;
 
     public BuildingInfo info;
 
@@ -20,7 +21,9 @@ public class Building : MonoBehaviour, IActor
     protected virtual void Awake ( )
     {
         spriteRenderer = GetComponent<SpriteRenderer> ( );
+        workTimer = GetComponentInChildren<WorkTimer> ( true );
+        
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
-        gameMode.Buildings.Add ( this );
+        gameMode?.Buildings.Add ( this );
     }
 }
