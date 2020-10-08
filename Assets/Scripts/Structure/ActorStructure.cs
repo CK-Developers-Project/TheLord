@@ -41,7 +41,7 @@ namespace Developers.Structure
     {
         Empty,                              // 없음
         Work,                               // 건설중
-        Completion,                         // 완공
+        Complete,                         // 완공
     }
 
 
