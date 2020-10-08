@@ -1,0 +1,83 @@
+
+Ani_Undead_Reaper_attack.png
+size: 980,416
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back-hair
+  rotate: false
+  xy: 398, 168
+  size: 196, 246
+  orig: 196, 246
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 596, 193
+  size: 214, 221
+  orig: 216, 221
+  offset: 1, 0
+  index: -1
+face
+  rotate: false
+  xy: 812, 250
+  size: 165, 164
+  orig: 180, 353
+  offset: 0, 189
+  index: -1
+hood
+  rotate: false
+  xy: 851, 18
+  size: 63, 75
+  orig: 63, 75
+  offset: 0, 0
+  index: -1
+l-arm-2
+  rotate: false
+  xy: 812, 173
+  size: 157, 75
+  orig: 157, 79
+  offset: 0, 4
+  index: -1
+l-hair
+  rotate: true
+  xy: 851, 95
+  size: 76, 123
+  orig: 76, 123
+  offset: 0, 0
+  index: -1
+l-hand-2
+  rotate: true
+  xy: 756, 164
+  size: 27, 35
+  orig: 27, 39
+  offset: 0, 1
+  index: -1
+r-arm-2
+  rotate: true
+  xy: 629, 4
+  size: 187, 125
+  orig: 187, 126
+  offset: 0, 0
+  index: -1
+r-hair
+  rotate: false
+  xy: 756, 25
+  size: 93, 137
+  orig: 93, 137
+  offset: 0, 0
+  index: -1
+scythe
+  rotate: false
+  xy: 2, 8
+  size: 394, 406
+  orig: 395, 406
+  offset: 0, 0
+  index: -1
+shine
+  rotate: true
+  xy: 398, 2
+  size: 164, 229
+  orig: 164, 229
+  offset: 0, 0
+  index: -1
