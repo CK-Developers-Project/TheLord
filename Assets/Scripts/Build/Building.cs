@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Developers.Structure;
 using Developers.Util;
@@ -15,6 +16,11 @@ public class Building : MonoBehaviour, IActor
 
 
     
+    public void BuildUp(TimeSpan timeSpan, Action callback)
+    {
+        workTimer.Run ( timeSpan, callback );
+    }
+
 
     public virtual void Load ( ) { }
     public virtual void OnSelect ( ) 

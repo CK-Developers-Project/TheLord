@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
@@ -33,6 +34,16 @@ public abstract class BaseGameMode : MonoBehaviour
             PagePool.Add ( page );
         }
         return page;
+    }
+
+    // Notice Popup 테스트용
+    public GameObject Popup;
+
+    public void OnMessageBox ( string msg, bool action_Left, Action callback_Left, string leftMsg, bool action_Right = false, Action callback_Right = null, string rightMsg = "" )
+    {
+        GameObject obj = Instantiate ( Popup, CurrentPage.transform );
+        NoticePopup popup = obj.GetComponent<NoticePopup> ( );
+        popup.OnMessageBox ( msg, action_Left, callback_Left, leftMsg, action_Right, callback_Right, rightMsg );
     }
 
 
