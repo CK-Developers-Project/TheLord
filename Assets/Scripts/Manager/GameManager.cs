@@ -8,6 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     #region 기본 오브젝트
     public Camera MainCamera { get; private set; }
+    public PixelPerfectCameraHelper PixelPerfectCameraHelper { get; private set; }
     #endregion
 
     BaseGameMode gameMode;
@@ -71,7 +72,10 @@ public class GameManager : MonoSingleton<GameManager>
     {
         #region 기본 오브젝트 초기화
         MainCamera = Camera.main;
+        PixelPerfectCameraHelper = MainCamera.GetComponent<PixelPerfectCameraHelper> ( );
         #endregion
+
+        PixelPerfectCameraHelper.UpdateResolution ( );
 
         // 현재 서버가 없으므로 로컬로 대체
         Join ( );
