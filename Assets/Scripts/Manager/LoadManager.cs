@@ -14,8 +14,8 @@ public class LoadManager : MonoSingleton<LoadManager>
     /// <summary>비교할 데이터의 Key Type</summary>
     public enum LoadType
     {
-        Actor,         // Prefab
-        End
+        Actor,          // Prefab
+        UI,             // Prefab
     }
 
     private class ResourceComplete 
@@ -47,15 +47,31 @@ public class LoadManager : MonoSingleton<LoadManager>
                         Debug.LogErrorFormat ( "Object is Null" );
                         break;
 
-                    case GameObject gameObject:         // Prefab - 1번대
-                        index = (int)LoadType.Actor * Multiply_Index;
-                        type = GetActor ( gameObject );
-                        key = index + type;
-                        if( !hashtable.ContainsKey(key) )
+                    case GameObject gameObject:
+                        #region Actor
+                        if ( gameObject.GetComponent<IActor> ( ) != null )
                         {
-                            hashtable.Add ( key, new List<Object> ( ) );
+                            index = (int)LoadType.Actor * Multiply_Index;
+                            type = GetActor ( gameObject );
+                            key = index + type;
+                            if ( !hashtable.ContainsKey ( key ) )
+                            {
+                                hashtable.Add ( key, new List<Object> ( ) );
+                            }
+                            hashtable[key].Add ( gameObject );
                         }
-                        hashtable[key].Add ( gameObject );
+                        #endregion
+                        #region GameUI
+                        else if ( gameObject.GetComponent<IGameUI> ( ) != null )
+                        {
+                            key = (int)LoadType.UI * Multiply_Index;
+                            if(!hashtable.ContainsKey( key ) )
+                            {
+                                hashtable.Add ( key, new List<Object> ( ) );
+                            }
+                            hashtable[key].Add ( gameObject );
+                        }
+                        #endregion
                         break;
                 }
             }
@@ -78,11 +94,33 @@ public class LoadManager : MonoSingleton<LoadManager>
     }
 
 
-    private static Dictionary<int, List<Object>> core = new Dictionary<int, List<Object>> ( );
-    private static Dictionary<int, List<Object>> hashtable = new Dictionary<int, List<Object>> ( );
+    static List<Object> core = new List<Object> ( );
+    static Dictionary<int, List<Object>> hashtable = new Dictionary<int, List<Object>> ( );
 
-    private Queue<AssetLabelReference> labels = new Queue<AssetLabelReference> ( );
-    private List<ResourceComplete> works = new List<ResourceComplete> ( );
+    Queue<AssetLabelReference> labels = new Queue<AssetLabelReference> ( );
+    List<ResourceComplete> works = new List<ResourceComplete> ( );
+
+    public bool isInitialize = false;
+    [SerializeField] AssetLabelReference coreLabel = null;
+
+
+    public List<Object> Core { get => core; }
+
+
+    public void Initialize()
+    {
+        var handle = Addressables.LoadAssetsAsync<Object> ( coreLabel, null );
+        handle.Completed += OnInitializeComplete;
+    }
+
+    void OnInitializeComplete( AsyncOperationHandle<IList<Object>> handle )
+    {
+        foreach ( var obj in handle.Result )
+        {
+            core.Add ( obj );
+        }
+        isInitialize = true;
+    }
 
 
     /// <summary>로드할 리소스 태그를 등록시킵니다.</summary>
@@ -144,6 +182,18 @@ public class LoadManager : MonoSingleton<LoadManager>
         return null;
     }
 
+    public GameObject GetGameUI<T> () where T : IGameUI
+    {
+        List<Object> gameUIList = hashtable[(int)LoadType.UI * Multiply_Index];
+        foreach( GameObject gameUI in gameUIList)
+        {
+            if( gameUI.GetComponent<T> ( ) != null)
+            {
+                return gameUI;
+            }
+        }
+        return null;
+    }
 
     private IEnumerator Runnable()
     {

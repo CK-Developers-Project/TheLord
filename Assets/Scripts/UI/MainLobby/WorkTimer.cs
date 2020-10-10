@@ -8,8 +8,8 @@ using Developers.Util;
 
 public class WorkTimer : MonoBehaviour
 {
-    [SerializeField] TextMeshPro WorkTimeText;
-    SpriteRenderer spriteRenderer;
+    [SerializeField] TextMeshPro WorkTimeText = null;
+    SpriteRenderer spriteRenderer = null;
     DateTime targetTime;
 
     bool isWork = false;

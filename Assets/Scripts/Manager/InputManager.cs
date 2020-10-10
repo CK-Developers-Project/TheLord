@@ -26,6 +26,7 @@ public class InputManager : MonoSingleton<InputManager>
 
     public Vector2 Position { get; private set; }
     public int LayerMask { get; set; }
+    public bool isIgnore { get; set; }
 
 
     void Initialize()
@@ -49,6 +50,10 @@ public class InputManager : MonoSingleton<InputManager>
     private void InputTouch ( InputAction.CallbackContext context )
     {
         Position = context.ReadValue<Vector2> ( );
+        if ( isIgnore )
+        {
+            return;
+        }
         Vector2 pos = mainCamera.ScreenToWorldPoint ( Position );
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, LayerMask );
         if ( hit )
@@ -64,6 +69,10 @@ public class InputManager : MonoSingleton<InputManager>
     private void InputMouseClick ( InputAction.CallbackContext context )
     {
         Vector2 pos = mainCamera.ScreenToWorldPoint ( Position );
+        if ( isIgnore )
+        {
+            return;
+        }
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, LayerMask );
         if ( hit )
         {

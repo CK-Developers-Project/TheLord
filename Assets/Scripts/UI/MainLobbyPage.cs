@@ -8,6 +8,16 @@ public class MainLobbyPage : BasePage
     public ResourceCanvas ResourceUI { get; set; }
 
 
+    public override void Initialize ( )
+    {
+        base.Initialize ( );
+
+        ResourceUI = gameUIList.Find ( _ => _ is ResourceCanvas ) as ResourceCanvas;
+        if ( ResourceUI == null )
+        {
+            // TODO : UI 생성
+        }
+    }
 
     public override void OnUpdate()
     {
@@ -20,19 +30,7 @@ public class MainLobbyPage : BasePage
         OnUpdate ( );
     }
 
-
-    protected override void Start ( )
-    {
-        base.Start ( );
-        ResourceUI = gameUIList.Find ( _ => _ is ResourceCanvas ) as ResourceCanvas;
-        if(ResourceUI == null)
-        {
-            // TODO : UI 생성
-        }
-    }
-
-
-    private void Update ( )
+    void Update ( )
     {
         
     }

@@ -35,4 +35,9 @@ public class NoticePopup : BasePopup
             );
         RightButton.text.text = rightMsg;
     }
+
+    private void Start ( )
+    {
+        
+    }
 }
