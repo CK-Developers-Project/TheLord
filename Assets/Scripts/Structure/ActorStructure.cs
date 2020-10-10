@@ -22,6 +22,13 @@ namespace Developers.Structure
 
     // /************* 캐릭터 정보 *************/
 
+    public enum Race
+    {
+        Elf,
+        Human,
+        Undead
+    }
+
     [Serializable]
     public class CharacterInfo
     { 
