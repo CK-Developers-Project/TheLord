@@ -654,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroy: 1
+  gameMode: {fileID: 986567856}
   gamePlayers: []
 --- !u!4 &384782396
 Transform:
@@ -805,7 +806,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.53999996, y: 0.655, z: 0}
+  m_ChunkCullingBounds: {x: 0.53999996, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1330,27 +1331,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: 1054132383583890850, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: 3710738434707379630, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_SubmitAction: {fileID: -8737744147216199984, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_CancelAction: {fileID: -1967631576421560919, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_LeftClickAction: {fileID: 2641260032491949923, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MiddleClickAction: {fileID: -6762834862297671638, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_RightClickAction: {fileID: -5282862587593147729, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ScrollWheelAction: {fileID: 870703245939522185, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDevicePositionAction: {fileID: -2883429959191147255, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: e88eb336e1a1abb489e97d1478ae70ec,
     type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
