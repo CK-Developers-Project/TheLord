@@ -31,6 +31,12 @@ public class IntroGameMode : BaseGameMode
     }
 
 
+    public override void Load ( )
+    {
+        MonoSingleton<GameManager>.Instance.OnStart ( );
+    }
+
+
     public override void OnEnter ( )
     {
         MonoSingleton<TransitionManager>.Instance.OnFadeOut ( TransitionType.Blank, ( ) => { StartCoroutine ( ShowLogo ( ) ); } );

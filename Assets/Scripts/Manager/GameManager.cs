@@ -35,6 +35,34 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+
+    public IEnumerator Initialize ()
+    {
+        if ( GameMode == null )
+        {
+            BaseGameMode com = GameObject.FindGameObjectWithTag ( "GameMode" ).GetComponent<BaseGameMode> ( );
+            gameMode = com;
+        }
+
+        GameMode.Load ( );
+        yield return new WaitUntil ( ( ) => IsGameStart );
+
+        GameMode.OnEnter ( );
+        
+        yield break;
+    }
+
+    public IEnumerator Dispose()
+    {
+        if ( GameMode != null )
+        {
+            GameMode.OnExit ( );
+            GameMode = null;
+        }
+        IsGameStart = false;
+        yield break;
+    }
+
     public bool IsGameStart { get; private set; }
 
 
@@ -65,17 +93,27 @@ public class GameManager : MonoSingleton<GameManager>
     {
         base.Awake ( );
 
+        if(instance != this)
+        {
+            instance.gameMode = gameMode;
+        }
+
         IsGameStart = false;
     }
 
-    private void Start ( )
+    private IEnumerator Start ( )
     {
         #region 기본 오브젝트 초기화
         MainCamera = Camera.main;
         PixelPerfectCameraHelper = MainCamera.GetComponent<PixelPerfectCameraHelper> ( );
         #endregion
 
-        gameMode.OnEnter ( );
+        if ( instance == this )
+        {
+            GameMode.Load ( );
+            yield return new WaitUntil ( ( ) => IsGameStart );
+            GameMode.OnEnter ( );
+        }       
 
         //PixelPerfectCameraHelper.UpdateResolution ( );
 

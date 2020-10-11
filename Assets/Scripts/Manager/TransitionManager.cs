@@ -147,6 +147,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         }
         isWork = true;
 
+        yield return StartCoroutine ( MonoSingleton<GameManager>.Instance.Dispose ( ) );
 
         var handle = SceneManager.LoadSceneAsync ( sceneName );
         handle.allowSceneActivation = false;
@@ -160,8 +161,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             yield return null;
         }
 
-        
-        // TODO : 게임매니저로부터 게임모드 초기화
+        yield return StartCoroutine ( MonoSingleton<GameManager>.Instance.Initialize ( ) );
 
         Action endAction = ( ) =>
         {

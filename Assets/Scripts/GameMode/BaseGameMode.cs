@@ -12,7 +12,7 @@ public abstract class BaseGameMode : MonoBehaviour
     public BasePage CurrentPage { get; set; }
 
 
-    public void Load()
+    public virtual void Load()
     {
         LoadManager.Instance.Register ( assetLabelReference );
         LoadManager.Instance.Run ( );
