@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
+using Developers.Util;
 
 namespace Assets.Scripts.GameMode
 {
-    class LoginGameMode
+    public class LoginGameMode : BaseGameMode
     {
+
+
+        // 코어 로드
+        public override void Load()
+        {
+            MonoSingleton<GameManager>.Instance.OnStart();
+        }
+
+
+
     }
 }

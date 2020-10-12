@@ -100,7 +100,7 @@ public class LoadManager : MonoSingleton<LoadManager>
     Queue<AssetLabelReference> labels = new Queue<AssetLabelReference> ( );
     List<ResourceComplete> works = new List<ResourceComplete> ( );
 
-    public bool isInitialize = false;
+    public bool IsInitialize { get; private set; }
     [SerializeField] AssetLabelReference coreLabel = null;
 
 
@@ -119,7 +119,7 @@ public class LoadManager : MonoSingleton<LoadManager>
         {
             core.Add ( obj );
         }
-        isInitialize = true;
+        IsInitialize = true;
     }
 
 
@@ -223,5 +223,11 @@ public class LoadManager : MonoSingleton<LoadManager>
         works.Add ( new ResourceComplete ( label ) );
 
         yield return StartCoroutine ( Runnable ( ) );
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        IsInitialize = false;
     }
 }
