@@ -22,16 +22,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainLobby
+    - Normal
+    m_MainAsset: {fileID: 3160590005468524359, guid: 1e62b59e87fa8464893764a105598ab8,
+      type: 3}
+    m_TargetAsset: {fileID: 3160590005468524359, guid: 1e62b59e87fa8464893764a105598ab8,
+      type: 3}
   - m_GUID: 6c52649de3a510e46a196b2df7791ef7
     m_Address: Assets/Addressables/Prefabs/Building/Warrior Training Center.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainLobby
+    - Normal
+    m_MainAsset: {fileID: 1123530376936248644, guid: 6c52649de3a510e46a196b2df7791ef7,
+      type: 3}
+    m_TargetAsset: {fileID: 1123530376936248644, guid: 6c52649de3a510e46a196b2df7791ef7,
+      type: 3}
   - m_GUID: c5f08f889f4e02643be4485fcc5b88a8
     m_Address: Assets/Addressables/Prefabs/Building/Spearman Training Center.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainLobby
+    - Normal
+    m_MainAsset: {fileID: 6109699631889273911, guid: c5f08f889f4e02643be4485fcc5b88a8,
+      type: 3}
+    m_TargetAsset: {fileID: 6109699631889273911, guid: c5f08f889f4e02643be4485fcc5b88a8,
+      type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
   m_SchemaSet:

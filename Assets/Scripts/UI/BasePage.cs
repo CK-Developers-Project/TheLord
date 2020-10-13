@@ -80,4 +80,9 @@ public class BasePage : MonoBehaviour, IGameUI
     {
         StartCoroutine ( Enable ( ) );
     }
+
+    void OnDisable ( )
+    {
+        Hidden ( );
+    }
 }

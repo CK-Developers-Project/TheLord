@@ -191,6 +191,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
                         transitionEffects.Add ( TransitionType.Slide, slide );
                         break;
                 }
+                com.gameObject.SetActive ( false );
             }
         }
     }

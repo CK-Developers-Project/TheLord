@@ -7,6 +7,8 @@ namespace Assets.Scripts.GameMode
 {
     public class LoginGameMode : BaseGameMode
     {
+        [SerializeField] LoginPage loginPage = null;
+        [SerializeField] RaceSelectPage raceSelectPage = null;
 
 
         // 코어 로드
@@ -16,6 +18,9 @@ namespace Assets.Scripts.GameMode
         }
 
 
-
+        public override void OnEnter ( )
+        {
+            SetPage ( loginPage );
+        }
     }
 }
