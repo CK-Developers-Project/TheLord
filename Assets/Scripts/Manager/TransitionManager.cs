@@ -26,7 +26,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         };
 
         current = transitionEffects[transitionType];
-        current.gameObject.SetActive ( true );
         current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
@@ -37,16 +36,13 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         Action action = ( ) =>
         {
             callback?.Invoke ( );
-            current.gameObject.SetActive ( false );
+            current.EffectFactor = 0f;
             current = transitionEffects[endTransitionType];
-            current.gameObject.SetActive ( true );
             current.EffectFactor = 1f;
             StartCoroutine ( SceneTransition ( sceneName ) );
         };
 
         current = transitionEffects[startTransitionType];
-        current.gameObject.SetActive ( true );
-        current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
 
@@ -58,14 +54,12 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             Action endAction = ( ) =>
             {
                 callback_FadeOut?.Invoke ( );
-                current.gameObject.SetActive ( false );
                 current = null;
             };
             current.OnFadeOut ( endAction );
         };
 
         current = transitionEffects[transitionType];
-        current.gameObject.SetActive ( true );
         current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
@@ -75,22 +69,19 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         Action action = ( ) =>
         {
             callback_FadeIn?.Invoke ( );
-            current.gameObject.SetActive ( false );
+            current.EffectFactor = 0f;
             current = transitionEffects[endTransitionType];
-            current.gameObject.SetActive ( true );
             current.EffectFactor = 1f;
 
             Action endAction = ( ) =>
             {
                 callback_FadeOut?.Invoke ( );
-                current.gameObject.SetActive ( false );
                 current = null;
             };
             current.OnFadeOut ( endAction );
         };
 
         current = transitionEffects[startTransitionType];
-        current.gameObject.SetActive ( true );
         current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
@@ -104,7 +95,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         };
 
         current = transitionEffects[transitionType];
-        current.gameObject.SetActive ( true );
         if ( effectFactor >= 0f )
         {
             current.EffectFactor = effectFactor;
@@ -120,12 +110,10 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         {
             callback?.Invoke ( );
             current.EffectFactor = 0f;
-            current.gameObject.SetActive ( false );
             current = null;
         };
 
         current = transitionEffects[transitionType];
-        current.gameObject.SetActive ( true );
         if ( effectFactor >= 0f )
         {
             current.EffectFactor = effectFactor;
@@ -165,7 +153,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
 
         Action endAction = ( ) =>
         {
-            current.gameObject.SetActive ( false );
             current = null;
         };
 
@@ -191,7 +178,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
                         transitionEffects.Add ( TransitionType.Slide, slide );
                         break;
                 }
-                com.gameObject.SetActive ( false );
+                com.EffectFactor = 0f;
             }
         }
     }
