@@ -13,7 +13,7 @@ public class LoginGameMode : BaseGameMode
     // 코어 로드
     public override void Load ( )
     {
-        MonoSingleton<GameManager>.Instance.OnStart ( );
+        GameManager.Instance.OnStart ( );
     }
 
 

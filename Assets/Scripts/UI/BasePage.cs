@@ -39,7 +39,6 @@ public class BasePage : MonoBehaviour, IGameUI
                 }
                 return false;
             } ) as GameObject;
-            Debug.Log ( "Initialize" + Prefab_NoticePopup.name );
 
         }
 

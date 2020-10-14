@@ -7,5 +7,6 @@
         public string Nickname { get; set; }
         public int Gold { get; set; }
 
+        public Race Race { get; set; }
     }
 }
