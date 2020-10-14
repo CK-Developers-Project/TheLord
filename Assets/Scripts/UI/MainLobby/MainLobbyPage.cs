@@ -13,10 +13,6 @@ public class MainLobbyPage : BasePage
         base.Initialize ( );
 
         ResourceUI = gameUIList.Find ( _ => _ is ResourceCanvas ) as ResourceCanvas;
-        if ( ResourceUI == null )
-        {
-            // TODO : UI 생성
-        }
     }
 
     public override void OnUpdate()
@@ -28,10 +24,5 @@ public class MainLobbyPage : BasePage
     protected override void Construct ( )
     {
         OnUpdate ( );
-    }
-
-    void Update ( )
-    {
-        
     }
 }

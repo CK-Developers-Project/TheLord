@@ -56,20 +56,29 @@ public class LoginPage : BasePage
     }
     #endregion
 
-    [SerializeField] Tester platformTester = null;
-    [SerializeField] AOS platformAOS = null;
-    [SerializeField] IOS platformIOS = null;
-    IPlatform Current { get; set; }
+    //[SerializeField] Tester platformTester = null;
+    //[SerializeField] AOS platformAOS = null;
+    //[SerializeField] IOS platformIOS = null;
+
+    public NicknamePopup NicknamePopup { get; set; }
+
+
+    //IPlatform Current { get; set; }
+
+    
 
     public void Join(string id, string pwd)
     {
         // TODO : 플레이어 검사
         GamePlayer player = MonoSingleton<GameManager>.Instance.Join();
+
     }
 
     public override void Initialize ( )
     {
         base.Initialize ( );
+
+        NicknamePopup = gameUIList.Find ( _ => _ is NicknamePopup ) as NicknamePopup;
     }
 
     protected override void Construct ( )
@@ -79,9 +88,17 @@ public class LoginPage : BasePage
 #elif UNITY_IOS
         
 #else
-        Current = platformTester;
+        //Current = platformTester;
 #endif
-        Current.AddEvent(Join);
+        //Current.AddEvent(Join);
+
+        Join ( "testId", "" );
+        NicknamePopup.gameObject.SetActive ( true );
+    }
+
+    protected override void Hidden ( )
+    {
+        NicknamePopup.gameObject.SetActive ( false );
     }
 
 }

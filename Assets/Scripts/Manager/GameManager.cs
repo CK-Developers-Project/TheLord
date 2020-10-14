@@ -116,25 +116,17 @@ public class GameManager : MonoSingleton<GameManager>
 
         if ( instance == this )
         {
+            // TODO : 따로 로딩페이지를 만들자. . .
+            if ( !MonoSingleton<LoadManager>.Instance.IsInitialize )
+            {
+                MonoSingleton<LoadManager>.Instance.Initialize ( );
+                yield return new WaitUntil ( ( ) => MonoSingleton<LoadManager>.Instance.IsInitialize );
+            }
             GameMode.Load ( );
             yield return new WaitUntil ( ( ) => IsGameStart );
             GameMode.OnEnter ( );
         }       
 
         //PixelPerfectCameraHelper.UpdateResolution ( );
-
-        // 현재 서버가 없으므로 로컬로 대체
-        //Join ( );
-
-        // 현재 로딩이 없으므로
-        //MonoSingleton<LoadManager>.Instance.Initialize ( );
-
-        // FIXME : 우선 로딩 시스템이 구현이 안되어있으므로...
-        //yield return new WaitUntil ( ( ) => MonoSingleton<LoadManager>.Instance.isInitialize );
-
-        // TODO : 우선 다른 씬이 없으므로 대체
-        //GameMode = GameObject.FindGameObjectWithTag ( "GameMode" ).GetComponent<BaseGameMode> ( );
-        //GameMode.Load ( );
-        //GameMode.CurrentPage.Initialize ( );
     }
 }
