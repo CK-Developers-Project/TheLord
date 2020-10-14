@@ -9,7 +9,7 @@ using Developers.Structure;
 
 public class TransitionManager : MonoSingleton<TransitionManager>
 {
-
+    CanvasGroup canvasGroup;
     static EnumDictionary<TransitionType, TransitionEffect> transitionEffects = new EnumDictionary<TransitionType, TransitionEffect> ( );
     
     public TransitionEffect current { get; private set; }
@@ -25,8 +25,8 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             StartCoroutine ( SceneTransition ( sceneName ) );
         };
 
+        canvasGroup.blocksRaycasts = true;
         current = transitionEffects[transitionType];
-        current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
 
@@ -42,6 +42,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             StartCoroutine ( SceneTransition ( sceneName ) );
         };
 
+        canvasGroup.blocksRaycasts = true;
         current = transitionEffects[startTransitionType];
         current.OnFadeIn ( action );
     }
@@ -55,12 +56,13 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             {
                 callback_FadeOut?.Invoke ( );
                 current = null;
+                canvasGroup.blocksRaycasts = false;
             };
             current.OnFadeOut ( endAction );
         };
 
+        canvasGroup.blocksRaycasts = true;
         current = transitionEffects[transitionType];
-        current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
 
@@ -77,12 +79,13 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             {
                 callback_FadeOut?.Invoke ( );
                 current = null;
+                canvasGroup.blocksRaycasts = false;
             };
             current.OnFadeOut ( endAction );
         };
 
+        canvasGroup.blocksRaycasts = true;
         current = transitionEffects[startTransitionType];
-        current.EffectFactor = 0f;
         current.OnFadeIn ( action );
     }
 
@@ -94,6 +97,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             callback?.Invoke ( );
         };
 
+        canvasGroup.blocksRaycasts = true;
         current = transitionEffects[transitionType];
         if ( effectFactor >= 0f )
         {
@@ -111,8 +115,9 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             callback?.Invoke ( );
             current.EffectFactor = 0f;
             current = null;
+            canvasGroup.blocksRaycasts = false;
         };
-
+           
         current = transitionEffects[transitionType];
         if ( effectFactor >= 0f )
         {
@@ -154,6 +159,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         Action endAction = ( ) =>
         {
             current = null;
+            canvasGroup.blocksRaycasts = false;
         };
 
         current.OnFadeOut ( endAction );
@@ -164,7 +170,10 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     {
         base.Awake ( );
 
-        if(Instance == this)
+        canvasGroup = GetComponent<CanvasGroup> ( );
+        canvasGroup.blocksRaycasts = false;
+
+        if (Instance == this)
         {
             var components = GetComponentsInChildren<TransitionEffect> ( true );
             foreach(var com in components)
@@ -178,7 +187,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
                         transitionEffects.Add ( TransitionType.Slide, slide );
                         break;
                 }
-                com.EffectFactor = 0f;
             }
         }
     }

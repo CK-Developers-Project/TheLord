@@ -12,7 +12,6 @@ namespace Developers.Util
         PixelPerfectCamera  PPCamera { get; set; }
         [SerializeField] Vector2Int fixedScreen = new Vector2Int ( 16, 9 );
         [SerializeField] float orthoSize = 1f;
-        Vector2Int preScreen;
 
         public void UpdateResolution ( )
         {
@@ -21,8 +20,6 @@ namespace Developers.Util
             PPCamera.refResolutionY = Mathf.FloorToInt ( Screen.width / ratio );
             float ScreenAspectRatio = PPCamera.refResolutionX / (float)PPCamera.refResolutionY;
             PPCamera.assetsPPU = Mathf.FloorToInt ( ( ( PPCamera.refResolutionX / ScreenAspectRatio ) * 0.5f ) / orthoSize );
-            preScreen.x = PPCamera.refResolutionX;
-            preScreen.y = PPCamera.refResolutionY;
         }
 
         private void Awake ( )
@@ -35,7 +32,7 @@ namespace Developers.Util
 
         private void FixedUpdate ( )
         {
-            if( PPCamera.refResolutionX != preScreen.x || PPCamera.refResolutionY != preScreen.y )
+            if( PPCamera.refResolutionX != Screen.width || PPCamera.refResolutionY != Screen.height )
             {
                 UpdateResolution ( );
             }

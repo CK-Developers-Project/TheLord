@@ -7,8 +7,29 @@ using System.Collections.Generic;
 public class GameManager : MonoSingleton<GameManager>
 {
     #region 기본 오브젝트
-    public Camera MainCamera { get; private set; }
-    public PixelPerfectCameraHelper PixelPerfectCameraHelper { get; private set; }
+    Camera mainCamera;
+    PixelPerfectCameraHelper pixelPerfectCameraHelper;
+
+    public Camera MainCamera {
+        get
+        {
+            if( mainCamera == null)
+            {
+                mainCamera = Camera.main;
+            }
+            return mainCamera;
+        }
+    }
+    public PixelPerfectCameraHelper PixelPerfectCameraHelper {
+        get
+        {
+            if( pixelPerfectCameraHelper  == null)
+            {
+                pixelPerfectCameraHelper = MainCamera.GetComponent<PixelPerfectCameraHelper> ( );
+            }
+            return pixelPerfectCameraHelper;
+        }
+    }
     #endregion
 
     [SerializeField] BaseGameMode gameMode;
@@ -109,10 +130,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator Start ( )
     {
-        #region 기본 오브젝트 초기화
-        MainCamera = Camera.main;
-        PixelPerfectCameraHelper = MainCamera.GetComponent<PixelPerfectCameraHelper> ( );
-        #endregion
 
         if ( instance == this )
         {
@@ -126,7 +143,5 @@ public class GameManager : MonoSingleton<GameManager>
             yield return new WaitUntil ( ( ) => IsGameStart );
             GameMode.OnEnter ( );
         }       
-
-        //PixelPerfectCameraHelper.UpdateResolution ( );
     }
 }

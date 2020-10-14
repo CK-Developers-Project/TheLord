@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoSingleton<InputManager>
 {
-    Camera mainCamera;
-
     MainInputActions mainInputActions;
     public MainInputActions MainInputActions {
         get
@@ -26,12 +24,11 @@ public class InputManager : MonoSingleton<InputManager>
 
     public Vector2 Position { get; private set; }
     public int LayerMask { get; set; }
-    public bool isIgnore { get; set; }
+    public bool IsIgnore { get; set; }
 
 
     void Initialize()
     {
-        mainCamera = Camera.main;
         if (mainInputActions != null)
         {
             return;
@@ -50,11 +47,11 @@ public class InputManager : MonoSingleton<InputManager>
     private void InputTouch ( InputAction.CallbackContext context )
     {
         Position = context.ReadValue<Vector2> ( );
-        if ( isIgnore )
+        if ( IsIgnore )
         {
             return;
         }
-        Vector2 pos = mainCamera.ScreenToWorldPoint ( Position );
+        Vector2 pos = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, LayerMask );
         if ( hit )
         {
@@ -68,8 +65,8 @@ public class InputManager : MonoSingleton<InputManager>
 
     private void InputMouseClick ( InputAction.CallbackContext context )
     {
-        Vector2 pos = mainCamera.ScreenToWorldPoint ( Position );
-        if ( isIgnore )
+        Vector2 pos = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );
+        if ( IsIgnore )
         {
             return;
         }
@@ -92,6 +89,9 @@ public class InputManager : MonoSingleton<InputManager>
     protected override void Awake ( )
     {
         base.Awake ( );
-        Initialize ( );
+        if(this == instance)
+        {
+            Initialize ( );
+        }
     }
 }

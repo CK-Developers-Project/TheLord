@@ -16,7 +16,7 @@ public class BasePage : MonoBehaviour, IGameUI
 
     public static void OnMessageBox ( string msg, bool action_Left, Action callback_Left, string leftMsg, bool action_Right = false, Action callback_Right = null, string rightMsg = "" )
     {
-        GameObject obj = Instantiate ( Prefab_NoticePopup, MonoSingleton<GameManager>.Instance.GameMode.CurrentPage.transform );
+        GameObject obj = Instantiate ( Prefab_NoticePopup, GameManager.Instance.GameMode.CurrentPage.transform );
         NoticePopup popup = obj.GetComponent<NoticePopup> ( );
         popup.OnMessageBox ( msg, action_Left, callback_Left, leftMsg, action_Right, callback_Right, rightMsg );
     }
@@ -26,7 +26,7 @@ public class BasePage : MonoBehaviour, IGameUI
     {
         if ( Prefab_NoticePopup == null )
         {
-            Prefab_NoticePopup = MonoSingleton<LoadManager>.Instance.Core.Find ( x =>
+            Prefab_NoticePopup = LoadManager.Instance.Core.Find ( x =>
             {
                 GameObject obj = x as GameObject;
                 if ( obj != null )
@@ -80,7 +80,7 @@ public class BasePage : MonoBehaviour, IGameUI
 
     IEnumerator Start()
     {
-        yield return new WaitUntil ( ( ) => MonoSingleton<GameManager>.Instance.IsGameStart );
+        yield return new WaitUntil ( ( ) => GameManager.Instance.IsGameStart );
         Initialize ( );
     }
 

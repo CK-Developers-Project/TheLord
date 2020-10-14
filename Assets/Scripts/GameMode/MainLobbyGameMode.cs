@@ -19,25 +19,25 @@ public class MainLobbyGameMode : BaseGameMode
 
     public override void RegisterInput ( )
     { 
-        var manager = MonoSingleton<InputManager>.Instance.MainInputActions;
+        var manager = InputManager.Instance.MainInputActions;
         if(manager.Main.enabled)
         {
             return;
         }
-        MonoSingleton<InputManager>.Instance.LayerMask = Physics2D.DefaultRaycastLayers;
-        MonoSingleton<InputManager>.Instance.TouchEvent += TouchEvent;
+        InputManager.Instance.LayerMask = Physics2D.DefaultRaycastLayers;
+        InputManager.Instance.TouchEvent += TouchEvent;
         manager.Main.Enable ( );
     }
 
     public override void ReleaseInput ( )
     {
-        var manager = MonoSingleton<InputManager>.Instance.MainInputActions;
+        var manager = InputManager.Instance.MainInputActions;
         if ( !manager.Main.enabled )
         {
             return;
         }
-        MonoSingleton<InputManager>.Instance.LayerMask = 0;
-        MonoSingleton<InputManager>.Instance.TouchEvent -= TouchEvent;
+        InputManager.Instance.LayerMask = 0;
+        InputManager.Instance.TouchEvent -= TouchEvent;
         manager.Main.Disable ( );
     }
 
@@ -49,9 +49,6 @@ public class MainLobbyGameMode : BaseGameMode
 
     public override void OnUpdate ( )
     {
-        
-
-
 
     }
 
