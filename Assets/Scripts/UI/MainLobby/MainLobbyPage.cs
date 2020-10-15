@@ -7,6 +7,16 @@ public class MainLobbyPage : BasePage
 {
     public ResourceCanvas ResourceUI { get; set; }
 
+    // 우선 테스트용
+    [SerializeField] GameObject Prefab_BarrackPopup = null;
+
+    public void OnBarrackInfo(BarrackBuilding barrack)
+    {
+        GameObject obj = Instantiate ( Prefab_BarrackPopup, GameManager.Instance.GameMode.CurrentPage.transform );
+        BarrackPopup popup = obj.GetComponent<BarrackPopup> ( );
+        popup.barrack = barrack;
+        gameUIList.Add ( popup );
+    }
 
     public override void Initialize ( )
     {

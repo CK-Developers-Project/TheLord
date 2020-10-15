@@ -35,6 +35,7 @@ namespace Developers.Structure
     {
         public int index;
         public int price;
+        public string name;
 
         // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
     }
@@ -53,7 +54,7 @@ namespace Developers.Structure
     {
         Empty,                              // 없음
         Work,                               // 건설중
-        Complete,                         // 완공
+        Complete,                           // 완공
     }
 
 
@@ -64,7 +65,12 @@ namespace Developers.Structure
         public BuildingState state;
         public int level;
         public int price;
+        public string name;
 
         public CharacterData characterData;
+
+        // 좀더 생각해봐야할 데이터 자료형들
+        public int current;
+        public int max;
     }
 }

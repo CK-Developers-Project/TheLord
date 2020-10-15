@@ -23,6 +23,17 @@ public class BarrackBuilding : Building
         BasePage.OnMessageBox ( noticeMsg, true, null, "확인" );
     }
 
+    protected override void OnComplete ( )
+    {
+        MainLobbyPage page = GameManager.Instance.GameMode.CurrentPage as MainLobbyPage;
+        if( page == null)
+        {
+            return;
+        }
+        page.OnBarrackInfo ( this );
+        page.OnUpdate ( );
+    }
+
     void BuildOK()
     {
         if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold() >= price)
@@ -40,6 +51,7 @@ public class BarrackBuilding : Building
         BuildUp ( new TimeSpan ( 0, 0, 10 ), Build );
         spriteRenderer.enabled = true;
         hologram.SetActive ( false );
+        info.level = 1;
     }
 
     void Build()

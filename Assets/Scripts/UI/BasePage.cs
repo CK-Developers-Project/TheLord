@@ -8,7 +8,7 @@ public class BasePage : MonoBehaviour, IGameUI
 {
     bool isInitialize = false;
 
-    protected List<BasePopup> popupList = new List<BasePopup> ( );
+    //protected List<BasePopup> popupList = new List<BasePopup> ( );
     protected List<IGameUI> gameUIList = new List<IGameUI> ( );
 
 
@@ -21,6 +21,12 @@ public class BasePage : MonoBehaviour, IGameUI
         popup.OnMessageBox ( msg, action_Left, callback_Left, leftMsg, action_Right, callback_Right, rightMsg );
     }
 
+
+    public void RemovePopup(BasePopup popup)
+    {
+        gameUIList.Remove ( popup );
+        Destroy ( popup.gameObject );
+    }
 
     public virtual void Initialize ( )
     {
@@ -39,7 +45,6 @@ public class BasePage : MonoBehaviour, IGameUI
                 }
                 return false;
             } ) as GameObject;
-
         }
 
 

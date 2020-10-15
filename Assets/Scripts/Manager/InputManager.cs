@@ -25,6 +25,13 @@ public class InputManager : MonoSingleton<InputManager>
     public Vector2 Position { get; private set; }
     public int LayerMask { get; set; }
     public bool IsIgnore { get; set; }
+    public int OverlayCount = 0;
+    public bool Impossible {
+        get
+        {
+            return IsIgnore || OverlayCount > 0;
+        }
+    }
 
 
     void Initialize()
@@ -47,7 +54,7 @@ public class InputManager : MonoSingleton<InputManager>
     private void InputTouch ( InputAction.CallbackContext context )
     {
         Position = context.ReadValue<Vector2> ( );
-        if ( IsIgnore )
+        if ( Impossible )
         {
             return;
         }
@@ -66,7 +73,7 @@ public class InputManager : MonoSingleton<InputManager>
     private void InputMouseClick ( InputAction.CallbackContext context )
     {
         Vector2 pos = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );
-        if ( IsIgnore )
+        if ( Impossible )
         {
             return;
         }

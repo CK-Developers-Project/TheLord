@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     index: 1
-    price: 20
+    price: 30
+    name: 
   rename: "\uC804\uC0AC"
