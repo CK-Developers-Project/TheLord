@@ -1,14 +1,12 @@
 ﻿using Developers.Structure;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RaceSelectPage : BasePage
 {
-    [SerializeField] Button ElfButton;
-    [SerializeField] Button HumanButton;
-    [SerializeField] Button UndeadButton;
+    [SerializeField] Button ElfButton = null;
+    [SerializeField] Button HumanButton = null;
+    [SerializeField] Button UndeadButton = null;
 
 
     public void Select(Race race)

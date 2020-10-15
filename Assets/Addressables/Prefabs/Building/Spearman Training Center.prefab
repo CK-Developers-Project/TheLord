@@ -515,6 +515,9 @@ MonoBehaviour:
   info:
     type: 1
     state: 0
+    level: 0
+    price: 0
+    characterData: {fileID: 11400000, guid: 7b1d810a3cf2ba844a4477e64c33f32a, type: 2}
   hologram: {fileID: 4130998352757199374}
   msg: "\uCC3D\uBCD1 \uD6C8\uB828\uC18C"
   price: 300

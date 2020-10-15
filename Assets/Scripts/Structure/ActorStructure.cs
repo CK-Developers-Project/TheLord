@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Developers.Structure.Data;
+using System;
 
 namespace Developers.Structure
 {
@@ -31,13 +32,17 @@ namespace Developers.Structure
 
     [Serializable]
     public class CharacterInfo
-    { 
+    {
+        public int index;
+        public int price;
+
+        // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
     }
     
 
     // /************* 건물 정보 *************/
     
-    public enum BuildingType
+    public enum BuildingType : int
     {
         Castle,                            // 기지
         SpearmanTrainingCenter,            // 창병 훈련소
@@ -57,5 +62,9 @@ namespace Developers.Structure
     {
         public BuildingType type;
         public BuildingState state;
+        public int level;
+        public int price;
+
+        public CharacterData characterData;
     }
 }
