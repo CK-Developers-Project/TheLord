@@ -37,8 +37,12 @@ namespace Developers.Structure
         public int price;
         public string name;
 
+        public int speed;
+
         // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
     }
+
+    
     
 
     // /************* 건물 정보 *************/
