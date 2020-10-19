@@ -42,7 +42,14 @@ namespace Developers.Structure
         // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
     }
 
-    
+    public class CharacterAbility
+    {
+        public float damage;
+        public float armor;
+        public float life;
+        public float speed;
+        public float aspeed;
+    }
     
 
     // /************* 건물 정보 *************/

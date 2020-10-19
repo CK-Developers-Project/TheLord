@@ -6,8 +6,11 @@ public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
 
+    public DamageCalculator damageCalculator;
+
     public ActorObject Actor { get; protected set; }
     public ActorPath Path { get; protected set; }
+
 
     public int Index { get => data.index; } 
 
@@ -22,7 +25,10 @@ public class BaseCharacter : MonoBehaviour, IActor
     }
 
 
-    
+    public void Move(Vector3 dir)
+    {
+
+    }
 
 
     protected void Awake ( )
