@@ -37,20 +37,40 @@ namespace Developers.Structure
         public int price;
         public string name;
 
-        public int speed;
+        public float damage;
+        public float armor;
+        public float life;
+        public float speed;
+        public float aspeed;
 
         // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
+    
+        //    
     }
 
-    public class CharacterAbility
+    [Serializable]
+    public struct ActorAbility
     {
         public float damage;
         public float armor;
         public float life;
         public float speed;
         public float aspeed;
+
+        public ActorAbility(float damage, float armor, float life, float speed, float aspeed)
+            => (this.damage, this.armor, this.life, this.speed, this.aspeed) 
+            = (damage, armor, life, speed, aspeed);
+    }
+
+    [Serializable]
+    public class CharacterAbility
+    {
+        public ActorAbility normal;             // 기본
+        public ActorAbility additional;         // 추가량
+        public ActorAbility multiplicative;     // 비율 추가량
     }
     
+
 
     // /************* 건물 정보 *************/
     

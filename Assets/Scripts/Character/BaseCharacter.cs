@@ -5,8 +5,9 @@ using Developers.Structure.Data;
 public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
-
-    public DamageCalculator damageCalculator;
+    public Developers.Structure.CharacterInfo info = new Developers.Structure.CharacterInfo();
+    public CharacterAbility ability = new CharacterAbility();
+    public DamageCalculator damageCalculator = new DamageCalculator();
 
     public ActorObject Actor { get; protected set; }
     public ActorPath Path { get; protected set; }
@@ -16,7 +17,9 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Load ( )
     {
+        /* [FIXME] CharacterData.cs 참고 */
         
+        /* */
     }
 
     public void OnSelect ( )
