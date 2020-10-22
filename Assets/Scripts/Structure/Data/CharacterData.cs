@@ -7,6 +7,8 @@ namespace Developers.Structure.Data
     {
         public int index;
 
+        public CharacterInfo Info { get; private set; }
+
         /*
         FIXME
         현재 테이블값을 가져오지 못함으로 여기에 우선 작성하고 넣도록 하자
@@ -15,5 +17,22 @@ namespace Developers.Structure.Data
         public new string name;
         public ActorAbility ability = new ActorAbility();
         /* */
+
+
+        void Initialize()
+        {
+
+        }
+
+
+        private void Awake()
+        {
+            /*
+            [FIXME] 임시 데이터 테이블 값
+            */
+            Info = new CharacterInfo();
+            Info.name = name;
+            // [TODO] . . .
+        }
     }
 }
