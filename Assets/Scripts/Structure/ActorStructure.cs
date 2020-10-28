@@ -1,5 +1,6 @@
 ﻿using Developers.Structure.Data;
 using System;
+using System.Collections.Generic;
 
 namespace Developers.Structure
 {
@@ -48,18 +49,42 @@ namespace Developers.Structure
         //    
     }
 
-    [Serializable]
-    public struct ActorAbility
+    public enum ActorAbilityType : int
     {
-        public float damage;
-        public float armor;
-        public float life;
-        public float speed;
-        public float aspeed;
+        Damage,             // 피해량
+        Armor,              // 방어력
+        Life,               // 체력
+        Speed,              // 이동속도
+        Aspeed,             // 공격 애니메이션 속도
+    }
 
-        public ActorAbility(float damage, float armor, float life, float speed, float aspeed)
-            => (this.damage, this.armor, this.life, this.speed, this.aspeed) 
-            = (damage, armor, life, speed, aspeed);
+    [Serializable]
+    public class ActorAbility
+    {
+        Dictionary<int, object> table;
+
+        public ActorAbility()
+        {
+            for(int i = 0; i < (int)ActorAbilityType.Aspeed; ++i )
+            {
+                table.Add ( i, 0 );
+            }
+        }
+
+        public ActorAbility(params object[] data)
+        {
+            int cnt = 0;
+            foreach(var item in data)
+            {
+                table.Add ( cnt++, item );
+            }
+        }
+
+        public T Get<T>(ActorAbilityType type)
+        {
+            int key = (int)type;
+            return table.ContainsKey ( key ) ? (T)table[key] : default;
+        }
     }
 
     [Serializable]
@@ -68,12 +93,58 @@ namespace Developers.Structure
         public ActorAbility normal;             // 기본
         public ActorAbility additional;         // 추가량
         public ActorAbility multiplicative;     // 비율 추가량
+
+        public CharacterAbility()
+        {
+            normal = new ActorAbility ( );
+            additional = new ActorAbility ( );
+            multiplicative = new ActorAbility ( );
+        }
+
+
+        #region Get Ability Methods
+        public int Get2Int ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
+        {
+            int amount = 0;
+            if ( normal )
+            {
+                amount += this.normal.Get<int> ( type );
+            }
+            if ( additional )
+            {
+                amount += this.additional.Get<int> ( type );
+            }
+            if ( multiplicative )
+            {
+                amount += this.multiplicative.Get<int> ( type );
+            }
+            return amount;
+        }
+
+        public float Get2Float ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
+        {
+            float amount = 0F;
+            if ( normal )
+            {
+                amount += this.normal.Get<float> ( type );
+            }
+            if ( additional )
+            {
+                amount += this.additional.Get<float> ( type );
+            }
+            if ( multiplicative )
+            {
+                amount += this.multiplicative.Get<float> ( type );
+            }
+            return amount;
+        }
+        #endregion
     }
-    
+
 
 
     // /************* 건물 정보 *************/
-    
+
     public enum BuildingType : int
     {
         Castle,                            // 기지

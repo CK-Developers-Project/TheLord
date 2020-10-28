@@ -19,20 +19,29 @@ namespace Developers.Structure.Data
         /* */
 
 
-        void Initialize()
+        public CharacterInfo GetInfo ( )
         {
+            CharacterInfo info = new CharacterInfo ( );
+            info.name = Info.name;
 
+            return info;
         }
 
 
-        private void Awake()
+        void Initialize()
         {
             /*
             [FIXME] 임시 데이터 테이블 값
             */
-            Info = new CharacterInfo();
+            Info = new CharacterInfo ( );
             Info.name = name;
             // [TODO] . . .
+        }
+
+
+        void Awake()
+        {
+            Initialize ( );
         }
     }
 }

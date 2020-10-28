@@ -5,7 +5,7 @@ using Developers.Structure.Data;
 public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
-    public Developers.Structure.CharacterInfo info = new Developers.Structure.CharacterInfo();
+    public Developers.Structure.CharacterInfo info;
     public CharacterAbility ability = new CharacterAbility();
     public DamageCalculator damageCalculator = new DamageCalculator();
 
@@ -17,9 +17,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Load ( )
     {
-        /* [FIXME] CharacterData.cs 참고 */
-        
-        /* */
+        info = data.GetInfo ( );
     }
 
     public void OnSelect ( )
@@ -30,7 +28,9 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Move(Vector3 dir)
     {
+        float speed = ability.Get2Float ( ActorAbilityType.Speed, true, true, true );
 
+        Path.Move ( dir, speed );
     }
 
 
