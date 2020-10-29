@@ -60,8 +60,9 @@ public class BarrackBuilding : Building
     }
 
 
-    private void Start ( )
+    protected override void Start ( )
     {
+        base.Load();
         spriteRenderer.enabled = false;
         hologram.SetActive ( true );
     }

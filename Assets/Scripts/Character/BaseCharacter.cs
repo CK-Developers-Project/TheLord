@@ -39,4 +39,9 @@ public class BaseCharacter : MonoBehaviour, IActor
         Actor = GetComponentInChildren<ActorObject> ( );
         Path = GetComponentInChildren<ActorPath> ( );
     }
+
+    private void Start()
+    {
+        Load();
+    }
 }

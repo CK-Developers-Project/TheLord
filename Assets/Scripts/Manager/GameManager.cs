@@ -96,7 +96,6 @@ public class GameManager : MonoSingleton<GameManager>
     public static GameObject Create<T>(ActorRecord actorRecord) where T : IActor
     {
         GameObject obj = MonoSingleton<LoadManager>.Instance.GetActor<T> ( actorRecord );
-        obj?.GetComponent<T> ( ).Load ( );
         return obj;
     }
 

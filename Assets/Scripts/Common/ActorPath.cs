@@ -13,10 +13,10 @@ public class ActorPath : MonoBehaviour
     }
 
 
-    public Vector3 Move(Vector3 dir, float dist)
+    /// <returns>Velocity</returns>
+    public Vector3 Move(Vector3 dir, float speed, bool back = false)
     {
-
-        return Vector3.zero;
+        rigidbody.velocity = dir * speed;
+        return rigidbody.velocity;
     }
-
 }

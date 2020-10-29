@@ -51,4 +51,9 @@ public class Building : MonoBehaviour, IActor
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );
     }
+
+    protected virtual void Start()
+    {
+        Load();
+    }
 }
