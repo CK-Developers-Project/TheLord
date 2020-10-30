@@ -14,6 +14,11 @@ namespace Developers.Util
             get => internalDictionary[ConvertToIndex ( key )];
             set => Add ( key, value );
         }
+        public TValue this[int key]
+        {
+            get => internalDictionary[key];
+            set => Add(key, value);
+        }
 
 
         public void Add ( TKey key, TValue values )
@@ -21,6 +26,15 @@ namespace Developers.Util
             if ( !internalDictionary.TryGetValue ( ConvertToIndex ( key ), out TValue storedValues ) )
             {
                 internalDictionary.Add ( ConvertToIndex ( key ), values );
+            }
+            storedValues = values;
+        }
+
+        public void Add(int key, TValue values)
+        {
+            if (!internalDictionary.TryGetValue(key, out TValue storedValues))
+            {
+                internalDictionary.Add(key, values);
             }
             storedValues = values;
         }
@@ -34,11 +48,25 @@ namespace Developers.Util
             }
         }
 
+        public void Remove(int key)
+        {
+            if (internalDictionary.ContainsKey(key))
+            {
+                internalDictionary.Remove(key);
+            }
+        }
+
 
         public bool ContainsKey ( TKey key )
         {
             return internalDictionary.ContainsKey ( ConvertToIndex ( key ) );
         }
+
+        public bool ContainsKey(int key)
+        {
+            return internalDictionary.ContainsKey(key);
+        }
+
 
 
         public static unsafe int ConvertToIndex ( TKey key )

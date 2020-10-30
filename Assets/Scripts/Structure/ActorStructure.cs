@@ -1,4 +1,5 @@
 ﻿using Developers.Structure.Data;
+using Developers.Util;
 using System;
 using System.Collections.Generic;
 
@@ -61,17 +62,17 @@ namespace Developers.Structure
     [Serializable]
     public class ActorAbility
     {
-        Dictionary<int, object> table;
+        EnumDictionary<ActorAbilityType, int> table = new EnumDictionary<ActorAbilityType, int>();
 
         public ActorAbility()
         {
-            for(int i = 0; i < (int)ActorAbilityType.Aspeed; ++i )
-            {
-                table.Add ( i, 0 );
+            for(int i = 0; i < (int)ActorAbilityType.Aspeed; ++i)
+            { 
+                table.Add(i, 0);
             }
         }
 
-        public ActorAbility(params object[] data)
+        public ActorAbility(params int[] data)
         {
             int cnt = 0;
             foreach(var item in data)
@@ -80,10 +81,22 @@ namespace Developers.Structure
             }
         }
 
-        public T Get<T>(ActorAbilityType type)
+        public int Get(ActorAbilityType type)
         {
-            int key = (int)type;
-            return table.ContainsKey ( key ) ? (T)table[key] : default;
+            return table.ContainsKey (type) ? table[type] : default;
+        }
+
+        public void Set(ActorAbilityType type, int value)
+        {
+            if(table.ContainsKey(type))
+            {
+                table[type] = value;
+            }
+            else
+            {
+                table.Add(type, value);
+
+            }
         }
     }
 
@@ -103,38 +116,20 @@ namespace Developers.Structure
 
 
         #region Get Ability Methods
-        public int Get2Int ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
+        public int Get ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
         {
             int amount = 0;
             if ( normal )
             {
-                amount += this.normal.Get<int> ( type );
+                amount += this.normal.Get ( type );
             }
             if ( additional )
             {
-                amount += this.additional.Get<int> ( type );
+                amount += this.additional.Get ( type );
             }
             if ( multiplicative )
             {
-                amount += this.multiplicative.Get<int> ( type );
-            }
-            return amount;
-        }
-
-        public float Get2Float ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
-        {
-            float amount = 0F;
-            if ( normal )
-            {
-                amount += this.normal.Get<float> ( type );
-            }
-            if ( additional )
-            {
-                amount += this.additional.Get<float> ( type );
-            }
-            if ( multiplicative )
-            {
-                amount += this.multiplicative.Get<float> ( type );
+                amount += this.multiplicative.Get ( type );
             }
             return amount;
         }

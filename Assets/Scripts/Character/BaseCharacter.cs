@@ -28,7 +28,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Move(Vector3 dir)
     {
-        float speed = ability.Get2Float ( ActorAbilityType.Speed, true, true, true );
+        float speed = 0f;// = ability.Get2Float ( ActorAbilityType.Speed, true, true, true );
 
         Path.Move ( dir, speed );
     }
