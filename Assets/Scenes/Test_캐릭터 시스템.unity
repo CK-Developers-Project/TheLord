@@ -1905,7 +1905,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410799c44510f0479574be20f822fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 25f82e776ac573645b83d0bc736db563, type: 2}
+  info:
+    index: 0
+    price: 0
+    name: 
+    damage: 0
+    armor: 0
+    life: 0
+    speed: 0
+    aspeed: 0
 --- !u!1 &553117299
 GameObject:
   m_ObjectHideFlags: 0

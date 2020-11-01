@@ -1,7 +1,6 @@
 ﻿using Developers.Structure.Data;
 using Developers.Util;
 using System;
-using System.Collections.Generic;
 
 namespace Developers.Structure
 {
@@ -67,8 +66,8 @@ namespace Developers.Structure
         public ActorAbility()
         {
             for(int i = 0; i < (int)ActorAbilityType.Aspeed; ++i)
-            { 
-                table.Add(i, 0);
+            {
+                table.Add ( (ActorAbilityType)i, 0 );
             }
         }
 
@@ -77,7 +76,7 @@ namespace Developers.Structure
             int cnt = 0;
             foreach(var item in data)
             {
-                table.Add ( cnt++, item );
+                table.Add ( (ActorAbilityType)cnt++, item );
             }
         }
 
@@ -95,12 +94,10 @@ namespace Developers.Structure
             else
             {
                 table.Add(type, value);
-
             }
         }
     }
 
-    [Serializable]
     public class CharacterAbility
     {
         public ActorAbility normal;             // 기본
@@ -114,8 +111,6 @@ namespace Developers.Structure
             multiplicative = new ActorAbility ( );
         }
 
-
-        #region Get Ability Methods
         public int Get ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
         {
             int amount = 0;
@@ -133,7 +128,8 @@ namespace Developers.Structure
             }
             return amount;
         }
-        #endregion
+
+
     }
 
 

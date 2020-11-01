@@ -6,17 +6,25 @@ public class ActorPath : MonoBehaviour
 {
     [HideInInspector] public new Rigidbody2D rigidbody;
 
+    Vector3 preVelocity = Vector3.zero;
 
-    private void Awake ( )
+    void Awake ( )
     {
         rigidbody = GetComponentInParent<Rigidbody2D> ( );
     }
 
 
-    /// <returns>Velocity</returns>
+    /// <returns>다음 적용될 속도</returns>
     public Vector3 Move(Vector3 dir, float speed, bool back = false)
     {
-        rigidbody.velocity = dir * speed;
-        return rigidbody.velocity;
+        preVelocity = dir * speed;
+        return preVelocity;
+    }
+
+    void FixedUpdate ( )
+    {
+        // [TODO] 이동식
+        rigidbody.velocity = preVelocity;
+        preVelocity = Vector3.zero;
     }
 }

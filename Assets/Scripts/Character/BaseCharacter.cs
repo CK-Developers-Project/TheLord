@@ -2,6 +2,8 @@
 using Developers.Structure;
 using Developers.Structure.Data;
 
+using UnityEngine.InputSystem;
+
 public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
@@ -18,6 +20,7 @@ public class BaseCharacter : MonoBehaviour, IActor
     public void Load ( )
     {
         info = data.GetInfo ( );
+        ability.normal.Set ( ActorAbilityType.Speed, 10000 );
     }
 
     public void OnSelect ( )
@@ -28,8 +31,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Move(Vector3 dir)
     {
-        float speed = 0f;// = ability.Get2Float ( ActorAbilityType.Speed, true, true, true );
-
+        float speed = ability.Get ( ActorAbilityType.Speed, true, true, true ) / 10000F;
         Path.Move ( dir, speed );
     }
 
