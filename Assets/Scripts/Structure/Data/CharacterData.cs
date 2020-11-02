@@ -2,7 +2,7 @@
 
 namespace Developers.Structure.Data
 {
-    [CreateAssetMenu(fileName = "CharacterData", menuName = "ScriptableObjects/Data")]
+    [CreateAssetMenu(fileName = "CharacterData", menuName = "ScriptableObjects/CharacterData")]
     public class CharacterData : ScriptableObject
     {
         public int index;
