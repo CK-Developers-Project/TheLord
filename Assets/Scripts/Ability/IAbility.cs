@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Developers.Structure;
 
 public interface IAbility
 {
@@ -9,6 +10,7 @@ public interface IAbility
     float Range { get; }        // 범위
     float Distance { get; }     // 사정거리
     float Amount { get; }
+    float Cooltime { get; }
 
     bool OnStart ( Vector3 position = default, IActor target = null );
 }

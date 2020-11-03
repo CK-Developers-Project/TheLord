@@ -15,12 +15,15 @@ public class BaseCharacter : MonoBehaviour, IActor
     public ActorPath Path { get; protected set; }
 
 
-    public int Index { get => data.index; } 
+    public int Index { get => data.index; }
+    public AbilityCaster Caster { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void Load ( )
     {
         info = data.GetInfo ( );
         ability.normal.Set ( ActorAbilityType.Speed, 10000 );
+
+        Caster = new AbilityCaster(this);
     }
 
     public void OnSelect ( )

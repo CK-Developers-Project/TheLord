@@ -13,16 +13,18 @@ public class Building : MonoBehaviour, IActor
     public BuildingInfo info;
 
     public int Index { get => (int)info.type; }
+    public AbilityCaster Caster { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-
-    
     public void BuildUp(TimeSpan timeSpan, Action callback)
     {
         workTimer.Run ( timeSpan, callback );
     }
 
 
-    public virtual void Load ( ) { }
+    public virtual void Load ( ) 
+    { 
+        Caster = new AbilityCaster(this);
+    }
     public virtual void OnSelect ( ) 
     { 
         switch ( info.state )

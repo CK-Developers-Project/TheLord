@@ -22,6 +22,17 @@ namespace Developers.Structure
         public ActorRecord ( ActorType actorType, int recordKey ) => (type, index) = (actorType, recordKey);
     }
 
+    ///<summary>명령</summary>
+    public enum ActorOrder : int
+    {
+        Idle = 0,       // 아무런 액션을 취하지 않음
+        Stop,
+        Attack,
+        Move,
+        Wander,         // 주변을 방황합니다.
+
+    }
+
     // /************* 캐릭터 정보 *************/
 
     public enum Race
