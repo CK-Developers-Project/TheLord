@@ -13,7 +13,7 @@ public class Building : MonoBehaviour, IActor
     public BuildingInfo info;
 
     public int Index { get => (int)info.type; }
-    public AbilityCaster Caster { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public AbilityCaster Caster { get; set; }
 
     public void BuildUp(TimeSpan timeSpan, Action callback)
     {

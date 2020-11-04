@@ -2,8 +2,6 @@
 using Developers.Structure;
 using Developers.Structure.Data;
 
-using UnityEngine.InputSystem;
-
 public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
@@ -16,7 +14,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 
 
     public int Index { get => data.index; }
-    public AbilityCaster Caster { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public AbilityCaster Caster { get; set; }
 
     public void Load ( )
     {
