@@ -3,22 +3,22 @@ using Developers.Structure;
 
 public class ActiveAbility : IAbility
 {
-    public ActorOrder Order => throw new System.NotImplementedException();
+    public virtual ActorOrder Order { get => default; }
 
-    public float Cast => throw new System.NotImplementedException();
+    public virtual float Cast { get => default; }
 
-    public float Duration => throw new System.NotImplementedException();
+    public virtual float Duration { get => default; }
 
-    public float Range => throw new System.NotImplementedException();
+    public virtual float Range { get => default; }
 
-    public float Distance => throw new System.NotImplementedException();
+    public virtual float Distance { get => default; }
 
-    public float Amount => throw new System.NotImplementedException();
+    public virtual float Amount { get => default; }
 
-    public float Cooltime => throw new System.NotImplementedException();
+    public virtual float Cooltime { get => default; }
 
-    public bool OnStart(Vector3 position = default, IActor target = null)
+    public virtual bool OnStart(Vector3 position = default, IActor target = null)
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 }
