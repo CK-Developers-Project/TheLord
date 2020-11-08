@@ -2,23 +2,23 @@
 using Developers.Structure;
 
 
-public class NaturalAbility : IAbility
+public class NaturalAbility : BaseAbility
 {
-    public virtual ActorOrder Order { get => default; }
+    public override AbilityOrder Order { get => default; }
 
-    public virtual float Cast { get => default; }
+    public override float Cast { get => default; }
 
-    public virtual float Duration { get => default; }
+    public override float Duration { get => default; }
 
-    public virtual float Range { get => default; }
+    public override float Range { get => default; }
 
-    public virtual float Distance { get => default; }
+    public override float Distance { get => default; }
 
-    public virtual float Amount { get => default; }
+    public override float Amount { get => default; }
 
-    public virtual float Cooltime { get => default; }
+    public override float Cooltime { get => default; }
 
-    public virtual bool OnStart(Vector3 position = default, IActor target = null)
+    public override bool OnStart(Vector3 position = default, IActor target = null)
     {
         return false;
     }

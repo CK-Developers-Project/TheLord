@@ -22,17 +22,6 @@ namespace Developers.Structure
         public ActorRecord ( ActorType actorType, int recordKey ) => (type, index) = (actorType, recordKey);
     }
 
-    ///<summary>명령</summary>
-    public enum ActorOrder : int
-    {
-        Idle = 0,       // 아무런 액션을 취하지 않음
-        Stop,
-        Attack,
-        Move,
-        Wander,         // 주변을 방황합니다.
-
-    }
-
     // /************* 캐릭터 정보 *************/
 
     public enum Race
@@ -60,7 +49,7 @@ namespace Developers.Structure
         //    
     }
 
-    public enum ActorAbilityType : int
+    public enum ActorValue : int
     {
         Damage,             // 피해량
         Armor,              // 방어력
@@ -69,16 +58,16 @@ namespace Developers.Structure
         Aspeed,             // 공격 애니메이션 속도
     }
 
-    [Serializable]
+
     public class ActorAbility
     {
-        EnumDictionary<ActorAbilityType, int> table = new EnumDictionary<ActorAbilityType, int>();
+        EnumDictionary<ActorValue, int> table = new EnumDictionary<ActorValue, int>();
 
         public ActorAbility()
         {
-            for(int i = 0; i < (int)ActorAbilityType.Aspeed; ++i)
+            for(int i = 0; i < (int)ActorValue.Aspeed; ++i)
             {
-                table.Add ( (ActorAbilityType)i, 0 );
+                table.Add ( (ActorValue)i, 0 );
             }
         }
 
@@ -87,16 +76,16 @@ namespace Developers.Structure
             int cnt = 0;
             foreach(var item in data)
             {
-                table.Add ( (ActorAbilityType)cnt++, item );
+                table.Add ( (ActorValue)cnt++, item );
             }
         }
 
-        public int Get(ActorAbilityType type)
+        public int Get(ActorValue type)
         {
             return table.ContainsKey (type) ? table[type] : default;
         }
 
-        public void Set(ActorAbilityType type, int value)
+        public void Set(ActorValue type, int value)
         {
             if(table.ContainsKey(type))
             {
@@ -122,7 +111,7 @@ namespace Developers.Structure
             multiplicative = new ActorAbility ( );
         }
 
-        public int Get ( ActorAbilityType type, bool normal = true, bool additional = false, bool multiplicative = false )
+        public int Get ( ActorValue type, bool normal = true, bool additional = false, bool multiplicative = false )
         {
             int amount = 0;
             if ( normal )

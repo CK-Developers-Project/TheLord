@@ -5,7 +5,7 @@ namespace Developers.Structure.Data
     [CreateAssetMenu ( fileName = "AbilityData", menuName = "ScriptableObjects/AbilityData" )]
     public class AbilityData : ScriptableObject
     {
-        public ActorOrder order;
+        public AbilityOrder order;
 
         public float cast;
         public float duration;

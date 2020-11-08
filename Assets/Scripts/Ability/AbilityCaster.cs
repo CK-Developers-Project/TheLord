@@ -6,7 +6,7 @@ using System;
 public class AbilityCaster
 {
 
-    List<IAbility> abilitys = new List<IAbility>();
+    List<BaseAbility> abilitys = new List<BaseAbility>();
 
 
     public AbilityCaster(BaseCharacter character)
@@ -20,7 +20,7 @@ public class AbilityCaster
     }
 
 
-    public void Add(IAbility ability)
+    public void Add(BaseAbility ability)
     {
         if (!abilitys.Contains(ability))
         {
@@ -28,7 +28,7 @@ public class AbilityCaster
         }
     }
 
-    public void Remove(IAbility ability)
+    public void Remove(BaseAbility ability)
     {
         if(abilitys.Contains(ability))
         {
@@ -36,17 +36,17 @@ public class AbilityCaster
         }
     }
 
-    public IAbility Get(int index)
+    public BaseAbility Get(int index)
     {
         return abilitys.Count >= index || index < 0 ? null : abilitys[index];
     }
 
-    public IAbility Get(Type type)
+    public BaseAbility Get(Type type)
     {
         return abilitys.Find(x => x.GetType().Equals(type));
     }
 
-    public bool HasAbility(ActorOrder order)
+    public bool HasAbility(AbilityOrder order)
     {
         return abilitys.Find(x => x.Order == order) != null;
     }
@@ -56,9 +56,9 @@ public class AbilityCaster
         return abilitys.Find(x => x.GetType().Equals(type)) != null;
     }
     
-    public bool OnStart(ActorOrder order)
+    public bool OnStart(AbilityOrder order)
     {
-        IAbility ability = abilitys.Find(x => x.Order == order);
+        BaseAbility ability = abilitys.Find(x => x.Order == order);
         if(ability == null)
         {
             return false;
@@ -67,9 +67,9 @@ public class AbilityCaster
         return ability.OnStart();
     }
 
-    public bool OnStart(ActorOrder order, Vector3 position)
+    public bool OnStart(AbilityOrder order, Vector3 position)
     {
-        IAbility ability = abilitys.Find(x => x.Order == order);
+        BaseAbility ability = abilitys.Find(x => x.Order == order);
         if (ability == null)
         {
             return false;
@@ -78,9 +78,9 @@ public class AbilityCaster
         return ability.OnStart(position);
     }
 
-    public bool OnStart(ActorOrder order, IActor target)
+    public bool OnStart(AbilityOrder order, IActor target)
     {
-        IAbility ability = abilitys.Find(x => x.Order == order);
+        BaseAbility ability = abilitys.Find(x => x.Order == order);
         if (ability == null)
         {
             return false;

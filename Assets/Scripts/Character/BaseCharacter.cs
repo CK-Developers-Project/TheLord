@@ -19,7 +19,7 @@ public class BaseCharacter : MonoBehaviour, IActor
     public void Load ( )
     {
         info = data.GetInfo ( );
-        ability.normal.Set ( ActorAbilityType.Speed, 10000 );
+        ability.normal.Set ( ActorValue.Speed, 10000 );
 
         Caster = new AbilityCaster(this);
     }
@@ -32,7 +32,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Move(Vector3 dir)
     {
-        float speed = ability.Get ( ActorAbilityType.Speed, true, true, true ) / 10000F;
+        float speed = ability.Get ( ActorValue.Speed, true, true, true ) / 10000F;
         Path.Move ( dir, speed );
     }
 
