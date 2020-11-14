@@ -6,7 +6,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
     public Developers.Structure.CharacterInfo info;
-    public CharacterAbility ability = new CharacterAbility();
+    public Status<ActorStatus> status = new Status<ActorStatus> ( (int)ActorStatus.End );
     public DamageCalculator damageCalculator = new DamageCalculator();
 
     public ActorObject Actor { get; protected set; }
@@ -19,8 +19,6 @@ public class BaseCharacter : MonoBehaviour, IActor
     public void Load ( )
     {
         info = data.GetInfo ( );
-        ability.normal.Set ( ActorValue.Speed, 10000 );
-
         Caster = new AbilityCaster(this);
     }
 
@@ -32,7 +30,7 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Move(Vector3 dir)
     {
-        float speed = ability.Get ( ActorValue.Speed, true, true, true ) / 10000F;
+        float speed = status.Get ( ActorStatus.Speed, true, true, true ) / 10000F;
         Path.Move ( dir, speed );
     }
 

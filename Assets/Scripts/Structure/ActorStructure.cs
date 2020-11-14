@@ -1,6 +1,7 @@
 ﻿using Developers.Structure.Data;
 using Developers.Util;
 using System;
+using System.Collections.Generic;
 
 namespace Developers.Structure
 {
@@ -38,101 +39,60 @@ namespace Developers.Structure
         public int price;
         public string name;
 
-        public float damage;
-        public float armor;
-        public float life;
-        public float speed;
-        public float aspeed;
+        public List<int> abilitys;
+
+        public int damage;
+        public int armor;
+        public int life;
+        public int speed;
+        public int attackspeed;
+        public int distance;
 
         // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
     
         //    
     }
 
-    public enum ActorValue : int
+    public enum ActorStatus : int
     {
         Damage,             // 피해량
         Armor,              // 방어력
         Life,               // 체력
         Speed,              // 이동속도
-        Aspeed,             // 공격 애니메이션 속도
+        AattackSpeed,       // 공격 쿨타임
+        Distance,           // 공격 사정거리
+        CastSpeed,          // 마법 시전 속도 *
+        AbilityTime,        // 마법 재사용 시간 *
+        End
     }
 
-
-    public class ActorAbility
+    public class Status<T> where T : struct
     {
-        EnumDictionary<ActorValue, int> table = new EnumDictionary<ActorValue, int>();
+        public ValueTable<T> Normal { get; private set; }
+        public ValueTable<T> Additional { get; private set; }
+        public ValueTable<T> Multiplicative { get; private set; }
 
-        public ActorAbility()
-        {
-            for(int i = 0; i < (int)ActorValue.Aspeed; ++i)
-            {
-                table.Add ( (ActorValue)i, 0 );
-            }
-        }
+        public Status ( int max ) => (Normal, Additional, Multiplicative)
+            = (new ValueTable<T> ( max ), new ValueTable<T> ( max ), new ValueTable<T> ( max ));
 
-        public ActorAbility(params int[] data)
-        {
-            int cnt = 0;
-            foreach(var item in data)
-            {
-                table.Add ( (ActorValue)cnt++, item );
-            }
-        }
-
-        public int Get(ActorValue type)
-        {
-            return table.ContainsKey (type) ? table[type] : default;
-        }
-
-        public void Set(ActorValue type, int value)
-        {
-            if(table.ContainsKey(type))
-            {
-                table[type] = value;
-            }
-            else
-            {
-                table.Add(type, value);
-            }
-        }
-    }
-
-    public class CharacterAbility
-    {
-        public ActorAbility normal;             // 기본
-        public ActorAbility additional;         // 추가량
-        public ActorAbility multiplicative;     // 비율 추가량
-
-        public CharacterAbility()
-        {
-            normal = new ActorAbility ( );
-            additional = new ActorAbility ( );
-            multiplicative = new ActorAbility ( );
-        }
-
-        public int Get ( ActorValue type, bool normal = true, bool additional = false, bool multiplicative = false )
+        public int Get ( T type, bool normal = true, bool additional = false, bool multiplicative = false )
         {
             int amount = 0;
             if ( normal )
             {
-                amount += this.normal.Get ( type );
+                amount += this.Normal[type];
             }
             if ( additional )
             {
-                amount += this.additional.Get ( type );
+                amount += this.Additional[type];
             }
             if ( multiplicative )
             {
-                amount += this.multiplicative.Get ( type );
+                amount += this.Multiplicative[type];
             }
             return amount;
         }
-
-
     }
-
-
 
     // /************* 건물 정보 *************/
 

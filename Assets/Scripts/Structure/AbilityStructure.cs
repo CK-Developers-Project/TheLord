@@ -1,7 +1,4 @@
-﻿using Developers.Structure.Data;
-using Developers.Util;
-using System;
-
+﻿
 namespace Developers.Structure
 {
     ///<summary>명령</summary>
@@ -12,10 +9,9 @@ namespace Developers.Structure
         Attack,
         Move,
         Wander,         // 주변을 방황합니다.
-
     }
 
-    public enum AbilityValue
+    public enum AbilityStatus
     {
         Cast,
         Duration,
@@ -23,44 +19,19 @@ namespace Developers.Structure
         Distance,
         Amount,
         Cooltime,
+        End
     }
 
     public class AbilityInfo
     {
-        EnumDictionary<AbilityValue, int> table = new EnumDictionary<AbilityValue, int> ( );
-
-        public AbilityInfo ( )
-        {
-            for ( int i = 0; i < (int)AbilityValue.Cooltime; ++i )
-            {
-                table.Add ( (AbilityValue)i, 0 );
-            }
-        }
-
-        public AbilityInfo ( params int[] data )
-        {
-            int cnt = 0;
-            foreach ( var item in data )
-            {
-                table.Add ( (AbilityValue)cnt++, item );
-            }
-        }
-
-        public int Get ( AbilityValue type )
-        {
-            return table.ContainsKey ( type ) ? table[type] : default;
-        }
-
-        public void Set ( AbilityValue type, int value )
-        {
-            if ( table.ContainsKey ( type ) )
-            {
-                table[type] = value;
-            }
-            else
-            {
-                table.Add ( type, value );
-            }
-        }
+        public int index;
+        public string name;
+        public int abilityType; // 타입(기본, 패시브, 액티브)
+        public int cast;        // 시전 시간
+        public int duration;    // 스킬 시전 후 지속시간
+        public int range;       // 범위
+        public int distance;    // 사정거리
+        public int cooltime;    // 재사용 시간
+        public int amount;
     }
 }

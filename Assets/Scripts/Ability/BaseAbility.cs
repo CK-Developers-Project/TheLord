@@ -4,8 +4,7 @@ using Developers.Structure.Data;
 
 public abstract class BaseAbility
 {
-    [SerializeField] AbilityData data;
-    AbilityInfo info;
+    public Status<AbilityStatus> status = new Status<AbilityStatus> ( (int)AbilityStatus.End );
 
     public abstract AbilityOrder Order { get; }
 

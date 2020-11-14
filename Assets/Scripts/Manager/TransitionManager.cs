@@ -10,7 +10,7 @@ using Developers.Structure;
 public class TransitionManager : MonoSingleton<TransitionManager>
 {
     CanvasGroup canvasGroup;
-    static EnumDictionary<TransitionType, TransitionEffect> transitionEffects = new EnumDictionary<TransitionType, TransitionEffect> ( );
+    static Dictionary<TransitionType, TransitionEffect> transitionEffects = new Dictionary<TransitionType, TransitionEffect> ( );
     
     public TransitionEffect current { get; private set; }
     bool isWork = false;

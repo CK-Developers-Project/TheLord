@@ -23827,11 +23827,13 @@ MonoBehaviour:
     index: 0
     price: 0
     name: 
+    abilitys: 
     damage: 0
     armor: 0
     life: 0
     speed: 0
-    aspeed: 0
+    attackspeed: 0
+    distance: 0
 --- !u!50 &1381246829
 Rigidbody2D:
   serializedVersion: 4
