@@ -25,9 +25,9 @@ namespace Developers.Structure
 
     // /************* 캐릭터 정보 *************/
 
-    public enum Race
+    public enum Race : int
     {
-        Elf,
+        Elf = 1,
         Human,
         Undead
     }
