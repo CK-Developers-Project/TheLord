@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Developers.Util;
+using Developers.Net;
+using Developers.Net.Protocol;
+using System.Collections;
 
 public class LoginPage : BasePage
 {
@@ -11,16 +14,23 @@ public class LoginPage : BasePage
     #region Platform Class
     interface IPlatform
     {
+        void Active ( bool active );
         void AddEvent(ConfirmEvent @event);
     }
 
     [Serializable]
     class Tester : IPlatform
     {
+        public GameObject canvas = null;
         public TMP_InputField IDinputField = null;
         public Button loginButton = null;
         public string ID {get => IDinputField.text;}
         event ConfirmEvent confirmEvent;
+
+        public void Active ( bool active )
+        {
+            canvas.SetActive ( true );
+        }
 
         public void AddEvent(ConfirmEvent @event)
         {
@@ -30,47 +40,28 @@ public class LoginPage : BasePage
         
         void Confirm()
         {
-            // TODO : Tester 전용 서버 연결
             confirmEvent.Invoke(ID, "");
-        }
-    }
-
-    [Serializable]
-    class AOS : IPlatform
-    {
-        public event ConfirmEvent confirmEvent;
-        public void AddEvent(ConfirmEvent @event)
-        {
-            confirmEvent += @event;
-        }
-    }
-
-    [Serializable]
-    class IOS : IPlatform
-    {
-        public event ConfirmEvent confirmEvent;
-        public void AddEvent(ConfirmEvent @event)
-        {
-            confirmEvent += @event;
         }
     }
     #endregion
 
-    //[SerializeField] Tester platformTester = null;
+    [SerializeField] Tester platformTester = null;
     //[SerializeField] AOS platformAOS = null;
     //[SerializeField] IOS platformIOS = null;
 
     public NicknamePopup NicknamePopup { get; set; }
 
 
-    //IPlatform Current { get; set; }
+    IPlatform Current { get; set; }
 
     
 
     public void Join(string id, string pwd)
     {
-        // TODO : 플레이어 검사
-        GamePlayer player = MonoSingleton<GameManager>.Instance.Join();
+        LoginRequest request = new LoginRequest ( id, pwd );
+        request.SendPacket ( );
+        Debug.Log ( "join" );
+        //GamePlayer player = MonoSingleton<GameManager>.Instance.Join();
 
     }
 
@@ -88,17 +79,29 @@ public class LoginPage : BasePage
 #elif UNITY_IOS
         
 #else
-        //Current = platformTester;
+        Current = platformTester;
 #endif
-        //Current.AddEvent(Join);
-
-        Join ( "testId", "" );
-        NicknamePopup.gameObject.SetActive ( true );
+        Current.AddEvent(Join);
+        StartCoroutine ( OnConnect ( ) );
     }
 
     protected override void Hidden ( )
     {
-        NicknamePopup.gameObject.SetActive ( false );
+        StopAllCoroutines ( );
     }
 
+
+    IEnumerator OnConnect()
+    {
+        while ( !PhotonEngine.Instance.isServerConnect )
+        {
+            PhotonEngine.Instance.Connect ( );
+            if ( PhotonEngine.Instance.isServerConnect )
+            {
+                break;
+            }
+            yield return new WaitForSeconds ( 1.0F );
+        }
+        Current.Active ( true );
+    }
 }

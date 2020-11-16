@@ -17,8 +17,8 @@ public class NicknamePopup : BasePopup
             return;
         }
 
-        MonoSingleton<GameManager>.Instance.LocalPlayer.playerInfo.Nickname = Nickname;
-        LoginGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as LoginGameMode;
+        GameManager.Instance.LocalPlayer.playerInfo.Nickname = Nickname;
+        LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
         gameMode.SetPage ( gameMode.raceSelectPage );
     }
 
