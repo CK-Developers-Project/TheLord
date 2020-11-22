@@ -84,7 +84,6 @@ namespace Developers.Net
         public static void Dispatch ( OperationCode code, OperationResponse response )
         {
             Delegate dgt;
-            Debug.Log ( table.Count );
             if ( table.TryGetValue ( code, out dgt ) )
             {
                 Act callback = dgt as Act;

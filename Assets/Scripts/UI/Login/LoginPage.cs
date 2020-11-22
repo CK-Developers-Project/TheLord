@@ -49,27 +49,18 @@ public class LoginPage : BasePage
     //[SerializeField] AOS platformAOS = null;
     //[SerializeField] IOS platformIOS = null;
 
-    public NicknamePopup NicknamePopup { get; set; }
-
-
     IPlatform Current { get; set; }
-
     
 
     public void Join(string id, string pwd)
     {
         LoginRequest request = new LoginRequest ( id, pwd );
         request.SendPacket ( );
-        Debug.Log ( "join" );
-        //GamePlayer player = MonoSingleton<GameManager>.Instance.Join();
-
     }
 
     public override void Initialize ( )
     {
         base.Initialize ( );
-
-        NicknamePopup = gameUIList.Find ( _ => _ is NicknamePopup ) as NicknamePopup;
     }
 
     protected override void Construct ( )

@@ -99,12 +99,14 @@ public class GameManager : MonoSingleton<GameManager>
         return obj;
     }
 
-    public GamePlayer Join(/* 플레이어 정보 아직 서버가 없으므로 클라이언트에서 처리하겠음 */)
+    public GamePlayer Join ( string nickname, Race race )
     {
-        GameObject obj = new GameObject ( string.Format ( "GamePlayer({0})", gamePlayers.Count + 1 ), typeof(GamePlayer) );
+        GameObject obj = new GameObject ( string.Format ( "Player - {0}({1})", nickname, gamePlayers.Count + 1 ), typeof ( GamePlayer ) );
         obj.transform.SetParent ( transform );
 
         GamePlayer com = obj.GetComponent<GamePlayer> ( );
+        com.playerInfo.Nickname = nickname;
+        com.playerInfo.Race = race;
         gamePlayers.Add ( com );
         return com;
     }

@@ -11,7 +11,8 @@ public abstract class BaseGameMode : MonoBehaviour
     AssetLabelReference assetLabelReference = null;
 
     protected List<BasePage> PagePool = new List<BasePage> ( );
-    public BasePage CurrentPage { get; set; }
+    private BasePage currentPage = null;
+    public BasePage CurrentPage { get => currentPage; set => SetPage ( value ); }
 
 
     public virtual void Load()
@@ -28,7 +29,7 @@ public abstract class BaseGameMode : MonoBehaviour
             return CurrentPage;
         }
         CurrentPage?.InActive ( );
-        CurrentPage = page;
+        currentPage = page;
         CurrentPage.Active ( );
         bool bEmpty = PagePool.Find ( _ => _.Equals ( page ) ) == null;
         if( bEmpty )

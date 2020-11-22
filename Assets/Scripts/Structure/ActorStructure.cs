@@ -29,7 +29,8 @@ namespace Developers.Structure
     {
         Elf = 1,
         Human,
-        Undead
+        Undead,
+        End
     }
 
     [Serializable]

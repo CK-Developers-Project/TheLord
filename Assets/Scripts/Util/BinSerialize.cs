@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using ProtoBuf;
 
@@ -43,6 +44,11 @@ namespace Developers.Util
                 Debug.Log ( "Deserialize Fail : " + e.ToString ( ) );
                 return default ( T );
             }
+        }
+
+        public static Dictionary<byte, object> ConvertPacket<TValue> ( TValue packet, byte key = 1 )
+        {
+            return new Dictionary<byte, object> { { key, Serialize ( packet ) } };
         }
     }
 }
