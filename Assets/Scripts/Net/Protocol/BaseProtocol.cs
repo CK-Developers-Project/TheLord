@@ -2,6 +2,6 @@
 {
     public abstract class BaseProtocol
     {
-        public abstract void SendPacket ( );
+        public abstract void SendPacket ( bool isWait = false );
     }
 }

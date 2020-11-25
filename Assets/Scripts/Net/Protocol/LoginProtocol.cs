@@ -13,7 +13,7 @@ namespace Developers.Net.Protocol
 
         public LoginRequest ( string id, string password ) => (this.id, this.password) = (id, password);
 
-        public override void SendPacket ( )
+        public override void SendPacket (bool isWait)
         {
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.id = id;
@@ -30,7 +30,7 @@ namespace Developers.Net.Protocol
 
         public UserResistration ( string nickname, int race ) => (this.nickname, this.race) = (nickname, race);
 
-        public override void SendPacket ( )
+        public override void SendPacket (bool isWait)
         {
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.nickname = nickname;
