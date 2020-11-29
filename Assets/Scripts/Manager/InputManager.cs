@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using Developers.Util;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoSingleton<InputManager>
 {
-    MainInputActions mainInputActions;
+    MainInputActions mainInputActions = null;
+    EventSystem eventSystem = null;
+
     public MainInputActions MainInputActions {
         get
         {
-            if( mainInputActions  == null)
+            if( mainInputActions == null)
             {
                 Initialize ( );
             }
 
             return mainInputActions;
+        }
+    }
+
+    public EventSystem EventSystem {
+        get
+        {
+            if(eventSystem == null)
+            {
+                eventSystem = GameObject.FindObjectOfType<EventSystem> ( );
+            }
+            return eventSystem;
         }
     }
 

@@ -21,11 +21,6 @@ public class BasePage : MonoBehaviour, IGameUI
         popup.OnMessageBox ( msg, action_Left, callback_Left, leftMsg, action_Right, callback_Right, rightMsg );
     }
 
-    public static void OnWaitSign(float knockout = 600.0F)
-    {
-
-    }
-
     public void RemovePopup(BasePopup popup)
     {
         gameUIList.Remove ( popup );

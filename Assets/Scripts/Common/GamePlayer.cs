@@ -10,18 +10,50 @@ public class GamePlayer : MonoBehaviour
     public PlayerInfo playerInfo = new PlayerInfo();
 
 
-    public int GetGold()
+    public void Initialize(string nickname, Race race)
     {
-        // TODO : 서버로부터 골드 값을 불러와야함
-        return playerInfo.Gold;
+        playerInfo.Nickname = nickname;
+        playerInfo.Race = race;
     }
 
-
-    public void SetGold<T>(T gold) where T : IGoldTransfer
+    public string DisplayGold ( ResourceType type )
     {
-        // TODO : 서버로부터 골드 값 갱신 요청
+        BigInteger a = playerInfo.GetResource ( type );
+        a = 10000;
+        BigInteger temp = a;
 
-        // FIXME : 현재는 서버연동이 안되어있으므로 로컬 골드값 갱신
-        playerInfo.Gold = gold.Cost;
+        while(a >= 1000)
+        {
+            a /= 1000;
+        }
+
+
+
+        return "";
+    }
+
+    public BigInteger GetGold(ResourceType type)
+    {
+        return playerInfo.GetResource ( type );
+    }
+
+    public void SetGold( ResourceType type, BigInteger value )
+    {
+        playerInfo.SetResource ( type, value );
+    }
+
+    public void SetGold(ResourceType type, string value)
+    {
+        playerInfo.SetResource ( type, new BigInteger ( value ) );
+    }
+
+    public void AddGold(ResourceType type, BigInteger value)
+    {
+        playerInfo.SetResource ( type, playerInfo.GetResource ( type ) + value );
+    }
+
+    public void AddGold(ResourceType type, string value)
+    {
+        playerInfo.SetResource ( type, playerInfo.GetResource ( type ) + new BigInteger ( value ) );
     }
 }

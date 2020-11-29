@@ -12,6 +12,8 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     CanvasGroup canvasGroup;
     static Dictionary<TransitionType, TransitionEffect> transitionEffects = new Dictionary<TransitionType, TransitionEffect> ( );
     
+    public WaitSign WaitSigh { get; private set; }
+
     public TransitionEffect current { get; private set; }
     bool isWork = false;
 
@@ -170,11 +172,13 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     {
         base.Awake ( );
 
-        canvasGroup = GetComponent<CanvasGroup> ( );
-        canvasGroup.blocksRaycasts = false;
-
         if (Instance == this)
         {
+            canvasGroup = GetComponent<CanvasGroup> ( );
+            canvasGroup.blocksRaycasts = false;
+
+            WaitSigh = GetComponentInChildren<WaitSign> ( );
+
             var components = GetComponentsInChildren<TransitionEffect> ( true );
             foreach(var com in components)
             {

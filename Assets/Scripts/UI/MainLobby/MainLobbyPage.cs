@@ -27,7 +27,6 @@ public class MainLobbyPage : BasePage
 
     public override void OnUpdate()
     {
-        ResourceUI.Gold = GameManager.Instance.LocalPlayer.GetGold ( );
         base.OnUpdate ( );
     }
 

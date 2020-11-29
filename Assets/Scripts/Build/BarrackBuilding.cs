@@ -36,10 +36,10 @@ public class BarrackBuilding : Building
 
     void BuildOK()
     {
-        if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold() >= price)
+        if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold(ResourceType.Gold) >= price)
         {
             GamePlayer gamePlayer = MonoSingleton<GameManager>.Instance.LocalPlayer;
-            gamePlayer.SetGold ( new AdditionGold ( gamePlayer.GetGold ( ) - price ) );
+            gamePlayer.AddGold ( ResourceType.Gold, new BigInteger ( -price ) );
             MonoSingleton<GameManager>.Instance.GameMode.CurrentPage.OnUpdate ( );
         }
         else

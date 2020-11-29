@@ -17,23 +17,27 @@ public class BarrackPopup : BasePopup
 
     void Purchase()
     {
+        GamePlayer gamePlayer = GameManager.Instance.LocalPlayer;
+
         int characterPrice = (int)( barrack.info.characterData.Info.price + ( barrack.info.current * ( barrack.info.characterData.Info.price * 0.15f ) ) );
-        if(barrack.info.current >= barrack.info.max || GameManager.Instance.LocalPlayer.GetGold ( ) < characterPrice )
+        if(barrack.info.current >= barrack.info.max || gamePlayer.GetGold ( ResourceType.Gold ) < characterPrice )
         {
             return;
         }
-        GameManager.Instance.LocalPlayer.SetGold ( new AdditionGold ( GameManager.Instance.LocalPlayer.GetGold() - characterPrice ) );
+        gamePlayer.AddGold ( ResourceType.Gold, -characterPrice );
         barrack.info.current++;
         GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
     }
 
     void LevelUp()
     {
-        if( GameManager.Instance.LocalPlayer.GetGold ( ) < barrack.info.price )
+        GamePlayer gamePlayer = GameManager.Instance.LocalPlayer;
+
+        if ( gamePlayer.GetGold ( ResourceType.Gold ) < barrack.info.price )
         {
             return;
         }
-        GameManager.Instance.LocalPlayer.SetGold ( new AdditionGold ( GameManager.Instance.LocalPlayer.GetGold() - barrack.info.price ) );
+        gamePlayer.AddGold ( ResourceType.Gold, -barrack.info.price );
         barrack.info.price += (int)( barrack.info.price * 0.75f );
         barrack.info.level++;
         GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
