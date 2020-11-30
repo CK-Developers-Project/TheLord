@@ -9,6 +9,8 @@ public class GamePlayer : MonoBehaviour
 
     public PlayerInfo playerInfo = new PlayerInfo();
 
+    readonly string[] ordinals = new[] { "", "K", "M", "T", "q", "Q", "s", "S", "O", "N", "D" };
+
 
     public void Initialize(string nickname, Race race)
     {
@@ -18,18 +20,33 @@ public class GamePlayer : MonoBehaviour
 
     public string DisplayGold ( ResourceType type )
     {
-        BigInteger a = playerInfo.GetResource ( type );
-        a = 10000;
-        BigInteger temp = a;
+        BigInteger temp = playerInfo.GetResource ( type );
+        BigInteger origin = temp;
+        int space = 0;
 
-        while(a >= 1000)
+        while(temp >= 1000)
         {
-            a /= 1000;
+            temp /= 1000;
+            ++space;
         }
 
+        if(space >= ordinals.Length)
+        {
+            space = ordinals.Length - 1;
+        }
 
+        string strOrigin = origin.ToString(), strTemp = temp.ToString();
 
-        return "";
+        int d = 1;
+        string c = "0";
+
+        if(space > 0)
+        {
+            d = strOrigin.Length - strTemp.Length;
+            c = strOrigin.Substring(strTemp.Length, (d < 2) ? d : 2);
+        }
+
+        return string.Format("{0} {1}", strTemp + ((d > 0 && int.Parse(c) == 0) ? "" : "," + c), ordinals[space]);
     }
 
     public BigInteger GetGold(ResourceType type)
