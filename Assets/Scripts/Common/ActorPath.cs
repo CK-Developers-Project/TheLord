@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ActorPath : MonoBehaviour
 {
-    [HideInInspector] public new Rigidbody2D rigidbody;
+    [HideInInspector] public Rigidbody2D rigidbody2D;
 
     Vector3 preVelocity = Vector3.zero;
 
     void Awake ( )
     {
-        rigidbody = GetComponentInParent<Rigidbody2D> ( );
+        rigidbody2D = GetComponentInParent<Rigidbody2D> ( );
     }
 
 
@@ -24,7 +24,7 @@ public class ActorPath : MonoBehaviour
     void FixedUpdate ( )
     {
         // [TODO] 이동식
-        rigidbody.velocity = preVelocity;
+        rigidbody2D.velocity = preVelocity;
         preVelocity = Vector3.zero;
     }
 }
