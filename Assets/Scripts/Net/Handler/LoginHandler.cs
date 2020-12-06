@@ -46,7 +46,7 @@ namespace Developers.Net.Handler
                     break;
                 case NextAction.UserInfoCreate:
                     LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
-                    GameManager.Instance.GameMode.CurrentPage = gameMode.raceSelectPage;
+                    GameManager.Instance.GameMode.CurrentPage = gameMode.cutScenePage;
                     break;
             }
         }

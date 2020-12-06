@@ -8,6 +8,7 @@ public class LoginGameMode : BaseGameMode
 {
     public LoginPage loginPage = null;
     public RaceSelectPage raceSelectPage = null;
+    public CutScenePage cutScenePage = null;
 
 
     // 코어 로드
