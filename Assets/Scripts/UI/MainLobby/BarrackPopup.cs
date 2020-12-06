@@ -53,7 +53,7 @@ public class BarrackPopup : BasePopup
     {
         string nameText = string.Format ( "Lv.{0} {1}", barrack.info.level, barrack.info.name );
         string barrackText = string.Format ( "{0} {1}/{2}명 훈련중", barrack.info.characterData.Info.name, barrack.info.current, barrack.info.max );
-        int characterPrice = (int)(barrack.info.characterData.Info.price + (barrack.info.current * ( barrack.info.characterData.Info.price * 0.15f)));
+        int characterPrice = (int)( barrack.info.characterData.Info.price + ( barrack.info.current * ( barrack.info.characterData.Info.price * 0.15f ) ) );
         string purchaseText = string.Format ( "구매\n{0}원", characterPrice );
         string levelUpText = string.Format ( "레벨업\n{0}원", barrack.info.price );
 

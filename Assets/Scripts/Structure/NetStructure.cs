@@ -22,7 +22,8 @@ namespace Developers.Structure
 
     public enum EventCode : byte
     {
-
+        // UserAssetHandler
+        UpdateResource,     // 리소스 갱신
     }
 
 

@@ -23,6 +23,8 @@ public class MainLobbyPage : BasePage
         base.Initialize ( );
 
         ResourceUI = gameUIList.Find ( _ => _ is ResourceCanvas ) as ResourceCanvas;
+
+        new Developers.Net.Protocol.ResourceRequest ( ).SendPacket ( );
     }
 
     public override void OnUpdate()
