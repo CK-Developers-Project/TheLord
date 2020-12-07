@@ -17,8 +17,8 @@ public abstract class BaseGameMode : MonoBehaviour
 
     public virtual void Load()
     {
-        MonoSingleton<LoadManager>.Instance.Register ( assetLabelReference );
-        MonoSingleton<LoadManager>.Instance.Run ( );
+        LoadManager.Instance.Register ( assetLabelReference );
+        LoadManager.Instance.Run ( );
     }
 
     /// <summary>현재 게임모드의 UI 페이지에서 선택한 UI 페이지로 전환합니다.</summary>
