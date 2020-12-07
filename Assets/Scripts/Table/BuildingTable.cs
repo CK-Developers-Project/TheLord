@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Developers.Table
 {
@@ -7,7 +8,7 @@ namespace Developers.Table
         public List<Dictionary<string, object>> BuildingInfoSheet { get; private set; }
         public List<Dictionary<string, object>> MainBuildingInfoSheet { get; private set; }
 
-        public BuildingTable ( string file ) : base ( file )
+        public BuildingTable ( TextAsset asset ) : base (asset)
         {
             BuildingInfoSheet = table["BuildingInfo"];
             MainBuildingInfoSheet = table["MainBuildingInfo"];
