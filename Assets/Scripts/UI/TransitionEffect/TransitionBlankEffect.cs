@@ -44,7 +44,6 @@ public class TransitionBlankEffect : TransitionEffect
         {
             EffectComponent.effectPlayer.OnDisable ( );
             @event?.Invoke ( );
-            @event = null;
         }
     }
 
@@ -58,7 +57,6 @@ public class TransitionBlankEffect : TransitionEffect
         {
             EffectComponent.effectPlayer.OnDisable ( );
             @event?.Invoke ( );
-            @event = null;
         }
     }
 

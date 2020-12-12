@@ -11,9 +11,8 @@ public class MainBuilding : Building
     public override void OnSelect ( )
     {
         // 돈이 들어오도록 하자
-
-        GamePlayer gamePlayer = MonoSingleton<GameManager>.Instance.LocalPlayer;
+        GamePlayer gamePlayer = GameManager.Instance.LocalPlayer;
         gamePlayer.AddGold ( ResourceType.Gold, new BigInteger ( 10 ) );
-        MonoSingleton<GameManager>.Instance.GameMode.CurrentPage.OnUpdate ( );
+        GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
     }
 }

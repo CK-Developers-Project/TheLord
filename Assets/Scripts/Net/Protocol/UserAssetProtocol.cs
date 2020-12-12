@@ -10,7 +10,7 @@ namespace Developers.Net.Protocol
         public override void SendPacket ( bool isWait = false )
         {
             base.SendPacket ( isWait );
-            PhotonEngine.Peer.OpCustom ( (byte)OperationCode.RequestResource, null, true );
+            Send ( OperationCode.RequestResource, null, true );
             Debug.Log ( "[ResourceRequest] Send" );
         }
     }

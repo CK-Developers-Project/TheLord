@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using ExitGames.Client.Photon;
+using System;
 
 namespace Developers.Net.Handler
 {
@@ -48,8 +49,12 @@ namespace Developers.Net.Handler
                     BasePage.OnMessageBox("ID길이가 잘못 되었습니다.\n(2글자 ~ 10글자)", true, null, "확인");
                     break;
                 case NextAction.UserInfoCreate:
-                    LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
-                    GameManager.Instance.GameMode.CurrentPage = gameMode.cutScenePage;
+                    Action action = ( ) =>
+                    {
+                        LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
+                        GameManager.Instance.GameMode.CurrentPage = gameMode.cutScenePage;
+                    };
+                    TransitionManager.Instance.OnTransition ( TransitionType.Blank, TransitionType.Slide, action, null );
                     break;
             }
         }

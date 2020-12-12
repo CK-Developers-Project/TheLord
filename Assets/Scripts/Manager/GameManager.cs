@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#define Develop
+
+using UnityEngine;
 using Developers.Util;
 using Developers.Structure;
 using System.Collections;
@@ -36,7 +38,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<GamePlayer> gamePlayers = new List<GamePlayer>();
 
-
     public GamePlayer LocalPlayer 
     {  
         get
@@ -73,10 +74,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         GameMode.Load ( );
         yield return new WaitUntil ( ( ) => IsGameStart );
-
         GameMode.OnEnter ( );
-        
-        yield break;
     }
 
     public IEnumerator Dispose()
@@ -127,6 +125,10 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         IsGameStart = false;
+
+#if Develop
+        Join("Tester", Race.Human);
+#endif
     }
 
     private IEnumerator Start ( )
@@ -144,5 +146,16 @@ public class GameManager : MonoSingleton<GameManager>
             yield return new WaitUntil ( ( ) => IsGameStart );
             GameMode.OnEnter ( );
         }       
+    }
+
+
+    private void Update ( )
+    {
+#if Develop
+        if( TransitionManager.instance.WaitSign.IsActive )
+        {
+            TransitionManager.instance.OnWaitSigh ( false );
+        }
+#endif
     }
 }

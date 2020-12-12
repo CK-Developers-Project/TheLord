@@ -5,10 +5,12 @@ using Developers.Util;
 using UnityEngine.InputSystem;
 using Developers.Net.Protocol;
 using System.Collections;
+using Cinemachine;
 
 public class MainLobbyGameMode : BaseGameMode
 {
     [SerializeField] MainLobbyPage mainLobbyPage = null;
+    [SerializeField] CinemachineVirtualCamera mainLoobyCV = null;
 
     List<Building> buildings = new List<Building> ( );
     public List<Building> Buildings { get => buildings; }
@@ -39,7 +41,7 @@ public class MainLobbyGameMode : BaseGameMode
         {
             return;
         }
-        InputManager.Instance.LayerMask = Physics2D.DefaultRaycastLayers;
+        InputManager.Instance.layerMask = Physics2D.DefaultRaycastLayers;
         InputManager.Instance.TouchEvent += TouchEvent;
         manager.Main.Enable ( );
     }
@@ -51,7 +53,7 @@ public class MainLobbyGameMode : BaseGameMode
         {
             return;
         }
-        InputManager.Instance.LayerMask = 0;
+        InputManager.Instance.layerMask = 0;
         InputManager.Instance.TouchEvent -= TouchEvent;
         manager.Main.Disable ( );
     }
@@ -64,7 +66,17 @@ public class MainLobbyGameMode : BaseGameMode
 
     public override void OnUpdate ( )
     {
+        InputManager manager = InputManager.Instance;
 
+        if ( manager.isPressed )
+        {
+            Vector3 start = GameManager.Instance.MainCamera.ScreenToWorldPoint ( manager.Position );
+            Vector3 end = GameManager.Instance.MainCamera.ScreenToWorldPoint ( manager.StartPoint );
+            Vector3 drag = start - end;
+            Vector3 target = GameManager.Instance.MainCamera.transform.position + new Vector3 ( drag.x, 0F, 0F );
+            mainLoobyCV.ForceCameraPosition ( target, Quaternion.identity );
+            manager.StartPoint = manager.Position;
+        }
     }
 
     public override void OnExit ( )

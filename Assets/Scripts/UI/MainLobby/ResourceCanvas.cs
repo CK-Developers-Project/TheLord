@@ -4,13 +4,12 @@ using Developers.Structure;
 
 public class ResourceCanvas : MonoBehaviour, IGameUI
 {
-    [SerializeField] TextMeshProUGUI DisplayText = null;
-
-    // FIXME : 한국어 밖에 없으므로 자원 고정
-    string ResourceText = "자원";
+    [SerializeField] TextMeshProUGUI DisplayGold = null;
+    [SerializeField] TextMeshProUGUI DisplayCash = null;
 
     public void OnUpdate()
     {
-        DisplayText.SetText ( string.Format ( "{0}: {1}", ResourceText, GameManager.Instance.LocalPlayer.DisplayGold ( ResourceType.Gold ) ) );
+        DisplayGold.SetText ( GameManager.Instance.LocalPlayer.DisplayGold ( ResourceType.Gold ) );
+        DisplayCash.SetText ( GameManager.Instance.LocalPlayer.DisplayGold ( ResourceType.Cash ) );
     }
 }

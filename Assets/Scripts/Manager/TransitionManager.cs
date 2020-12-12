@@ -57,7 +57,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             Action endAction = ( ) =>
             {
                 callback_FadeOut?.Invoke ( );
-                current = null;
                 canvasGroup.blocksRaycasts = false;
             };
             current.OnFadeOut ( endAction );
@@ -80,7 +79,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             Action endAction = ( ) =>
             {
                 callback_FadeOut?.Invoke ( );
-                current = null;
                 canvasGroup.blocksRaycasts = false;
             };
             current.OnFadeOut ( endAction );
@@ -99,6 +97,11 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             callback?.Invoke ( );
         };
 
+        if ( current != null && !current.Equals ( transitionEffects[transitionType] ) && current.IsFade )
+        {
+            current.EffectFactor = 0f;
+        }
+
         canvasGroup.blocksRaycasts = true;
         current = transitionEffects[transitionType];
         if ( effectFactor >= 0f )
@@ -116,10 +119,14 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         {
             callback?.Invoke ( );
             current.EffectFactor = 0f;
-            current = null;
             canvasGroup.blocksRaycasts = false;
         };
-           
+
+        if ( current != null && current.IsFade && !current.Equals ( transitionEffects[transitionType] ) )
+        {
+            current.EffectFactor = 0f;
+        }
+
         current = transitionEffects[transitionType];
         if ( effectFactor >= 0f )
         {
@@ -166,7 +173,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
 
         Action endAction = ( ) =>
         {
-            current = null;
             canvasGroup.blocksRaycasts = false;
         };
 

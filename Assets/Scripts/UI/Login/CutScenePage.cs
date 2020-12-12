@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Developers.Structure;
 
 public class CutScenePage : BasePage
 {
@@ -25,7 +27,7 @@ public class CutScenePage : BasePage
         startPos = front_Image.transform.localPosition;
         endPos = startPos * -Vector2.one;
 
-        StartCoroutine(ActiveCutScene());
+        StartCoroutine ( ActiveCutScene ( ) );
     }
 
     private IEnumerator ActiveCutScene()
@@ -42,10 +44,10 @@ public class CutScenePage : BasePage
 
             if (textCnt == 1 || textCnt == 5)
             {
-                StartCoroutine(StoryTextCor(4f));
+                StartCoroutine(StoryTextCor(3f));
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
 
             while (front_Image.transform.localPosition.x > endPos.x + 0.1f)
             {
@@ -55,7 +57,7 @@ public class CutScenePage : BasePage
                 yield return null;
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
 
             if (textCnt < textList.Count)
                 storyText.CrossFadeAlpha(0f, 0.1f, true);
@@ -92,10 +94,14 @@ public class CutScenePage : BasePage
             yield return null;
         }
 
-        yield return new WaitForSeconds(5f);
-
-        LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
-        GameManager.Instance.GameMode.CurrentPage = gameMode.raceSelectPage;
+        yield return new WaitForSeconds(4f);
+        
+        Action action = ( ) =>
+        {
+            LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
+            GameManager.Instance.GameMode.CurrentPage = gameMode.raceSelectPage;
+        };
+        TransitionManager.Instance.OnTransition ( TransitionType.Blank, TransitionType.Slide, action, null );
     }
 
     private IEnumerator StoryTextCor(float _time)

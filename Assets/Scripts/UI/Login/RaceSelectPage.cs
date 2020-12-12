@@ -9,17 +9,22 @@ public class RaceSelectPage : BasePage
     const int Nickname_Min_Lenth = 3;
     const int Nickname_Max_Lenth = 6;
 
-    [SerializeField] Button ElfButton = null;
-    [SerializeField] Button HumanButton = null;
-    [SerializeField] Button UndeadButton = null;
+    [SerializeField] AnimationButton ElfButton = null;
+    [SerializeField] AnimationButton HumanButton = null;
+    [SerializeField] AnimationButton UndeadButton = null;
     [SerializeField] Button ConfirmButton = null;
     [SerializeField] TMP_InputField NicknameInputField = null;
 
     string Nickname { get => NicknameInputField.text; }
     Race Race { get; set; }
+    
+    AnimationButton CurrentButton { get; set; }
 
-    public void Select(Race race)
+    public void Select( AnimationButton button, Race race )
     {
+        CurrentButton?.SetAnimation ( AnimationButton.State.Default );
+        CurrentButton = button;
+        CurrentButton.SetAnimation ( AnimationButton.State.Select );
         Race = race;
     }
 
@@ -43,11 +48,15 @@ public class RaceSelectPage : BasePage
 
     void Awake()
     {
-        ElfButton.onClick.AddListener(() => Select(Race.Elf));
-        HumanButton.onClick.AddListener(() => Select(Race.Human));
-        UndeadButton.onClick.AddListener(() => Select(Race.Undead));
+        ElfButton.button.onClick.AddListener ( ( ) => Select ( ElfButton, Race.Elf ) );
+        HumanButton.button.onClick.AddListener ( ( ) => Select ( HumanButton, Race.Human ) );
+        UndeadButton.button.onClick.AddListener ( ( ) => Select ( UndeadButton, Race.Undead ) );
 
         ConfirmButton.onClick.AddListener ( ( ) => Confirm ( ) );
     }
 
+    private void OnEnable ( )
+    {
+        HumanButton.button.onClick.Invoke ( );
+    }
 }

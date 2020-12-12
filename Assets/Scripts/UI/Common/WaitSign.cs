@@ -11,14 +11,14 @@ public class WaitSign : MonoBehaviour
 
     void OnEnable ( )
     {
-        InputManager.Instance.IsIgnore = true;
+        InputManager.Instance.isIgnore = true;
         InputManager.Instance.EventSystem.SetSelectedGameObject ( gameObject );
         roamingTime = 0f;
     }
 
     void OnDisable ( )
     {
-        InputManager.Instance.IsIgnore = false;
+        InputManager.Instance.isIgnore = false;
     }
 
     void LateUpdate ( )

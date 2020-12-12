@@ -7,10 +7,10 @@ public class BasePopup : MonoBehaviour, IGameUI
     public virtual void OnUpdate ( ) { }
     public void OnEnable ( )
     {
-        InputManager.Instance.OverlayCount++;
+        InputManager.Instance.overlayCount++;
     }
     public void OnDisable ( )
     {
-        InputManager.Instance.OverlayCount--;
+        InputManager.Instance.overlayCount--;
     }
 }
