@@ -20,17 +20,20 @@ namespace Developers.Net.Handler
         {
             HandlerMedia.AddListener ( OperationCode.Login, OnLoginReceived );
             HandlerMedia.AddListener ( OperationCode.UserResistration, OnUserResistrationReceived );
+            HandlerMedia.AddListener ( OperationCode.LobbyEnter, OnLobbyEnterRecevied );
         }
 
         public override void RemoveListener ( )
         {
             HandlerMedia.RemoveAllListener ( OperationCode.Login );
             HandlerMedia.RemoveAllListener ( OperationCode.UserResistration );
+            HandlerMedia.RemoveAllListener ( OperationCode.LobbyEnter );
         }
 
         void OnLoginReceived (OperationResponse response)
         {
-            switch((NextAction)response.ReturnCode)
+            Debug.Log ( "[OnLoginReceived]" );
+            switch ( (NextAction)response.ReturnCode)
             {
                 case NextAction.LoginSuccess:
                     byte[] bytes = (byte[])DictionaryTool.GetValue<byte, object> ( response.Parameters, 1 );
@@ -53,6 +56,7 @@ namespace Developers.Net.Handler
 
         void OnUserResistrationReceived( OperationResponse response )
         {
+            Debug.Log ( "[OnUserResistrationReceived]" );
             ReturnCode rc = (ReturnCode)response.ReturnCode;
             if(rc == ReturnCode.Success)
             {
@@ -65,6 +69,19 @@ namespace Developers.Net.Handler
             {
                 BasePage.OnMessageBox ( "닉네임의 길이가 잘못 되었습니다.\n(3글자 ~ 6글자)", true, null, "확인" );
             }
+        }
+
+        void OnLobbyEnterRecevied ( OperationResponse response )
+        {
+            Debug.Log ( "[OnLobbyEnterRecevied]" );
+            ReturnCode rc = (ReturnCode)response.ReturnCode;
+            if ( rc == ReturnCode.Failed )
+            {
+                // TODO 다시 로그인 씬으로
+                return;
+            }
+
+            TransitionManager.Instance.OnWaitSigh ( false );
         }
     }
 }

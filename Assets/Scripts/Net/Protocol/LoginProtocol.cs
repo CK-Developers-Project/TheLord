@@ -20,16 +20,16 @@ namespace Developers.Net.Protocol
             userData.id = id;
             userData.password = password;
             PhotonEngine.Peer.OpCustom ( (byte)OperationCode.Login, BinSerializer.ConvertPacket ( userData ), true );
-            Debug.Log ( "[LoginRequest] Send" );
+            Debug.Log ( "[LoginRequest]" );
         }
     }
 
-    public class UserResistration : BaseProtocol
+    public class UserResistrationRequest : BaseProtocol
     {
         string nickname;
         int race;
 
-        public UserResistration ( string nickname, int race ) => (this.nickname, this.race) = (nickname, race);
+        public UserResistrationRequest ( string nickname, int race ) => (this.nickname, this.race) = (nickname, race);
 
         public override void SendPacket ( bool isWait = false )
         {
@@ -38,7 +38,17 @@ namespace Developers.Net.Protocol
             userData.nickname = nickname;
             userData.race = race;
             PhotonEngine.Peer.OpCustom ( (byte)OperationCode.UserResistration, BinSerializer.ConvertPacket ( userData ), true );
-            Debug.Log ( "[UserResistration] Send" );
+            Debug.Log ( "[UserResistrationRequest]" );
+        }
+    }
+
+    public class LobbyEnterRequest : BaseProtocol
+    {
+        public override void SendPacket ( bool isWait = true )
+        {
+            base.SendPacket ( isWait );
+            PhotonEngine.Peer.OpCustom ( (byte)OperationCode.LobbyEnter, null, true );
+            Debug.Log ( "[LobbyEnterRequest]" );
         }
     }
 }

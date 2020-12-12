@@ -4,6 +4,12 @@ namespace Developers.Structure
 {
     using Util;
 
+    public enum ResourceType : byte
+    {
+        Gold,
+        Cash,
+    }
+
     public class PlayerInfo
     {
         public string Nickname { get; set; }

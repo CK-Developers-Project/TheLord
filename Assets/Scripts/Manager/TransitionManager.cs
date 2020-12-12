@@ -12,7 +12,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     CanvasGroup canvasGroup;
     static Dictionary<TransitionType, TransitionEffect> transitionEffects = new Dictionary<TransitionType, TransitionEffect> ( );
     
-    public WaitSign WaitSigh { get; private set; }
+    public WaitSign WaitSign { get; private set; }
 
     public TransitionEffect current { get; private set; }
     bool isWork = false;
@@ -128,6 +128,12 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         current.OnFadeOut ( action );
     }
 
+    public void OnWaitSigh ( bool active )
+    {
+        canvasGroup.blocksRaycasts = active;
+        WaitSign.gameObject.SetActive ( active );
+    }
+
     public TransitionEffect GetTransitionEffect(TransitionType type)
     {
         return transitionEffects[type];
@@ -142,7 +148,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         }
         isWork = true;
 
-        yield return StartCoroutine ( MonoSingleton<GameManager>.Instance.Dispose ( ) );
+        yield return StartCoroutine ( GameManager.Instance.Dispose ( ) );
 
         var handle = SceneManager.LoadSceneAsync ( sceneName );
         handle.allowSceneActivation = false;
@@ -156,7 +162,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             yield return null;
         }
 
-        yield return StartCoroutine ( MonoSingleton<GameManager>.Instance.Initialize ( ) );
+        yield return StartCoroutine ( GameManager.Instance.Initialize ( ) );
 
         Action endAction = ( ) =>
         {
@@ -177,7 +183,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             canvasGroup = GetComponent<CanvasGroup> ( );
             canvasGroup.blocksRaycasts = false;
 
-            WaitSigh = GetComponentInChildren<WaitSign> ( );
+            WaitSign = GetComponentInChildren<WaitSign> ( true );
 
             var components = GetComponentsInChildren<TransitionEffect> ( true );
             foreach(var com in components)

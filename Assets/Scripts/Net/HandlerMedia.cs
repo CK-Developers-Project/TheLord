@@ -10,7 +10,7 @@ namespace Developers.Net
     public class HandlerMedia
     {
         public delegate void Act ( OperationResponse response );
-        static Dictionary<OperationCode, Delegate> table = new Dictionary<OperationCode, Delegate> ( );
+        public static Dictionary<OperationCode, Delegate> table = new Dictionary<OperationCode, Delegate> ( );
 
 
         public static void AddListener ( OperationCode type, Act act )

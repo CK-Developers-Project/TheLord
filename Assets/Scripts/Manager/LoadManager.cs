@@ -210,7 +210,7 @@ public class LoadManager : MonoSingleton<LoadManager>
 
                 if(result)
                 {
-                    MonoSingleton<GameManager>.Instance.OnStart ( );
+                    GameManager.Instance.GameMode.OnStart ( );
                     yield break;
                 }
 

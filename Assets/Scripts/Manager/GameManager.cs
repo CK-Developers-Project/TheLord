@@ -59,10 +59,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     public IEnumerator Initialize ()
     {
-        if (!MonoSingleton<LoadManager>.Instance.IsInitialize)
+        if (!LoadManager.Instance.IsInitialize)
         {
-            MonoSingleton<LoadManager>.Instance.Initialize();
-            yield return new WaitUntil(() => MonoSingleton<LoadManager>.Instance.IsInitialize);
+            LoadManager.Instance.Initialize();
+            yield return new WaitUntil(() => LoadManager.Instance.IsInitialize);
         }
         
         if ( GameMode == null )

@@ -26,7 +26,7 @@ public class RaceSelectPage : BasePage
 
     public void Confirm()
     {
-        UserResistration request = new UserResistration ( Nickname, (int)Race );
+        UserResistrationRequest request = new UserResistrationRequest ( Nickname, (int)Race );
         int lenth = Nickname.Length;
         if ( lenth > Nickname_Max_Lenth  || lenth < Nickname_Min_Lenth )
         {

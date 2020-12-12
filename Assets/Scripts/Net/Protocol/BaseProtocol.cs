@@ -4,7 +4,7 @@
     {
         public virtual void SendPacket ( bool isWait = false )
         {
-            if ( isWait ) TransitionManager.Instance.WaitSigh.gameObject.SetActive ( true );
+            if ( isWait ) TransitionManager.Instance.OnWaitSigh ( isWait );
         }
     }
 }

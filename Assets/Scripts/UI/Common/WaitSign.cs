@@ -7,6 +7,8 @@ public class WaitSign : MonoBehaviour
     const float Packet_Error_Time = 180f;
     float roamingTime;
 
+    public bool IsActive { get => gameObject.activeInHierarchy; }
+
     void OnEnable ( )
     {
         InputManager.Instance.IsIgnore = true;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using Developers.Util;
 using UnityEngine.InputSystem;
+using Developers.Net.Protocol;
+using System.Collections;
 
 public class MainLobbyGameMode : BaseGameMode
 {
@@ -10,6 +12,19 @@ public class MainLobbyGameMode : BaseGameMode
 
     List<Building> buildings = new List<Building> ( );
     public List<Building> Buildings { get => buildings; }
+
+
+    public override IEnumerator OnStart ( )
+    {
+        yield return new WaitUntil ( () => TransitionManager.Instance.WaitSign.IsActive == false );
+        yield return StartCoroutine ( base.OnStart ( ) );
+    }
+
+    public override void Load ( )
+    {
+        base.Load ( );
+        new LobbyEnterRequest ( ).SendPacket ( );
+    }
 
 
     void TouchEvent ( IActor target )

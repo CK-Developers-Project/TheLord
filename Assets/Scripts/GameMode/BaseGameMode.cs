@@ -14,6 +14,11 @@ public abstract class BaseGameMode : MonoBehaviour
     private BasePage currentPage = null;
     public BasePage CurrentPage { get => currentPage; set => SetPage ( value ); }
 
+    public virtual IEnumerator OnStart()
+    {
+        GameManager.Instance.OnStart ( );
+        yield break;
+    }
 
     public virtual void Load()
     {
