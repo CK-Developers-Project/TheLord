@@ -19,7 +19,7 @@ namespace Developers.Net.Protocol
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.id = id;
             userData.password = password;
-            PhotonEngine.Peer.OpCustom ( (byte)OperationCode.Login, BinSerializer.ConvertPacket ( userData ), true );
+            Send ( OperationCode.Login, BinSerializer.ConvertPacket ( userData ), true );
             Debug.Log ( "[LoginRequest]" );
         }
     }
@@ -37,7 +37,7 @@ namespace Developers.Net.Protocol
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.nickname = nickname;
             userData.race = race;
-            PhotonEngine.Peer.OpCustom ( (byte)OperationCode.UserResistration, BinSerializer.ConvertPacket ( userData ), true );
+            Send ( OperationCode.UserResistration, BinSerializer.ConvertPacket ( userData ), true );
             Debug.Log ( "[UserResistrationRequest]" );
         }
     }
@@ -47,7 +47,7 @@ namespace Developers.Net.Protocol
         public override void SendPacket ( bool isWait = true )
         {
             base.SendPacket ( isWait );
-            PhotonEngine.Peer.OpCustom ( (byte)OperationCode.LobbyEnter, null, true );
+            Send ( OperationCode.LobbyEnter, null, true );
             Debug.Log ( "[LobbyEnterRequest]" );
         }
     }
