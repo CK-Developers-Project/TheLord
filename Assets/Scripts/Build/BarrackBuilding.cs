@@ -7,20 +7,18 @@ using Developers.Structure;
 public class BarrackBuilding : Building
 {
     [SerializeField] GameObject hologram = null;
-    public string msg;
-    public int price;
 
     protected override void OnEmpty ( )
     {
-        string noticeMsg = string.Format ( "{0}를 건설하시겠습니까?", msg );
-        string leftMsg = string.Format("네\n-{0}", price);
-        BasePage.OnMessageBox ( noticeMsg, true, BuildOK, leftMsg, true, null, "아니요" );
+        //string noticeMsg = string.Format ( "{0}를 건설하시겠습니까?", msg );
+        //string leftMsg = string.Format("네\n-{0}", price);
+        //BasePage.OnMessageBox ( noticeMsg, true, BuildOK, leftMsg, true, null, "아니요" );
     }
 
     protected override void OnWork ( )
     {
-        string noticeMsg = string.Format ( "아직 {0}가 지어지지않았습니다.", msg );
-        BasePage.OnMessageBox ( noticeMsg, true, null, "확인" );
+        //string noticeMsg = string.Format ( "아직 {0}가 지어지지않았습니다.", msg );
+        //BasePage.OnMessageBox ( noticeMsg, true, null, "확인" );
     }
 
     protected override void OnComplete ( )
@@ -36,6 +34,7 @@ public class BarrackBuilding : Building
 
     void BuildOK()
     {
+        /*
         if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold(ResourceType.Gold) >= price)
         {
             GamePlayer gamePlayer = MonoSingleton<GameManager>.Instance.LocalPlayer;
@@ -52,6 +51,7 @@ public class BarrackBuilding : Building
         spriteRenderer.enabled = true;
         hologram.SetActive ( false );
         info.LV = 1;
+        */
     }
 
     void Build()

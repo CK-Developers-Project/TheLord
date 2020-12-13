@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 5179974071481843794}
   - component: {fileID: 3467280093595506357}
   m_Layer: 0
-  m_Name: Spearman Training Center
+  m_Name: Archer Training Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,10 +513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    index: 1001
+    index: 801
     state: 0
     LV: 0
-    name: "\uCC3D\uBCD1 \uD6C8\uB828\uC18C"
+    name: 
   hologram: {fileID: 4130998352757199374}
-  msg: "\uCC3D\uBCD1 \uD6C8\uB828\uC18C"
-  price: 300
