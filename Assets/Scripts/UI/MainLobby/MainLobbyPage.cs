@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Developers.Util;
+using TMPro;
 
 public class MainLobbyPage : BasePage
 {
     public ResourceCanvas ResourceUI { get; set; }
+
+    public TextMeshProUGUI Nickname;
+
 
     // 우선 테스트용
     [SerializeField] GameObject Prefab_BarrackPopup = null;
@@ -30,6 +34,7 @@ public class MainLobbyPage : BasePage
     public override void OnUpdate()
     {
         base.OnUpdate ( );
+        Nickname.text = GameManager.Instance.LocalPlayer.playerInfo.Nickname;
     }
 
     protected override void Construct ( )

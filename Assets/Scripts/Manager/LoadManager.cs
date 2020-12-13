@@ -103,8 +103,9 @@ public class LoadManager : MonoSingleton<LoadManager>
     public bool IsInitialize { get; private set; }
     [SerializeField] AssetLabelReference coreLabel = null;
 
-
     public List<Object> Core { get => core; }
+
+
 
 
     public void Initialize()
@@ -193,6 +194,21 @@ public class LoadManager : MonoSingleton<LoadManager>
             }
         }
         return null;
+    }
+
+
+    public GameObject Get(System.Type type)
+    {
+        GameObject obj = core.Find ( x =>
+          {
+              GameObject o = x as GameObject;
+              if(o == null)
+              {
+                  return false;
+              }
+              return o.GetComponent ( type ) != null;
+          } ) as GameObject;
+        return obj;
     }
 
     private IEnumerator Runnable()

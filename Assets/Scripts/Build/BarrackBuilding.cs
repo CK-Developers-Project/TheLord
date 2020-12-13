@@ -51,7 +51,7 @@ public class BarrackBuilding : Building
         BuildUp ( new TimeSpan ( 0, 0, 10 ), Build );
         spriteRenderer.enabled = true;
         hologram.SetActive ( false );
-        info.level = 1;
+        info.LV = 1;
     }
 
     void Build()
@@ -62,7 +62,6 @@ public class BarrackBuilding : Building
 
     protected override void Start ( )
     {
-        base.Load();
         spriteRenderer.enabled = false;
         hologram.SetActive ( true );
     }

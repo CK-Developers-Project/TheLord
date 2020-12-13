@@ -18,7 +18,7 @@ public class BarrackPopup : BasePopup
     void Purchase()
     {
         GamePlayer gamePlayer = GameManager.Instance.LocalPlayer;
-
+        /*
         int characterPrice = (int)( barrack.info.characterData.Info.price + ( barrack.info.current * ( barrack.info.characterData.Info.price * 0.15f ) ) );
         if(barrack.info.current >= barrack.info.max || gamePlayer.GetGold ( ResourceType.Gold ) < characterPrice )
         {
@@ -26,20 +26,22 @@ public class BarrackPopup : BasePopup
         }
         gamePlayer.AddGold ( ResourceType.Gold, -characterPrice );
         barrack.info.current++;
+        */
         GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
     }
 
     void LevelUp()
     {
         GamePlayer gamePlayer = GameManager.Instance.LocalPlayer;
-
+        /*
         if ( gamePlayer.GetGold ( ResourceType.Gold ) < barrack.info.price )
         {
             return;
         }
         gamePlayer.AddGold ( ResourceType.Gold, -barrack.info.price );
         barrack.info.price += (int)( barrack.info.price * 0.75f );
-        barrack.info.level++;
+        barrack.info.LV++;
+        */
         GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
     }
 
@@ -51,7 +53,8 @@ public class BarrackPopup : BasePopup
 
     public override void OnUpdate ( )
     {
-        string nameText = string.Format ( "Lv.{0} {1}", barrack.info.level, barrack.info.name );
+        /*
+        string nameText = string.Format ( "Lv.{0} {1}", barrack.info.LV, barrack.info.name );
         string barrackText = string.Format ( "{0} {1}/{2}명 훈련중", barrack.info.characterData.Info.name, barrack.info.current, barrack.info.max );
         int characterPrice = (int)( barrack.info.characterData.Info.price + ( barrack.info.current * ( barrack.info.characterData.Info.price * 0.15f ) ) );
         string purchaseText = string.Format ( "구매\n{0}원", characterPrice );
@@ -61,6 +64,7 @@ public class BarrackPopup : BasePopup
         BarrackText.SetText ( barrackText );
         PurchaseButton.text.SetText ( purchaseText );
         LevelUpButton.text.SetText ( levelUpText );
+        */
     }
 
     public void Awake ( )

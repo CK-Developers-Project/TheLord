@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.U2D;
+using Cinemachine;
 
 namespace Developers.Util
 {

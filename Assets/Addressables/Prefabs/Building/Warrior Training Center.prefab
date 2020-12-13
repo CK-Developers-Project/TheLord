@@ -136,14 +136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    type: 2
+    index: 901
     state: 0
-    level: 0
-    price: 15
+    LV: 0
     name: "\uC804\uC0AC \uD6C8\uB828\uC18C"
-    characterData: {fileID: 11400000, guid: 8aec08ad15bf6ae47913748346746d5c, type: 2}
-    current: 0
-    max: 10
   hologram: {fileID: 8131013728397155367}
   msg: "\uC804\uC0AC \uD6C8\uB828\uC18C"
   price: 300

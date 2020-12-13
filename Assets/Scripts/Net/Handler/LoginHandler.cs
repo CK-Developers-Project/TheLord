@@ -86,6 +86,7 @@ namespace Developers.Net.Handler
                 return;
             }
 
+            GameManager.Instance.GameMode.OnSynchronize ( BinSerializer.ConvertData<ProtoData.DBLoadData> ( response.Parameters ) );
             TransitionManager.Instance.OnWaitSigh ( false );
         }
     }

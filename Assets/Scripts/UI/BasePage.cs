@@ -31,19 +31,7 @@ public class BasePage : MonoBehaviour, IGameUI
     {
         if ( Prefab_NoticePopup == null )
         {
-            Prefab_NoticePopup = LoadManager.Instance.Core.Find ( x =>
-            {
-                GameObject obj = x as GameObject;
-                if ( obj != null )
-                {
-                    NoticePopup popup = obj.GetComponent<NoticePopup> ( );
-                    if ( popup != null )
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            } ) as GameObject;
+            Prefab_NoticePopup = LoadManager.Instance.Get ( typeof ( NoticePopup ) );
         }
 
 

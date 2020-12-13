@@ -1,6 +1,4 @@
-﻿#define Develop
-
-using UnityEngine;
+﻿using UnityEngine;
 using Developers.Util;
 using Developers.Structure;
 using System.Collections;
@@ -15,7 +13,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Camera MainCamera {
         get
         {
-            if( mainCamera == null)
+            if ( mainCamera == null )
             {
                 mainCamera = Camera.main;
             }
@@ -25,7 +23,7 @@ public class GameManager : MonoSingleton<GameManager>
     public PixelPerfectCameraHelper PixelPerfectCameraHelper {
         get
         {
-            if( pixelPerfectCameraHelper  == null)
+            if ( pixelPerfectCameraHelper == null )
             {
                 pixelPerfectCameraHelper = MainCamera.GetComponent<PixelPerfectCameraHelper> ( );
             }
@@ -36,19 +34,19 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] BaseGameMode gameMode;
 
-    public List<GamePlayer> gamePlayers = new List<GamePlayer>();
+    public SynchronizeData synchronizeData = new SynchronizeData ( );
 
-    public GamePlayer LocalPlayer 
-    {  
+    public List<GamePlayer> gamePlayers = new List<GamePlayer> ( );
+
+    public GamePlayer LocalPlayer {
         get
         {
             return gamePlayers.Count > 0 ? gamePlayers[0] : null;
         }
     }
 
-    public BaseGameMode GameMode 
-    {   
-        get => gameMode; 
+    public BaseGameMode GameMode {
+        get => gameMode;
         set
         {
             gameMode?.OnExit ( );
@@ -57,15 +55,20 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    
 
-    public IEnumerator Initialize ()
+    public bool IsGameStart { get; private set; }
+    public bool IsSynchronized { get; private set; }
+
+
+    public IEnumerator Initialize ( )
     {
-        if (!LoadManager.Instance.IsInitialize)
+        if ( !LoadManager.Instance.IsInitialize )
         {
-            LoadManager.Instance.Initialize();
-            yield return new WaitUntil(() => LoadManager.Instance.IsInitialize);
+            LoadManager.Instance.Initialize ( );
+            yield return new WaitUntil ( ( ) => LoadManager.Instance.IsInitialize );
         }
-        
+
         if ( GameMode == null )
         {
             BaseGameMode com = GameObject.FindGameObjectWithTag ( "GameMode" ).GetComponent<BaseGameMode> ( );
@@ -77,7 +80,7 @@ public class GameManager : MonoSingleton<GameManager>
         GameMode.OnEnter ( );
     }
 
-    public IEnumerator Dispose()
+    public IEnumerator Dispose ( )
     {
         if ( GameMode != null )
         {
@@ -88,10 +91,7 @@ public class GameManager : MonoSingleton<GameManager>
         yield break;
     }
 
-    public bool IsGameStart { get; private set; }
-
-
-    public static GameObject Create<T>(ActorRecord actorRecord) where T : IActor
+    public static GameObject Create<T> ( ActorRecord actorRecord ) where T : IActor
     {
         GameObject obj = MonoSingleton<LoadManager>.Instance.GetActor<T> ( actorRecord );
         return obj;
@@ -109,9 +109,14 @@ public class GameManager : MonoSingleton<GameManager>
         return com;
     }
 
-    public void OnStart()
+    public void OnStart ( )
     {
         IsGameStart = true;
+    }
+
+    public void OnSynchronize ( )
+    {
+        IsSynchronized = true;
     }
 
 
@@ -119,16 +124,12 @@ public class GameManager : MonoSingleton<GameManager>
     {
         base.Awake ( );
 
-        if(instance != this)
+        if ( instance != this )
         {
             instance.gameMode = gameMode;
         }
 
         IsGameStart = false;
-
-#if Develop
-        Join("Tester", Race.Human);
-#endif
     }
 
     private IEnumerator Start ( )
@@ -145,17 +146,6 @@ public class GameManager : MonoSingleton<GameManager>
             GameMode.Load ( );
             yield return new WaitUntil ( ( ) => IsGameStart );
             GameMode.OnEnter ( );
-        }       
-    }
-
-
-    private void Update ( )
-    {
-#if Develop
-        if( TransitionManager.instance.WaitSign.IsActive )
-        {
-            TransitionManager.instance.OnWaitSigh ( false );
         }
-#endif
     }
 }

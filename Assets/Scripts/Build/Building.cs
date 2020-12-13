@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using Developers.Structure;
 using Developers.Util;
+using Developers.Table;
 
 public class Building : MonoBehaviour, IActor
 {
@@ -12,18 +13,52 @@ public class Building : MonoBehaviour, IActor
 
     public BuildingInfo info;
 
-    public int Index { get => (int)info.type; }
+    public int Index { get => (int)info.index; }
     public AbilityCaster Caster { get; set; }
+    public bool Synchronized { get; set; }
 
     public void BuildUp(TimeSpan timeSpan, Action callback)
     {
+        info.state = BuildingState.Work;
         workTimer.Run ( timeSpan, callback );
     }
 
+    public void Initialize ( )
+    {
+        var sheet = TableManager.Instance.BuildingTable.BuildingInfoSheet;
+        var record = BaseTable.Get ( sheet, "index", (int)info.index );
+
+        info.name = (string)record["name"];
+    }
 
     public virtual void Load ( ) 
     { 
-        Caster = new AbilityCaster(this);
+        Synchronized = true;
+
+        var buildingInfo = GameManager.Instance.synchronizeData.GetBuildingInfo ( info.index );
+        if( null == buildingInfo)
+        {
+            info.state = BuildingState.Empty;
+            return;
+        }
+
+        info.LV = buildingInfo.LV;
+        info.workTime = buildingInfo.workTime;
+
+        TimeSpan buildRemaineTime = info.workTime - DateTime.Now;
+        
+        if (info.LV == 0)
+        {
+            info.state = BuildingState.Empty;
+        }
+        else if( buildRemaineTime.Ticks > 0)
+        {
+            BuildUp ( buildRemaineTime, OnBuild );
+        }
+        else
+        {
+            info.state = BuildingState.Complete;
+        }
     }
     public virtual void OnSelect ( ) 
     { 
@@ -44,18 +79,34 @@ public class Building : MonoBehaviour, IActor
     protected virtual void OnEmpty ( ) { }
     protected virtual void OnWork ( ) { }
     protected virtual void OnComplete ( ) { }
+    protected virtual void OnBuild()
+    {
+
+    }
 
     protected virtual void Awake ( )
     {
         spriteRenderer = GetComponent<SpriteRenderer> ( );
         workTimer = GetComponentInChildren<WorkTimer> ( true );
+
+        Caster = new AbilityCaster ( this );
         
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );
+
+        Synchronized = false;
     }
 
     protected virtual void Start()
     {
-        Load();
+        Initialize ( );
+    }
+
+    void LateUpdate()
+    {
+        if( GameManager.Instance.IsSynchronized && !Synchronized )
+        {
+            Load ( );
+        }
     }
 }

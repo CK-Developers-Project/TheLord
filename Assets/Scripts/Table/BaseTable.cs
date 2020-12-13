@@ -22,6 +22,11 @@ namespace Developers.Table
 
         public BaseTable(TextAsset asset)
         {
+            if(asset == null)
+            {
+                Debug.LogErrorFormat("{0} is NULL", this.GetType().Name);
+                return;
+            }
             table = Read(asset);
         }
 

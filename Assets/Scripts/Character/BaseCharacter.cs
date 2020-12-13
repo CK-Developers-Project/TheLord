@@ -16,6 +16,13 @@ public class BaseCharacter : MonoBehaviour, IActor
     public int Index { get => data.index; }
     public AbilityCaster Caster { get; set; }
 
+    public bool Synchronized { get => throw new System.NotImplementedException ( ); set => throw new System.NotImplementedException ( ); }
+
+    public void Initialize ( )
+    {
+
+    }
+
     public void Load ( )
     {
         info = data.GetInfo ( );
@@ -39,10 +46,5 @@ public class BaseCharacter : MonoBehaviour, IActor
     {
         Actor = GetComponentInChildren<ActorObject> ( );
         Path = GetComponentInChildren<ActorPath> ( );
-    }
-
-    private void Start()
-    {
-        Load();
     }
 }

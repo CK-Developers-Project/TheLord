@@ -50,5 +50,11 @@ namespace Developers.Util
         {
             return new Dictionary<byte, object> { { key, Serialize ( packet ) } };
         }
+
+        public static T ConvertData<T>( Dictionary<byte, object> packet, byte key = 1)
+        {
+            byte[] bytes = (byte[])DictionaryTool.GetValue ( packet, key );
+            return Deserialize<T> ( bytes );
+        }
     }
 }

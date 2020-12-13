@@ -23,6 +23,25 @@ namespace Developers.Structure
         public ActorRecord ( ActorType actorType, int recordKey ) => (type, index) = (actorType, recordKey);
     }
 
+    /// <summary>
+    /// 동기화 데이터
+    /// </summary>
+    public class SynchronizeData
+    {
+        public List<BuildingInfo> buildingInfoList = new List<BuildingInfo> ( );
+
+        public void SetBuildingInfo ( List<BuildingInfo> buildingInfoList )
+        {
+            this.buildingInfoList.Clear ( );
+            this.buildingInfoList.AddRange ( buildingInfoList );
+        }
+
+        public BuildingInfo GetBuildingInfo(BuildingType type)
+        {
+             return buildingInfoList.Find ( x => x.index == type );
+        }
+    }
+
     // /************* 캐릭터 정보 *************/
 
     public enum Race : int
@@ -99,9 +118,27 @@ namespace Developers.Structure
 
     public enum BuildingType : int
     {
-        Castle,                            // 기지
-        SpearmanTrainingCenter,            // 창병 훈련소
-        WarriorTrainingCenter,             // 전사 훈련소
+        EmainBuilding                = 1,       // 엘프 메인건물
+        HmainBuilding                = 101,     // 인간 메인건물
+        UmainBuilding                = 201,     // 언데드 메인건물
+
+        elfarcherBuilding            = 301,     // 엘프 아처
+        druidBuilding                = 401,     // 엘프 드루이드
+        bardBuilding                 = 501,     // 엘프 바드
+        spiritBuilding               = 601,     // 엘프 영혼술사
+        guardianBuilding             = 701,     // 엘프 가디언
+
+        archerBuilding               = 801,     // 인간 아처
+        warriorBuilding              = 901,     // 인간 전사
+        shieldbearerBuilding         = 1001,    // 인간 방패병
+        gunnerBuilding               = 1101,    // 인간 거너
+        priestBuilding               = 1201,    // 인간 프리스트
+
+        UwarriorBuilding             = 1301,    // 언데드 전사
+        witchBuilding                = 1401,    // 언데드 마녀
+        reaperBuilding               = 1501,    // 언데드 리퍼
+        necromancerBuilding          = 1601,    // 언데드 네크로맨서
+        soulknightBuilding           = 1701,    // 언데드 소울나이트
     }
 
     public enum BuildingState
@@ -111,20 +148,13 @@ namespace Developers.Structure
         Complete,                           // 완공
     }
 
-
     [Serializable]
     public class BuildingInfo
     {
-        public BuildingType type;
+        public BuildingType index;
         public BuildingState state;
-        public int level;
-        public int price;
+        public int LV;
         public string name;
-
-        public CharacterData characterData;
-
-        // 좀더 생각해봐야할 데이터 자료형들
-        public int current;
-        public int max;
+        public DateTime workTime;
     }
 }

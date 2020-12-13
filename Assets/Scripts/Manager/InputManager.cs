@@ -99,7 +99,7 @@ public class InputManager : MonoSingleton<InputManager>
         isStarted = false;
 
         Vector2 pos = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );
-        if ( Impossible )
+        if ( Impossible || isPressed )
         {
             return;
         }
