@@ -5,6 +5,8 @@
     {
         Blank,
         Slide,
+        Loading01_Blank,
+        Loading01_Slide,
     }
 
     public class SceneName

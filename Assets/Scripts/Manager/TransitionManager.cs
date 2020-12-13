@@ -194,15 +194,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             var components = GetComponentsInChildren<TransitionEffect> ( true );
             foreach(var com in components)
             {
-                switch(com)
-                {
-                    case TransitionBlankEffect blank:
-                        transitionEffects.Add ( TransitionType.Blank, blank );
-                        break;
-                    case TransitionSlideEffect slide:
-                        transitionEffects.Add ( TransitionType.Slide, slide );
-                        break;
-                }
+                transitionEffects.Add ( com.type, com );
             }
         }
     }

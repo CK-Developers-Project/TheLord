@@ -40,7 +40,7 @@ namespace Developers.Net.Handler
                     byte[] bytes = (byte[])DictionaryTool.GetValue<byte, object> ( response.Parameters, 1 );
                     ProtoData.UserData data = BinSerializer.Deserialize<ProtoData.UserData> ( bytes );
                     GameManager.Instance.Join ( data.nickname, (Race)data.race );
-                    TransitionManager.Instance.OnSceneTransition ( SceneName.GetMainLobby ( (Race)data.race ), TransitionType.Slide, null );
+                    TransitionManager.Instance.OnSceneTransition ( SceneName.GetMainLobby ( (Race)data.race ), TransitionType.Loading01_Slide, null );
                     break;
                 case NextAction.LoginFailed:
                     BasePage.OnMessageBox("로그인에 실패하셨습니다.", true, null, "확인");
@@ -68,7 +68,7 @@ namespace Developers.Net.Handler
                 byte[] bytes = (byte[])DictionaryTool.GetValue<byte, object> ( response.Parameters, 1 );
                 ProtoData.UserData data = BinSerializer.Deserialize<ProtoData.UserData> ( bytes );
                 GameManager.Instance.Join ( data.nickname, (Race)data.race );
-                TransitionManager.Instance.OnSceneTransition ( SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race ), TransitionType.Slide, null );
+                TransitionManager.Instance.OnSceneTransition ( SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race ), TransitionType.Loading01_Slide, null );
             }
             else
             {

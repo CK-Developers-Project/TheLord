@@ -101,7 +101,7 @@ public class CutScenePage : BasePage
             LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
             GameManager.Instance.GameMode.CurrentPage = gameMode.raceSelectPage;
         };
-        TransitionManager.Instance.OnTransition ( TransitionType.Blank, TransitionType.Slide, action, null );
+        TransitionManager.Instance.OnTransition ( TransitionType.Loading01_Slide, TransitionType.Loading01_Blank, action, null );
     }
 
     private IEnumerator StoryTextCor(float _time)
