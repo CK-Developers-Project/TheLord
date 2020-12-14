@@ -1,6 +1,7 @@
 ﻿using Developers.Util;
 using Developers.Table;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class TableManager : MonoSingleton<TableManager>
 {
@@ -11,6 +12,16 @@ public class TableManager : MonoSingleton<TableManager>
     public CharacterTable CharacterTable { get; private set; }
     public AbilityTable AbilityTable { get; private set; }
     public BuildingTable BuildingTable { get; private set; }
+
+
+
+
+
+    public void Load()
+    {
+
+    }
+
 
 
     protected override void Awake ( )
