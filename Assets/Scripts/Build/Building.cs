@@ -23,7 +23,7 @@ public class Building : MonoBehaviour, IActor
         workTimer.Run ( timeSpan, callback );
     }
 
-    public void Initialize ( )
+    public virtual void Initialize ( )
     {
         var sheet = TableManager.Instance.BuildingTable.BuildingInfoSheet;
         var record = BaseTable.Get ( sheet, "index", (int)info.index );
@@ -97,8 +97,9 @@ public class Building : MonoBehaviour, IActor
         Synchronized = false;
     }
 
-    protected virtual void Start()
+    IEnumerator Start()
     {
+        yield return new WaitUntil ( ( ) => GameManager.Instance.IsGameStart );
         Initialize ( );
     }
 

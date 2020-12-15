@@ -17,6 +17,7 @@ public abstract class BaseGameMode : MonoBehaviour
 
     public virtual IEnumerator OnStart()
     {
+        TransitionManager.Instance.OnWaitSigh ( false );
         GameManager.Instance.OnStart ( );
         yield break;
     }
@@ -29,8 +30,21 @@ public abstract class BaseGameMode : MonoBehaviour
 
     public virtual void Load()
     {
-        LoadManager.Instance.Register ( assetLabelReference );
-        LoadManager.Instance.Run ( );
+        TransitionManager.Instance.OnWaitSigh ( true );
+        Action action = ( ) =>
+        {
+            LoadManager.Instance.Register ( assetLabelReference );
+            LoadManager.Instance.Run ( );
+        };
+
+        if(false == TableManager.Instance.isLoad)
+        {
+            TableManager.Instance.Load ( action ); 
+        }
+        else
+        {
+            action?.Invoke ( );
+        }
     }
 
     /// <summary>현재 게임모드의 UI 페이지에서 선택한 UI 페이지로 전환합니다.</summary>

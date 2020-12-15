@@ -18,7 +18,7 @@ public class MainLobbyGameMode : BaseGameMode
 
     public override IEnumerator OnStart ( )
     {
-        yield return new WaitUntil ( ( ) => TransitionManager.Instance.WaitSign.IsActive == false );
+        new LobbyEnterRequest ( ).SendPacket ( false );
         yield return new WaitUntil ( ( ) => GameManager.Instance.IsSynchronized );
         yield return StartCoroutine ( base.OnStart ( ) );
     }
@@ -51,7 +51,6 @@ public class MainLobbyGameMode : BaseGameMode
     public override void Load ( )
     {
         base.Load ( );
-        new LobbyEnterRequest ( ).SendPacket ( );
     }
 
 

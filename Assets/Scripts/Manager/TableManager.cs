@@ -2,6 +2,9 @@
 using Developers.Table;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections;
+using System;
 
 public class TableManager : MonoSingleton<TableManager>
 {
@@ -13,27 +16,28 @@ public class TableManager : MonoSingleton<TableManager>
     public AbilityTable AbilityTable { get; private set; }
     public BuildingTable BuildingTable { get; private set; }
 
+    public bool isLoad = false; 
 
-
-
-
-    public void Load()
+    public void Load(Action action)
     {
+        var workLoad = AsyncLoad ( ).GetAwaiter ( );
 
+        workLoad.OnCompleted ( ( ) =>
+        {
+            action?.Invoke ( );
+        } );
     }
 
-
-
-    protected override void Awake ( )
+    async Task AsyncLoad ()
     {
-        base.Awake ( );
-
-        if ( instance == this )
+        Func<bool> func = ( ) =>
         {
             CharacterTable = new CharacterTable ( characterTable );
             AbilityTable = new AbilityTable ( abilityTable );
             BuildingTable = new BuildingTable ( buildingTable );
-        }
-    }
+            return true;
+        };
 
+        isLoad = await Task.FromResult ( func() );
+    }
 }

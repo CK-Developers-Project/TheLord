@@ -8,6 +8,21 @@ public class BarrackBuilding : Building
 {
     [SerializeField] GameObject hologram = null;
 
+    public override void Load ( )
+    {
+        base.Load ( );
+
+        switch ( info.state )
+        {
+            case BuildingState.Empty:
+            {
+                spriteRenderer.enabled = false;
+                hologram.SetActive ( true );
+            }
+            break;
+        }
+    }
+
     protected override void OnEmpty ( )
     {
         //string noticeMsg = string.Format ( "{0}를 건설하시겠습니까?", msg );
@@ -57,12 +72,5 @@ public class BarrackBuilding : Building
     void Build()
     {
         info.state = BuildingState.Complete;
-    }
-
-
-    protected override void Start ( )
-    {
-        spriteRenderer.enabled = false;
-        hologram.SetActive ( true );
     }
 }
