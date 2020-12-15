@@ -17,6 +17,33 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0e80d29a34a228e4c9af33332df23e0e
   m_SerializeEntries:
+  - m_GUID: 87cd0af47dbdbc34c9e2e3cd7fca416e
+    m_Address: Assets/Addressables/Prefabs/Building/Shield Bearer Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 3566527901721967855, guid: 87cd0af47dbdbc34c9e2e3cd7fca416e,
+      type: 3}
+    m_TargetAsset: {fileID: 3566527901721967855, guid: 87cd0af47dbdbc34c9e2e3cd7fca416e,
+      type: 3}
+  - m_GUID: ee271cf13d719d04990683a5dbafefa6
+    m_Address: Assets/Addressables/Prefabs/Building/Priest Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2688430923794068437, guid: ee271cf13d719d04990683a5dbafefa6,
+      type: 3}
+    m_TargetAsset: {fileID: 2688430923794068437, guid: ee271cf13d719d04990683a5dbafefa6,
+      type: 3}
+  - m_GUID: e56a752175c3a3d4e96cc09cbe2bc597
+    m_Address: Assets/Addressables/Prefabs/Building/Gunner Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 4281961043735702557, guid: e56a752175c3a3d4e96cc09cbe2bc597,
+      type: 3}
+    m_TargetAsset: {fileID: 4281961043735702557, guid: e56a752175c3a3d4e96cc09cbe2bc597,
+      type: 3}
   - m_GUID: 1e62b59e87fa8464893764a105598ab8
     m_Address: Assets/Addressables/Prefabs/Building/Castle.prefab
     m_ReadOnly: 0
@@ -46,6 +73,114 @@ MonoBehaviour:
     m_MainAsset: {fileID: 6109699631889273911, guid: c5f08f889f4e02643be4485fcc5b88a8,
       type: 3}
     m_TargetAsset: {fileID: 6109699631889273911, guid: c5f08f889f4e02643be4485fcc5b88a8,
+      type: 3}
+  - m_GUID: 34a517efce0bc7d458a8189c9b41a097
+    m_Address: Assets/Addressables/Prefabs/Building/World Tree.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7670901527928636580, guid: 34a517efce0bc7d458a8189c9b41a097,
+      type: 3}
+    m_TargetAsset: {fileID: 7670901527928636580, guid: 34a517efce0bc7d458a8189c9b41a097,
+      type: 3}
+  - m_GUID: 537542ac6b28cb348ae83e9dc8d9f039
+    m_Address: Assets/Addressables/Prefabs/Building/Guardian Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 1923912931140171778, guid: 537542ac6b28cb348ae83e9dc8d9f039,
+      type: 3}
+    m_TargetAsset: {fileID: 1923912931140171778, guid: 537542ac6b28cb348ae83e9dc8d9f039,
+      type: 3}
+  - m_GUID: cf7d970d0567ae24d94e66ec5d32ecd7
+    m_Address: Assets/Addressables/Prefabs/Building/Spirit Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 1548016242267983544, guid: cf7d970d0567ae24d94e66ec5d32ecd7,
+      type: 3}
+    m_TargetAsset: {fileID: 1548016242267983544, guid: cf7d970d0567ae24d94e66ec5d32ecd7,
+      type: 3}
+  - m_GUID: cbc6da156bd7dec44a2f2caab07ea064
+    m_Address: Assets/Addressables/Prefabs/Building/Bard Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 3380877245305086543, guid: cbc6da156bd7dec44a2f2caab07ea064,
+      type: 3}
+    m_TargetAsset: {fileID: 3380877245305086543, guid: cbc6da156bd7dec44a2f2caab07ea064,
+      type: 3}
+  - m_GUID: 4a117999a03971b4394460f5589b7854
+    m_Address: Assets/Addressables/Prefabs/Building/Druid Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 3047315450268891420, guid: 4a117999a03971b4394460f5589b7854,
+      type: 3}
+    m_TargetAsset: {fileID: 3047315450268891420, guid: 4a117999a03971b4394460f5589b7854,
+      type: 3}
+  - m_GUID: f53a5953eabc65546b49f29f0e8a2f5f
+    m_Address: Assets/Addressables/Prefabs/Building/Elf Archer Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 3362585866971538030, guid: f53a5953eabc65546b49f29f0e8a2f5f,
+      type: 3}
+    m_TargetAsset: {fileID: 3362585866971538030, guid: f53a5953eabc65546b49f29f0e8a2f5f,
+      type: 3}
+  - m_GUID: 17e9e9e9214beb24084db06b8fcd898a
+    m_Address: Assets/Addressables/Prefabs/Building/Catacomb.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7648117627886849240, guid: 17e9e9e9214beb24084db06b8fcd898a,
+      type: 3}
+    m_TargetAsset: {fileID: 7648117627886849240, guid: 17e9e9e9214beb24084db06b8fcd898a,
+      type: 3}
+  - m_GUID: 744a9b14ffbb7424ca747a2a97ff2a8e
+    m_Address: Assets/Addressables/Prefabs/Building/Undead Warrior Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 6653803160721914960, guid: 744a9b14ffbb7424ca747a2a97ff2a8e,
+      type: 3}
+    m_TargetAsset: {fileID: 6653803160721914960, guid: 744a9b14ffbb7424ca747a2a97ff2a8e,
+      type: 3}
+  - m_GUID: 80aa9aab6b97f334099efa98353a9a0a
+    m_Address: Assets/Addressables/Prefabs/Building/Witch Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 611199254715163708, guid: 80aa9aab6b97f334099efa98353a9a0a,
+      type: 3}
+    m_TargetAsset: {fileID: 611199254715163708, guid: 80aa9aab6b97f334099efa98353a9a0a,
+      type: 3}
+  - m_GUID: 508b597b47a4d4f4aa5fc5ee3d2588d5
+    m_Address: Assets/Addressables/Prefabs/Building/Reaper Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2135226232110349745, guid: 508b597b47a4d4f4aa5fc5ee3d2588d5,
+      type: 3}
+    m_TargetAsset: {fileID: 2135226232110349745, guid: 508b597b47a4d4f4aa5fc5ee3d2588d5,
+      type: 3}
+  - m_GUID: 391c563dd1a11a144af67b366abc01c3
+    m_Address: Assets/Addressables/Prefabs/Building/Necromancer Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2654761774538145236, guid: 391c563dd1a11a144af67b366abc01c3,
+      type: 3}
+    m_TargetAsset: {fileID: 2654761774538145236, guid: 391c563dd1a11a144af67b366abc01c3,
+      type: 3}
+  - m_GUID: 5cb9c4f6b767b8245a1c110f1d42e283
+    m_Address: Assets/Addressables/Prefabs/Building/SoulKnight Training Center.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 4693848863410339176, guid: 5cb9c4f6b767b8245a1c110f1d42e283,
+      type: 3}
+    m_TargetAsset: {fileID: 4693848863410339176, guid: 5cb9c4f6b767b8245a1c110f1d42e283,
       type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}

@@ -139,10 +139,8 @@ MonoBehaviour:
     index: 901
     state: 0
     LV: 0
-    name: "\uC804\uC0AC \uD6C8\uB828\uC18C"
+    name: 
   hologram: {fileID: 8131013728397155367}
-  msg: "\uC804\uC0AC \uD6C8\uB828\uC18C"
-  price: 300
 --- !u!1 &1381421631908788860
 GameObject:
   m_ObjectHideFlags: 0
