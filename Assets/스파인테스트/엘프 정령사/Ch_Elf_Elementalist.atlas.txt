@@ -1,0 +1,104 @@
+
+Ch_Elf_Elementalist.png
+size: 1304,460
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_body
+  rotate: true
+  xy: 2, 10
+  size: 448, 442
+  orig: 448, 442
+  offset: 0, 0
+  index: -1
+Ch_body_arm_L
+  rotate: false
+  xy: 579, 15
+  size: 157, 97
+  orig: 285, 109
+  offset: 0, 12
+  index: -1
+Ch_body_arm_L2
+  rotate: true
+  xy: 1150, 108
+  size: 175, 151
+  orig: 177, 155
+  offset: 1, 1
+  index: -1
+Ch_body_arm_R
+  rotate: false
+  xy: 992, 61
+  size: 142, 136
+  orig: 155, 136
+  offset: 13, 0
+  index: -1
+Ch_body_arm_R2
+  rotate: true
+  xy: 933, 131
+  size: 66, 57
+  orig: 68, 60
+  offset: 1, 2
+  index: -1
+Ch_body_leg
+  rotate: true
+  xy: 1150, 285
+  size: 173, 152
+  orig: 184, 152
+  offset: 9, 0
+  index: -1
+Ch_body_leg_L
+  rotate: true
+  xy: 783, 120
+  size: 76, 148
+  orig: 79, 150
+  offset: 1, 1
+  index: -1
+Ch_body_leg_R
+  rotate: true
+  xy: 639, 116
+  size: 80, 142
+  orig: 85, 145
+  offset: 4, 2
+  index: -1
+Ch_body_tie
+  rotate: false
+  xy: 446, 9
+  size: 131, 103
+  orig: 132, 114
+  offset: 1, 11
+  index: -1
+Ch_effect1
+  rotate: false
+  xy: 446, 114
+  size: 191, 344
+  orig: 211, 347
+  offset: 17, 2
+  index: -1
+Ch_effect2
+  rotate: true
+  xy: 1136, 41
+  size: 65, 64
+  orig: 86, 206
+  offset: 1, 141
+  index: -1
+Ch_effect3
+  rotate: true
+  xy: 738, 2
+  size: 112, 234
+  orig: 144, 236
+  offset: 12, 1
+  index: -1
+Ch_head
+  rotate: true
+  xy: 639, 198
+  size: 260, 254
+  orig: 261, 255
+  offset: 1, 0
+  index: -1
+Ch_head2
+  rotate: true
+  xy: 895, 199
+  size: 259, 253
+  orig: 261, 255
+  offset: 1, 1
+  index: -1

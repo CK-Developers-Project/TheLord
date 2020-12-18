@@ -18,6 +18,13 @@ public class TableManager : MonoSingleton<TableManager>
 
     public bool isLoad = false; 
 
+
+    public void Record(Action<TableManager> action)
+    {
+        StartCoroutine ( RecordRunning ( action ) );
+    }
+    
+
     public void Load(Action action)
     {
         var workLoad = AsyncLoad ( ).GetAwaiter ( );
@@ -27,6 +34,14 @@ public class TableManager : MonoSingleton<TableManager>
             action?.Invoke ( );
         } );
     }
+
+
+    IEnumerator RecordRunning( Action<TableManager> action )
+    {
+        yield return new WaitUntil ( ( ) => isLoad );
+        action?.Invoke ( this );
+    }
+
 
     async Task AsyncLoad ()
     {

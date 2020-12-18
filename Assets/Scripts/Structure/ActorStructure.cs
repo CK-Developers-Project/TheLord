@@ -52,34 +52,13 @@ namespace Developers.Structure
         End
     }
 
-    [Serializable]
-    public class CharacterInfo
-    {
-        public int index;
-        public int price;
-        public string name;
-
-        public List<int> abilitys;
-
-        public int damage;
-        public int armor;
-        public int life;
-        public int speed;
-        public int attackspeed;
-        public int distance;
-
-        // TODO : 캐릭터 특성 (특성이 여러개일 가능성이 있다면 List인데...)
-    
-        //    
-    }
-
     public enum ActorStatus : int
     {
-        Damage,             // 피해량
-        Armor,              // 방어력
-        Life,               // 체력
+        Atk,             // 피해량
+        Def,              // 방어력
+        HP,               // 체력
         Speed,              // 이동속도
-        AattackSpeed,       // 공격 쿨타임
+        AtkCoolTime,       // 공격 쿨타임
         Distance,           // 공격 사정거리
         CastSpeed,          // 마법 시전 속도 *
         AbilityTime,        // 마법 재사용 시간 *
@@ -92,12 +71,12 @@ namespace Developers.Structure
         public ValueTable<T> Additional { get; private set; }
         public ValueTable<T> Multiplicative { get; private set; }
 
-        public Status ( int max ) => (Normal, Additional, Multiplicative)
+        public Status ( float max ) => (Normal, Additional, Multiplicative)
             = (new ValueTable<T> ( max ), new ValueTable<T> ( max ), new ValueTable<T> ( max ));
 
-        public int Get ( T type, bool normal = true, bool additional = false, bool multiplicative = false )
+        public float Get ( T type, bool normal = true, bool additional = false, bool multiplicative = false )
         {
-            int amount = 0;
+            float amount = 0;
             if ( normal )
             {
                 amount += this.Normal[type];

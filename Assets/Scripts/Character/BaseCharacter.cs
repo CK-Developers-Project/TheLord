@@ -5,7 +5,6 @@ using Developers.Structure.Data;
 public class BaseCharacter : MonoBehaviour, IActor
 {
     public CharacterData data;
-    public Developers.Structure.CharacterInfo info;
     public Status<ActorStatus> status = new Status<ActorStatus> ( (int)ActorStatus.End );
     public DamageCalculator damageCalculator = new DamageCalculator();
 
@@ -25,8 +24,18 @@ public class BaseCharacter : MonoBehaviour, IActor
 
     public void Load ( )
     {
-        info = data.GetInfo ( );
-        Caster = new AbilityCaster(this);
+        Caster = new AbilityCaster ( this );
+
+        status.Normal.Set ( ActorStatus.Atk, data.Atk );
+        status.Normal.Set ( ActorStatus.Def, data.Def );
+        status.Normal.Set ( ActorStatus.HP, data.HP );
+        status.Normal.Set ( ActorStatus.Speed, data.Speed );
+        status.Normal.Set ( ActorStatus.AtkCoolTime, data.AtkCooltime );
+        status.Normal.Set ( ActorStatus.Distance, data.Distance );
+        status.Normal.Set ( ActorStatus.CastSpeed, 1F );
+        status.Normal.Set ( ActorStatus.AbilityTime, 1F );
+
+        
     }
 
     public void OnSelect ( )

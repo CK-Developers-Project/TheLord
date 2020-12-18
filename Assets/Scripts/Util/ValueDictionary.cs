@@ -4,7 +4,7 @@ namespace Developers.Util
 {
     public class ValueTable<T>
     {
-        Dictionary<int, int> table = new Dictionary<int, int> ( );
+        Dictionary<int, float> table = new Dictionary<int, float> ( );
 
         static TValue To<TValue>(object value) { return (TValue)System.Convert.ChangeType ( value, typeof ( TValue ) ); }
 
@@ -16,7 +16,7 @@ namespace Developers.Util
             }
         }
 
-        public ValueTable (params int[] values)
+        public ValueTable (params float[] values)
         {
             for ( int i = 0; i < values.Length; ++i )
             {
@@ -24,13 +24,13 @@ namespace Developers.Util
             }
         }
         
-        public int Get ( T type )
+        public float Get ( T type )
         {
             int key = To<int> ( type );
             return table.ContainsKey ( key ) ? table[key] : -1;
         }
 
-        public void Set ( T type, int value )
+        public void Set ( T type, float value )
         {
             int key = To<int> ( type );
             if ( table.ContainsKey ( key ) )
@@ -43,7 +43,7 @@ namespace Developers.Util
             }
         }
 
-        public int this[T key] 
+        public float this[T key] 
         {
             get => Get ( key );
             set => Set ( key, value );
