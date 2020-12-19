@@ -11,14 +11,8 @@ public class Builder : MonoBehaviour
 
     public void Load()
     {
-         GameObject building = GameManager.Create<Building> ( new ActorRecord ( ActorType.Building, (int)buildingType ) );
-
-        if(building == null)
-        {
-            Debug.LogErrorFormat ( "{0} Type의 건물 생성에 실패하였습니다.", buildingType );
-            return;
-        }
-        Instantiate ( building, transform.position, Quaternion.identity );
+        var record = new ActorRecord ( ActorType.Building, (int)buildingType );
+        GameManager.Create<Building> ( record, transform.position, GameManager.Instance.LocalPlayer );
         Destroy ( gameObject );
     }
 

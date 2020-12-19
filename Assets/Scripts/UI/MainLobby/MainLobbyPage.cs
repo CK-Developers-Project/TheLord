@@ -1,24 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using Developers.Structure;
+using Developers.Structure.Data;
 using Developers.Util;
+using Developers.Table;
 using TMPro;
 
 public class MainLobbyPage : BasePage
 {
     public ResourceCanvas ResourceUI { get; set; }
-
     public TextMeshProUGUI Nickname;
 
 
     // 우선 테스트용
-    [SerializeField] GameObject Prefab_BarrackPopup = null;
+    [SerializeField] BuildingInfoPopup buildingInfoPopup = null;
+    [SerializeField] GameObject Prefab_purchasePopup = null;
+    //
 
-    public void OnBarrackInfo(BarrackBuilding barrack)
+    public void OnBarrackInfo(BuildingInfo info)
     {
-        GameObject obj = Instantiate ( Prefab_BarrackPopup, GameManager.Instance.GameMode.CurrentPage.transform );
-        BarrackPopup popup = obj.GetComponent<BarrackPopup> ( );
-        popup.barrack = barrack;
+        buildingInfoPopup.gameObject.SetActive ( true );
+        var buildingInfoSheet = TableManager.Instance.BuildingTable.BuildingInfoSheet;
+        var buildingInfoRecord = BaseTable.Get ( buildingInfoSheet, "index", (int)info.index );
+
+        var characterData = LoadManager.Instance.GetCharacterData ( (int)buildingInfoRecord["spawnCharacter"] );
+        var abilityData = LoadManager.Instance.GetAbilityData ( (int)buildingInfoRecord["showAbility"] );
+
+        buildingInfoPopup.SetTarget ( characterData, abilityData, info );
+    }
+
+    public void OnPurchaseInfo( string msg, string price, Action callback_Left, Action callback_Right )
+    {
+        GameObject obj = Instantiate ( Prefab_purchasePopup, transform );
+        PurchasePopup popup = obj.GetComponent<PurchasePopup> ( );
+        popup.OnMeesageBox ( msg, price, callback_Left, callback_Right );
         gameUIList.Add ( popup );
     }
 

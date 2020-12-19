@@ -10,17 +10,17 @@ public class CharacterAI : MonoBehaviour, IAIFactory
 
     public bool SetOrder ( AbilityOrder order )
     {
-        return pawn.Caster.OnStart ( order );
+        return pawn.caster.OnStart ( order );
     }
 
     public bool SetOrder ( AbilityOrder order, IActor target )
     {
-        return pawn.Caster.OnStart ( order, target );
+        return pawn.caster.OnStart ( order, target );
     }
 
     public bool SetOrder ( AbilityOrder order, Vector3 position )
     {
-        return pawn.Caster.OnStart ( order, position );
+        return pawn.caster.OnStart ( order, position );
     }
 
     private void Awake ( )

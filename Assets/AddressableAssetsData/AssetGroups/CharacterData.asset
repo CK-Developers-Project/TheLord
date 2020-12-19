@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CharacterData
+  m_EditorClassIdentifier: 
+  m_GroupName: CharacterData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9d12ca109d294874f8c48a6d47e7aeb6
+  m_SerializeEntries:
+  - m_GUID: 25f82e776ac573645b83d0bc736db563
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Elf Archer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 25f82e776ac573645b83d0bc736db563, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 25f82e776ac573645b83d0bc736db563, type: 2}
+  - m_GUID: 8aec08ad15bf6ae47913748346746d5c
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Elf Bard.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 8aec08ad15bf6ae47913748346746d5c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8aec08ad15bf6ae47913748346746d5c, type: 2}
+  - m_GUID: 7b1d810a3cf2ba844a4477e64c33f32a
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Elf Druid.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 7b1d810a3cf2ba844a4477e64c33f32a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 7b1d810a3cf2ba844a4477e64c33f32a, type: 2}
+  - m_GUID: 3b3ad45f01e6cf142891980bdb322dfc
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Elf Elementalist.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 3b3ad45f01e6cf142891980bdb322dfc, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 3b3ad45f01e6cf142891980bdb322dfc, type: 2}
+  - m_GUID: 125a4ae7d12c4c145ae801befb0da7a7
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Elf Guardian.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 125a4ae7d12c4c145ae801befb0da7a7, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 125a4ae7d12c4c145ae801befb0da7a7, type: 2}
+  - m_GUID: f14ffe663a9d68448b4a621a063bd528
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Human Archer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: f14ffe663a9d68448b4a621a063bd528, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f14ffe663a9d68448b4a621a063bd528, type: 2}
+  - m_GUID: eb20f63c027571e45b6bcc0b93870ec9
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Human Gunner.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: eb20f63c027571e45b6bcc0b93870ec9, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: eb20f63c027571e45b6bcc0b93870ec9, type: 2}
+  - m_GUID: 96e03d9414c359d4fa891d9ed4ea7096
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Human Priest.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 96e03d9414c359d4fa891d9ed4ea7096, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 96e03d9414c359d4fa891d9ed4ea7096, type: 2}
+  - m_GUID: 3d0235159c464824290801acfbd2c150
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Human ShieldBearer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 3d0235159c464824290801acfbd2c150, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 3d0235159c464824290801acfbd2c150, type: 2}
+  - m_GUID: 2798b51a2a01942409fec2a7ead91340
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Human Warrior.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 2798b51a2a01942409fec2a7ead91340, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2798b51a2a01942409fec2a7ead91340, type: 2}
+  - m_GUID: f1fa0a544d71f5d42b0c9aec466203f1
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/The Devil.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: f1fa0a544d71f5d42b0c9aec466203f1, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f1fa0a544d71f5d42b0c9aec466203f1, type: 2}
+  - m_GUID: c6c1cfb46aaf0554882ab89d5aa06b0a
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Undead Reaper.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: c6c1cfb46aaf0554882ab89d5aa06b0a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c6c1cfb46aaf0554882ab89d5aa06b0a, type: 2}
+  - m_GUID: 0bec305bd3286b647914a430ab9f9869
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Undead Necromancer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 0bec305bd3286b647914a430ab9f9869, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0bec305bd3286b647914a430ab9f9869, type: 2}
+  - m_GUID: dccacbe5591920b47b18936e38fb0df3
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Undead SoulKnight.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: dccacbe5591920b47b18936e38fb0df3, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: dccacbe5591920b47b18936e38fb0df3, type: 2}
+  - m_GUID: 01d459ebaf76a344fbeeb835378d4f8d
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Undead Warrior.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 01d459ebaf76a344fbeeb835378d4f8d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 01d459ebaf76a344fbeeb835378d4f8d, type: 2}
+  - m_GUID: 894ed199884b3334b94c4a608082a9de
+    m_Address: Assets/Addressables/ScriptableObjects/Characters/Undead Witch.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 894ed199884b3334b94c4a608082a9de, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 894ed199884b3334b94c4a608082a9de, type: 2}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7d4e135dbc6203d4280dd432b407c12f, type: 2}
+    - {fileID: 11400000, guid: 2dc4b04a4be5d2d40a82e4060de41850, type: 2}

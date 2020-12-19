@@ -307,8 +307,8 @@ GameObject:
   - component: {fileID: 1548016242267983546}
   - component: {fileID: 1548016242267983547}
   - component: {fileID: 6123526835157905155}
-  - component: {fileID: 455810357531482845}
   - component: {fileID: 8192024890853313594}
+  - component: {fileID: 338136222693483897}
   m_Layer: 0
   m_Name: Spirit Training Center
   m_TagString: Untagged
@@ -329,6 +329,7 @@ Transform:
   m_Children:
   - {fileID: 3646554677528240685}
   - {fileID: 3508058885013609076}
+  - {fileID: 3110763946945656927}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -392,14 +393,85 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
---- !u!61 &455810357531482845
-BoxCollider2D:
+  m_SortingOrder: 0
+--- !u!114 &8192024890853313594
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548016242267983544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199002ff2e278f84e9b458ddfd5a7880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info:
+    index: 601
+    state: 0
+    LV: 0
+    name: 
+  hologram: {fileID: 8711627433647949953}
+--- !u!50 &338136222693483897
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548016242267983544}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!1 &3691103461216638824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3110763946945656927}
+  - component: {fileID: 9038943062011313410}
+  - component: {fileID: 7119462948058054290}
+  m_Layer: 9
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3110763946945656927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691103461216638824}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1548016242267983546}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &9038943062011313410
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691103461216638824}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -419,24 +491,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.72, y: 5.844474}
   m_EdgeRadius: 0
---- !u!114 &8192024890853313594
+--- !u!114 &7119462948058054290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548016242267983544}
+  m_GameObject: {fileID: 3691103461216638824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 199002ff2e278f84e9b458ddfd5a7880, type: 3}
+  m_Script: {fileID: 11500000, guid: 90fb3fd434c3dcc4881a2ab64be4f04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    index: 601
-    state: 0
-    LV: 0
-    name: 
-  hologram: {fileID: 8711627433647949953}
+  Colliders: []
 --- !u!1 &8711627433647949953
 GameObject:
   m_ObjectHideFlags: 0

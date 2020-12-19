@@ -33,8 +33,8 @@ public class InputManager : MonoSingleton<InputManager>
         }
     }
 
-    public delegate void FTouchEvent<T> ( T target ) where T : IActor;
-    public event FTouchEvent<IActor> TouchEvent;
+    public delegate void FTouchEvent ( Transform target );
+    public event FTouchEvent TouchEvent;
 
     public Vector2 StartPoint { get; set; }
     public Vector2 Position { get; private set; }
@@ -80,16 +80,16 @@ public class InputManager : MonoSingleton<InputManager>
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, layerMask );
         if ( hit )
         {
-            IActor actor = hit.transform.GetComponent<IActor> ( );
-            if ( actor != null )
-            {
-                TouchEvent ( actor );
-            }
+            TouchEvent ( hit.transform );
         }
     }
 
     private void InputMouseStarted ( InputAction.CallbackContext obj )
     {
+        if ( Impossible )
+        {
+            return;
+        }
         isStarted = true;
         StartPoint = new Vector2 ( Position.x, Position.y );
     }
@@ -107,11 +107,7 @@ public class InputManager : MonoSingleton<InputManager>
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, layerMask );
         if ( hit )
         {
-            IActor actor = hit.transform.GetComponent<IActor> ( );
-            if ( actor != null )
-            {
-                TouchEvent ( actor );
-            }
+            TouchEvent ( hit.transform );
         }
     }
 

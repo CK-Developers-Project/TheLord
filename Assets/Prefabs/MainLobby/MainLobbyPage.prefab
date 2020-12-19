@@ -2509,7 +2509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nickname: {fileID: 5001215587881143752}
-  Prefab_BarrackPopup: {fileID: 5639795457472149977, guid: 979b463bdde3e174792ae72c05bd70df,
+  buildingInfoPopup: {fileID: 0}
+  Prefab_purchasePopup: {fileID: 6921438119564644656, guid: dbff017ddba1a3d4888b8475f52de6dd,
     type: 3}
 --- !u!1 &5001215587819982219
 GameObject:

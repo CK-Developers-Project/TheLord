@@ -45,6 +45,15 @@ namespace Developers.Table
             return result;
         }
 
+        public static List<T> ListParsing<T> ( List<object> record )
+        {
+            List<T> ability = new List<T> ( );
+            foreach ( T i in record )
+            {
+                ability.Add ( i );
+            }
+            return ability;
+        }
 
         Dictionary<string, List<Dictionary<string, object>>> Read(TextAsset asset)
         {
@@ -98,7 +107,6 @@ namespace Developers.Table
                             value = value.TrimStart(_trim_chars).TrimEnd(_trim_chars).Replace("\\", "");
                             value = value.Replace("<br>", "\n");
                             value = value.Replace("<c>", ",");
-
                             entry.Add(header[j], Parsing(types[j], value).Invoke());
                         }
                     }
@@ -107,7 +115,8 @@ namespace Developers.Table
             }
             catch (Exception e)
             {
-                Debug.LogError(e.Message);
+                Debug.LogError ( e.Message );
+                Debug.LogError ( e.StackTrace );
             }
             return table;
         }

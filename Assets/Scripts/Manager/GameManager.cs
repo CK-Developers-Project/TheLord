@@ -91,9 +91,12 @@ public class GameManager : MonoSingleton<GameManager>
         yield break;
     }
 
-    public static GameObject Create<T> ( ActorRecord actorRecord ) where T : IActor
+    public static GameObject Create<T> ( ActorRecord actorRecord, Vector3 position, GamePlayer player ) where T : IActor
     {
         GameObject obj = MonoSingleton<LoadManager>.Instance.GetActor<T> ( actorRecord );
+        GameObject newObj = Instantiate ( obj, position, Quaternion.identity );
+        T com = newObj.GetComponent<T> ( );
+        com.Owner = player;
         return obj;
     }
 

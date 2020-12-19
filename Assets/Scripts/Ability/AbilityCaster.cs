@@ -3,24 +3,16 @@ using System.Collections.Generic;
 using Developers.Structure;
 using System;
 
+[Serializable]
 public class AbilityCaster
 {
-
-    List<BaseAbility> abilitys = new List<BaseAbility>();
-
-
-    public AbilityCaster(BaseCharacter character)
-    {
-        
-    }
-
-    public AbilityCaster(Building building)
-    {
-
-    }
+    [SerializeField] List<AbilityInfo> abilitys = new List<AbilityInfo> ( );
 
 
-    public void Add(BaseAbility ability)
+    public AbilityOrder order = AbilityOrder.Idle;
+    public BaseCharacter Owner { get; set; }
+
+    public void Add(AbilityInfo ability)
     {
         if (!abilitys.Contains(ability))
         {
@@ -28,7 +20,7 @@ public class AbilityCaster
         }
     }
 
-    public void Remove(BaseAbility ability)
+    public void Remove(AbilityInfo ability)
     {
         if(abilitys.Contains(ability))
         {
@@ -36,12 +28,12 @@ public class AbilityCaster
         }
     }
 
-    public BaseAbility Get(int index)
+    public AbilityInfo Get(int index)
     {
         return abilitys.Count >= index || index < 0 ? null : abilitys[index];
     }
 
-    public BaseAbility Get(Type type)
+    public AbilityInfo Get(Type type)
     {
         return abilitys.Find(x => x.GetType().Equals(type));
     }
@@ -58,34 +50,52 @@ public class AbilityCaster
     
     public bool OnStart(AbilityOrder order)
     {
-        BaseAbility ability = abilitys.Find(x => x.Order == order);
+        AbilityInfo ability = abilitys.Find(x => x.Order == order);
         if(ability == null)
         {
             return false;
         }
+        
+        if(ability.isUse || ability.cooltime > 0)
+        {
+            return false;
+        }
 
-        return ability.OnStart();
+        ability.isUse = ability.OnStart ( Owner );
+        return ability.isUse;
     }
 
     public bool OnStart(AbilityOrder order, Vector3 position)
     {
-        BaseAbility ability = abilitys.Find(x => x.Order == order);
+        AbilityInfo ability = abilitys.Find(x => x.Order == order);
         if (ability == null)
         {
             return false;
         }
 
-        return ability.OnStart(position);
+        if ( ability.isUse || ability.cooltime > 0 )
+        {
+            return false;
+        }
+
+        ability.isUse = ability.OnStart ( Owner, position );
+        return ability.isUse;
     }
 
     public bool OnStart(AbilityOrder order, IActor target)
     {
-        BaseAbility ability = abilitys.Find(x => x.Order == order);
+        AbilityInfo ability = abilitys.Find(x => x.Order == order);
         if (ability == null)
         {
             return false;
         }
 
-        return ability.OnStart(default, target);
+        if ( ability.isUse || ability.cooltime > 0 )
+        {
+            return false;
+        }
+
+        ability.isUse = ability.OnStart ( Owner, target );
+        return ability.isUse;
     }
 }   

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Developers.Util;
 using Developers.Structure;
+using Developers.Structure.Data;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class LoadManager : MonoSingleton<LoadManager>
     {
         Actor,          // Prefab
         UI,             // Prefab
+        Character,
+        Ability,        // ScriptableObject
     }
 
     private class ResourceComplete 
@@ -35,7 +38,6 @@ public class LoadManager : MonoSingleton<LoadManager>
             int index;
             int type;
             int key;
-
             foreach ( var obj in handle.Result )
             {
                 switch ( obj )
@@ -54,24 +56,26 @@ public class LoadManager : MonoSingleton<LoadManager>
                             index = (int)LoadType.Actor * Multiply_Index;
                             type = GetActor ( gameObject );
                             key = index + type;
-                            if ( !hashtable.ContainsKey ( key ) )
-                            {
-                                hashtable.Add ( key, new List<Object> ( ) );
-                            }
-                            hashtable[key].Add ( gameObject );
+                            Add ( key, gameObject );
                         }
                         #endregion
                         #region GameUI
                         else if ( gameObject.GetComponent<IGameUI> ( ) != null )
                         {
                             key = (int)LoadType.UI * Multiply_Index;
-                            if(!hashtable.ContainsKey( key ) )
-                            {
-                                hashtable.Add ( key, new List<Object> ( ) );
-                            }
-                            hashtable[key].Add ( gameObject );
+                            Add ( key, gameObject );
                         }
                         #endregion
+                        break;
+
+                    case CharacterData character:
+                        key = (int)LoadType.Character * Multiply_Index;
+                        Add ( key, character );
+                        break;
+
+                    case AbilityData ability:
+                        key = (int)LoadType.Ability * Multiply_Index;
+                        Add ( key, ability );
                         break;
                 }
             }
@@ -79,7 +83,7 @@ public class LoadManager : MonoSingleton<LoadManager>
             bComplete = true;
         }
 
-        private int GetActor(GameObject gameObject)
+        int GetActor(GameObject gameObject)
         {
             if ( gameObject.GetComponent<BaseCharacter> ( ) != null )
             {
@@ -90,6 +94,15 @@ public class LoadManager : MonoSingleton<LoadManager>
                 return (int)ActorType.Building * Multiply_Type;
             }
             return 0;
+        }
+
+        void Add(int key, Object obj)
+        {
+            if(!hashtable.ContainsKey(key))
+            {
+                hashtable.Add ( key, new List<Object> ( ) );
+            }
+            hashtable[key].Add ( obj );
         }
     }
 
@@ -104,8 +117,6 @@ public class LoadManager : MonoSingleton<LoadManager>
     [SerializeField] AssetLabelReference coreLabel = null;
 
     public List<Object> Core { get => core; }
-
-
 
 
     public void Initialize()
@@ -196,6 +207,32 @@ public class LoadManager : MonoSingleton<LoadManager>
         return null;
     }
 
+    public CharacterData GetCharacterData(int index)
+    {
+        List<Object> CharacterList = hashtable[(int)LoadType.Character * Multiply_Index];
+        foreach ( CharacterData character in CharacterList )
+        {
+            if ( character.index == index )
+            {
+                return character;
+            }
+        }
+        return null;
+    }
+
+
+    public AbilityData GetAbilityData(int index)
+    {
+        List<Object> abilityList = hashtable[(int)LoadType.Ability * Multiply_Index];
+        foreach(AbilityData ability in abilityList)
+        {
+            if(ability.index == index)
+            {
+                return ability;
+            }
+        }
+        return null;
+    }
 
     public GameObject Get(System.Type type)
     {
@@ -217,20 +254,13 @@ public class LoadManager : MonoSingleton<LoadManager>
         {
             while ( works.Count > 0 )
             {
-                bool result = false;
-                foreach(var work in works)
+                if ( works[0].bComplete )
                 {
-                    if(!work.bComplete) break;
-                    result = true;
+                    works.RemoveAt ( 0 );
                 }
-
-                if(result)
-                {
-                    yield return StartCoroutine( GameManager.Instance.GameMode.OnStart ( ) );
-                }
-
                 yield return null;
             }
+            StartCoroutine ( GameManager.Instance.GameMode.OnStart ( ) );
             yield break;
         }
 

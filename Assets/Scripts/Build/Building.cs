@@ -13,9 +13,11 @@ public class Building : MonoBehaviour, IActor
 
     public BuildingInfo info;
 
+    public GamePlayer Owner { get; set; }
     public int Index { get => (int)info.index; }
-    public AbilityCaster Caster { get; set; }
     public bool Synchronized { get; set; }
+    public bool Initialized { get; set; }
+    public bool Anim_Event { get; set; }
 
     public void BuildUp(TimeSpan timeSpan, Action callback)
     {
@@ -29,6 +31,7 @@ public class Building : MonoBehaviour, IActor
         var record = BaseTable.Get ( sheet, "index", (int)info.index );
 
         info.name = (string)record["name"];
+        Initialized = true;
     }
 
     public virtual void Load ( ) 
@@ -81,7 +84,7 @@ public class Building : MonoBehaviour, IActor
     protected virtual void OnComplete ( ) { }
     protected virtual void OnBuild()
     {
-
+        info.state = BuildingState.Work;
     }
 
     protected virtual void Awake ( )
@@ -89,12 +92,12 @@ public class Building : MonoBehaviour, IActor
         spriteRenderer = GetComponent<SpriteRenderer> ( );
         workTimer = GetComponentInChildren<WorkTimer> ( true );
 
-        Caster = new AbilityCaster ( this );
-        
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );
 
         Synchronized = false;
+        Initialized = false;
+        Anim_Event = false;
     }
 
     IEnumerator Start()
@@ -105,7 +108,12 @@ public class Building : MonoBehaviour, IActor
 
     void LateUpdate()
     {
-        if( GameManager.Instance.IsSynchronized && !Synchronized )
+        if ( !Initialized )
+        {
+            return;
+        }
+
+        if ( GameManager.Instance.IsSynchronized && !Synchronized )
         {
             Load ( );
         }

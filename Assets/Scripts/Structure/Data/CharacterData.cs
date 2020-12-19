@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Developers.Table;
+using Spine.Unity;
 
 namespace Developers.Structure.Data
 {
-    [CreateAssetMenu(fileName = "CharacterData", menuName = "ScriptableObjects/CharacterData")]
+    using Table;
+
+    [CreateAssetMenu (fileName = "CharacterData", menuName = "ScriptableObjects/CharacterData")]
     public class CharacterData : ScriptableObject
     {
         public int index;
         public Sprite illust;
+        public SkeletonDataAsset asset;
+
+        public Race Race {
+            get; private set;
+        }
 
         public string Name {
             get; private set;
@@ -49,27 +56,29 @@ namespace Developers.Structure.Data
         public bool isLoad = false;
 
 
-        private void Load ( TableManager table )
+        void Load ( TableManager table )
         {
             var characterInfoSheet = table.CharacterTable.CharacterInfoSheet;
             var record = BaseTable.Get ( characterInfoSheet, "index", index );
 
+            Race = (Race)( (int)record["race"] );
             Name = (string)record["name"];
-            Cost = (int)record["name"];
-            Ability = (List<int>)record["name"];
-            Atk = (float)record["name"];
-            Def = (float)record["name"];
-            HP = (float)record["name"];
-            Speed = (float)record["name"];
-            AtkCooltime = (float)record["name"];
-            Distance = (float)record["name"];
+            Cost = (int)record["cost"];
+            Ability = BaseTable.ListParsing<int> ( (List<object>)record["ability"] );
+            Atk = (float)record["atk"];
+            Def = (float)record["def"];
+            HP = (float)record["hp"];
+            Speed = (float)record["speed"];
+            AtkCooltime = (float)record["atkCooltime"];
+            Distance = (float)record["distance"];
 
             isLoad = true;
         }
 
 
-        private void Awake ( )
+        void Awake ( )
         {
+            isLoad = false;
             TableManager.Instance.Record ( Load );
         }
     }

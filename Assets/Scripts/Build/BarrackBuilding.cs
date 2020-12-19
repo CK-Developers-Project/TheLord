@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Developers.Util;
 using Developers.Structure;
+using Developers.Table;
 
 public class BarrackBuilding : Building
 {
@@ -25,15 +26,26 @@ public class BarrackBuilding : Building
 
     protected override void OnEmpty ( )
     {
-        //string noticeMsg = string.Format ( "{0}를 건설하시겠습니까?", msg );
-        //string leftMsg = string.Format("네\n-{0}", price);
-        //BasePage.OnMessageBox ( noticeMsg, true, BuildOK, leftMsg, true, null, "아니요" );
+        MainLobbyPage page = GameManager.Instance.GameMode.CurrentPage as MainLobbyPage;
+        if ( page == null )
+        {
+            return;
+        }
+
+        var sheet = TableManager.Instance.BuildingTable.BuildingInfoSheet;
+        var record = BaseTable.Get ( sheet, "index", (int)info.index );
+
+        string noticeMsg = string.Format ( "{0}를 건설하시겠습니까?", info.name );
+        BigInteger price = new BigInteger ( (int)record["cost"] );
+
+        page.OnPurchaseInfo ( noticeMsg, Utility.Ordinal ( price ), BuildOK, null );
+        page.OnUpdate ( );
     }
 
     protected override void OnWork ( )
     {
-        //string noticeMsg = string.Format ( "아직 {0}가 지어지지않았습니다.", msg );
-        //BasePage.OnMessageBox ( noticeMsg, true, null, "확인" );
+        string noticeMsg = string.Format ( "아직 {0}가 지어지지않았습니다.", info.name );
+        BasePage.OnMessageBox ( noticeMsg, true, null, "확인" );
     }
 
     protected override void OnComplete ( )
@@ -43,12 +55,17 @@ public class BarrackBuilding : Building
         {
             return;
         }
-        page.OnBarrackInfo ( this );
+
+        page.OnBarrackInfo ( info );
         page.OnUpdate ( );
     }
 
     void BuildOK()
     {
+        info.state = BuildingState.Complete;
+        spriteRenderer.enabled = true;
+        hologram.SetActive ( false );
+
         /*
         if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold(ResourceType.Gold) >= price)
         {
@@ -69,8 +86,9 @@ public class BarrackBuilding : Building
         */
     }
 
-    void Build()
+    protected override void OnBuild()
     {
-        info.state = BuildingState.Complete;
+        base.OnBuild ( );
+
     }
 }

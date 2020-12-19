@@ -54,9 +54,14 @@ public class MainLobbyGameMode : BaseGameMode
     }
 
 
-    void TouchEvent ( IActor target )
+    void TouchEvent ( Transform target )
     {
-        target.OnSelect ( );
+        var actor = target.GetComponent<IActor> ( );
+        if(actor == null)
+        {
+            return;
+        }
+        actor.OnSelect ( );
     }
 
     public override void RegisterInput ( )
@@ -66,7 +71,7 @@ public class MainLobbyGameMode : BaseGameMode
         {
             return;
         }
-        InputManager.Instance.layerMask = Physics2D.DefaultRaycastLayers;
+        InputManager.Instance.layerMask = GameLayerHelper.Layer ( GameLayer.Actor );
         InputManager.Instance.TouchEvent += TouchEvent;
         manager.Main.Enable ( );
     }

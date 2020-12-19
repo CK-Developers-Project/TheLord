@@ -71,7 +71,7 @@ namespace Developers.Structure
         public ValueTable<T> Additional { get; private set; }
         public ValueTable<T> Multiplicative { get; private set; }
 
-        public Status ( float max ) => (Normal, Additional, Multiplicative)
+        public Status ( int max ) => (Normal, Additional, Multiplicative)
             = (new ValueTable<T> ( max ), new ValueTable<T> ( max ), new ValueTable<T> ( max ));
 
         public float Get ( T type, bool normal = true, bool additional = false, bool multiplicative = false )

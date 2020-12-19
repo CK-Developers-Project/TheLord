@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AbilityData
+  m_EditorClassIdentifier: 
+  m_GroupName: AbilityData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6cd708ce7ab5c254ca44302199b6579a
+  m_SerializeEntries:
+  - m_GUID: 84bcb7a2f85c0604290a13a7d89f39e3
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/WanderAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 427764e20bb7b5a408496df95fb2ec72
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/StopAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 302a75f05874e3d4ba13c7377c81907e
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/SmashAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a1489e70193034c4facc0147fda28716
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/ProtectAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: fab6687c345cc0e47a3e402843e148ec
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/MoveAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 29bab91bc44c8ff4296e39a1041e2c30
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/BossSkillAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 416fc430357df004495c03632c31ecd2
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/BossAttackAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a171a945e99a8bc44acec96e8caf8128
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/BlessingAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6fadc9b9609e81840b682eb30103e3c1
+    m_Address: Assets/Addressables/ScriptableObjects/Abilitys/AttackAbilityData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 67e86a8311fffb84bbab8131062c2bd2, type: 2}
+    - {fileID: 11400000, guid: cbd6ff18e505ef34a946a873b02172ec, type: 2}

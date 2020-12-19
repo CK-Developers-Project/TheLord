@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Character
+  m_EditorClassIdentifier: 
+  m_GroupName: Character
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 83cb1c28fcf606a4eaba62b57c05cc1a
+  m_SerializeEntries:
+  - m_GUID: f63b3cfdac335234b9e5926956306ddc
+    m_Address: Assets/Addressables/Prefabs/Character/Human Archer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7544308528779835326, guid: f63b3cfdac335234b9e5926956306ddc,
+      type: 3}
+    m_TargetAsset: {fileID: 7544308528779835326, guid: f63b3cfdac335234b9e5926956306ddc,
+      type: 3}
+  - m_GUID: 2d1205243330e6c478b99bc1426bbae6
+    m_Address: Assets/Addressables/Prefabs/Character/Human Gunner.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 5061235364164766549, guid: 2d1205243330e6c478b99bc1426bbae6,
+      type: 3}
+    m_TargetAsset: {fileID: 5061235364164766549, guid: 2d1205243330e6c478b99bc1426bbae6,
+      type: 3}
+  - m_GUID: cf93448a52f5a614e8bff53c9c92eec7
+    m_Address: Assets/Addressables/Prefabs/Character/Human Priest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 67129384165916292, guid: cf93448a52f5a614e8bff53c9c92eec7,
+      type: 3}
+    m_TargetAsset: {fileID: 67129384165916292, guid: cf93448a52f5a614e8bff53c9c92eec7,
+      type: 3}
+  - m_GUID: a0410dca618ac7f4d8e9a195ca9e81e7
+    m_Address: Assets/Addressables/Prefabs/Character/Human ShieldBearer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 6335499877985205532, guid: a0410dca618ac7f4d8e9a195ca9e81e7,
+      type: 3}
+    m_TargetAsset: {fileID: 6335499877985205532, guid: a0410dca618ac7f4d8e9a195ca9e81e7,
+      type: 3}
+  - m_GUID: c58b0adb61a782a4db9915c6f9bee362
+    m_Address: Assets/Addressables/Prefabs/Character/Human Warrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2539203839984482461, guid: c58b0adb61a782a4db9915c6f9bee362,
+      type: 3}
+    m_TargetAsset: {fileID: 2539203839984482461, guid: c58b0adb61a782a4db9915c6f9bee362,
+      type: 3}
+  - m_GUID: e7b22e5cd8bcc9242a8352ca6d72f6bc
+    m_Address: Assets/Addressables/Prefabs/Character/Elf Archer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7271119711695816975, guid: e7b22e5cd8bcc9242a8352ca6d72f6bc,
+      type: 3}
+    m_TargetAsset: {fileID: 7271119711695816975, guid: e7b22e5cd8bcc9242a8352ca6d72f6bc,
+      type: 3}
+  - m_GUID: 6b78b53e61efe194ba503ce326571306
+    m_Address: Assets/Addressables/Prefabs/Character/Elf Bard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 1032961275162520167, guid: 6b78b53e61efe194ba503ce326571306,
+      type: 3}
+    m_TargetAsset: {fileID: 1032961275162520167, guid: 6b78b53e61efe194ba503ce326571306,
+      type: 3}
+  - m_GUID: 7a0bf4ff1f20903459dece320316fc99
+    m_Address: Assets/Addressables/Prefabs/Character/Elf Druid.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7247897230883679551, guid: 7a0bf4ff1f20903459dece320316fc99,
+      type: 3}
+    m_TargetAsset: {fileID: 7247897230883679551, guid: 7a0bf4ff1f20903459dece320316fc99,
+      type: 3}
+  - m_GUID: 6238949c71996b84fa53d50a2d47e660
+    m_Address: Assets/Addressables/Prefabs/Character/Elf Elementalist.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 9030283531107771217, guid: 6238949c71996b84fa53d50a2d47e660,
+      type: 3}
+    m_TargetAsset: {fileID: 9030283531107771217, guid: 6238949c71996b84fa53d50a2d47e660,
+      type: 3}
+  - m_GUID: cdf26b68d64f0fd45a30ce5ee6335e12
+    m_Address: Assets/Addressables/Prefabs/Character/Elf Guardian.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 8967769771607577352, guid: cdf26b68d64f0fd45a30ce5ee6335e12,
+      type: 3}
+    m_TargetAsset: {fileID: 8967769771607577352, guid: cdf26b68d64f0fd45a30ce5ee6335e12,
+      type: 3}
+  - m_GUID: 61ad4ce46e4cf45439a120f0605fa5c3
+    m_Address: Assets/Addressables/Prefabs/Character/Undead Necromancer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7199387011696401318, guid: 61ad4ce46e4cf45439a120f0605fa5c3,
+      type: 3}
+    m_TargetAsset: {fileID: 7199387011696401318, guid: 61ad4ce46e4cf45439a120f0605fa5c3,
+      type: 3}
+  - m_GUID: 5ca16b2fae199dd42b669df119d76879
+    m_Address: Assets/Addressables/Prefabs/Character/Undead Reaper.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 8550369336749674359, guid: 5ca16b2fae199dd42b669df119d76879,
+      type: 3}
+    m_TargetAsset: {fileID: 8550369336749674359, guid: 5ca16b2fae199dd42b669df119d76879,
+      type: 3}
+  - m_GUID: 1dc5e13382ea72341a089580260b57a9
+    m_Address: Assets/Addressables/Prefabs/Character/Undead SoulKnight.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2588640405633955470, guid: 1dc5e13382ea72341a089580260b57a9,
+      type: 3}
+    m_TargetAsset: {fileID: 2588640405633955470, guid: 1dc5e13382ea72341a089580260b57a9,
+      type: 3}
+  - m_GUID: ea3e36c34b0d01b499e4a6c7456460da
+    m_Address: Assets/Addressables/Prefabs/Character/Undead Warrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2003416493097208556, guid: ea3e36c34b0d01b499e4a6c7456460da,
+      type: 3}
+    m_TargetAsset: {fileID: 2003416493097208556, guid: ea3e36c34b0d01b499e4a6c7456460da,
+      type: 3}
+  - m_GUID: cccd056c726ca98448461b8f7c1bc41d
+    m_Address: Assets/Addressables/Prefabs/Character/Undead Witch.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 6482566183123605848, guid: cccd056c726ca98448461b8f7c1bc41d,
+      type: 3}
+    m_TargetAsset: {fileID: 6482566183123605848, guid: cccd056c726ca98448461b8f7c1bc41d,
+      type: 3}
+  - m_GUID: ed1a1effbf02dfc4ea7200a8a26f404c
+    m_Address: Assets/Addressables/Prefabs/Character/The Devil.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7907495514140005481, guid: ed1a1effbf02dfc4ea7200a8a26f404c,
+      type: 3}
+    m_TargetAsset: {fileID: 7907495514140005481, guid: ed1a1effbf02dfc4ea7200a8a26f404c,
+      type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 18b05af20b8143e4fa76e2f1c7ebbec8, type: 2}
+    - {fileID: 11400000, guid: 47efffa1438bcaa48b702490d1c7334e, type: 2}
