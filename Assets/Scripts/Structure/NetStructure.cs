@@ -20,8 +20,8 @@ namespace Developers.Structure
         RequestResource,    // 리소스 갱신 요청
 
         // BuildingHandler
-        BuildingClick,  // 빌딩 클릭
-
+        BuildingClick,      // 건물 클릭 처리 요청
+        BuildingConfirm,    // 건물 확인 요청
     }
 
     public enum EventCode : byte

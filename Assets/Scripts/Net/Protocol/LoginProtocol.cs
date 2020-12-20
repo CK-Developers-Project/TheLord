@@ -13,13 +13,13 @@ namespace Developers.Net.Protocol
 
         public LoginRequest ( string id, string password ) => (this.id, this.password) = (id, password);
 
-        public override void SendPacket ( bool isWait = false )
+        public override void SendPacket ( bool isWait = false, bool reliable = true )
         {
             base.SendPacket ( isWait );
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.id = id;
             userData.password = password;
-            Send ( OperationCode.Login, BinSerializer.ConvertPacket ( userData ), true );
+            Send ( OperationCode.Login, BinSerializer.ConvertPacket ( userData ) );
             Debug.Log ( "[LoginRequest]" );
         }
     }
@@ -31,23 +31,23 @@ namespace Developers.Net.Protocol
 
         public UserResistrationRequest ( string nickname, int race ) => (this.nickname, this.race) = (nickname, race);
 
-        public override void SendPacket ( bool isWait = false )
+        public override void SendPacket ( bool isWait = false, bool reliable = true )
         {
             base.SendPacket ( isWait );
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.nickname = nickname;
             userData.race = race;
-            Send ( OperationCode.UserResistration, BinSerializer.ConvertPacket ( userData ), true );
+            Send ( OperationCode.UserResistration, BinSerializer.ConvertPacket ( userData ) );
             Debug.Log ( "[UserResistrationRequest]" );
         }
     }
 
     public class LobbyEnterRequest : BaseProtocol
     {
-        public override void SendPacket ( bool isWait = true )
+        public override void SendPacket ( bool isWait = true, bool reliable = true )
         {
             base.SendPacket ( isWait );
-            Send ( OperationCode.LobbyEnter, null, true );
+            Send ( OperationCode.LobbyEnter, null );
             Debug.Log ( "[LobbyEnterRequest]" );
         }
     }

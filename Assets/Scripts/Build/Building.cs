@@ -19,10 +19,10 @@ public class Building : MonoBehaviour, IActor
     public bool Initialized { get; set; }
     public bool Anim_Event { get; set; }
 
-    public void BuildUp(TimeSpan timeSpan, Action callback)
+    public void BuildUp ( DateTime targetTime )
     {
         info.state = BuildingState.Work;
-        workTimer.Run ( timeSpan, callback );
+        workTimer.Run ( targetTime );
     }
 
     public virtual void Initialize ( )
@@ -56,7 +56,7 @@ public class Building : MonoBehaviour, IActor
         }
         else if( buildRemaineTime.Ticks > 0)
         {
-            BuildUp ( buildRemaineTime, OnBuild );
+            BuildUp ( info.workTime );
         }
         else
         {
@@ -82,15 +82,18 @@ public class Building : MonoBehaviour, IActor
     protected virtual void OnEmpty ( ) { }
     protected virtual void OnWork ( ) { }
     protected virtual void OnComplete ( ) { }
-    protected virtual void OnBuild()
+
+    public virtual void OnBuild()
     {
         info.state = BuildingState.Work;
     }
+    
 
     protected virtual void Awake ( )
     {
         spriteRenderer = GetComponent<SpriteRenderer> ( );
         workTimer = GetComponentInChildren<WorkTimer> ( true );
+        workTimer.gameObject.SetActive ( false );
 
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );

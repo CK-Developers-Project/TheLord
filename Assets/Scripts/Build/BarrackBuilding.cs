@@ -4,6 +4,7 @@ using UnityEngine;
 using Developers.Util;
 using Developers.Structure;
 using Developers.Table;
+using Developers.Net.Protocol;
 
 public class BarrackBuilding : Building
 {
@@ -62,9 +63,12 @@ public class BarrackBuilding : Building
 
     void BuildOK()
     {
-        info.state = BuildingState.Complete;
-        spriteRenderer.enabled = true;
-        hologram.SetActive ( false );
+        BuildingClickRequest packet = new BuildingClickRequest ( );
+        packet.index = (int)info.index;
+        packet.clickAction = ClickAction.BuildingBuild;
+        packet.SendPacket ( true );
+
+        
 
         /*
         if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold(ResourceType.Gold) >= price)
@@ -86,9 +90,11 @@ public class BarrackBuilding : Building
         */
     }
 
-    protected override void OnBuild()
+    public override void OnBuild()
     {
         base.OnBuild ( );
-
+        info.state = BuildingState.Complete;
+        spriteRenderer.enabled = true;
+        hologram.SetActive ( false );
     }
 }

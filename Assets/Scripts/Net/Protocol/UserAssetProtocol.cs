@@ -7,10 +7,10 @@ namespace Developers.Net.Protocol
 
     public class ResourceRequest : BaseProtocol
     {
-        public override void SendPacket ( bool isWait = false )
+        public override void SendPacket ( bool isWait = false, bool reliable = true )
         {
             base.SendPacket ( isWait );
-            Send ( OperationCode.RequestResource, null, true );
+            Send ( OperationCode.RequestResource, null );
             Debug.Log ( "[ResourceRequest] Send" );
         }
     }

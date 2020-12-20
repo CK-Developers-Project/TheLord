@@ -7,12 +7,15 @@ namespace Developers.Net.Protocol
 
     public abstract class BaseProtocol
     {
-        public virtual void SendPacket ( bool isWait = false )
+        protected bool reliable;
+
+        public virtual void SendPacket ( bool isWait = false, bool reliable = true )
         {
+            this.reliable = reliable;
             if ( isWait ) TransitionManager.Instance.OnWaitSigh ( isWait );
         }
 
-        protected void Send(OperationCode code, Dictionary<byte, object> parameters, bool reliable)
+        protected void Send(OperationCode code, Dictionary<byte, object> parameters)
         {
             if ( PhotonEngine.Peer == null || !PhotonEngine.Instance.isServerConnect )
             {

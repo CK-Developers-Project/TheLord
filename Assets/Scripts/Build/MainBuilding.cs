@@ -16,7 +16,7 @@ public class MainBuilding : Building
         request.index = (int)info.index;
         request.clickAction = ClickAction.MainBuildingTakeGold;
         request.value = 1;
-        request.SendPacket ( );
+        request.SendPacket ( false );
 
         var sheet = TableManager.Instance.BuildingTable.MainBuildingInfoSheet;
         var record = BaseTable.Get ( sheet, "index", (int)info.index );

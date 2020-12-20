@@ -1,44 +1,50 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using System;
-using Developers.Util;
-
+using Developers.Net.Protocol;
+using Developers.Structure;
 
 public class WorkTimer : MonoBehaviour
 {
-    [SerializeField] TextMeshPro WorkTimeText = null;
-    SpriteRenderer spriteRenderer = null;
+    Canvas canvas = null;
+    [SerializeField] Image progressBar = null;
+
     DateTime targetTime;
 
     bool isWork = false;
+    public bool isPause = false;
+    public bool isComplete = false;
 
-    public bool IsPause { get; set; }
-    public bool IsComplete { get; set; }
-
-    Action OnBuilidUpEvent { get; set; }
-    Func<TextMeshPro, float> GetTextWidth { get; set; }
-
+    public Building Owner { get; private set; }
 
     public void Initialize()
     {
-        // TODO : 아직은 서버로부터 값을 불러올게 없으므로 무조건 꺼준다.
+        canvas.worldCamera = GameManager.Instance.MainCamera;
         gameObject.SetActive ( false );
     }
 
-    public void Run(TimeSpan timeSpan, Action callback)
+    public void Run(DateTime completeTime)
+    {
+        Retry ( completeTime );
+    }
+
+    public void Retry( DateTime completeTime )
     {
         gameObject.SetActive ( true );
-        IsComplete = false;
-        IsPause = false;
-        targetTime = DateTime.Now + timeSpan;
-        OnBuilidUpEvent += callback;
+        isComplete = false;
+        isPause = false;
+        targetTime = completeTime;
         StartCoroutine ( Runnable ( ) );
     }
 
     public void Stop ( )
     {
+        var packet = new BuildingConfirmRequest ( );
+        packet.index = (int)Owner.info.index;
+        packet.confirmAction = ConfirmAction.Build;
+        packet.SendPacket ( true );
+
         isWork = false;
         gameObject.SetActive ( false );
     }
@@ -52,42 +58,41 @@ public class WorkTimer : MonoBehaviour
         }
         isWork = true;
 
-        while (!IsComplete && isWork )
+        TimeSpan remainTime = targetTime - DateTime.Now;
+
+        if( remainTime.TotalSeconds <= 0F )
         {
-            if( IsPause )
+            isComplete = true;
+            progressBar.fillAmount = 1F;
+        }
+
+        while ( !isComplete && isWork )
+        {
+            if( isPause )
             {
                 yield return null;
             }
 
             TimeSpan current = targetTime - DateTime.Now;
-            WorkTimeText.SetText(string.Format("{0}:{1:D2}", (int)current.TotalMinutes, current.Seconds));
-            spriteRenderer.size = new Vector2 ( GetTextWidth ( WorkTimeText ), spriteRenderer.size.y );
-            if(current.TotalSeconds < 0f)
+            progressBar.fillAmount = 1F - Mathf.Max ( 0F, (float)( current.TotalSeconds / remainTime.TotalSeconds ) );
+
+            if (current.TotalSeconds < 0f)
             {
-                IsComplete = true;
+                isComplete = true;
             }
             yield return null;
-        }
-
-        if(IsComplete)
-        {
-            if ( OnBuilidUpEvent != null )
-            {
-                OnBuilidUpEvent.Invoke ( );
-                OnBuilidUpEvent = null;
-            }
         }
 
         Stop ( );
     }
 
-    private void Awake ( )
+    void Awake ( )
     {
-        spriteRenderer = GetComponent<SpriteRenderer> ( );
-        GetTextWidth = (x) => UILibrary.TextWidthApproximation(x);
+        canvas = GetComponent<Canvas> ( );
+        Owner = GetComponentInParent<Building> ( );
     }
 
-    private void Start ( )
+    void Start ( )
     {
         Initialize ( );
     }
