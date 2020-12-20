@@ -5,6 +5,7 @@ using UnityEngine;
 using Developers.Structure;
 using Developers.Util;
 using Developers.Table;
+using Developers.Net.Protocol;
 
 public class Building : MonoBehaviour, IActor
 {
@@ -19,10 +20,10 @@ public class Building : MonoBehaviour, IActor
     public bool Initialized { get; set; }
     public bool Anim_Event { get; set; }
 
-    public void BuildUp ( DateTime targetTime )
+    public virtual void BuildUp ( DateTime targetTime, Action @event )
     {
         info.state = BuildingState.Work;
-        workTimer.Run ( targetTime );
+        workTimer.Run ( targetTime, @event );
     }
 
     public virtual void Initialize ( )
@@ -34,12 +35,12 @@ public class Building : MonoBehaviour, IActor
         Initialized = true;
     }
 
-    public virtual void Load ( ) 
-    { 
+    public virtual void Load ( )
+    {
         Synchronized = true;
 
         var buildingInfo = GameManager.Instance.synchronizeData.GetBuildingInfo ( info.index );
-        if( null == buildingInfo)
+        if ( null == buildingInfo )
         {
             info.state = BuildingState.Empty;
             return;
@@ -48,23 +49,45 @@ public class Building : MonoBehaviour, IActor
         info.LV = buildingInfo.LV;
         info.workTime = buildingInfo.workTime;
 
-        TimeSpan buildRemaineTime = info.workTime - DateTime.Now;
-        
-        if (info.LV == 0)
+        if ( !info.workTime.Equals ( default ) )
+        {
+            Action @event;
+            if ( info.LV == 0 )
+            {
+                @event = ( ) =>
+                {
+                    var packet = new BuildingConfirmRequest ( );
+                    packet.index = (int)info.index;
+                    packet.confirmAction = ConfirmAction.Build;
+                    packet.SendPacket ( true, true );
+                };
+            }
+            else
+            {
+                @event = ( ) =>
+                {
+                    var packet = new BuildingConfirmRequest ( );
+                    packet.index = (int)info.index;
+                    packet.confirmAction = ConfirmAction.LevelUp;
+                    packet.SendPacket ( true, true );
+                };
+            }
+
+            Debug.LogFormat ("[{0}] [{1}]", info.index,info.workTime );
+            Debug.LogFormat ("Current [{0}]", DateTime.UtcNow.ToUniversalTime ( ) );
+            BuildUp ( info.workTime, @event );
+        }
+        else if ( info.LV == 0 )
         {
             info.state = BuildingState.Empty;
-        }
-        else if( buildRemaineTime.Ticks > 0)
-        {
-            BuildUp ( info.workTime );
         }
         else
         {
             info.state = BuildingState.Complete;
         }
     }
-    public virtual void OnSelect ( ) 
-    { 
+    public virtual void OnSelect ( )
+    {
         switch ( info.state )
         {
             case BuildingState.Empty:
@@ -85,15 +108,14 @@ public class Building : MonoBehaviour, IActor
 
     public virtual void OnBuild()
     {
-        info.state = BuildingState.Work;
+        info.state = BuildingState.Complete;
     }
-    
+
 
     protected virtual void Awake ( )
     {
         spriteRenderer = GetComponent<SpriteRenderer> ( );
         workTimer = GetComponentInChildren<WorkTimer> ( true );
-        workTimer.gameObject.SetActive ( false );
 
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );

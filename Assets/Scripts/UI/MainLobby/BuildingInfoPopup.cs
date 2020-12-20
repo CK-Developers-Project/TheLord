@@ -5,6 +5,7 @@ using TMPro;
 using Developers.Table;
 using Developers.Structure;
 using Developers.Structure.Data;
+using Developers.Net.Protocol;
 using Spine.Unity;
 
 public class BuildingInfoPopup : BasePopup
@@ -152,6 +153,18 @@ public class BuildingInfoPopup : BasePopup
         charactertInfo.hp.text = ( (int)target.HP ).ToString ( );
         charactertInfo.atk.text = ( (int)target.Atk ).ToString ( );
         charactertInfo.def.text = ( (int)target.Def ).ToString ( );
+    }
+
+    public void LevelUp()
+    {
+        if(info == null)
+        {
+            return;
+        }
+        var packet = new BuildingClickRequest ( );
+        packet.index = (int)info.index;
+        packet.clickAction = ClickAction.BuildingLevelUp;
+        packet.SendPacket ( true, true );
     }
 
     public void Cancel()

@@ -4,6 +4,7 @@ using Developers.Net.Protocol;
 using System.Collections;
 using Cinemachine;
 using Developers.Structure;
+using Developers.Util;
 
 public class MainLobbyGameMode : BaseGameMode
 {
@@ -40,7 +41,7 @@ public class MainLobbyGameMode : BaseGameMode
             BuildingInfo info = new BuildingInfo ( );
             info.index = (BuildingType)buildingData.index;
             info.LV = buildingData.LV;
-            info.workTime = new System.DateTime( buildingData.tick );
+            info.workTime = GameUtility.String2DateTime ( buildingData.tick );
             buildingInfoList.Add ( info );
         }
         GameManager.Instance.synchronizeData.SetBuildingInfo ( buildingInfoList );

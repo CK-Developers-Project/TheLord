@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ExitGames.Client.Photon;
+﻿using ExitGames.Client.Photon;
 using UnityEngine;
 
 namespace Developers.Net.Event
@@ -23,8 +21,7 @@ namespace Developers.Net.Event
         void OnUpdateResource(EventData eventData)
         {
             Debug.Log ( "[OnUpdateResource]" );
-            byte[] bytes = (byte[])DictionaryTool.GetValue<byte, object> ( eventData.Parameters, 1 );
-            ProtoData.ResourceData data = BinSerializer.Deserialize<ProtoData.ResourceData> ( bytes );
+            var data = BinSerializer.ConvertData<ProtoData.ResourceData> ( eventData.Parameters );
             GamePlayer localPlayer = GameManager.Instance.LocalPlayer;
             localPlayer.SetGold ( ResourceType.Gold, data.gold );
             localPlayer.SetGold ( ResourceType.Cash, data.cash );

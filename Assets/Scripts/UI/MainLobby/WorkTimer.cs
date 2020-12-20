@@ -17,15 +17,16 @@ public class WorkTimer : MonoBehaviour
     public bool isComplete = false;
 
     public Building Owner { get; private set; }
+    public Action timerEvent;
 
     public void Initialize()
     {
-        canvas.worldCamera = GameManager.Instance.MainCamera;
         gameObject.SetActive ( false );
     }
 
-    public void Run(DateTime completeTime)
+    public void Run(DateTime completeTime, Action @event)
     {
+        timerEvent = @event;
         Retry ( completeTime );
     }
 
@@ -40,10 +41,7 @@ public class WorkTimer : MonoBehaviour
 
     public void Stop ( )
     {
-        var packet = new BuildingConfirmRequest ( );
-        packet.index = (int)Owner.info.index;
-        packet.confirmAction = ConfirmAction.Build;
-        packet.SendPacket ( true );
+        timerEvent?.Invoke ( );
 
         isWork = false;
         gameObject.SetActive ( false );
@@ -58,9 +56,9 @@ public class WorkTimer : MonoBehaviour
         }
         isWork = true;
 
-        TimeSpan remainTime = targetTime - DateTime.Now;
-
-        if( remainTime.TotalSeconds <= 0F )
+        DateTime now = DateTime.UtcNow.ToUniversalTime();
+        TimeSpan remainTime = targetTime - now;
+        if ( remainTime.TotalSeconds <= 0F )
         {
             isComplete = true;
             progressBar.fillAmount = 1F;
@@ -73,7 +71,7 @@ public class WorkTimer : MonoBehaviour
                 yield return null;
             }
 
-            TimeSpan current = targetTime - DateTime.Now;
+            TimeSpan current = targetTime - DateTime.UtcNow.ToUniversalTime ( );
             progressBar.fillAmount = 1F - Mathf.Max ( 0F, (float)( current.TotalSeconds / remainTime.TotalSeconds ) );
 
             if (current.TotalSeconds < 0f)
@@ -90,6 +88,7 @@ public class WorkTimer : MonoBehaviour
     {
         canvas = GetComponent<Canvas> ( );
         Owner = GetComponentInParent<Building> ( );
+        canvas.worldCamera = GameManager.Instance.MainCamera;
     }
 
     void Start ( )

@@ -7,12 +7,12 @@ namespace Developers.Net.Handler
         public abstract void AddListener ( );
         public abstract void RemoveListener ( );
 
-        public virtual void Awake ( )
+        void Awake ( )
         {
             AddListener ( );
         }
 
-        public virtual void OnDestroy ( )
+        void OnDestroy ( )
         {
             RemoveListener ( );
         }

@@ -52,7 +52,7 @@ public class GamePlayer : MonoBehaviour
 
     public string DisplayGold ( ResourceType type )
     {
-        return Utility.Ordinal ( playerInfo.GetResource ( type ) );
+        return GameUtility.Ordinal ( playerInfo.GetResource ( type ) );
     }
 
     public BigInteger GetGold(ResourceType type)

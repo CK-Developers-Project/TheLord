@@ -31,5 +31,8 @@ namespace Developers.Structure
 
         // UserAssetEvent
         UpdateResource,     // 리소스 갱신
+
+        // BuidlingEvent
+        UpdateBuilding,    // 건물 하나 갱신
     }
 }

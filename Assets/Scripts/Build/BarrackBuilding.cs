@@ -39,7 +39,7 @@ public class BarrackBuilding : Building
         string noticeMsg = string.Format ( "{0}를 건설하시겠습니까?", info.name );
         BigInteger price = new BigInteger ( (int)record["cost"] );
 
-        page.OnPurchaseInfo ( noticeMsg, Utility.Ordinal ( price ), BuildOK, null );
+        page.OnPurchaseInfo ( noticeMsg, GameUtility.Ordinal ( price ), BuildOK, null );
         page.OnUpdate ( );
     }
 
@@ -66,7 +66,7 @@ public class BarrackBuilding : Building
         BuildingClickRequest packet = new BuildingClickRequest ( );
         packet.index = (int)info.index;
         packet.clickAction = ClickAction.BuildingBuild;
-        packet.SendPacket ( true );
+        packet.SendPacket ( true, true );
 
         
 
@@ -90,10 +90,16 @@ public class BarrackBuilding : Building
         */
     }
 
+    public override void BuildUp ( DateTime targetTime, Action @event )
+    {
+        base.BuildUp ( targetTime, @event );
+        spriteRenderer.enabled = true;
+        hologram.SetActive ( false );
+    }
+
     public override void OnBuild()
     {
         base.OnBuild ( );
-        info.state = BuildingState.Complete;
         spriteRenderer.enabled = true;
         hologram.SetActive ( false );
     }

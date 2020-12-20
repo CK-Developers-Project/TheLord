@@ -126,7 +126,6 @@ public class GameManager : MonoSingleton<GameManager>
     protected override void Awake ( )
     {
         base.Awake ( );
-
         if ( instance != this )
         {
             instance.gameMode = gameMode;
