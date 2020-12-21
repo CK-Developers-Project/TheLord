@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 4fc0d623d889a7647a43bfc6e1128475
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audio_prefab: {fileID: 8657490921968668001, guid: 550f08d5410e1424989ef02e90821f59,
+      type: 3}
+  - main_audio: {instanceID: 0}
+  - mixer: {fileID: 24100000, guid: 07aba9404e2e61d40be065a416011e42, type: 2}
+  - master_group: {fileID: 24300002, guid: 07aba9404e2e61d40be065a416011e42, type: 2}
+  - sfx_group: {fileID: -2205472700558696824, guid: 07aba9404e2e61d40be065a416011e42,
+      type: 2}
+  - music_group: {fileID: 5166395505298642902, guid: 07aba9404e2e61d40be065a416011e42,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

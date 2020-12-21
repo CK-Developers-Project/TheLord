@@ -19,6 +19,7 @@ public class CutScenePage : BasePage
     private float endTime = 3f;
     private int spriteCnt = 0;
     private int textCnt = 0;
+    private bool isSkip = false;
 
     public override void Active()
     {
@@ -28,6 +29,22 @@ public class CutScenePage : BasePage
         endPos = startPos * -Vector2.one;
 
         StartCoroutine ( ActiveCutScene ( ) );
+    }
+
+    public void Skip()
+    {
+        if (isSkip)
+            return;
+
+        isSkip = true;
+        StopAllCoroutines();
+
+        Action action = () =>
+        {
+            LoginGameMode gameMode = GameManager.Instance.GameMode as LoginGameMode;
+            GameManager.Instance.GameMode.CurrentPage = gameMode.raceSelectPage;
+        };
+        TransitionManager.Instance.OnTransition(TransitionType.Loading01_Slide, TransitionType.Loading01_Blank, action, null);
     }
 
     private IEnumerator ActiveCutScene()
