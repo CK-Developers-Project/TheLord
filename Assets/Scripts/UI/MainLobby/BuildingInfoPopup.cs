@@ -177,7 +177,7 @@ public class BuildingInfoPopup : BasePopup
         if ( info != null )
         {
             charactertInfo.level.text = info.LV.ToString ( );
-            charactertInfo.people.text = "0";
+            charactertInfo.people.text = info.amount.ToString();
         }
     }
 }

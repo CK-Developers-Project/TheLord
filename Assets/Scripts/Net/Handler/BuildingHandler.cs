@@ -38,7 +38,7 @@ namespace Developers.Net.Handler
                     ClickAction_BuildingLevelUp ( (ReturnCode)response.ReturnCode, buildingClickData );
                     break;
                 case ClickAction.CharacterHire:
-                    ClickAction_CharacterHire ( );
+                    ClickAction_CharacterHire ((ReturnCode)response.ReturnCode, buildingClickData);
                     break;
                 default:
                     return;
@@ -71,9 +71,16 @@ namespace Developers.Net.Handler
             TransitionManager.Instance.OnWaitSigh ( false );
         }
 
-        void ClickAction_CharacterHire()
+        void ClickAction_CharacterHire(ReturnCode returnCode, ProtoData.BuildingClickData buildingClickData)
         {
-
+            if (ReturnCode.Success == returnCode)
+            {
+            }
+            else
+            {
+                // 실패
+            }
+            TransitionManager.Instance.OnWaitSigh(false);
         }
 
         void OnBuildingConfirmReceived( OperationResponse response )

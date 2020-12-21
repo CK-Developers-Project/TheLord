@@ -43,6 +43,7 @@ namespace Developers.Net.Event
 
             building.info.LV = data.LV;
             building.info.workTime = GameUtility.String2DateTime ( data.tick );
+            building.info.amount = data.amount;
 
             if ( !Mathf.Approximately ( building.info.workTime.Ticks, 0 ) )
             {
@@ -69,6 +70,7 @@ namespace Developers.Net.Event
                 }
 
                 building.BuildUp ( building.info.workTime, @event );
+                GameManager.Instance.GameMode.CurrentPage.OnUpdate();
             }
         }
     }

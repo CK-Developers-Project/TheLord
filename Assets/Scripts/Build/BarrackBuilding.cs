@@ -67,27 +67,6 @@ public class BarrackBuilding : Building
         packet.index = (int)info.index;
         packet.clickAction = ClickAction.BuildingBuild;
         packet.SendPacket ( true, true );
-
-        
-
-        /*
-        if(MonoSingleton<GameManager>.Instance.LocalPlayer.GetGold(ResourceType.Gold) >= price)
-        {
-            GamePlayer gamePlayer = MonoSingleton<GameManager>.Instance.LocalPlayer;
-            gamePlayer.AddGold ( ResourceType.Gold, new BigInteger ( -price ) );
-            MonoSingleton<GameManager>.Instance.GameMode.CurrentPage.OnUpdate ( );
-        }
-        else
-        {
-            return;
-        }
-
-        info.state = BuildingState.Work;
-        BuildUp ( new TimeSpan ( 0, 0, 10 ), Build );
-        spriteRenderer.enabled = true;
-        hologram.SetActive ( false );
-        info.LV = 1;
-        */
     }
 
     public override void BuildUp ( DateTime targetTime, Action @event )

@@ -32,6 +32,7 @@ public class Building : MonoBehaviour, IActor
         var record = BaseTable.Get ( sheet, "index", (int)info.index );
 
         info.name = (string)record["name"];
+        info.spawnCharacter = (int)record["spawnCharacter"];
         Initialized = true;
     }
 

@@ -135,5 +135,8 @@ namespace Developers.Structure
         public int LV;
         public string name;
         public DateTime workTime;
+
+        public int spawnCharacter;
+        public int amount;
     }
 }
