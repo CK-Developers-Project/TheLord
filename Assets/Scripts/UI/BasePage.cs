@@ -35,7 +35,7 @@ public class BasePage : MonoBehaviour, IGameUI
         }
 
 
-        var gameUIs = GetComponentsInChildren<IGameUI> ( );
+        var gameUIs = GetComponentsInChildren<IGameUI> ( true );
         foreach(var gameUI in gameUIs )
         {
             if(!gameUI.Equals(this))

@@ -167,6 +167,18 @@ public class BuildingInfoPopup : BasePopup
         packet.SendPacket ( true, true );
     }
 
+    public void UnitBuy()
+    {
+        if (info == null)
+        {
+            return;
+        }
+        var packet = new BuildingClickRequest();
+        packet.index = (int)info.index;
+        packet.clickAction = ClickAction.CharacterHire;
+        packet.SendPacket(true);
+    }
+
     public void Cancel()
     {
         gameObject.SetActive ( false );
