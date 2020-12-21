@@ -165,6 +165,7 @@ public class BuildingInfoPopup : BasePopup
         packet.index = (int)info.index;
         packet.clickAction = ClickAction.BuildingLevelUp;
         packet.SendPacket ( true, true );
+        gameObject.SetActive ( false );
     }
 
     public void UnitBuy()

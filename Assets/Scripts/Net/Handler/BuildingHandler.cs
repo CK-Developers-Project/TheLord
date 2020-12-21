@@ -116,7 +116,6 @@ namespace Developers.Net.Handler
                     // 건물이 없음
                     return;
                 }
-                building.OnBuild ( );
             }
             else
             {
@@ -141,7 +140,6 @@ namespace Developers.Net.Handler
                     // 건물이 없음
                     return;
                 }
-                building.OnBuild ( );
             }
             else
             {

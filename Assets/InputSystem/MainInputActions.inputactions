@@ -6,14 +6,6 @@
             "id": "6f6bc52e-6bc1-4221-8c95-fbad3f06daaf",
             "actions": [
                 {
-                    "name": "Touch",
-                    "type": "Value",
-                    "id": "c7be166f-c15b-47e7-9d9d-ec81fd1b561a",
-                    "expectedControlType": "Touch",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)"
-                },
-                {
                     "name": "Chat",
                     "type": "Button",
                     "id": "71fc4b3e-ad2b-40f0-a7f9-c0c36523e44f",
@@ -41,17 +33,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "9baf938c-bf90-47a1-a216-b6f738fc63e6",
-                    "path": "<Pointer>/primaryTouch",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3e82d235-8299-41b5-83aa-74f7509651fb",
                     "path": "<Keyboard>/anyKey",
                     "interactions": "",
@@ -74,8 +55,30 @@
                 },
                 {
                     "name": "",
+                    "id": "43e6a474-2b27-4ac3-bfc7-b6280a6431a1",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "01e4ab59-68c5-4dce-818a-373598d3e237",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c359ab19-416e-458d-b83a-b1d7415fe822",
+                    "path": "<Touchscreen>/press",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",

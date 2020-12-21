@@ -66,12 +66,12 @@ public class LoginPage : BasePage
     protected override void Construct ( )
     {
 #if UNITY_ANDROID
-        
+
 #elif UNITY_IOS
         
 #else
-        Current = platformTester;
 #endif
+        Current = platformTester;
         Current.AddEvent(Join);
         StartCoroutine ( OnConnect ( ) );
     }

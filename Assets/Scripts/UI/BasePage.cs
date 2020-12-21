@@ -18,6 +18,7 @@ public class BasePage : MonoBehaviour, IGameUI
     {
         GameObject obj = Instantiate ( Prefab_NoticePopup, GameManager.Instance.GameMode.CurrentPage.transform );
         NoticePopup popup = obj.GetComponent<NoticePopup> ( );
+
         popup.OnMessageBox ( msg, action_Left, callback_Left, leftMsg, action_Right, callback_Right, rightMsg );
     }
 
