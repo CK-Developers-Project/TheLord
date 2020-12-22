@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 10
   illust: {fileID: 21300000, guid: fef42ad50bf152d4dbad2bcc6fa87ab2, type: 3}
-  asset: {fileID: 11400000, guid: b929a5b862541864eade553a89a5d078, type: 2}
-  isLoad: 1
+  asset: {fileID: 11400000, guid: d392e755928fdfe49938981f784aee6b, type: 2}
+  isLoad: 0

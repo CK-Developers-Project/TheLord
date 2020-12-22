@@ -75,6 +75,7 @@ public class BuildingInfoPopup : BasePopup
         {
             spineGraphic.skeletonDataAsset = asset;
             spineGraphic.startingAnimation = "idle";
+            spineGraphic.Initialize ( true );
         }
     }
 
@@ -189,9 +190,6 @@ public class BuildingInfoPopup : BasePopup
     {
         if ( info != null )
         {
-            Debug.Log ( info.index +  " : " + info.LV );
-            Debug.Log ( info.index +  " : " + info.amount );
-
             charactertInfo.level.text = info.LV.ToString ( );
             charactertInfo.people.text = info.amount.ToString();
         }
