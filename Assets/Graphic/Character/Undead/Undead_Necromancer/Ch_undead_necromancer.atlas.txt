@@ -1,0 +1,146 @@
+
+Ch_undead_necromancer.png
+size: 992,332
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: false
+  xy: 771, 170
+  size: 104, 32
+  orig: 104, 33
+  offset: 0, 1
+  index: -1
+body
+  rotate: false
+  xy: 344, 138
+  size: 108, 192
+  orig: 109, 192
+  offset: 0, 0
+  index: -1
+bone
+  rotate: false
+  xy: 711, 164
+  size: 34, 38
+  orig: 34, 38
+  offset: 0, 0
+  index: -1
+capeD
+  rotate: false
+  xy: 796, 212
+  size: 54, 118
+  orig: 54, 118
+  offset: 0, 0
+  index: -1
+capeL
+  rotate: true
+  xy: 919, 21
+  size: 86, 71
+  orig: 86, 71
+  offset: 0, 0
+  index: -1
+capeR
+  rotate: true
+  xy: 556, 157
+  size: 173, 153
+  orig: 173, 153
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 740, 13
+  size: 71, 28
+  orig: 71, 28
+  offset: 0, 0
+  index: -1
+eyebrow
+  rotate: false
+  xy: 526, 4
+  size: 36, 10
+  orig: 36, 10
+  offset: 0, 0
+  index: -1
+eyelight
+  rotate: true
+  xy: 747, 168
+  size: 34, 22
+  orig: 34, 22
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 526, 16
+  size: 117, 127
+  orig: 117, 127
+  offset: 0, 0
+  index: -1
+ghost_armL
+  rotate: false
+  xy: 454, 145
+  size: 100, 185
+  orig: 110, 185
+  offset: 0, 0
+  index: -1
+ghost_armR
+  rotate: true
+  xy: 344, 5
+  size: 131, 180
+  orig: 140, 189
+  offset: 0, 9
+  index: -1
+ghost_body
+  rotate: true
+  xy: 2, 6
+  size: 324, 340
+  orig: 335, 372
+  offset: 0, 32
+  index: -1
+ghost_faceB
+  rotate: true
+  xy: 645, 2
+  size: 153, 93
+  orig: 153, 93
+  offset: 0, 0
+  index: -1
+ghost_faceB2
+  rotate: true
+  xy: 910, 109
+  size: 104, 64
+  orig: 104, 64
+  offset: 0, 0
+  index: -1
+ghost_faceT
+  rotate: true
+  xy: 810, 62
+  size: 106, 98
+  orig: 106, 98
+  offset: 0, 0
+  index: -1
+ghost_scarf
+  rotate: true
+  xy: 813, 2
+  size: 58, 104
+  orig: 58, 104
+  offset: 0, 0
+  index: -1
+hair
+  rotate: true
+  xy: 852, 215
+  size: 115, 102
+  orig: 115, 102
+  offset: 0, 0
+  index: -1
+hoodR
+  rotate: false
+  xy: 740, 43
+  size: 68, 119
+  orig: 68, 119
+  offset: 0, 0
+  index: -1
+hoodT
+  rotate: true
+  xy: 711, 204
+  size: 126, 83
+  orig: 126, 83
+  offset: 0, 0
+  index: -1

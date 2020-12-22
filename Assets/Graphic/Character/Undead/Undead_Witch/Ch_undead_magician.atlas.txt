@@ -1,0 +1,97 @@
+
+Ch_undead_magician.png
+size: 712,140
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: true
+  xy: 658, 10
+  size: 64, 27
+  orig: 64, 27
+  offset: 0, 0
+  index: -1
+armL_chein
+  rotate: true
+  xy: 513, 58
+  size: 9, 26
+  orig: 9, 26
+  offset: 0, 0
+  index: -1
+armR
+  rotate: true
+  xy: 513, 69
+  size: 68, 29
+  orig: 68, 29
+  offset: 0, 0
+  index: -1
+armR_chein
+  rotate: true
+  xy: 549, 12
+  size: 9, 26
+  orig: 9, 26
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 392, 3
+  size: 59, 45
+  orig: 59, 47
+  offset: 0, 2
+  index: -1
+cape
+  rotate: false
+  xy: 2, 4
+  size: 207, 133
+  orig: 214, 133
+  offset: 7, 0
+  index: -1
+fire1
+  rotate: false
+  xy: 658, 76
+  size: 49, 61
+  orig: 49, 61
+  offset: 0, 0
+  index: -1
+fire2
+  rotate: true
+  xy: 326, 2
+  size: 46, 64
+  orig: 46, 65
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 397, 57
+  size: 114, 80
+  orig: 114, 80
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 549, 23
+  size: 114, 107
+  orig: 114, 107
+  offset: 0, 0
+  index: -1
+leg
+  rotate: false
+  xy: 211, 50
+  size: 184, 87
+  orig: 187, 92
+  offset: 3, 5
+  index: -1
+leg_f
+  rotate: true
+  xy: 453, 3
+  size: 52, 94
+  orig: 52, 101
+  offset: 0, 7
+  index: -1
+neck
+  rotate: false
+  xy: 211, 3
+  size: 113, 45
+  orig: 113, 48
+  offset: 0, 0
+  index: -1

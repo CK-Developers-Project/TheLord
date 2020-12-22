@@ -1,0 +1,90 @@
+
+Ch_human_shieldman.png
+size: 196,812
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Shield
+  rotate: false
+  xy: 2, 344
+  size: 191, 284
+  orig: 192, 284
+  offset: 1, 0
+  index: -1
+armL
+  rotate: true
+  xy: 110, 60
+  size: 47, 71
+  orig: 47, 71
+  offset: 0, 0
+  index: -1
+armLD
+  rotate: false
+  xy: 97, 15
+  size: 53, 43
+  orig: 53, 43
+  offset: 0, 0
+  index: -1
+armR
+  rotate: true
+  xy: 111, 109
+  size: 65, 83
+  orig: 65, 83
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 2
+  size: 93, 86
+  orig: 93, 86
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 2, 630
+  size: 179, 192
+  orig: 179, 192
+  offset: 0, 0
+  index: -1
+head_acc
+  rotate: true
+  xy: 2, 226
+  size: 116, 140
+  orig: 116, 140
+  offset: 0, 0
+  index: -1
+legL
+  rotate: false
+  xy: 144, 290
+  size: 49, 52
+  orig: 49, 52
+  offset: 0, 0
+  index: -1
+legLD
+  rotate: true
+  xy: 2, 164
+  size: 60, 107
+  orig: 60, 107
+  offset: 0, 0
+  index: -1
+legR
+  rotate: false
+  xy: 152, 14
+  size: 37, 44
+  orig: 37, 44
+  offset: 0, 0
+  index: -1
+legRD
+  rotate: false
+  xy: 144, 176
+  size: 48, 112
+  orig: 48, 112
+  offset: 0, 0
+  index: -1
+pelvis
+  rotate: false
+  xy: 2, 90
+  size: 106, 72
+  orig: 106, 72
+  offset: 0, 0
+  index: -1

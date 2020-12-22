@@ -82,7 +82,6 @@ public class InputManager : MonoSingleton<InputManager>
 
     private void InputMouseStarted ( InputAction.CallbackContext obj )
     {
-        Debug.Log ( "Input Started" );
         if ( Impossible )
         {
             return;
@@ -93,7 +92,6 @@ public class InputManager : MonoSingleton<InputManager>
 
     private void InputMouseCanceled ( InputAction.CallbackContext context )
     {
-        Debug.Log ( "Input Canceled" );
         isStarted = false;
 
         Vector2 pos = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );
@@ -111,8 +109,6 @@ public class InputManager : MonoSingleton<InputManager>
 
     private void InputMousePosition ( InputAction.CallbackContext context )
     {
-        Debug.Log ( "Input Position" );
-
         Position = context.ReadValue<Vector2> ( );
 
         if(isStarted && !isPressed)

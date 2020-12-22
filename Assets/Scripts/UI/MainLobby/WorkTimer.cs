@@ -4,13 +4,15 @@ using UnityEngine.UI;
 using System;
 using Developers.Net.Protocol;
 using Developers.Structure;
+using Developers.Util;
 
 public class WorkTimer : MonoBehaviour
 {
     Canvas canvas = null;
     [SerializeField] Image progressBar = null;
 
-    DateTime targetTime;
+    TimeSpan totalTime;
+    DateTime realTime;
 
     bool isWork = false;
     public bool isPause = false;
@@ -24,18 +26,19 @@ public class WorkTimer : MonoBehaviour
         gameObject.SetActive ( false );
     }
 
-    public void Run(DateTime completeTime, Action @event)
+    public void Run(TimeSpan remainTime, TimeSpan totalTime, Action @event)
     {
         timerEvent = @event;
-        Retry ( completeTime );
+        Retry ( remainTime, totalTime );
     }
 
-    public void Retry( DateTime completeTime )
+    public void Retry( TimeSpan remainTime, TimeSpan totalTime )
     {
         gameObject.SetActive ( true );
         isComplete = false;
         isPause = false;
-        targetTime = completeTime;
+        this.totalTime = totalTime;
+        realTime = GameUtility.Now ( ) + remainTime;
         StartCoroutine ( Runnable ( ) );
     }
 
@@ -56,14 +59,6 @@ public class WorkTimer : MonoBehaviour
         }
         isWork = true;
 
-        DateTime now = DateTime.UtcNow.ToUniversalTime();
-        TimeSpan remainTime = targetTime - now;
-        if ( remainTime.TotalSeconds <= 0F )
-        {
-            isComplete = true;
-            progressBar.fillAmount = 1F;
-        }
-
         while ( !isComplete && isWork )
         {
             if( isPause )
@@ -71,10 +66,11 @@ public class WorkTimer : MonoBehaviour
                 yield return null;
             }
 
-            TimeSpan current = targetTime - DateTime.UtcNow.ToUniversalTime ( );
-            progressBar.fillAmount = 1F - Mathf.Max ( 0F, (float)( current.TotalSeconds / remainTime.TotalSeconds ) );
+            TimeSpan remainTime = realTime - GameUtility.Now ( );
+            TimeSpan current = totalTime - remainTime;
+            progressBar.fillAmount = (float)( current.TotalSeconds / totalTime.TotalSeconds );
 
-            if (current.TotalSeconds < 0f)
+            if ( progressBar.fillAmount >= 1f)
             {
                 isComplete = true;
             }

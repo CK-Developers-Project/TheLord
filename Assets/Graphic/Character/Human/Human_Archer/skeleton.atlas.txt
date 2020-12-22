@@ -1,0 +1,118 @@
+
+skeleton.png
+size: 732,332
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+R근
+  rotate: true
+  xy: 142, 82
+  size: 2, 282
+  orig: 2, 282
+  offset: 0, 0
+  index: -1
+_0001_눈썹
+  rotate: false
+  xy: 423, 21
+  size: 94, 17
+  orig: 94, 17
+  offset: 0, 0
+  index: -1
+_0002_앞머리
+  rotate: true
+  xy: 311, 18
+  size: 62, 110
+  orig: 62, 110
+  offset: 0, 0
+  index: -1
+_0003_왼눈
+  rotate: false
+  xy: 677, 2
+  size: 35, 26
+  orig: 36, 26
+  offset: 1, 0
+  index: -1
+_0004_오른눈
+  rotate: false
+  xy: 519, 7
+  size: 48, 31
+  orig: 49, 31
+  offset: 1, 0
+  index: -1
+_0005_머리
+  rotate: true
+  xy: 378, 131
+  size: 199, 221
+  orig: 236, 226
+  offset: 9, 0
+  index: -1
+_0006_목
+  rotate: true
+  xy: 690, 88
+  size: 75, 40
+  orig: 75, 40
+  offset: 0, 0
+  index: -1
+_0007_이거뭐냐
+  rotate: false
+  xy: 601, 165
+  size: 120, 165
+  orig: 120, 165
+  offset: 0, 0
+  index: -1
+_0008_몸
+  rotate: false
+  xy: 601, 83
+  size: 87, 80
+  orig: 87, 80
+  offset: 0, 0
+  index: -1
+_0009_오른손
+  rotate: false
+  xy: 677, 30
+  size: 47, 51
+  orig: 47, 51
+  offset: 0, 0
+  index: -1
+_0010_오른팔
+  rotate: false
+  xy: 594, 8
+  size: 81, 73
+  orig: 81, 73
+  offset: 0, 0
+  index: -1
+_0011_왼팔
+  rotate: false
+  xy: 2, 14
+  size: 138, 316
+  orig: 138, 316
+  offset: 0, 0
+  index: -1
+_0012_왼다리-copy
+  rotate: true
+  xy: 142, 8
+  size: 72, 167
+  orig: 72, 167
+  offset: 0, 0
+  index: -1
+_0013_오른다리
+  rotate: true
+  xy: 433, 40
+  size: 89, 159
+  orig: 89, 159
+  offset: 0, 0
+  index: -1
+_0014_망토
+  rotate: false
+  xy: 142, 115
+  size: 234, 215
+  orig: 234, 215
+  offset: 0, 0
+  index: -1
+화살
+  rotate: false
+  xy: 142, 86
+  size: 289, 27
+  orig: 289, 27
+  offset: 0, 0
+  index: -1

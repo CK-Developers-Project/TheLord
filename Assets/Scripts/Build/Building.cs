@@ -11,6 +11,7 @@ public class Building : MonoBehaviour, IActor
 {
     protected SpriteRenderer spriteRenderer = null;
     protected WorkTimer workTimer = null;
+    protected TooltipBox tooltipBox = null;
 
     public BuildingInfo info;
 
@@ -20,19 +21,55 @@ public class Building : MonoBehaviour, IActor
     public bool Initialized { get; set; }
     public bool Anim_Event { get; set; }
 
-    public virtual void BuildUp ( DateTime targetTime, Action @event )
+    Dictionary<string, object> myRecord = null;
+    public Dictionary<string, object> MyRecord {
+        get
+        {
+            if(myRecord == null)
+            {
+                var sheet = TableManager.Instance.BuildingTable.BuildingInfoSheet;
+                myRecord = BaseTable.Get ( sheet, "index", (int)info.index );
+            }
+            return myRecord;
+        }
+    }
+
+    public virtual void BuildUp ( long targetTime, Action @event = null )
     {
+        if(@event == null)
+        {
+            if ( info.LV == 0 )
+            {
+                @event = ( ) =>
+                {
+                    var packet = new BuildingConfirmRequest ( );
+                    packet.index = (int)info.index;
+                    packet.confirmAction = ConfirmAction.Build;
+                    packet.SendPacket ( true, true );
+                };
+            }
+            else
+            {
+                @event = ( ) =>
+                {
+                    var packet = new BuildingConfirmRequest ( );
+                    packet.index = (int)info.index;
+                    packet.confirmAction = ConfirmAction.LevelUp;
+                    packet.SendPacket ( true, true );
+                };
+            }
+        }
+
         info.state = BuildingState.Work;
-        workTimer.Run ( targetTime, @event );
+        int second = ( info.LV + 1 ) * (int)MyRecord["buildTime"];
+
+        workTimer.Run ( new TimeSpan ( targetTime ), new TimeSpan(0, 0, second ), @event );
     }
 
     public virtual void Initialize ( )
     {
-        var sheet = TableManager.Instance.BuildingTable.BuildingInfoSheet;
-        var record = BaseTable.Get ( sheet, "index", (int)info.index );
-
-        info.name = (string)record["name"];
-        info.spawnCharacter = (int)record["spawnCharacter"];
+        info.name = (string)MyRecord["name"];
+        info.spawnCharacter = (int)MyRecord["spawnCharacter"];
         Initialized = true;
     }
 
@@ -48,9 +85,10 @@ public class Building : MonoBehaviour, IActor
         }
 
         info.LV = buildingInfo.LV;
+        info.amount = buildingInfo.amount;
         info.workTime = buildingInfo.workTime;
 
-        if ( !info.workTime.Equals ( default ) )
+        if ( info.workTime >= 0 )
         {
             Action @event;
             if ( info.LV == 0 )
@@ -74,8 +112,6 @@ public class Building : MonoBehaviour, IActor
                 };
             }
 
-            Debug.LogFormat ("[{0}] [{1}]", info.index,info.workTime );
-            Debug.LogFormat ("Current [{0}]", DateTime.UtcNow.ToUniversalTime ( ) );
             BuildUp ( info.workTime, @event );
         }
         else if ( info.LV == 0 )
@@ -87,6 +123,12 @@ public class Building : MonoBehaviour, IActor
             info.state = BuildingState.Complete;
         }
     }
+
+    public virtual void OnUpdate ( )
+    {
+
+    }
+
     public virtual void OnSelect ( )
     {
         switch ( info.state )
@@ -107,6 +149,7 @@ public class Building : MonoBehaviour, IActor
     protected virtual void OnWork ( ) { }
     protected virtual void OnComplete ( ) { }
 
+
     public virtual void OnBuild()
     {
         info.state = BuildingState.Complete;
@@ -117,6 +160,7 @@ public class Building : MonoBehaviour, IActor
     {
         spriteRenderer = GetComponent<SpriteRenderer> ( );
         workTimer = GetComponentInChildren<WorkTimer> ( true );
+        tooltipBox = GetComponentInChildren<TooltipBox> ( true );
 
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );
@@ -132,7 +176,7 @@ public class Building : MonoBehaviour, IActor
         Initialize ( );
     }
 
-    void LateUpdate()
+    protected virtual void LateUpdate()
     {
         if ( !Initialized )
         {
@@ -143,5 +187,7 @@ public class Building : MonoBehaviour, IActor
         {
             Load ( );
         }
+
+        OnUpdate ( );
     }
 }

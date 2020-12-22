@@ -1,0 +1,90 @@
+
+Ani_Elf_archer.png
+size: 449,149
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_body
+  rotate: true
+  xy: 2, 2
+  size: 145, 204
+  orig: 147, 204
+  offset: 0, 0
+  index: -1
+Ch_body_arm_L
+  rotate: false
+  xy: 340, 6
+  size: 54, 29
+  orig: 54, 32
+  offset: 0, 2
+  index: -1
+Ch_body_arm_R
+  rotate: false
+  xy: 296, 3
+  size: 42, 32
+  orig: 43, 33
+  offset: 0, 0
+  index: -1
+Ch_body_arm_R2
+  rotate: false
+  xy: 396, 6
+  size: 36, 29
+  orig: 36, 29
+  offset: 0, 0
+  index: -1
+Ch_body_clothes
+  rotate: false
+  xy: 269, 4
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+Ch_body_leg_L
+  rotate: false
+  xy: 359, 37
+  size: 47, 54
+  orig: 73, 54
+  offset: 26, 0
+  index: -1
+Ch_body_leg_R
+  rotate: false
+  xy: 234, 32
+  size: 49, 59
+  orig: 49, 59
+  offset: 0, 0
+  index: -1
+Ch_body_muffler1
+  rotate: false
+  xy: 285, 37
+  size: 72, 54
+  orig: 77, 57
+  offset: 5, 3
+  index: -1
+Ch_body_muffler2
+  rotate: true
+  xy: 208, 2
+  size: 26, 59
+  orig: 26, 59
+  offset: 0, 0
+  index: -1
+Ch_head_hair
+  rotate: true
+  xy: 408, 53
+  size: 38, 39
+  orig: 43, 39
+  offset: 0, 0
+  index: -1
+Ch_obj_arrow
+  rotate: true
+  xy: 208, 30
+  size: 117, 24
+  orig: 117, 24
+  offset: 0, 0
+  index: -1
+Ch_obj_bow
+  rotate: true
+  xy: 234, 93
+  size: 54, 201
+  orig: 54, 201
+  offset: 0, 0
+  index: -1

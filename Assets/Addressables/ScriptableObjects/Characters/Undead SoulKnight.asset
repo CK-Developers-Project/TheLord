@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Undead SoulKnight
   m_EditorClassIdentifier: 
   index: 15
-  illust: {fileID: 21300000, guid: 7f063f305bd6f4446a39ef27923ddfb3, type: 3}
+  illust: {fileID: 21300000, guid: 3a3e6141cd31a9e4b871be15672a4864, type: 3}
   asset: {fileID: 11400000, guid: b929a5b862541864eade553a89a5d078, type: 2}
-  isLoad: 1
+  isLoad: 0

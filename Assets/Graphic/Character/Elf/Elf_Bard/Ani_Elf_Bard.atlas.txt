@@ -1,0 +1,90 @@
+
+Ani_Elf_Bard.png
+size: 231,268
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_Flute
+  rotate: true
+  xy: 207, 181
+  size: 85, 19
+  orig: 87, 20
+  offset: 2, 1
+  index: -1
+Ch_body
+  rotate: false
+  xy: 2, 2
+  size: 75, 114
+  orig: 81, 114
+  offset: 5, 0
+  index: -1
+Ch_body_arm_L
+  rotate: false
+  xy: 137, 2
+  size: 50, 25
+  orig: 50, 25
+  offset: 0, 0
+  index: -1
+Ch_body_arm_R
+  rotate: true
+  xy: 204, 135
+  size: 42, 25
+  orig: 42, 28
+  offset: 0, 0
+  index: -1
+Ch_body_cloth
+  rotate: true
+  xy: 187, 39
+  size: 52, 29
+  orig: 52, 30
+  offset: 0, 1
+  index: -1
+Ch_body_hand
+  rotate: true
+  xy: 204, 94
+  size: 39, 19
+  orig: 40, 19
+  offset: 0, 0
+  index: -1
+Ch_body_leg
+  rotate: false
+  xy: 79, 29
+  size: 64, 62
+  orig: 67, 62
+  offset: 2, 0
+  index: -1
+Ch_body_leg_L
+  rotate: false
+  xy: 145, 29
+  size: 40, 62
+  orig: 41, 62
+  offset: 0, 0
+  index: -1
+Ch_body_leg_R
+  rotate: true
+  xy: 79, 3
+  size: 24, 56
+  orig: 28, 57
+  offset: 2, 1
+  index: -1
+Ch_effect
+  rotate: false
+  xy: 115, 93
+  size: 87, 84
+  orig: 89, 86
+  offset: 1, 1
+  index: -1
+Ch_head
+  rotate: false
+  xy: 115, 179
+  size: 90, 87
+  orig: 94, 89
+  offset: 3, 0
+  index: -1
+Ch_head_hair
+  rotate: false
+  xy: 2, 118
+  size: 111, 148
+  orig: 130, 148
+  offset: 12, 0
+  index: -1

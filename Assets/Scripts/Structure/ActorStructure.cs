@@ -134,7 +134,7 @@ namespace Developers.Structure
         public BuildingState state;
         public int LV;
         public string name;
-        public DateTime workTime;
+        public long workTime;
 
         public int spawnCharacter;
         public int amount;

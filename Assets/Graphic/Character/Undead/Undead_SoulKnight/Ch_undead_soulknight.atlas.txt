@@ -1,0 +1,83 @@
+
+Ch_undead_soulknight.png
+size: 624,276
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: true
+  xy: 376, 11
+  size: 60, 177
+  orig: 60, 177
+  offset: 0, 0
+  index: -1
+armL2
+  rotate: true
+  xy: 376, 73
+  size: 60, 177
+  orig: 60, 177
+  offset: 0, 0
+  index: -1
+armR
+  rotate: false
+  xy: 2, 5
+  size: 263, 269
+  orig: 263, 269
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 267, 135
+  size: 128, 139
+  orig: 128, 139
+  offset: 0, 0
+  index: -1
+footL
+  rotate: false
+  xy: 555, 179
+  size: 65, 95
+  orig: 66, 95
+  offset: 0, 0
+  index: -1
+footR
+  rotate: false
+  xy: 397, 175
+  size: 71, 99
+  orig: 84, 99
+  offset: 13, 0
+  index: -1
+head
+  rotate: false
+  xy: 267, 19
+  size: 107, 114
+  orig: 110, 127
+  offset: 0, 0
+  index: -1
+legL
+  rotate: false
+  xy: 470, 141
+  size: 55, 68
+  orig: 55, 138
+  offset: 0, 70
+  index: -1
+legR
+  rotate: true
+  xy: 470, 211
+  size: 63, 70
+  orig: 63, 70
+  offset: 0, 0
+  index: -1
+pelvis
+  rotate: true
+  xy: 555, 65
+  size: 112, 55
+  orig: 112, 87
+  offset: 0, 28
+  index: -1
+pelvis_fabric
+  rotate: true
+  xy: 555, 2
+  size: 61, 67
+  orig: 62, 83
+  offset: 0, 0
+  index: -1

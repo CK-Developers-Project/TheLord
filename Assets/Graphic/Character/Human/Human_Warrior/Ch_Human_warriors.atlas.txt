@@ -1,0 +1,104 @@
+
+Ch_Human_warriors.png
+size: 424,268
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: true
+  xy: 280, 2
+  size: 29, 51
+  orig: 29, 51
+  offset: 0, 0
+  index: -1
+armLD
+  rotate: false
+  xy: 361, 119
+  size: 32, 38
+  orig: 34, 39
+  offset: 2, 1
+  index: -1
+armR
+  rotate: true
+  xy: 351, 35
+  size: 75, 70
+  orig: 86, 74
+  offset: 11, 4
+  index: -1
+attack
+  rotate: true
+  xy: 288, 159
+  size: 104, 106
+  orig: 180, 180
+  offset: 43, 46
+  index: -1
+body
+  rotate: false
+  xy: 152, 8
+  size: 65, 81
+  orig: 67, 81
+  offset: 2, 0
+  index: -1
+body2
+  rotate: true
+  xy: 219, 3
+  size: 86, 59
+  orig: 86, 59
+  offset: 0, 0
+  index: -1
+capeB
+  rotate: false
+  xy: 2, 132
+  size: 150, 131
+  orig: 150, 131
+  offset: 0, 0
+  index: -1
+capeF
+  rotate: false
+  xy: 154, 91
+  size: 111, 80
+  orig: 111, 82
+  offset: 0, 2
+  index: -1
+handR
+  rotate: true
+  xy: 396, 214
+  size: 28, 21
+  orig: 28, 21
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 2, 2
+  size: 148, 128
+  orig: 148, 128
+  offset: 0, 0
+  index: -1
+hnadL
+  rotate: false
+  xy: 396, 244
+  size: 26, 19
+  orig: 26, 19
+  offset: 0, 0
+  index: -1
+legL
+  rotate: false
+  xy: 280, 33
+  size: 69, 77
+  orig: 71, 81
+  offset: 0, 0
+  index: -1
+legR
+  rotate: true
+  xy: 267, 112
+  size: 45, 92
+  orig: 45, 92
+  offset: 0, 0
+  index: -1
+weapon
+  rotate: false
+  xy: 154, 173
+  size: 132, 90
+  orig: 149, 91
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,104 @@
+
+Ani_Elf_Elementalist.png
+size: 516,179
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_body
+  rotate: true
+  xy: 2, 2
+  size: 175, 172
+  orig: 175, 172
+  offset: 0, 0
+  index: -1
+Ch_body_arm_L
+  rotate: false
+  xy: 176, 2
+  size: 62, 39
+  orig: 111, 43
+  offset: 0, 4
+  index: -1
+Ch_body_arm_L2
+  rotate: true
+  xy: 301, 4
+  size: 69, 59
+  orig: 69, 60
+  offset: 0, 0
+  index: -1
+Ch_body_arm_R
+  rotate: false
+  xy: 444, 124
+  size: 55, 53
+  orig: 60, 53
+  offset: 5, 0
+  index: -1
+Ch_body_arm_R2
+  rotate: false
+  xy: 452, 5
+  size: 27, 23
+  orig: 27, 23
+  offset: 0, 0
+  index: -1
+Ch_body_leg
+  rotate: true
+  xy: 362, 6
+  size: 68, 59
+  orig: 72, 59
+  offset: 3, 0
+  index: -1
+Ch_body_leg_L
+  rotate: true
+  xy: 240, 11
+  size: 30, 58
+  orig: 31, 58
+  offset: 0, 0
+  index: -1
+Ch_body_leg_R
+  rotate: true
+  xy: 242, 43
+  size: 30, 57
+  orig: 33, 57
+  offset: 3, 0
+  index: -1
+Ch_body_tie
+  rotate: false
+  xy: 444, 82
+  size: 51, 40
+  orig: 51, 44
+  offset: 0, 4
+  index: -1
+Ch_effect1
+  rotate: false
+  xy: 176, 43
+  size: 64, 134
+  orig: 82, 135
+  offset: 7, 1
+  index: -1
+Ch_effect2
+  rotate: false
+  xy: 423, 2
+  size: 27, 26
+  orig: 34, 80
+  offset: 0, 54
+  index: -1
+Ch_effect3
+  rotate: true
+  xy: 423, 30
+  size: 44, 91
+  orig: 56, 92
+  offset: 5, 1
+  index: -1
+Ch_head
+  rotate: true
+  xy: 242, 75
+  size: 102, 99
+  orig: 102, 99
+  offset: 0, 0
+  index: -1
+Ch_head2
+  rotate: true
+  xy: 343, 76
+  size: 101, 99
+  orig: 102, 99
+  offset: 1, 0
+  index: -1

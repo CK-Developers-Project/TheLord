@@ -41,8 +41,9 @@ public class MainLobbyGameMode : BaseGameMode
             BuildingInfo info = new BuildingInfo ( );
             info.index = (BuildingType)buildingData.index;
             info.LV = buildingData.LV;
-            info.workTime = GameUtility.String2DateTime ( buildingData.tick );
+            info.workTime = buildingData.tick;
             info.amount = buildingData.amount;
+            Debug.Log ( info.index + " : " + info.amount );
             buildingInfoList.Add ( info );
         }
         GameManager.Instance.synchronizeData.SetBuildingInfo ( buildingInfoList );

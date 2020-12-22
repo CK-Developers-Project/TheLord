@@ -1,0 +1,76 @@
+
+Ch_undead_warrior.png
+size: 780,156
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: true
+  xy: 505, 3
+  size: 50, 91
+  orig: 118, 160
+  offset: 68, 0
+  index: -1
+armR
+  rotate: true
+  xy: 613, 26
+  size: 73, 94
+  orig: 73, 94
+  offset: 0, 0
+  index: -1
+attack
+  rotate: false
+  xy: 209, 4
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 505, 55
+  size: 99, 106
+  orig: 99, 106
+  offset: 0, 0
+  index: -1
+footL
+  rotate: false
+  xy: 736, 78
+  size: 42, 76
+  orig: 42, 76
+  offset: 0, 0
+  index: -1
+footR
+  rotate: false
+  xy: 709, 2
+  size: 67, 74
+  orig: 67, 74
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 361, 20
+  size: 142, 134
+  orig: 142, 134
+  offset: 0, 0
+  index: -1
+leg
+  rotate: false
+  xy: 613, 101
+  size: 121, 53
+  orig: 124, 53
+  offset: 0, 0
+  index: -1
+weapon
+  rotate: true
+  xy: 2, 4
+  size: 150, 205
+  orig: 150, 205
+  offset: 0, 0
+  index: -1
+weapon2
+  rotate: false
+  xy: 709, 83
+  size: 20, 16
+  orig: 20, 16
+  offset: 0, 0
+  index: -1

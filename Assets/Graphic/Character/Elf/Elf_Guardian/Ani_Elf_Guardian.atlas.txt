@@ -1,0 +1,62 @@
+
+Ani_Elf_Guardian.png
+size: 587,445
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ch_body
+  rotate: false
+  xy: 2, 2
+  size: 350, 441
+  orig: 448, 441
+  offset: 17, 0
+  index: -1
+Ch_body_arm_L1
+  rotate: false
+  xy: 476, 10
+  size: 70, 95
+  orig: 70, 95
+  offset: 0, 0
+  index: -1
+Ch_body_arm_L2
+  rotate: false
+  xy: 354, 267
+  size: 147, 176
+  orig: 159, 190
+  offset: 0, 13
+  index: -1
+Ch_body_arm_R1
+  rotate: false
+  xy: 494, 125
+  size: 77, 92
+  orig: 77, 92
+  offset: 0, 0
+  index: -1
+Ch_body_arm_R2
+  rotate: false
+  xy: 354, 107
+  size: 138, 158
+  orig: 143, 166
+  offset: 5, 8
+  index: -1
+Ch_body_leg_L
+  rotate: false
+  xy: 503, 333
+  size: 82, 110
+  orig: 100, 114
+  offset: 2, 4
+  index: -1
+Ch_body_leg_R
+  rotate: false
+  xy: 503, 219
+  size: 78, 112
+  orig: 87, 112
+  offset: 8, 0
+  index: -1
+Ch_head
+  rotate: true
+  xy: 354, 5
+  size: 100, 120
+  orig: 100, 120
+  offset: 0, 0
+  index: -1

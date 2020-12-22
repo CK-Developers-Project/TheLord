@@ -69,7 +69,7 @@ public class BarrackBuilding : Building
         packet.SendPacket ( true, true );
     }
 
-    public override void BuildUp ( DateTime targetTime, Action @event )
+    public override void BuildUp ( long targetTime, Action @event )
     {
         base.BuildUp ( targetTime, @event );
         spriteRenderer.enabled = true;

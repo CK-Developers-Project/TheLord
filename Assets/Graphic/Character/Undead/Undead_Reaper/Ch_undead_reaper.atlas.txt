@@ -1,0 +1,83 @@
+
+Ch_undead_reaper.png
+size: 256,600
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back-hair
+  rotate: true
+  xy: 2, 239
+  size: 118, 148
+  orig: 118, 148
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 108
+  size: 129, 133
+  orig: 130, 133
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 137, 119
+  size: 99, 99
+  orig: 108, 212
+  offset: 0, 113
+  index: -1
+hood
+  rotate: true
+  xy: 133, 2
+  size: 38, 45
+  orig: 38, 45
+  offset: 0, 0
+  index: -1
+l-arm-2
+  rotate: true
+  xy: 86, 12
+  size: 94, 45
+  orig: 94, 47
+  offset: 0, 2
+  index: -1
+l-hair
+  rotate: true
+  xy: 2, 2
+  size: 46, 74
+  orig: 46, 74
+  offset: 0, 0
+  index: -1
+l-hand-2
+  rotate: false
+  xy: 238, 197
+  size: 16, 21
+  orig: 16, 23
+  offset: 0, 1
+  index: -1
+r-arm-2
+  rotate: false
+  xy: 137, 42
+  size: 112, 75
+  orig: 112, 76
+  offset: 0, 0
+  index: -1
+r-hair
+  rotate: true
+  xy: 2, 50
+  size: 56, 82
+  orig: 56, 82
+  offset: 0, 0
+  index: -1
+scythe
+  rotate: true
+  xy: 2, 359
+  size: 237, 244
+  orig: 237, 244
+  offset: 0, 0
+  index: -1
+shine
+  rotate: false
+  xy: 152, 220
+  size: 98, 137
+  orig: 98, 137
+  offset: 0, 0
+  index: -1

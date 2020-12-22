@@ -17,6 +17,7 @@ public interface IActor
 
     void Initialize ( );
     void Load ( );
+    void OnUpdate ( );
 
     void OnSelect ( );
 }

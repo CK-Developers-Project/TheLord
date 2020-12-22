@@ -198,6 +198,10 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     }
 
 
+    public virtual void OnUpdate()
+    {
+    }
+
     public virtual void OnSelect ( )
     {
     }
@@ -296,5 +300,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         {
             OnDeath ( );
         }
+
+        OnUpdate ( );
     }
 }

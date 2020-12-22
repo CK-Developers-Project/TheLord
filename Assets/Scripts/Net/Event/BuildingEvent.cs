@@ -42,36 +42,18 @@ namespace Developers.Net.Event
             }
 
             building.info.LV = data.LV;
-            building.info.workTime = GameUtility.String2DateTime ( data.tick );
+            building.info.workTime = data.tick;
             building.info.amount = data.amount;
 
-            if ( !Mathf.Approximately ( building.info.workTime.Ticks, 0 ) )
+            if ( building.info.workTime >= 0 )
             {
-                Action @event;
-                if (data.LV == 0)
-                {
-                    @event = ( ) =>
-                    {
-                        var packet = new BuildingConfirmRequest ( );
-                        packet.index = (int)building.info.index;
-                        packet.confirmAction = ConfirmAction.Build;
-                        packet.SendPacket ( true, true );
-                    };
-                }
-                else
-                {
-                    @event = ( ) =>
-                    {
-                        var packet = new BuildingConfirmRequest ( );
-                        packet.index = (int)building.info.index;
-                        packet.confirmAction = ConfirmAction.LevelUp;
-                        packet.SendPacket ( true, true );
-                    };
-                }
-
-                building.BuildUp ( building.info.workTime, @event );
-                GameManager.Instance.GameMode.CurrentPage.OnUpdate();
+                building.BuildUp ( building.info.workTime );
             }
+            else if(building.info.LV > 0)
+            {
+                building.OnBuild ( );
+            }
+            GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
         }
     }
 }
