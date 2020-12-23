@@ -22,6 +22,7 @@ namespace Developers.Structure
             Select = 1,
         }
 
+        public bool IsActive { get => button.gameObject.activeInHierarchy; set => button.gameObject.SetActive ( value ); }
         public Button button;
         Animator animator;
         public Animator Animator {

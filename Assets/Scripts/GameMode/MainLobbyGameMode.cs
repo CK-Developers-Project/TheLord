@@ -111,7 +111,7 @@ public class MainLobbyGameMode : BaseGameMode
             Vector3 start = GameManager.Instance.MainCamera.ScreenToWorldPoint ( manager.Position );
             Vector3 end = GameManager.Instance.MainCamera.ScreenToWorldPoint ( manager.StartPoint );
             Vector3 drag = start - end;
-            cameraTarget.position = cameraTarget.position + new Vector3 ( drag.x, 0F, 0F );
+            cameraTarget.position = cameraTarget.position + new Vector3 ( -drag.x, 0F, 0F );
             manager.StartPoint = manager.Position;
         }
         else
