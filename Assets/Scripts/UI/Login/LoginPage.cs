@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Developers.Util;
+using Developers.Structure;
 using Developers.Net;
 using Developers.Net.Protocol;
 using System.Collections;
@@ -45,15 +46,28 @@ public class LoginPage : BasePage
     }
     #endregion
 
+    [SerializeField] Button touchMe = null;
+
     [SerializeField] Tester platformTester = null;
     //[SerializeField] AOS platformAOS = null;
     //[SerializeField] IOS platformIOS = null;
 
     IPlatform Current { get; set; }
     
+    public void OnTouchMe()
+    {
+        touchMe.gameObject.SetActive(false);
+        StartCoroutine ( OnConnect ( ) );
+    }
 
     public void Join(string id, string pwd)
     {
+        if ( !PhotonEngine.Instance.isServerConnect )
+        {
+            StartCoroutine ( OnConnect ( ) );
+            return;
+        }
+
         LoginRequest request = new LoginRequest ( id, pwd );
         request.SendPacket ( );
     }
@@ -61,10 +75,7 @@ public class LoginPage : BasePage
     public override void Initialize ( )
     {
         base.Initialize ( );
-    }
 
-    protected override void Construct ( )
-    {
 #if UNITY_ANDROID
 
 #elif UNITY_IOS
@@ -72,8 +83,13 @@ public class LoginPage : BasePage
 #else
 #endif
         Current = platformTester;
-        Current.AddEvent(Join);
-        StartCoroutine ( OnConnect ( ) );
+        Current.AddEvent ( Join );
+        touchMe.onClick.AddListener ( ( ) => OnTouchMe ( ) );
+    }
+
+    protected override void Construct ( )
+    {
+        touchMe.gameObject.SetActive ( true );
     }
 
     protected override void Hidden ( )
@@ -91,6 +107,7 @@ public class LoginPage : BasePage
             {
                 break;
             }
+            Current.Active ( false );
             yield return new WaitForSeconds ( 1.0F );
         }
         Current.Active ( true );
