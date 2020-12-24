@@ -57,7 +57,6 @@ public class InputManager : MonoSingleton<InputManager>
         {
             return;
         }
-
         mainInputActions = new MainInputActions ( );
 
         mainInputActions.Main.Mouse.started += InputMouseStarted;
@@ -65,22 +64,7 @@ public class InputManager : MonoSingleton<InputManager>
         mainInputActions.Main.Position.performed += InputMousePosition;
     }
 
-    private void InputTouch ( InputAction.CallbackContext context )
-    {
-        Position = context.ReadValue<Vector2> ( );
-        if ( Impossible )
-        {
-            return;
-        }
-        Vector2 pos = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );
-        RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, layerMask );
-        if ( hit )
-        {
-            TouchEvent ( hit.transform );
-        }
-    }
-
-    private void InputMouseStarted ( InputAction.CallbackContext obj )
+    void InputMouseStarted ( InputAction.CallbackContext obj )
     {
         if ( Impossible )
         {
@@ -90,7 +74,7 @@ public class InputManager : MonoSingleton<InputManager>
         StartPoint = new Vector2 ( Position.x, Position.y );
     }
 
-    private void InputMouseCanceled ( InputAction.CallbackContext context )
+    void InputMouseCanceled ( InputAction.CallbackContext context )
     {
         isStarted = false;
 
@@ -103,14 +87,13 @@ public class InputManager : MonoSingleton<InputManager>
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, layerMask );
         if ( hit )
         {
-            TouchEvent ( hit.transform );
+            if( TouchEvent  != null) TouchEvent ( hit.transform );
         }
     }
 
-    private void InputMousePosition ( InputAction.CallbackContext context )
+    void InputMousePosition ( InputAction.CallbackContext context )
     {
         Position = context.ReadValue<Vector2> ( );
-
         if(isStarted && !isPressed)
         {
             Vector3 start = GameManager.Instance.MainCamera.ScreenToWorldPoint ( Position );

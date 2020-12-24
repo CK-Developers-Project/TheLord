@@ -110,6 +110,7 @@ public class LoadManager : MonoSingleton<LoadManager>
     static List<Object> core = new List<Object> ( );
     static Dictionary<int, List<Object>> hashtable = new Dictionary<int, List<Object>> ( );
 
+    List<AssetLabelReference> isCompletedAsset = new List<AssetLabelReference> ( );
     Queue<AssetLabelReference> labels = new Queue<AssetLabelReference> ( );
     List<ResourceComplete> works = new List<ResourceComplete> ( );
 
@@ -138,6 +139,12 @@ public class LoadManager : MonoSingleton<LoadManager>
     /// <summary>로드할 리소스 태그를 등록시킵니다.</summary>
     public void Register ( AssetLabelReference labelReference )
     {
+        if ( isCompletedAsset.Contains ( labelReference ) )
+        {
+            return;
+        }
+
+        isCompletedAsset.Add ( labelReference );
         labels.Enqueue ( labelReference );
     }
 

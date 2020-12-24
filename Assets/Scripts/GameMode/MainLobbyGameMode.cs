@@ -9,13 +9,10 @@ using Developers.Util;
 public class MainLobbyGameMode : BaseGameMode
 {
     [SerializeField] MainLobbyPage mainLobbyPage = null;
-    [SerializeField] CinemachineVirtualCamera mainLobbyCV = null;
     [SerializeField] Transform cameraTarget = null;
 
     List<Building> buildings = new List<Building> ( );
     public List<Building> Buildings { get => buildings; }
-
-    bool isDrag = false;
 
     public override IEnumerator OnStart ( )
     {
@@ -85,7 +82,7 @@ public class MainLobbyGameMode : BaseGameMode
         {
             return;
         }
-        InputManager.Instance.layerMask = 0;
+        InputManager.Instance.layerMask = Physics2D.DefaultRaycastLayers;
         InputManager.Instance.TouchEvent -= TouchEvent;
         manager.Main.Disable ( );
     }
@@ -98,26 +95,7 @@ public class MainLobbyGameMode : BaseGameMode
 
     public override void OnUpdate ( )
     {
-        InputManager manager = InputManager.Instance;
-
-        if ( manager.isPressed )
-        {
-            if( isDrag == false)
-            {
-                isDrag = true;
-                cameraTarget.position = GameManager.Instance.MainCamera.transform.position;
-            }    
-
-            Vector3 start = GameManager.Instance.MainCamera.ScreenToWorldPoint ( manager.Position );
-            Vector3 end = GameManager.Instance.MainCamera.ScreenToWorldPoint ( manager.StartPoint );
-            Vector3 drag = start - end;
-            cameraTarget.position = cameraTarget.position + new Vector3 ( -drag.x, 0F, 0F );
-            manager.StartPoint = manager.Position;
-        }
-        else
-        {
-            isDrag = false;
-        }
+        CameraMovement ( );
     }
 
     public override void OnExit ( )
