@@ -16,6 +16,7 @@ public class MainLobbyPage : BasePage
     [SerializeField] BuildingInfoPopup buildingInfoPopup = null;
     [SerializeField] GameObject Prefab_purchasePopup = null;
     //
+    public ChatPopup chatPopup = null;
 
     public void OnBarrackInfo(BuildingInfo info)
     {
