@@ -7,12 +7,22 @@ using UnityEngine.InputSystem;
 
 public class RaidGameMode : BaseGameMode
 {
-    public Race race;
+    public GamePlayer LocalPlayer;
+
+    public GamePlayer EnemyPlayer;
 
     public override void Load ( )
     {
-        GameManager.Instance.Join ( "Local", race );
-        GameManager.Instance.Join ( "Enemy", race );
+        LocalPlayer.Initialize ( "Local", Race.Elf );
+        EnemyPlayer.Initialize ( "Enemy", Race.Undead );
+
+        GameManager.Instance.gamePlayers.Add ( LocalPlayer );
+        GameManager.Instance.gamePlayers.Add ( EnemyPlayer );
+
+        foreach(var character in LocalPlayer.GetCharacterAll ( ))
+        {
+            character.gameObject.AddComponent<CharacterAIForRaid> ( );
+        }
 
         base.Load ( );
     }
@@ -42,6 +52,8 @@ public class RaidGameMode : BaseGameMode
     public override void OnEnter ( )
     {
         RegisterInput ( );
+
+        
     }
 
     public override void OnUpdate ( )
@@ -58,7 +70,7 @@ public class RaidGameMode : BaseGameMode
 
 
     [SerializeField] int CharacterIndex = 1;
-    bool isPress = false;
+    bool isTestPress = false;
     void SummonCharacter()
     {
         var keyboard = Keyboard.current;
@@ -69,17 +81,17 @@ public class RaidGameMode : BaseGameMode
 
         if(keyboard.digit1Key.isPressed)
         {
-            if(isPress)
+            if(isTestPress)
             {
                 return;
             }
-            isPress = true;
+            isTestPress = true;
 
             Debug.Log ( "1 press" );
         }
         else
         {
-            isPress = false;
+            isTestPress = false;
         }
     }
 }

@@ -107,7 +107,11 @@ public abstract class BaseGameMode : MonoBehaviour
 
     protected virtual void Awake ( )
     {
-        CameraTarget = GameObject.FindGameObjectWithTag ( "CameraTarget" ).transform;
+        var cameraTarget = GameObject.FindGameObjectWithTag ( "CameraTarget" );
+        if(cameraTarget != null)
+        {
+            CameraTarget = cameraTarget.transform;
+        }
     }
 
     protected virtual void Update ( )
