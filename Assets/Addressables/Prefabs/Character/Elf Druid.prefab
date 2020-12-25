@@ -91,7 +91,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3209191260316987450}
+  - {fileID: 8321852439482175609}
   - {fileID: 7247897230297367456}
   - {fileID: 7247897231250292740}
   m_Father: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Colliders: []
---- !u!1 &8604469444695063966
+--- !u!1 &8323244275486941057
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,12 +220,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3209191260316987450}
-  - component: {fileID: 114414379405068900}
-  - component: {fileID: 9186821951532855441}
-  - component: {fileID: 2998954229967647302}
-  - component: {fileID: 2900092189721996053}
-  - component: {fileID: 4267797343671103356}
+  - component: {fileID: 8321852439482175609}
+  - component: {fileID: 232015007063887962}
+  - component: {fileID: 8410707096961191228}
+  - component: {fileID: 4143585712687834794}
+  - component: {fileID: 4000013411009028000}
+  - component: {fileID: 7035886949101081005}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (Ani_Elf_Druid)
   m_TagString: Untagged
@@ -233,13 +233,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3209191260316987450
+--- !u!4 &8321852439482175609
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604469444695063966}
+  m_GameObject: {fileID: 8323244275486941057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -247,21 +247,21 @@ Transform:
   m_Father: {fileID: 7247897230883679547}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &114414379405068900
+--- !u!33 &232015007063887962
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604469444695063966}
+  m_GameObject: {fileID: 8323244275486941057}
   m_Mesh: {fileID: 0}
---- !u!23 &9186821951532855441
+--- !u!23 &8410707096961191228
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604469444695063966}
+  m_GameObject: {fileID: 8323244275486941057}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -294,14 +294,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &2998954229967647302
+--- !u!95 &4143585712687834794
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604469444695063966}
+  m_GameObject: {fileID: 8323244275486941057}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ebb20dd254bd54645bc9f1f05f1c41e3, type: 2}
@@ -313,13 +313,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2900092189721996053
+--- !u!114 &4000013411009028000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604469444695063966}
+  m_GameObject: {fileID: 8323244275486941057}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
@@ -353,13 +353,13 @@ MonoBehaviour:
     useCustomMixMode: 1
     layerMixModes: 01000000
     layerBlendModes: 01000000
---- !u!114 &4267797343671103356
+--- !u!114 &7035886949101081005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604469444695063966}
+  m_GameObject: {fileID: 8323244275486941057}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c87b7f1016b1704eacbfdf0794901ae, type: 3}

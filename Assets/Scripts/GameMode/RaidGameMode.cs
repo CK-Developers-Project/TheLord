@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Developers.Structure;
 
+using UnityEngine.InputSystem;
+
 public class RaidGameMode : BaseGameMode
 {
     public Race race;
@@ -45,10 +47,39 @@ public class RaidGameMode : BaseGameMode
     public override void OnUpdate ( )
     {
         CameraMovement ( );
+
+        SummonCharacter ( );
     }
 
     public override void OnExit ( )
     {
         ReleaseInput ( );
+    }
+
+
+    [SerializeField] int CharacterIndex = 1;
+    bool isPress = false;
+    void SummonCharacter()
+    {
+        var keyboard = Keyboard.current;
+        if(keyboard == null)
+        {
+            return;
+        }
+
+        if(keyboard.digit1Key.isPressed)
+        {
+            if(isPress)
+            {
+                return;
+            }
+            isPress = true;
+
+            Debug.Log ( "1 press" );
+        }
+        else
+        {
+            isPress = false;
+        }
     }
 }

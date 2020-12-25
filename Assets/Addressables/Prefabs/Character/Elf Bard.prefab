@@ -30,7 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7500241694303970351}
+  - {fileID: 8341759703264588780}
   - {fileID: 1032961276669683172}
   - {fileID: 1032961275792840265}
   m_Father: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
---- !u!1 &7051759597769701542
+--- !u!1 &2417837735885522773
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,12 +220,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7500241694303970351}
-  - component: {fileID: 4060594371715393588}
-  - component: {fileID: 8535681796558027043}
-  - component: {fileID: 6782443476502584784}
-  - component: {fileID: 9121165181528727416}
-  - component: {fileID: 5220668751488871122}
+  - component: {fileID: 8341759703264588780}
+  - component: {fileID: 2636704932278163842}
+  - component: {fileID: 7910847754387733464}
+  - component: {fileID: 2295482140165260136}
+  - component: {fileID: 1945510394097994521}
+  - component: {fileID: 7400243081566655545}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (Ani_Elf_Bard)
   m_TagString: Untagged
@@ -233,13 +233,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7500241694303970351
+--- !u!4 &8341759703264588780
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051759597769701542}
+  m_GameObject: {fileID: 2417837735885522773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -247,21 +247,21 @@ Transform:
   m_Father: {fileID: 1032961275162520163}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4060594371715393588
+--- !u!33 &2636704932278163842
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051759597769701542}
+  m_GameObject: {fileID: 2417837735885522773}
   m_Mesh: {fileID: 0}
---- !u!23 &8535681796558027043
+--- !u!23 &7910847754387733464
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051759597769701542}
+  m_GameObject: {fileID: 2417837735885522773}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -294,14 +294,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &6782443476502584784
+--- !u!95 &2295482140165260136
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051759597769701542}
+  m_GameObject: {fileID: 2417837735885522773}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ea109ccf37b9ce4b8fe06e2c4ff5056, type: 2}
@@ -313,13 +313,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9121165181528727416
+--- !u!114 &1945510394097994521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051759597769701542}
+  m_GameObject: {fileID: 2417837735885522773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
@@ -353,13 +353,13 @@ MonoBehaviour:
     useCustomMixMode: 1
     layerMixModes: 01000000
     layerBlendModes: 01000000
---- !u!114 &5220668751488871122
+--- !u!114 &7400243081566655545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051759597769701542}
+  m_GameObject: {fileID: 2417837735885522773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c87b7f1016b1704eacbfdf0794901ae, type: 3}

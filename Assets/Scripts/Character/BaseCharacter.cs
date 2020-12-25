@@ -39,11 +39,11 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public virtual bool LookAtRight { 
         get
         {
-            return spineMeca.initialFlipX == false;
+            return spineMeca.initialFlipX;
         }
         set
         {
-            spineMeca.initialFlipX = !value;
+            spineMeca.initialFlipX = value;
         }
     }
 

@@ -86,6 +86,12 @@ namespace Developers.Structure.Data
 
         void Awake ( )
         {
+#if UNITY_EDITOR
+            if ( !Application.isPlaying )
+            {
+                return;
+            }
+#endif
             isLoad = false;
             TableManager.Instance.Record ( Load );
         }

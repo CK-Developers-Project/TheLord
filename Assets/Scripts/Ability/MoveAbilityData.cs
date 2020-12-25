@@ -44,6 +44,7 @@ public class MoveAbilityData : AbilityData
     void Move(BaseCharacter owner, Vector3 dir)
     {
         float speed = owner.status.Get ( ActorStatus.Speed, true, true, true );
+        owner.LookAtRight = dir.x >= 0 ? true : false;
         owner.Path.Move ( dir, speed );
     }
 }
