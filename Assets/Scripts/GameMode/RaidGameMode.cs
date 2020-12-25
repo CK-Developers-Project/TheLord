@@ -7,25 +7,41 @@ using UnityEngine.InputSystem;
 
 public class RaidGameMode : BaseGameMode
 {
-    public GamePlayer LocalPlayer;
+    const int RAID_WAVE_COUNT = 3;
 
-    public GamePlayer EnemyPlayer;
+    [SerializeField] Transform playerSpawnPoint = null;
+    [SerializeField] Transform bossSpawnPoint = null;
+
+
+    GamePlayer enemyPlayer;
+    List<int> characterIndex = new List<int> ( );
+
+
+    void SpawnCharacter ( int index, GamePlayer player )
+    {
+        float addHeight = Random.Range ( -0.592F, 0.592F );
+        Vector2 position = playerSpawnPoint.position + new Vector3 ( 0F, addHeight, 0F );
+        var obj = GameManager.Create<BaseCharacter> ( new ActorRecord ( ActorType.Character, index ), position, player );
+        
+    }
+
+    void SpawnBoss ( int index )
+    {
+        var obj = GameManager.Create<BaseCharacter> ( new ActorRecord ( ActorType.Character, index ), playerSpawnPoint.position, enemyPlayer );
+    }
+
+
+    public void PushCharacterIndex(int index, int amount)
+    {
+        for(int i = 0; i < amount; ++i )
+        {
+            characterIndex.Add ( index );
+        }
+    }
+
 
     public override void Load ( )
     {
-        LocalPlayer.Initialize ( "Local", Race.Elf );
-        EnemyPlayer.Initialize ( "Enemy", Race.Undead );
-
-        GameManager.Instance.gamePlayers.Add ( LocalPlayer );
-        GameManager.Instance.gamePlayers.Add ( EnemyPlayer );
-
-        EnemyPlayer.GetCharacter ( 0 ).gameObject.AddComponent<TheDevilAI> ( );
-
-        foreach(var character in LocalPlayer.GetCharacterAll ( ))
-        {
-            character.gameObject.AddComponent<CharacterAIForRaid> ( );
-        }
-
         base.Load ( );
     }
 
@@ -36,7 +52,7 @@ public class RaidGameMode : BaseGameMode
         {
             return;
         }
-        //InputManager.Instance.layerMask = GameLayerHelper.Layer ( GameLayer.Actor );
+        InputManager.Instance.layerMask = GameLayerHelper.Layer ( GameLayer.Actor );
         manager.Main.Enable ( );
     }
 
@@ -54,7 +70,7 @@ public class RaidGameMode : BaseGameMode
     public override void OnEnter ( )
     {
         RegisterInput ( );
-
+        Random.InitState ( System.DateTime.Now.Second );
         
     }
 
@@ -62,7 +78,6 @@ public class RaidGameMode : BaseGameMode
     {
         CameraMovement ( );
 
-        SummonCharacter ( );
     }
 
     public override void OnExit ( )
@@ -71,35 +86,4 @@ public class RaidGameMode : BaseGameMode
     }
 
 
-    [SerializeField] int CharacterIndex = 1;
-    bool isTestPress = false;
-    void SummonCharacter()
-    {
-        var keyboard = Keyboard.current;
-        if(keyboard == null)
-        {
-            return;
-        }
-
-        if(keyboard.digit1Key.isPressed)
-        {
-            if(isTestPress)
-            {
-                return;
-            }
-            isTestPress = true;
-
-            var characters = LocalPlayer.GetCharacterAll ( );
-            characters.ForEach ( x =>
-              {
-                  CharacterAIForRaid ai = x.AI as CharacterAIForRaid;
-                  ai.Target = EnemyPlayer.GetCharacter ( 0 );
-              } );
-            
-        }
-        else
-        {
-            isTestPress = false;
-        }
-    }
 }
