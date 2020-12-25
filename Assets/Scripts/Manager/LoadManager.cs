@@ -17,8 +17,10 @@ public class LoadManager : MonoSingleton<LoadManager>
     {
         Actor,          // Prefab
         UI,             // Prefab
-        Character,
-        Ability,        // ScriptableObject
+        Grave,          // Prefab
+
+        CharacterData,      // ScriptableObject
+        AbilityData,    // ScriptableObject
     }
 
     private class ResourceComplete 
@@ -66,15 +68,24 @@ public class LoadManager : MonoSingleton<LoadManager>
                             Add ( key, gameObject );
                         }
                         #endregion
+                        #region Grave
+                        else if(gameObject.GetComponent<Grave>() != null)
+                        {
+                            key = (int)LoadType.Grave * Multiply_Index;
+                            Add ( key, gameObject );
+                        }
+                        #endregion
                         break;
 
                     case CharacterData character:
-                        key = (int)LoadType.Character * Multiply_Index;
+                        key = (int)LoadType.CharacterData * Multiply_Index;
+                        character.Initialize ( );
                         Add ( key, character );
                         break;
 
                     case AbilityData ability:
-                        key = (int)LoadType.Ability * Multiply_Index;
+                        key = (int)LoadType.AbilityData * Multiply_Index;
+                        ability.Initialize ( );
                         Add ( key, ability );
                         break;
                 }
@@ -214,9 +225,22 @@ public class LoadManager : MonoSingleton<LoadManager>
         return null;
     }
 
+    public GameObject GetGrave(Grave.GraveType type)
+    {
+        List<Object> graveList = hashtable[(int)LoadType.Grave * Multiply_Index];
+        foreach(GameObject grave in graveList)
+        {
+            if(grave.GetComponent<Grave>().type == type)
+            {
+                return grave;
+            }
+        }
+        return null;
+    }
+
     public CharacterData GetCharacterData(int index)
     {
-        List<Object> CharacterList = hashtable[(int)LoadType.Character * Multiply_Index];
+        List<Object> CharacterList = hashtable[(int)LoadType.CharacterData * Multiply_Index];
         foreach ( CharacterData character in CharacterList )
         {
             if ( character.index == index )
@@ -230,7 +254,7 @@ public class LoadManager : MonoSingleton<LoadManager>
 
     public AbilityData GetAbilityData(int index)
     {
-        List<Object> abilityList = hashtable[(int)LoadType.Ability * Multiply_Index];
+        List<Object> abilityList = hashtable[(int)LoadType.AbilityData * Multiply_Index];
         foreach(AbilityData ability in abilityList)
         {
             if(ability.index == index)

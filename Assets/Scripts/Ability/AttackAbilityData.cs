@@ -31,29 +31,27 @@ public class AttackAbilityData : AbilityData
 
         float range = owner.status.Get ( ActorStatus.Distance, true, true, true );
         var targets = owner.damageCalculator.AttackRange ( range, DamageCalculator.FilterType.Enemy );
-        Vector3 sPos = owner.ACollider.transform.position;
-        Vector3 foward = new Vector3 ( owner.Forward, 0F );
+        Vector2 forward = new Vector3 ( owner.Forward, 0F );
         float delta = Mathf.Cos ( 90F * Mathf.Deg2Rad );
-        
         foreach (var target in targets)
         {
-            Vector3 tPos = target.ACollider.transform.position;
-            Vector3 dir = tPos - sPos;
-            float dot = Vector3.Dot ( foward, dir.normalized );
-
+            Vector2 dir = target.Center - owner.Center;
+            float dot = Vector2.Dot ( forward, dir.normalized );
             if(dot > delta )
             {
                 DamageCalculator.DamageInfo damageInfo = new DamageCalculator.DamageInfo ( );
-                damageInfo.damage = owner.status.Get ( ActorStatus.Atk, true, true, true );
+                damageInfo.damage = (int)owner.status.Get ( ActorStatus.Atk, true, true, true );
                 owner.damageCalculator.Damaged ( target, damageInfo );
                 break;
             }
         }
 
-        owner.Order = AbilityOrder.Idle;
-        owner.AddAnim ( );
+        if ( owner.Order == order || owner.Order == AbilityOrder.Idle )
+        {
+            owner.Order = AbilityOrder.Idle;
+            owner.AddAnim ( );
+        }
 
-        info.isUse = false;
         owner.StartCoroutine ( info.UpdateCoolTime ( ) );
     }
 }

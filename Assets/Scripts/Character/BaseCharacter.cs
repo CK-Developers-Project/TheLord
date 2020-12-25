@@ -19,6 +19,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public ActorObject Actor { get; protected set; }
     public ActorPath Path { get; protected set; }
     public ActorCollider ACollider { get; protected set; }
+    public CharacterAI AI { get; set; }
 
     public GamePlayer Owner { get; set; }
     public int Index { get => data.index; }
@@ -40,11 +41,11 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public virtual bool LookAtRight { 
         get
         {
-            return spineMeca.initialFlipX;
+            return spineMeca.skeleton.ScaleX >= 0f;
         }
         set
         {
-            spineMeca.initialFlipX = value;
+            spineMeca.skeleton.ScaleX = value ? 1F : -1F;
         }
     }
 
@@ -76,7 +77,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
 
     protected bool isDeath = false;
     public bool IsDeath  {
-        get => IsDeath;
+        get => isDeath;
         set
         {
             if(!isDeath)
@@ -219,7 +220,9 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
 
         hp = 0F;
         isDeath = true;
-        Actor.Set ( -1 );
+
+        Destroy ( gameObject ); // 우선 그냥 바로 삭제함
+        //Actor.Set ( -1 );
     }
 
     public virtual void OnAttack()
@@ -248,7 +251,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
 
     #endregion
 
-    protected void Awake ( )
+    protected virtual void Awake ( )
     {
         spineMeca = GetComponentInChildren<SkeletonMecanim> ( );
         Actor = GetComponentInChildren<ActorObject> ( );
@@ -282,6 +285,10 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         foreach ( int i in data.Ability )
         {
             var data = LoadManager.Instance.GetAbilityData ( i );
+            if ( !data.isLoad )
+            {
+                Initialize ( );
+            }
             yield return new WaitUntil ( ( ) => data.isLoad );
             data.Add ( caster );
         }
@@ -307,5 +314,22 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         }
 
         OnUpdate ( );
+    }
+
+    // 임시
+    void OnDestroy ( )
+    {
+        switch ( data.Race )
+        {
+            case Race.Elf:
+                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
+                break;
+            case Race.Human:
+                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
+                break;
+            case Race.Undead:
+                Grave.Create ( Grave.GraveType.Undead, Position, 3F );
+                break;
+        }
     }
 }

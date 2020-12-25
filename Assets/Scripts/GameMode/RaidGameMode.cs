@@ -19,6 +19,8 @@ public class RaidGameMode : BaseGameMode
         GameManager.Instance.gamePlayers.Add ( LocalPlayer );
         GameManager.Instance.gamePlayers.Add ( EnemyPlayer );
 
+        EnemyPlayer.GetCharacter ( 0 ).gameObject.AddComponent<TheDevilAI> ( );
+
         foreach(var character in LocalPlayer.GetCharacterAll ( ))
         {
             character.gameObject.AddComponent<CharacterAIForRaid> ( );
@@ -87,7 +89,13 @@ public class RaidGameMode : BaseGameMode
             }
             isTestPress = true;
 
-            Debug.Log ( "1 press" );
+            var characters = LocalPlayer.GetCharacterAll ( );
+            characters.ForEach ( x =>
+              {
+                  CharacterAIForRaid ai = x.AI as CharacterAIForRaid;
+                  ai.Target = EnemyPlayer.GetCharacter ( 0 );
+              } );
+            
         }
         else
         {

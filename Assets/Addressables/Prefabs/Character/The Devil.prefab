@@ -443,7 +443,6 @@ GameObject:
   - component: {fileID: 7907495514140005486}
   - component: {fileID: 7907495514140005487}
   - component: {fileID: 7907495514140005480}
-  - component: {fileID: 1512725766930824033}
   m_Layer: 0
   m_Name: The Devil
   m_TagString: Untagged
@@ -522,18 +521,6 @@ MonoBehaviour:
     id: 1
   - order: 3
     id: 0
---- !u!114 &1512725766930824033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7907495514140005481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea5b72476867f24b8a6f0b5855a07b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8719991277212617776
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2513a766035511c43a0b3e388582c91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit_time: 1
+  exit_time: 0.75
 --- !u!1107 &-7028646278560714341
 AnimatorStateMachine:
   serializedVersion: 5
@@ -55,7 +55,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2071706256358274180}
-    m_Position: {x: 300, y: 230, z: 0}
+    m_Position: {x: 300, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2420765708797492120}
     m_Position: {x: 300, y: 110, z: 0}
@@ -139,7 +139,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: Id
-    m_EventTreshold: 3
+    m_EventTreshold: -1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2071706256358274180}
   m_Solo: 0
@@ -168,13 +168,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Id
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2513a766035511c43a0b3e388582c91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit_time: 1
+  exit_time: 0.75
 --- !u!1102 &6511263788444965252
 AnimatorState:
   serializedVersion: 5

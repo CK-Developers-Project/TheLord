@@ -67,6 +67,11 @@ namespace Developers.Structure.Data
 
         void Load ( TableManager table )
         {
+            if ( isLoad == true )
+            {
+                return;
+            }
+
             var abilityInfoSheet = table.AbilityTable.AbilityInfoSheet;
             var record = BaseTable.Get ( abilityInfoSheet, "index", index );
 
@@ -84,14 +89,8 @@ namespace Developers.Structure.Data
         }
 
 
-        void Awake ( )
+        public void Initialize ( )
         {
-#if UNITY_EDITOR
-            if ( !Application.isPlaying )
-            {
-                return;
-            }
-#endif
             isLoad = false;
             TableManager.Instance.Record ( Load );
         }

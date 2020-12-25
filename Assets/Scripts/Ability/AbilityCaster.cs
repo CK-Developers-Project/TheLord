@@ -55,8 +55,8 @@ public class AbilityCaster
         {
             return false;
         }
-        
-        if(ability.isUse || ability.cooltime > 0)
+
+        if ( ability.isUse || ability.cooltime > 0)
         {
             return false;
         }

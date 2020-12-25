@@ -58,6 +58,11 @@ namespace Developers.Structure.Data
 
         void Load ( TableManager table )
         {
+            if ( isLoad == true )
+            {
+                return;
+            }
+
             var characterInfoSheet = table.CharacterTable.CharacterInfoSheet;
             var record = BaseTable.Get ( characterInfoSheet, "index", index );
 
@@ -77,10 +82,6 @@ namespace Developers.Structure.Data
 
         public void Initialize()
         {
-            if(isLoad)
-            {
-                return;
-            }
             isLoad = false;
             TableManager.Instance.Record ( Load );
         }

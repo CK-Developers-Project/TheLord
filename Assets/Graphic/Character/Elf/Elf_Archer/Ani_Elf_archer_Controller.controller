@@ -309,13 +309,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Id
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2513a766035511c43a0b3e388582c91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit_time: 1
+  exit_time: 0.75
 --- !u!1107 &5414605108874374958
 AnimatorStateMachine:
   serializedVersion: 5

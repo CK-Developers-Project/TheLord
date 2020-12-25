@@ -37,8 +37,11 @@ public class MoveAbilityData : AbilityData
         }
 
         info.isUse = false;
-        owner.Order = AbilityOrder.Idle;
-        owner.SetAnim ( );
+        if ( owner.Order == order || owner.Order == AbilityOrder.Idle )
+        {
+            owner.Order = AbilityOrder.Idle;
+            owner.AddAnim ( );
+        }
     }
 
     void Move(BaseCharacter owner, Vector3 dir)

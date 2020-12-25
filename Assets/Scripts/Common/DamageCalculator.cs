@@ -20,13 +20,14 @@ public class DamageCalculator
         public float armor = 0f;
     }
 
+    const int OVERLAP_MAX_ACTOR = 24;
 
     public BaseCharacter Owner { get; set; }
 
 
     public float Formula(DamageInfo info)
     {
-        float amount = info.armor - info.damage;
+        float amount = info.damage - info.armor;
         if(amount < 1F)
         {
             amount = 1F;
@@ -39,13 +40,14 @@ public class DamageCalculator
     public List<BaseCharacter> AttackRange(float range, FilterType filter)
     {
         LayerMask layer = GameLayerHelper.Layer ( GameLayer.Actor );
-        var colliders = Physics2D.OverlapCircleAll ( Owner.ACollider.transform.position, range, layer );
+        var col = new Collider2D[OVERLAP_MAX_ACTOR];
+        var actors = Physics2D.OverlapCircleNonAlloc ( Owner.Center, range, col, layer );
 
         List<BaseCharacter> targets = new List<BaseCharacter> ( );
-        foreach(var col in colliders)
+        for ( int i = 0; i < actors; ++i )
         {
-            BaseCharacter character = col.transform.GetComponent<BaseCharacter> ( );
-            if(character == null || Owner.Equals(character) || targets.Contains(character))
+            BaseCharacter character = col[i].transform.GetComponentInParent<BaseCharacter> ( );
+            if ( character == null || character.Equals ( Owner ) )
             {
                 continue;
             }
@@ -53,7 +55,7 @@ public class DamageCalculator
             switch ( filter )
             {
                 case FilterType.Alliance:
-                    if(Owner.Owner.IsEnemy(character.Owner))
+                    if ( Owner.Owner.IsEnemy ( character.Owner ) )
                     {
                         continue;
                     }
@@ -65,7 +67,6 @@ public class DamageCalculator
                     }
                     break;
             }
-
             targets.Add ( character );
         }
         return targets;
@@ -74,8 +75,8 @@ public class DamageCalculator
 
     public void Damaged ( BaseCharacter target, DamageInfo info )
     {
-        Owner.OnDamaged ( Owner, target, info );
+        target.OnDamaged ( Owner, target, info );
         float amount = Formula ( info );
-        Owner.Hp -= amount;
+        target.Hp -= amount;
     }
 }

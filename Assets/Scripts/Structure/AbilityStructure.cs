@@ -75,6 +75,7 @@ namespace Developers.Structure
                 cooltime -= Time.deltaTime;
                 yield return null;
             }
+            isUse = false;
             cooltime = 0F;
         }
 
