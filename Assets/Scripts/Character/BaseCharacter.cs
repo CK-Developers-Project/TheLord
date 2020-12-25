@@ -30,6 +30,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public Vector3 OrderPosition { get; set; }
 
     public AbilityOrder Order { get => caster.order; set => caster.order = value; }
+    public Vector3 Center { get => ACollider.transform.position; }
     public Vector3 Position { get => Path.transform.position; }
     public float Radius { get => Path.Radius; }
 
@@ -264,6 +265,10 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     IEnumerator Start ( )
     {
         yield return new WaitUntil ( ( ) => GameManager.Instance.IsGameStart );
+        if(!data.isLoad )
+        {
+            data.Initialize ( );
+        }
         yield return new WaitUntil ( ( ) => data.isLoad );
         status.Normal.Set ( ActorStatus.Atk, data.Atk );
         status.Normal.Set ( ActorStatus.Def, data.Def );

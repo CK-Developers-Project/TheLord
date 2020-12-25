@@ -9,6 +9,17 @@ public class GamePlayer : MonoBehaviour
 
     public PlayerInfo playerInfo = new PlayerInfo();
 
+    public List<BaseCharacter> characters = new List<BaseCharacter> ( );
+
+    List<BaseCharacter> selectCharacter = new List<BaseCharacter> ( );
+    public List<BaseCharacter> SelectCharacter {
+        get
+        {
+            selectCharacter.RemoveAll ( x => x == null );
+            return selectCharacter;
+        }
+    }
+
     List<GamePlayer> Teams = new List<GamePlayer> ( );
 
     #region 팀 설정
@@ -41,6 +52,36 @@ public class GamePlayer : MonoBehaviour
 
     #endregion
 
+    #region 유닛 설정
+
+    public BaseCharacter GetCharacter(int i)
+    {
+        if(characters.Count <= i)
+        {
+            return null;
+        }
+
+        var result = characters[i];
+
+        if ( characters[i] == null )
+            characters.RemoveAll ( x => x == null );
+
+        return result;
+    }
+
+    public List<BaseCharacter> GetCharacter<T> ( ) where T : BaseCharacter
+    {
+        characters.RemoveAll ( x => x == null );
+        return characters.FindAll ( x => x is T );
+    }
+
+    public List<BaseCharacter> GetCharacterAll()
+    {
+        characters.RemoveAll ( x => x == null );
+        return characters;
+    }
+
+    #endregion
 
 
     public void Initialize(string nickname, Race race)
@@ -48,6 +89,11 @@ public class GamePlayer : MonoBehaviour
         Teams.Add ( this );
         playerInfo.Nickname = nickname;
         playerInfo.Race = race;
+
+        foreach ( var character in characters )
+        {
+            character.Owner = this;
+        }
     }
 
     public string DisplayGold ( ResourceType type )

@@ -3,7 +3,7 @@ using Developers.Structure;
 
 public class CharacterAI : MonoBehaviour, IAIFactory
 {
-    BaseCharacter pawn;
+    protected BaseCharacter pawn;
 
 
     public IActor Actor { get => pawn; }
@@ -23,7 +23,7 @@ public class CharacterAI : MonoBehaviour, IAIFactory
         return pawn.caster.OnStart ( order, position );
     }
 
-    private void Awake ( )
+    void Awake ( )
     {
         pawn = GetComponentInParent<BaseCharacter> ( );
     }

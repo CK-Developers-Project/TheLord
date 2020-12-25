@@ -75,15 +75,12 @@ namespace Developers.Structure.Data
             isLoad = true;
         }
 
-
-        void Awake ( )
+        public void Initialize()
         {
-#if UNITY_EDITOR
-            if ( !Application.isPlaying )
+            if(isLoad)
             {
                 return;
             }
-#endif
             isLoad = false;
             TableManager.Instance.Record ( Load );
         }

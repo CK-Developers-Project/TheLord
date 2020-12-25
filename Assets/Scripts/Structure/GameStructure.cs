@@ -14,7 +14,9 @@ namespace Developers.Structure
         UI = 5,
         
         Path = 8,
-        Actor
+        ActorPath,
+
+        Actor = 12,
     }
 
     public static class GameLayerHelper

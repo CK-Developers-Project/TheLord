@@ -117,7 +117,6 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
-  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -165,7 +164,7 @@ GameObject:
   - component: {fileID: 2539203838554501344}
   - component: {fileID: 2539203838554501350}
   - component: {fileID: 2539203838554501345}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +225,7 @@ GameObject:
   - component: {fileID: 2539203839861333546}
   - component: {fileID: 2539203839861333544}
   - component: {fileID: 2539203839861333547}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
