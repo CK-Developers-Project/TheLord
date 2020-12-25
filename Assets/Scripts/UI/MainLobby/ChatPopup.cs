@@ -56,7 +56,8 @@ public class ChatPopup : MonoBehaviour
 
     public void AddChat(int index, string nick, string msg)
     {
-        Instantiate(myChat, chatGrid).GetComponent<ChatData>().Initialize(nick, msg);
+        Instantiate(otherChat, chatGrid).GetComponent<ChatData>().Initialize(nick, msg, chatStyles[index].icon);
+        StartCoroutine(FocusChat());
     }
 
     private IEnumerator FocusChat()
