@@ -115,6 +115,9 @@ MonoBehaviour:
     state: 0
     LV: 0
     name: 
+    workTime: 0
+    spawnCharacter: 0
+    amount: 0
   hologram: {fileID: 8587624460686376507}
 --- !u!50 &-8847882827208161685
 Rigidbody2D:
@@ -148,7 +151,7 @@ GameObject:
   - component: {fileID: 4148912911369665656}
   - component: {fileID: 8876122945099832366}
   - component: {fileID: 6042050951624245483}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

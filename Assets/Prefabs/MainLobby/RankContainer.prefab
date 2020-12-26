@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 2055400695520192711}
   - component: {fileID: 4522262817576998803}
   - component: {fileID: 1675767446868877049}
+  - component: {fileID: 7033278406653668}
   m_Layer: 0
   m_Name: RankContainer
   m_TagString: Untagged
@@ -704,6 +705,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7033278406653668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485600397947092423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57ef2f145cb7a64dbbfee7ba8458d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nicknameText: {fileID: 1411810357739545375}
+  scoreText: {fileID: 1411810357185324900}
+  rankImage: {fileID: 1789971142387337845}
+  numberRank:
+    rankImage: {fileID: 957003136741882275}
+    rankText: {fileID: 1411810358546544097}
+  rankSprites:
+  - {fileID: 21300000, guid: 94f5ae85afb01fa4ca136ede9455f4d5, type: 3}
+  - {fileID: 21300000, guid: 3327da8b5d4bdba4fa62c8f84c1de41e, type: 3}
+  - {fileID: 21300000, guid: 5fe0c0ea5583f304fb7c91dae7a6145e, type: 3}
+  nickname: 
+  rank: 0
+  score: 0
 --- !u!1 &8066338286988766758
 GameObject:
   m_ObjectHideFlags: 0
