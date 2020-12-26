@@ -17,6 +17,7 @@
         public const string MainLobby_Elf = "MainLobby_Elf";
         public const string MainLobby_Human = "MainLobby_Human";
         public const string MainLobby_Undead = "MainLobby_Undead";
+        public const string Raid_1 = "Raid_1";
 
         public static string GetMainLobby(Race race)
         {

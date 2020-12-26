@@ -11,9 +11,16 @@ public class RaidBattlePage : BasePage
 
     RaidGameMode gameMode;
 
+    [SerializeField] RaidResultPopup raidResultPopup;
+
     void UpdateHP()
     {
-
+        if(gameMode.RaidBoss == null)
+        {
+            hpImage.fillAmount = 0F;
+            return;
+        }
+        hpImage.fillAmount = gameMode.RaidBoss.Hp / gameMode.RaidBoss.status.Get ( ActorStatus.HP, true, true, true );
     }
 
 
