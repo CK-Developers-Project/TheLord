@@ -1,0 +1,90 @@
+
+ch_boss.png
+size: 2712,1060
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: false
+  xy: 1920, 22
+  size: 254, 413
+  orig: 254, 413
+  offset: 0, 0
+  index: -1
+armR
+  rotate: true
+  xy: 2614, 653
+  size: 172, 95
+  orig: 172, 95
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 861, 2
+  size: 336, 563
+  orig: 371, 563
+  offset: 35, 0
+  index: -1
+capeB
+  rotate: true
+  xy: 861, 340
+  size: 718, 445
+  orig: 718, 481
+  offset: 0, 36
+  index: -1
+capeBR
+  rotate: true
+  xy: 2414, 512
+  size: 313, 198
+  orig: 313, 198
+  offset: 0, 0
+  index: -1
+capeL
+  rotate: true
+  xy: 1426, 6
+  size: 417, 492
+  orig: 417, 492
+  offset: 0, 0
+  index: -1
+capeR
+  rotate: true
+  xy: 2176, 43
+  size: 398, 480
+  orig: 398, 480
+  offset: 0, 0
+  index: -1
+ch_boss
+  rotate: true
+  xy: 2, 43
+  size: 1015, 857
+  orig: 1015, 858
+  offset: 0, 0
+  index: -1
+handR
+  rotate: false
+  xy: 2414, 827
+  size: 281, 231
+  orig: 281, 232
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 2023, 443
+  size: 615, 389
+  orig: 615, 392
+  offset: 0, 2
+  index: -1
+wing_L
+  rotate: false
+  xy: 1308, 425
+  size: 250, 633
+  orig: 250, 646
+  offset: 0, 0
+  index: -1
+wing_R
+  rotate: false
+  xy: 1560, 437
+  size: 461, 621
+  orig: 461, 621
+  offset: 0, 0
+  index: -1

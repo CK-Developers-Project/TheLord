@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 public delegate void FOnDeath ( );
-public delegate void FOnAttack ( BaseCharacter target );
-public delegate void FOnHit ( BaseCharacter target );
+public delegate void FOnAttack ( BaseCharacter source, BaseCharacter target );
+public delegate void FOnHit ( BaseCharacter source, BaseCharacter target, DamageCalculator.DamageInfo info );
 public delegate void FOnDamaged ( BaseCharacter source, BaseCharacter target, DamageCalculator.DamageInfo info );
 
 public interface IActor
@@ -12,6 +12,7 @@ public interface IActor
     int Index { get; }
     bool Synchronized { get; set; }
     bool Initialized { get; set; }
+    bool Invincible { get; set; }
 
     bool Anim_Event { get; set; }
 

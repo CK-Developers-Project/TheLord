@@ -6,6 +6,7 @@ using Developers.Structure;
 using UnityEditor;
 #endif
 
+[DisallowMultipleComponent]
 public class CharacterAI : MonoBehaviour, IAIFactory
 {
     protected BaseCharacter pawn;

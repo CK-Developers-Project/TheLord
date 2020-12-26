@@ -18,7 +18,7 @@ public class MainLobbyGameMode : BaseGameMode
     {
         new LobbyEnterRequest ( ).SendPacket ( false );
         yield return new WaitUntil ( ( ) => GameManager.Instance.IsSynchronized );
-        yield return StartCoroutine ( base.OnStart ( ) );
+        yield return base.OnStart ( );
     }
 
     public override void OnSynchronize<T> ( T data )

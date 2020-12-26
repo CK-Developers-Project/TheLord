@@ -12,7 +12,8 @@ public class Builder : MonoBehaviour
     public void Load()
     {
         var record = new ActorRecord ( ActorType.Building, (int)buildingType );
-        GameManager.Create<Building> ( record, transform.position, GameManager.Instance.LocalPlayer );
+        var building = GameManager.Create<Building> ( record, transform.position, GameManager.Instance.LocalPlayer );
+        building.GetComponent<Building> ( ).Owner = GameManager.Instance.LocalPlayer;
         Destroy ( gameObject );
     }
 

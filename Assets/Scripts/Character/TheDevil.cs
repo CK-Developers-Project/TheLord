@@ -3,17 +3,14 @@ using Developers.Structure;
 
 public class TheDevil : BaseCharacter
 {
-    SpriteRenderer spriteRenderer = null;
-
-    public override bool LookAtRight { 
-        get => spriteRenderer.flipX; 
-        set => spriteRenderer.flipX = value;
-    }
-
-
-    protected override void Awake ( )
-    {
-        base.Awake ( );
-        spriteRenderer = Actor.GetComponent<SpriteRenderer> ( );
+    public override bool LookAtRight {
+        get
+        {
+            return spineMeca.skeleton.ScaleX <= 0f;
+        }
+        set
+        {
+            spineMeca.skeleton.ScaleX = value ? -1F : 1F;
+        }
     }
 }

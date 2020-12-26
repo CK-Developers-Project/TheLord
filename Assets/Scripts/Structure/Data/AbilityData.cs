@@ -56,13 +56,24 @@ namespace Developers.Structure.Data
 
         public virtual void Effect ( ) { }
 
-        public void Add(AbilityCaster caster)
+        public virtual bool Add(AbilityCaster caster)
+        {
+            if ( caster.HasAbility ( order ) == false )
+            {
+                caster.Add ( new AbilityInfo ( this ) );
+                return true;
+            }
+            return false;
+        }
+
+        public virtual bool Remove(AbilityCaster caster)
         {
             if ( caster.HasAbility ( order ) )
             {
-                return;
+                caster.Remove ( caster.Get ( index ) );
+                return true;
             }
-            caster.Add ( new AbilityInfo ( this ) );
+            return false;
         }
 
         void Load ( TableManager table )

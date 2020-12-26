@@ -12,15 +12,25 @@ public class DamageCalculator
         Enemy,
     }
 
-    public class DamageInfo
+    public enum DamageType
     {
-        public float damage = 0f;
-        public float trueDamage = 0f;
-
-        public float armor = 0f;
+        Normal,
+        Physic,
+        Magic
     }
 
-    const int OVERLAP_MAX_ACTOR = 24;
+    public class DamageInfo
+    {
+        public DamageType type = DamageType.Normal;
+        public float damage = 0f;
+        public float trueDamage = 0f;
+        
+        public float armor = 0f;
+
+        public DamageInfo ( DamageType type ) => this.type = type;
+    }
+
+    const int OVERLAP_MAX_ACTOR = 100;
 
     public BaseCharacter Owner { get; set; }
 
@@ -75,7 +85,8 @@ public class DamageCalculator
 
     public void Damaged ( BaseCharacter target, DamageInfo info )
     {
-        target.OnDamaged ( Owner, target, info );
+        Owner.OnDamaged ( Owner, target, info );
+        target.OnHit ( Owner, target, info );
         float amount = Formula ( info );
         target.Hp -= amount;
     }

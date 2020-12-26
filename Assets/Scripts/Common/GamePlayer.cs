@@ -81,6 +81,12 @@ public class GamePlayer : MonoBehaviour
         return characters;
     }
 
+    public void CharacterAdd(BaseCharacter characater)
+    {
+        characters.Add ( characater );
+        characater.Owner = this;
+    }
+
     #endregion
 
 

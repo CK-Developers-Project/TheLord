@@ -25,6 +25,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public int Index { get => data.index; }
     public bool Synchronized { get; set; }
     public bool Initialized { get; set; }
+    public bool Invincible { get; set; }
     public bool Anim_Event { get; set; }
 
     public BaseCharacter OrderTarget { get; set; }
@@ -66,6 +67,10 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         get => hp;
         set
         {
+            if ( value < 0 && Invincible == true )
+            {
+                return;
+            }
             hp = value;
             float max = status.Get ( ActorStatus.HP, true, true, true );
             if ( hp > max )
@@ -221,23 +226,35 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         hp = 0F;
         isDeath = true;
 
+        switch ( data.Race )
+        {
+            case Race.Elf:
+                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
+                break;
+            case Race.Human:
+                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
+                break;
+            case Race.Undead:
+                Grave.Create ( Grave.GraveType.Undead, Position, 3F );
+                break;
+        }
         Destroy ( gameObject ); // 우선 그냥 바로 삭제함
         //Actor.Set ( -1 );
     }
 
-    public virtual void OnAttack()
+    public virtual void OnAttack(BaseCharacter target )
     {
         if(@Attack != null)
         {
-            @Attack ( OrderTarget );
+            @Attack ( this, target );
         }
     }
 
-    public virtual void OnHit ( BaseCharacter target )
+    public virtual void OnHit ( BaseCharacter source, BaseCharacter target, DamageCalculator.DamageInfo info )
     {
         if(@Hit != null)
         {
-            @Hit ( target );
+            @Hit ( source, target, info );
         }
     }
 
@@ -314,22 +331,5 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         }
 
         OnUpdate ( );
-    }
-
-    // 임시
-    void OnDestroy ( )
-    {
-        switch ( data.Race )
-        {
-            case Race.Elf:
-                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
-                break;
-            case Race.Human:
-                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
-                break;
-            case Race.Undead:
-                Grave.Create ( Grave.GraveType.Undead, Position, 3F );
-                break;
-        }
     }
 }

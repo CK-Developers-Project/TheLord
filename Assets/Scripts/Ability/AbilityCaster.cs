@@ -8,9 +8,18 @@ public class AbilityCaster
 {
     [SerializeField] List<AbilityInfo> abilitys = new List<AbilityInfo> ( );
 
-
+    public bool abilityCast = false;
     public AbilityOrder order = AbilityOrder.Idle;
     public BaseCharacter Owner { get; set; }
+
+    public AbilityInfo this[int value] 
+    {
+        get
+        {
+            return abilitys.Count >= value || value < 0 ? null : abilitys[value];
+        }
+    }
+
 
     public void Add(AbilityInfo ability)
     {
@@ -30,7 +39,7 @@ public class AbilityCaster
 
     public AbilityInfo Get(int index)
     {
-        return abilitys.Count >= index || index < 0 ? null : abilitys[index];
+        return abilitys.Find ( x => x.Data.index == index );
     }
 
     public AbilityInfo Get(Type type)
@@ -50,6 +59,10 @@ public class AbilityCaster
     
     public bool OnStart(AbilityOrder order)
     {
+        if( abilityCast )
+        {
+            return false;
+        }
         AbilityInfo ability = abilitys.Find(x => x.Order == order);
         if(ability == null)
         {
@@ -67,6 +80,10 @@ public class AbilityCaster
 
     public bool OnStart(AbilityOrder order, Vector3 position)
     {
+        if ( abilityCast )
+        {
+            return false;
+        }
         AbilityInfo ability = abilitys.Find(x => x.Order == order);
         if (ability == null)
         {
@@ -84,6 +101,10 @@ public class AbilityCaster
 
     public bool OnStart(AbilityOrder order, IActor target)
     {
+        if ( abilityCast )
+        {
+            return false;
+        }
         AbilityInfo ability = abilitys.Find(x => x.Order == order);
         if (ability == null)
         {

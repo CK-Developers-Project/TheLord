@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2513a766035511c43a0b3e388582c91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit_time: 0.75
+  exit_time: 1
 --- !u!74 &3924709388733608713
 AnimationClip:
   m_ObjectHideFlags: 0

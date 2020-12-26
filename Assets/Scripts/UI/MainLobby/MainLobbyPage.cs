@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using Developers.Structure;
-using Developers.Structure.Data;
-using Developers.Util;
 using Developers.Table;
 using TMPro;
 

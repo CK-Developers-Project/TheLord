@@ -8,7 +8,7 @@ using Developers.Structure;
 public class TheDevilAI : CharacterAI
 {
     const float FIND_ENEMY_TICK = 0.1F;
-    const int FIND_ENEMY_MAX = 10;
+    const int FIND_ENEMY_MAX = 50;
 
     List<BaseCharacter> holdCharacters = new List<BaseCharacter> ( );
 
@@ -64,7 +64,7 @@ public class TheDevilAI : CharacterAI
         {
             Vector2 dir = obstacle.Position - pawn.Position;
             pawn.LookAtRight = dir.x >= 0 ? true : false;
-            SetOrder ( AbilityOrder.Attack );
+            SetOrder ( AbilityOrder.Attack, obstacle );
         }
     }
 }

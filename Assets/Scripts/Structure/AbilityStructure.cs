@@ -39,6 +39,7 @@ namespace Developers.Structure
         public Status<AbilityStatus> status = new Status<AbilityStatus> ( (int)AbilityStatus.End );
         public List<int> amount = new List<int> ( );
 
+        public List<int> usableAmount = new List<int> ( );
         public bool isUse = false;
         public float cooltime = 0;
 

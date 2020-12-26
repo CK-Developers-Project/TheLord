@@ -19,6 +19,7 @@ public class Building : MonoBehaviour, IActor
     public int Index { get => (int)info.index; }
     public bool Synchronized { get; set; }
     public bool Initialized { get; set; }
+    public bool Invincible { get; set; }
     public bool Anim_Event { get; set; }
 
     Dictionary<string, object> myRecord = null;

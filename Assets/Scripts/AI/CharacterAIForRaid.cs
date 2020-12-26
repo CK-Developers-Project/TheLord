@@ -6,31 +6,31 @@ using Developers.Structure;
 public class CharacterAIForRaid : CharacterAI
 {
     const float FIND_ENEMY_TICK = 0.135F;
-    const int FIND_ENEMY_MAX = 10;
+    const int FIND_ENEMY_MAX = 50;
 
-    List<BaseCharacter> holdCharacters = new List<BaseCharacter> ( );
+    [SerializeField] List<BaseCharacter> holdCharacters = new List<BaseCharacter> ( );
 
-    public BaseCharacter Target { get; set; }
+    public BaseCharacter target;
     public float Target2Dist {
         get
         {
-            if(Target == null)
+            if(target == null)
             {
                 return 0F;
             }
-            return Vector2.Distance ( pawn.Position, Target.Position );
+            return Vector2.Distance ( pawn.Position, target.Position );
         }
     }
 
     public Vector2 Target2Dir { 
         get
         {
-            if(Target == null)
+            if(target == null)
             {
                 return Vector2.zero;
             }
 
-            return Target.Position - pawn.Position;
+            return target.Position - pawn.Position;
         }
     }
 
@@ -66,7 +66,7 @@ public class CharacterAIForRaid : CharacterAI
 
     void Update ( )
     {
-        if ( Target == null || pawn == null || pawn.IsDeath )
+        if ( target == null || pawn == null || pawn.IsDeath )
         {
             return;
         }
@@ -85,11 +85,11 @@ public class CharacterAIForRaid : CharacterAI
         {
             Vector2 dir = obstacle.Position - pawn.Position;
             pawn.LookAtRight = dir.x >= 0 ? true : false;
-            SetOrder ( AbilityOrder.Attack );
+            SetOrder ( AbilityOrder.Attack, obstacle );
         }
         else
         {
-            Vector2 point = new Vector2 ( Target.Position.x, pawn.Position.y );
+            Vector2 point = new Vector2 ( target.Position.x, pawn.Position.y );
             SetOrder ( AbilityOrder.Move, point );
         }
     }

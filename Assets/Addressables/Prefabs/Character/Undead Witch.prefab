@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 44b8d8cdbe1d8b248a6970e216667be2, type: 2}
   initialSkinName: 
-  initialFlipX: 1
+  initialFlipX: 0
   initialFlipY: 0
   updateWhenInvisible: 3
   separatorSlotNames: []
