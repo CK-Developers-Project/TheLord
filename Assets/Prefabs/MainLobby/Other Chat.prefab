@@ -187,6 +187,7 @@ MonoBehaviour:
   nickText: {fileID: 5045753556736453108}
   chatText: {fileID: 5045753555842788879}
   userImage: {fileID: 5045753557091491245}
+  chatImage: {fileID: 5045753557039606518}
 --- !u!1 &5045753556736453110
 GameObject:
   m_ObjectHideFlags: 0

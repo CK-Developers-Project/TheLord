@@ -40,15 +40,16 @@ public class ChatPopup : MonoBehaviour
             return;
         }
 
+        var info = GameManager.Instance.LocalPlayer.playerInfo;
         var packet = new SendChat();
-        packet.index = 0;
-        packet.nick = GameManager.Instance.LocalPlayer.playerInfo.Nickname;
+        packet.index = (int)info.Race - 1;
+        packet.nick = info.Nickname;
         packet.msg = chat;
         packet.SendPacket(true);
-        
+
         isTime = true;
         msg.text = "";
-        Instantiate(myChat, chatGrid).GetComponent<ChatData>().Initialize(GameManager.Instance.LocalPlayer.playerInfo.Nickname, chat);
+        Instantiate(myChat, chatGrid).GetComponent<ChatData>().Initialize(info.Nickname, chat, chatStyles[(int)info.Race - 1], true);
         
         StartCoroutine(Timer(0.5f));
         StartCoroutine(FocusChat());
@@ -56,7 +57,7 @@ public class ChatPopup : MonoBehaviour
 
     public void AddChat(int index, string nick, string msg)
     {
-        Instantiate(otherChat, chatGrid).GetComponent<ChatData>().Initialize(nick, msg, chatStyles[index].icon);
+        Instantiate(otherChat, chatGrid).GetComponent<ChatData>().Initialize(nick, msg, chatStyles[index]);
         StartCoroutine(FocusChat());
     }
 

@@ -1229,6 +1229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 485820106011342513}
   - component: {fileID: 4529056131522047744}
+  - component: {fileID: 7333199051347970590}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -1280,6 +1281,20 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &7333199051347970590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485820106011342514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &485820106033331140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,14 +1447,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chatStyles:
   - icon: {fileID: 21300000, guid: d0c1459e81285cb49901bd5c90d92800, type: 3}
-    otherColor: {r: 0.6431373, g: 0.6666667, b: 0.5019608, a: 0}
-    myColor: {r: 0.3529412, g: 0.6039216, b: 0.38039216, a: 0}
+    otherColor: {r: 0.6431373, g: 0.6666667, b: 0.5019608, a: 1}
+    myColor: {r: 0.3529412, g: 0.6039216, b: 0.38039216, a: 1}
   - icon: {fileID: 21300000, guid: ce892f48247342845a243847c7eb8361, type: 3}
-    otherColor: {r: 0.85882354, g: 0.6039216, b: 0.6431373, a: 0}
-    myColor: {r: 0.7921569, g: 0.34509805, b: 0.43529412, a: 0}
+    otherColor: {r: 0.85882354, g: 0.6039216, b: 0.6431373, a: 1}
+    myColor: {r: 0.7921569, g: 0.34509805, b: 0.43529412, a: 1}
   - icon: {fileID: 21300000, guid: 17ba167f9d609ff41ad5db9ea119ed5f, type: 3}
-    otherColor: {r: 0.63529414, g: 0.6509804, b: 0.8352941, a: 0}
-    myColor: {r: 0.40784314, g: 0.43529412, b: 0.77254903, a: 0}
+    otherColor: {r: 0.63529414, g: 0.6509804, b: 0.8352941, a: 1}
+    myColor: {r: 0.40784314, g: 0.43529412, b: 0.77254903, a: 1}
   chatGrid: {fileID: 485820106011342513}
   otherChat: {fileID: 5045753556399981501, guid: f5d007c5c017b5745bb1a64fd22e3b6a,
     type: 3}
