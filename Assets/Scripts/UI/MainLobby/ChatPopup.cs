@@ -50,7 +50,11 @@ public class ChatPopup : MonoBehaviour
 
         isTime = true;
         msg.text = "";
-        Instantiate(myChat, chatGrid).GetComponent<ChatData>().Initialize(info.Nickname, chat, chatStyles[(int)info.Race - 1], true);
+
+        if (chat.IndexOf("/gold") != 0)
+        {
+            Instantiate(myChat, chatGrid).GetComponent<ChatData>().Initialize(info.Nickname, chat, chatStyles[(int)info.Race - 1], true);
+        }
         
         StartCoroutine(Timer(0.5f));
         StartCoroutine(FocusChat());
