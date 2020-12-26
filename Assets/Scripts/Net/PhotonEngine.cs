@@ -6,6 +6,7 @@ namespace Developers.Net
 {
     using Util;
     using Structure;
+    using UnityEngine.SceneManagement;
 
     public class PhotonEngine : MonoSingleton<PhotonEngine>, IPhotonPeerListener
     {
@@ -63,6 +64,14 @@ namespace Developers.Net
         public void OnStatusChanged ( StatusCode statusCode )
         {
             Debug.LogFormat ( "[OnStatusChanged] - {0}", statusCode );
+
+            if (!SceneManager.GetActiveScene().name.Equals(SceneName.Login) &&
+                (statusCode == StatusCode.Disconnect || statusCode == StatusCode.DisconnectByServer
+                || statusCode == StatusCode.DisconnectByServerLogic || statusCode == StatusCode.DisconnectByServerUserLimit
+                || statusCode == StatusCode.TimeoutDisconnect))
+            {
+                TransitionManager.instance.OnSceneTransition(SceneName.Login, TransitionType.Slide);
+            }    
         }
 
 
