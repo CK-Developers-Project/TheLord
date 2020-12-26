@@ -29,6 +29,7 @@ public class ChatPopup : MonoBehaviour
     public void Active()
     {
         chatBG.SetActive(!chatBG.activeSelf);
+        StartCoroutine(FocusChat());
     }
 
     public void SendChat()
