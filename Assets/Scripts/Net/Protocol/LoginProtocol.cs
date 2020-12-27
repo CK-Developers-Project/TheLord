@@ -15,7 +15,7 @@ namespace Developers.Net.Protocol
 
         public override void SendPacket ( bool isWait = false, bool reliable = true )
         {
-            base.SendPacket ( isWait );
+            base.SendPacket ( isWait, reliable );
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.id = id;
             userData.password = password;
@@ -33,7 +33,7 @@ namespace Developers.Net.Protocol
 
         public override void SendPacket ( bool isWait = false, bool reliable = true )
         {
-            base.SendPacket ( isWait );
+            base.SendPacket ( isWait, reliable );
             ProtoData.UserData userData = new ProtoData.UserData ( );
             userData.nickname = nickname;
             userData.race = race;
@@ -46,7 +46,7 @@ namespace Developers.Net.Protocol
     {
         public override void SendPacket ( bool isWait = true, bool reliable = true )
         {
-            base.SendPacket ( isWait );
+            base.SendPacket ( isWait, reliable );
             Send ( OperationCode.LobbyEnter, null );
             Debug.Log ( "[LobbyEnterRequest]" );
         }

@@ -52,4 +52,11 @@ namespace Developers.Structure
             Animator.SetInteger ( "State", state );
         }
     }
+
+    [Serializable]
+    public class TierSprite
+    {
+        public TierType tier;
+        public Sprite sprite;
+    }
 }

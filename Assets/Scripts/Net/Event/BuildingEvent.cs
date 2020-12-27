@@ -22,7 +22,6 @@ namespace Developers.Net.Event
 
         void OnUpdateBuilding ( EventData eventData )
         {
-            Debug.Log ( "[OnUpdateBuilding]" );
             var data = BinSerializer.ConvertData<ProtoData.BuildingData> ( eventData.Parameters );
 
             MainLobbyGameMode gameMode = GameManager.Instance.GameMode as MainLobbyGameMode;

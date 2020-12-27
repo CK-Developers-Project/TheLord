@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
+using ExitGames.Client.Photon;
+using System;
 
-namespace Assets.Scripts.Net.Handler
+namespace Developers.Net.Handler
 {
-    class UserAssetHandler
+    using Structure;
+    using Util;
+    using Protocol;
+    using Table;
+
+    public class UserAssetHandler : BaseHandler
     {
+        public override void AddListener ( )
+        {
+            
+        }
+
+        public override void RemoveListener ( )
+        {
+        }
     }
 }

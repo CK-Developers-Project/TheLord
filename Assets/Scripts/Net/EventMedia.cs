@@ -75,6 +75,7 @@ namespace Developers.Net
 
         public static void Dispatch ( EventCode code, EventData eventData )
         {
+            Debug.LogFormat ( "[{0}]", code );
             Delegate dgt;
             if ( table.TryGetValue ( code, out dgt ) )
             {

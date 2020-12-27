@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Developers.Structure;
+using Developers.Net.Protocol;
 
 public class RaidResultPopup : BasePopup
 {
@@ -12,11 +13,12 @@ public class RaidResultPopup : BasePopup
     [SerializeField] TextMeshProUGUI currentScoreText = null;
     [SerializeField] TextMeshProUGUI totalScoreText = null;
 
+    RaidGameMode gameMode;
 
     IEnumerator UpdateScore(TextMeshProUGUI widget, float amount, float dur)
     {
         float time = 0F;
-        while(time > dur)
+        while(time < dur)
         {
             time += Time.deltaTime;
             float value = time / dur;
@@ -25,19 +27,29 @@ public class RaidResultPopup : BasePopup
         }
     }
 
-    IEnumerator ShowUI(float current, float total)
+    public IEnumerator ShowUI(float current, float total)
     {
+        currentScoreText.text = "0";
+        totalScoreText.text = "0";
         // 총 데미지 양
         yield return StartCoroutine ( UpdateScore ( currentScoreText, current, 2F ) );
-        yield return StartCoroutine ( UpdateScore ( totalScoreText, total, 2F ) );
+        yield return StartCoroutine ( UpdateScore ( totalScoreText, current + total, 2F ) );
     }
 
 
     public void Confirm()
     {
-        // TODO : 서버한테 보냄
-        // 메인메뉴로
+        var packet = new ResultRaidRankingRequest ( );
+        packet.score = gameMode.score;
+        packet.SendPacket ( );
         string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
         TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Slide );
+    }
+
+    protected override void OnEnable ( )
+    {
+        base.OnEnable ( );
+        gameMode = GameManager.Instance.GameMode as RaidGameMode;
+        StartCoroutine ( ShowUI ( gameMode.score, gameMode.totalScore ) );
     }
 }

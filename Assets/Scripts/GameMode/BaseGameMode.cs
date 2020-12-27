@@ -27,7 +27,7 @@ public abstract class BaseGameMode : MonoBehaviour
 
     public virtual void OnSynchronize<T> ( T data ) where T : class
     {
-        GameManager.Instance.OnSynchronize ( );
+        GameManager.Instance.IsSynchronized = true;
         currentPage?.OnUpdate ( );
     }
 

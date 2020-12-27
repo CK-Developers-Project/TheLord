@@ -41,7 +41,13 @@ public class ChatPopup : MonoBehaviour
             return;
         }
 
-        var info = GameManager.Instance.LocalPlayer.playerInfo;
+        if( chat.IndexOf ( "/slomo" ) != 0 )
+        {
+            Time.timeScale = int.Parse ( chat.Substring ( 7 ) );
+            return;
+        }
+
+            var info = GameManager.Instance.LocalPlayer.playerInfo;
         var packet = new SendChat();
         packet.index = (int)info.Race - 1;
         packet.nick = info.Nickname;

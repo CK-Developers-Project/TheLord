@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Developers.Structure;
 using Developers.Table;
 using TMPro;
@@ -8,13 +10,32 @@ public class MainLobbyPage : BasePage
 {
     public ResourceCanvas ResourceUI { get; set; }
     public TextMeshProUGUI Nickname;
-
+    [SerializeField] Image tierImage = null;
+    [SerializeField] List<TierSprite> tierSpriteList = new List<TierSprite> ( );
 
     // 우선 테스트용
     [SerializeField] BuildingInfoPopup buildingInfoPopup = null;
     [SerializeField] GameObject Prefab_purchasePopup = null;
+
+    public RankingPopup rankingPopup = null;
     //
     public ChatPopup chatPopup = null;
+
+
+    public void OnRaidButton()
+    {
+        rankingPopup.gameObject.SetActive ( true );
+    }
+
+    public void SetInfoTier(TierType type)
+    {
+        var tierSprite = tierSpriteList.Find ( x => x.tier == type );
+        if(tierSprite == null)
+        {
+            return;
+        }
+        tierImage.sprite = tierSprite.sprite;
+    }
 
     public void OnBarrackInfo(BuildingInfo info)
     {

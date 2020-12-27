@@ -83,6 +83,7 @@ namespace Developers.Net
 
         public static void Dispatch ( OperationCode code, OperationResponse response )
         {
+            Debug.LogFormat ( "[{0}]", code );
             Delegate dgt;
             if ( table.TryGetValue ( code, out dgt ) )
             {

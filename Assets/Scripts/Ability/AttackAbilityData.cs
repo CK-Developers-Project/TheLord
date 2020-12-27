@@ -30,6 +30,12 @@ public class AttackAbilityData : AbilityData
             yield return null;
         }
 
+        if ( targetCharacter == null || targetCharacter.IsDeath )
+        {
+            owner.StartCoroutine ( info.UpdateCoolTime ( ) );
+            yield break;
+        }
+
         Vector2 forward = new Vector3 ( owner.Forward, 0F );
         float delta = Mathf.Cos ( 90F * Mathf.Deg2Rad );
         Vector2 dir = targetCharacter.Center - owner.Center;

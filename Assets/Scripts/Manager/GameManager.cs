@@ -58,13 +58,14 @@ public class GameManager : MonoSingleton<GameManager>
     
 
     public bool IsGameStart { get; private set; }
-    public bool IsSynchronized { get; private set; }
+    public bool IsSynchronized { get; set; }
 
 
     public IEnumerator Initialize ( )
     {
         if ( !LoadManager.Instance.IsInitialize )
         {
+            Debug.Log ( "[Unity] LoadManager Initialize" );
             LoadManager.Instance.Initialize ( );
             yield return new WaitUntil ( ( ) => LoadManager.Instance.IsInitialize );
         }
@@ -74,7 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
             BaseGameMode com = GameObject.FindGameObjectWithTag ( "GameMode" ).GetComponent<BaseGameMode> ( );
             gameMode = com;
         }
-
+        Debug.Log ( "[Unity] GameMode Load" );
         GameMode.Load ( );
         yield return new WaitUntil ( ( ) => IsGameStart );
         GameMode.OnEnter ( );
@@ -104,8 +105,7 @@ public class GameManager : MonoSingleton<GameManager>
         obj.transform.SetParent ( transform );
 
         GamePlayer com = obj.GetComponent<GamePlayer> ( );
-        com.playerInfo.Nickname = nickname;
-        com.playerInfo.Race = race;
+        com.Initialize ( nickname, race );
         gamePlayers.Add ( com );
         return com;
     }
@@ -114,12 +114,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         IsGameStart = true;
     }
-
-    public void OnSynchronize ( )
-    {
-        IsSynchronized = true;
-    }
-
 
     protected override void Awake ( )
     {

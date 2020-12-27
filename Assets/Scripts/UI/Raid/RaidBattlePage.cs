@@ -15,12 +15,22 @@ public class RaidBattlePage : BasePage
 
     void UpdateHP()
     {
+        if(gameMode == null)
+        {
+            gameMode = GameManager.Instance.GameMode as RaidGameMode;
+        }
+
         if(gameMode.RaidBoss == null)
         {
             hpImage.fillAmount = 0F;
             return;
         }
         hpImage.fillAmount = gameMode.RaidBoss.Hp / gameMode.RaidBoss.status.Get ( ActorStatus.HP, true, true, true );
+    }
+
+    public void OnResultPopup()
+    {
+        raidResultPopup.gameObject.SetActive ( true );
     }
 
 

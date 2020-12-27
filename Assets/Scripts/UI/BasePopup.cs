@@ -5,11 +5,11 @@ using UnityEngine;
 public class BasePopup : MonoBehaviour, IGameUI
 {
     public virtual void OnUpdate ( ) { }
-    public void OnEnable ( )
+    protected virtual void OnEnable ( )
     {
         InputManager.Instance.overlayCount++;
     }
-    public void OnDisable ( )
+    protected virtual void OnDisable ( )
     {
         InputManager.Instance.overlayCount--;
     }

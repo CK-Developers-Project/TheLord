@@ -86,8 +86,8 @@ public class DamageCalculator
     public void Damaged ( BaseCharacter target, DamageInfo info )
     {
         Owner.OnDamaged ( Owner, target, info );
-        target.OnHit ( Owner, target, info );
         float amount = Formula ( info );
         target.Hp -= amount;
+        target.OnHit ( Owner, target, info );
     }
 }

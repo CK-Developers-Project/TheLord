@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4377852568070651390}
   - component: {fileID: 4377852568070651389}
   - component: {fileID: 4377852568070651391}
+  - component: {fileID: 5598672743918255958}
+  - component: {fileID: 8772842796932757003}
   m_Layer: 0
   m_Name: MainLobby Handler
   m_TagString: Untagged
@@ -54,5 +56,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56c8a1954e98df4a81072e7ac2d970d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5598672743918255958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377852568070651388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21749617ea3dea14d908e741d39bab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8772842796932757003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377852568070651388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1b50128fc227647baf62aafc76e9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

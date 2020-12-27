@@ -6,7 +6,7 @@ using Developers.Structure;
 public class CharacterAIForRaid : CharacterAI
 {
     const float FIND_ENEMY_TICK = 0.135F;
-    const int FIND_ENEMY_MAX = 50;
+    const int FIND_ENEMY_MAX = 100;
 
     [SerializeField] List<BaseCharacter> holdCharacters = new List<BaseCharacter> ( );
 

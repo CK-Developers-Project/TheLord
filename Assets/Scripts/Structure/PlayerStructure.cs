@@ -40,4 +40,19 @@ namespace Developers.Structure
             }
         }
     }
+
+    public enum TierType : int
+    {
+        Unrank = 0,
+        Challanger,
+        Iron,
+        Bronze,
+        Silver,
+        Gold,
+        Platinum,
+        Diamond,
+        Master,
+        Lengend,
+        God,
+    }
 }
