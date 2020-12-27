@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SFX
+  m_EditorClassIdentifier: 
+  m_GroupName: SFX
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 847a300c001cccd45a0784d69f9d6f69
+  m_SerializeEntries:
+  - m_GUID: 95e8c8165feed8a4facfc3ffa35a7d53
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/UndeadSkill_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 95e8c8165feed8a4facfc3ffa35a7d53, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 95e8c8165feed8a4facfc3ffa35a7d53, type: 2}
+  - m_GUID: d4578fdf24239ee4b8bf43cbe86744cc
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/BossSkill_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: d4578fdf24239ee4b8bf43cbe86744cc, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: d4578fdf24239ee4b8bf43cbe86744cc, type: 2}
+  - m_GUID: 3e88982238cfd3344b59b34cd4d03f68
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Bow_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 3e88982238cfd3344b59b34cd4d03f68, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 3e88982238cfd3344b59b34cd4d03f68, type: 2}
+  - m_GUID: e930ee4844ea1a74ebfb1cc3848bbe95
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Build_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: e930ee4844ea1a74ebfb1cc3848bbe95, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: e930ee4844ea1a74ebfb1cc3848bbe95, type: 2}
+  - m_GUID: 368da887d573bfd48b47cc32b33e2367
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/BuildClear_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 368da887d573bfd48b47cc32b33e2367, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 368da887d573bfd48b47cc32b33e2367, type: 2}
+  - m_GUID: d46e5969b30fcee4982fbb6a9da5870e
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Coin_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: d46e5969b30fcee4982fbb6a9da5870e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: d46e5969b30fcee4982fbb6a9da5870e, type: 2}
+  - m_GUID: 296c6cad3f9c30d4e880c435acc1a47a
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/ElfSkill_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 296c6cad3f9c30d4e880c435acc1a47a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 296c6cad3f9c30d4e880c435acc1a47a, type: 2}
+  - m_GUID: 24b7cc501d2f7a0448f3aa1312a0377d
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Reward_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 24b7cc501d2f7a0448f3aa1312a0377d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 24b7cc501d2f7a0448f3aa1312a0377d, type: 2}
+  - m_GUID: 3682e7e219df88c4bad39f50660ed1fa
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Flute_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 3682e7e219df88c4bad39f50660ed1fa, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 3682e7e219df88c4bad39f50660ed1fa, type: 2}
+  - m_GUID: b7a082f035ef72a409a0b11872222ee4
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/GunShot_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: b7a082f035ef72a409a0b11872222ee4, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: b7a082f035ef72a409a0b11872222ee4, type: 2}
+  - m_GUID: 392dd90e463cb1c43a7d67d14e5c4cf6
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Hit_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 392dd90e463cb1c43a7d67d14e5c4cf6, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 392dd90e463cb1c43a7d67d14e5c4cf6, type: 2}
+  - m_GUID: efecc868dcc6c824e88ad2d6627a4b4e
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/HumanSkill_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: efecc868dcc6c824e88ad2d6627a4b4e, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: efecc868dcc6c824e88ad2d6627a4b4e, type: 2}
+  - m_GUID: 2df0836deb932fb448a0314a0311b97c
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Magic_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 2df0836deb932fb448a0314a0311b97c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2df0836deb932fb448a0314a0311b97c, type: 2}
+  - m_GUID: a36c64803bae91d44b7bb99f5f6a5e4b
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Strong_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: a36c64803bae91d44b7bb99f5f6a5e4b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: a36c64803bae91d44b7bb99f5f6a5e4b, type: 2}
+  - m_GUID: 8ee5180076d5c5c4595682d589a3ae2a
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Sword_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 8ee5180076d5c5c4595682d589a3ae2a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8ee5180076d5c5c4595682d589a3ae2a, type: 2}
+  - m_GUID: c12395e351218d14f864746a0278358d
+    m_Address: Assets/Addressables/ScriptableObjects/SFX/Tabsound_SFX.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: c12395e351218d14f864746a0278358d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c12395e351218d14f864746a0278358d, type: 2}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f93fd1c368d00804b88db0b43add9a65, type: 2}
+    - {fileID: 11400000, guid: ab5b9f98ad680cb42bf7d11998c66ed2, type: 2}

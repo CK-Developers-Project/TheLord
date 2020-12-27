@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class SfxAudio : MonoBehaviour
 {
-    public GameObject sfx_audio;
+    GameObject Prefab_GameAudio;
+
     public List<GameAudio> audio_list = new List<GameAudio>();
 
     [SerializeField, Range(1, 10)]
@@ -60,6 +62,7 @@ public class SfxAudio : MonoBehaviour
 
     public void confirm()
     {
+        Prefab_GameAudio = LoadManager.Instance.Get ( typeof ( GameAudio ) );
         while (audio_list.Count < index)
         {
             audio_list.Add(create_audio("Sfx - " + (audio_list.Count + 1)));
@@ -69,17 +72,20 @@ public class SfxAudio : MonoBehaviour
 
     private GameAudio create_audio(string name)
     {
-        GameObject audio = Instantiate(sfx_audio, transform);
-        GetComponent<AudioSource>().name = name;
-        return GetComponent<AudioSource>().GetComponent<GameAudio>();
+        GameObject audio = Instantiate( Prefab_GameAudio, transform);
+        audio.gameObject.name = name;
+        var game_audio = audio.GetComponent<GameAudio> ( );
+        game_audio.mixer_group = SoundManager.Instance.sfx_group;
+        return audio.GetComponent<GameAudio>();
     }
 
     ////////////////////////////////////////////////////////////////////////////
     ///                               Unity                                  ///
     ////////////////////////////////////////////////////////////////////////////
 
-    private void Awake()
+    IEnumerator Start()
     {
+        yield return new WaitUntil ( ( ) => LoadManager.Instance.IsInitialize );
         confirm();
     }
 

@@ -29,6 +29,8 @@ public class BossSkillAbilityData : AbilityData
    
     IEnumerator Spell( BaseCharacter owner, AbilityInfo info, Vector3 position )
     {
+        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.BossSkill ).clip, 1F, 0F, 1F );
+
         owner.caster.abilityCast = true;
         info.isUse = true;
 

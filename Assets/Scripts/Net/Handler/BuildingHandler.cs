@@ -116,6 +116,7 @@ namespace Developers.Net.Handler
                     // 건물이 없음
                     return;
                 }
+                building.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.BuildClear ).clip, 1F, 0F, 1F );
             }
             else
             {
@@ -140,6 +141,7 @@ namespace Developers.Net.Handler
                     // 건물이 없음
                     return;
                 }
+                building.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.BuildClear ).clip, 1F, 0F, 1F );
             }
             else
             {

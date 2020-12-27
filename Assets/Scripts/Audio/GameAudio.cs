@@ -68,11 +68,6 @@ public class GameAudio : MonoBehaviour
         {
             source = GetComponent<AudioSource>();
         }
-
-        if (mixer_group == null)
-        {
-            mixer_group = SoundManager.Instance.sfx_group;
-        }
     }
 
 

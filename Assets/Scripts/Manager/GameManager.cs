@@ -128,9 +128,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator Start ( )
     {
-
         if ( instance == this )
         {
+            Application.targetFrameRate = 60;
             // TODO : 따로 로딩페이지를 만들자. . .
             if ( !MonoSingleton<LoadManager>.Instance.IsInitialize )
             {

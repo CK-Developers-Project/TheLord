@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Developers.Structure;
 
 public class PurchasePopup : BasePopup
 {
@@ -18,6 +19,7 @@ public class PurchasePopup : BasePopup
         purchaseButton.onClick.AddListener (
             ( ) =>
             {
+                SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
                 callback_Left?.Invoke ( );
                 Destroy ( gameObject );
             } );
@@ -25,6 +27,7 @@ public class PurchasePopup : BasePopup
         cancelButton.onClick.AddListener (
             ( ) =>
             {
+                SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
                 callback_Right?.Invoke ( );
                 Destroy ( gameObject );
             } );

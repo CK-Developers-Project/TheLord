@@ -59,11 +59,20 @@ public class WorkTimer : MonoBehaviour
         }
         isWork = true;
 
+        float soundTick = 2F;
+
         while ( !isComplete && isWork )
         {
             if( isPause )
             {
                 yield return null;
+            }
+
+            soundTick += Time.deltaTime;
+            if ( soundTick >= 2F )
+            {
+                soundTick = 0F;
+                Owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.Build ).clip, 1F, 0F, 1F );
             }
 
             TimeSpan remainTime = realTime - GameUtility.Now ( );

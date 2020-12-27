@@ -20,6 +20,7 @@ public class NoticePopup : BasePopup
         LeftButton.button.gameObject.SetActive ( action_Left );
         LeftButton.button.onClick.AddListener (
             ( ) => {
+                SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
                 callback_Left?.Invoke ( );
                 Destroy ( gameObject );
             }
@@ -29,6 +30,7 @@ public class NoticePopup : BasePopup
         RightButton.button.gameObject.SetActive ( action_Right );
         RightButton.button.onClick.AddListener (
             ( ) => {
+                SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
                 callback_Right?.Invoke ( );
                 Destroy ( gameObject );
             }

@@ -22,6 +22,7 @@ public class RaceSelectPage : BasePage
 
     public void Select( AnimationButton button, Race race )
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         CurrentButton?.SetAnimation ( AnimationButton.State.Default );
         CurrentButton = button;
         CurrentButton.SetAnimation ( AnimationButton.State.Select );
@@ -31,6 +32,7 @@ public class RaceSelectPage : BasePage
 
     public void Confirm()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         UserResistrationRequest request = new UserResistrationRequest ( Nickname, (int)Race );
         int lenth = Nickname.Length;
         if ( lenth > Nickname_Max_Lenth  || lenth < Nickname_Min_Lenth )
@@ -43,6 +45,12 @@ public class RaceSelectPage : BasePage
             OnMessageBox ( "종족을 선택하세요.", true, null, "확인" );
         }
         request.SendPacket ( );
+    }
+
+
+    protected override void Construct ( )
+    {
+        SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.Login ).clip );
     }
 
 

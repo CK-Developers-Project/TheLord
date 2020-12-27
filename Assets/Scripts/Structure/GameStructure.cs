@@ -31,4 +31,36 @@ namespace Developers.Structure
             return layerMask;
         }
     }
+
+
+    public enum MusicType
+    {
+        Login,
+        MainLobby_Elf,
+        MainLobby_Human,
+        MainLobby_Undead,
+        RaidBattle,
+        RaidLobby,
+        Story,
+    }
+
+    public enum SFXType
+    {
+        BossSkill,
+        Bow,
+        Build,
+        BuildClear,
+        Coin,
+        ElfSkill,
+        Flute,
+        GunShot,
+        Hit,
+        HumanSkill,
+        Magic,
+        Reward,
+        Strong,
+        Sword,
+        Tabsound,
+        UndeadSkill,
+    }
 }

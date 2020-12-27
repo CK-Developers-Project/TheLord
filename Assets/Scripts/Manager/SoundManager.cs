@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.Collections;
 using Developers.Util;
 
-[RequireComponent(typeof(AudioSource)), RequireComponent(typeof(GameAudio))]
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    public GameObject audio_prefab;
+    GameObject Prefab_GameAudio;
 
     public GameAudio main_audio;
     public AudioMixer mixer;
@@ -46,6 +45,7 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     [HideInInspector]
     public bool is_running = false;
+    bool is_changed = false;
 
     public void set_volume()
     {
@@ -62,7 +62,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         {
             transform.GetChild(i).GetComponent<AudioSource>().volume = volum;
         }
-        /*if(volum > 1f) {
+        if(volum > 1f) {
             volum = 1f;
         } else if(volum < 0f) {
             volum = 0f;
@@ -71,7 +71,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         float result = -80 + (sfx_volum * 80f);
         if ( !sfx_mute ) {
             mixer.SetFloat ( mixer_para[MixerParameter.SFX_Vol], result );
-        }*/
+        }
     }
 
     public void set_music_volum(float volum)
@@ -80,7 +80,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         transform.GetComponent<AudioSource>().volume = volum;
         m_volum = volum;
 
-        /*if ( volum > 1f ) {
+        if ( volum > 1f ) {
             volum = 1f;
         } else if ( volum < 0f ) {
             volum = 0f;
@@ -89,7 +89,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         float result = -80 + (music_volum * 80f);
         if ( !music_mute ) {
             mixer.SetFloat ( mixer_para[MixerParameter.Music_Vol], result );
-        }*/
+        }
     }
 
     public void set_sfx_mute(bool value)
@@ -130,9 +130,10 @@ public class SoundManager : MonoSingleton<SoundManager>
         {
             if (cnt >= sfx_index)
             {
-                GameObject audio_obj = Instantiate(audio_prefab, transform);
+                GameObject audio_obj = Instantiate( Prefab_GameAudio, transform);
                 GameAudio game_audio = audio_obj.GetComponent<GameAudio>();
                 audio_obj.name = "Sfx Game Audio - Destroy";
+                game_audio.mixer_group = sfx_group;
                 game_audio.play(clip, pitch, tick_time, attack_time, release_time, true);
                 next_index = (next_index + 1) % sfx_audio_list.Count;
                 return;
@@ -159,8 +160,7 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void on_music(AudioClip clip)
     {
-        set_music(clip);
-        StartCoroutine(Emusic_on());
+        StartCoroutine(Emusic_on( clip ) );
     }
 
 
@@ -198,17 +198,23 @@ public class SoundManager : MonoSingleton<SoundManager>
     }
 
 
-    private IEnumerator Emusic_on()
+    private IEnumerator Emusic_on ( AudioClip clip = null )
     {
-        if (is_running)
+        if ( is_changed )
         {
-            yield break;
+            yield return null;
         }
+        is_changed = true;
+        yield return StartCoroutine ( Emusic_off ( ) );
         is_running = true;
-        main_audio.source.volume = m_volum;
-        main_audio.play(AudioSettings.dspTime + Time.deltaTime, 0f, 1f);
-        //yield return StartCoroutine ( Emusic_erasure ( 1f ) );
-        StartCoroutine(Emusic_play());
+        if ( clip != null )
+        {
+            set_music ( clip );
+        }
+        main_audio.play ( AudioSettings.dspTime + Time.deltaTime, 0f, 1f );
+        yield return StartCoroutine ( Emusic_erasure ( 1f ) );
+        StartCoroutine ( Emusic_play ( ) );
+        is_changed = false;
     }
 
 
@@ -219,7 +225,7 @@ public class SoundManager : MonoSingleton<SoundManager>
             yield break;
         }
         is_running = false;
-        //yield return StartCoroutine ( Emusic_erasure ( 0f ) );
+        yield return StartCoroutine ( Emusic_erasure ( 0f ) );
         main_audio.source.Stop();
     }
 
@@ -244,64 +250,60 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         base.Awake();
 
-        if (!main_audio)
+        if ( this == instance )
         {
-            main_audio = GetComponent<GameAudio>();
-        }
-
-        if (!main_audio.source)
-        {
-            main_audio.source = GetComponent<AudioSource>();
-        }
-
-        if (!mixer)
-        {
-            mixer = Resources.Load<AudioMixer>("Audio/AudioMixer");
-        }
-
-        if (!master_group)
-        {
-            master_group = mixer.FindMatchingGroups("Master")[0];
-        }
-
-        if (!sfx_group)
-        {
-            sfx_group = mixer.FindMatchingGroups("SFX")[0];
-        }
-
-        if (!music_group)
-        {
-            music_group = mixer.FindMatchingGroups("Music")[0];
-        }
-
-        if (!main_audio.source.outputAudioMixerGroup)
-        {
-            main_audio.source.outputAudioMixerGroup = music_group;
-        }
-
-
-        if (sfx_audio_list.Count >= sfx_index)
-        {
-            return;
-        }
-        else
-        {
-            while (sfx_audio_list.Count < sfx_index)
+            if ( !main_audio )
             {
-                GameObject audio_obj = Instantiate(audio_prefab, transform);
-                sfx_audio_list.Add(audio_obj.GetComponent<GameAudio>());
+                main_audio = GetComponent<GameAudio> ( );
+            }
+
+            if ( !main_audio.source )
+            {
+                main_audio.source = GetComponent<AudioSource> ( );
+            }
+
+            if ( !master_group )
+            {
+                master_group = mixer.FindMatchingGroups ( "Master" )[0];
+            }
+
+            if ( !sfx_group )
+            {
+                sfx_group = mixer.FindMatchingGroups ( "SFX" )[0];
+            }
+
+            if ( !music_group )
+            {
+                music_group = mixer.FindMatchingGroups ( "Music" )[0];
+            }
+
+            if ( !main_audio.source.outputAudioMixerGroup )
+            {
+                main_audio.source.outputAudioMixerGroup = music_group;
+            }
+        }
+    }
+
+    IEnumerator Start ( )
+    {
+        yield return new WaitUntil ( ( ) => LoadManager.instance.IsInitialize );
+
+        Prefab_GameAudio = LoadManager.instance.Get ( typeof ( GameAudio ) );
+
+        if ( sfx_audio_list.Count < sfx_index )
+        {
+            while ( sfx_audio_list.Count < sfx_index )
+            {
+                GameObject audio_obj = Instantiate ( Prefab_GameAudio, transform );
+                sfx_audio_list.Add ( audio_obj.GetComponent<GameAudio> ( ) );
                 audio_obj.name = "Sfx Game Audio - " + sfx_audio_list.Count;
             }
         }
 
-        set_volume();
-    }
+        set_volume ( );
 
-    private void Start()
-    {
-        initialize();
+        initialize ( );
     }
-
 
     private void OnValidate()
     {
@@ -315,23 +317,5 @@ public class SoundManager : MonoSingleton<SoundManager>
             set_music_mute(music_mute);
         }
 #endif
-    }
-
-
-    private void OnEnable()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            if (instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
-
-        DontDestroyOnLoad(gameObject);
     }
 }

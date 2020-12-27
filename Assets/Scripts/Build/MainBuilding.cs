@@ -41,6 +41,9 @@ public class MainBuilding : Building
 
     public override void OnSelect ( )
     {
+        AudioClip clip = LoadManager.Instance.GetSFXData ( SFXType.Coin ).clip;
+        Audio.play ( clip, 1F, 0F, 1F );
+
         BuildingClickRequest request = new BuildingClickRequest ( );
         request.index = (int)info.index;
         request.clickAction = ClickAction.MainBuildingTakeGold;

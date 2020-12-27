@@ -14,6 +14,8 @@ public interface IActor
     bool Initialized { get; set; }
     bool Invincible { get; set; }
 
+    SfxAudio Audio { get; set; }
+
     bool Anim_Event { get; set; }
 
     void Initialize ( );

@@ -15,12 +15,15 @@ public class Building : MonoBehaviour, IActor
 
     public BuildingInfo info;
 
+
     public GamePlayer Owner { get; set; }
     public int Index { get => (int)info.index; }
     public bool Synchronized { get; set; }
     public bool Initialized { get; set; }
     public bool Invincible { get; set; }
     public bool Anim_Event { get; set; }
+
+    public SfxAudio Audio { get; set; }
 
     Dictionary<string, object> myRecord = null;
     public Dictionary<string, object> MyRecord {
@@ -162,6 +165,7 @@ public class Building : MonoBehaviour, IActor
         spriteRenderer = GetComponent<SpriteRenderer> ( );
         workTimer = GetComponentInChildren<WorkTimer> ( true );
         tooltipBox = GetComponentInChildren<TooltipBox> ( true );
+        Audio = GetComponentInChildren<SfxAudio> ( );
 
         MainLobbyGameMode gameMode = MonoSingleton<GameManager>.Instance.GameMode as MainLobbyGameMode;
         gameMode?.Buildings.Add ( this );

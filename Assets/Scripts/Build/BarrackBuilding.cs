@@ -27,6 +27,7 @@ public class BarrackBuilding : Building
 
     protected override void OnEmpty ( )
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         MainLobbyPage page = GameManager.Instance.GameMode.CurrentPage as MainLobbyPage;
         if ( page == null )
         {
@@ -45,12 +46,14 @@ public class BarrackBuilding : Building
 
     protected override void OnWork ( )
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         string noticeMsg = string.Format ( "아직 {0}가 지어지지않았습니다.", info.name );
         BasePage.OnMessageBox ( noticeMsg, true, null, "확인" );
     }
 
     protected override void OnComplete ( )
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         MainLobbyPage page = GameManager.Instance.GameMode.CurrentPage as MainLobbyPage;
         if( page == null)
         {

@@ -85,6 +85,7 @@ public class DamageCalculator
 
     public void Damaged ( BaseCharacter target, DamageInfo info )
     {
+        target.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.Hit ).clip, 1F, 0F, 1F );
         Owner.OnDamaged ( Owner, target, info );
         float amount = Formula ( info );
         target.Hp -= amount;

@@ -24,6 +24,24 @@ MonoBehaviour:
     - Core
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 999c25f468e3be54285a5c7fbd76ca99
+    m_Address: Assets/Addressables/Audio/SfxAudio.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Core
+    m_MainAsset: {fileID: 918491672830414846, guid: 999c25f468e3be54285a5c7fbd76ca99,
+      type: 3}
+    m_TargetAsset: {fileID: 918491672830414846, guid: 999c25f468e3be54285a5c7fbd76ca99,
+      type: 3}
+  - m_GUID: 550f08d5410e1424989ef02e90821f59
+    m_Address: Assets/Addressables/Audio/GameAudio.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Core
+    m_MainAsset: {fileID: 8657490921968668001, guid: 550f08d5410e1424989ef02e90821f59,
+      type: 3}
+    m_TargetAsset: {fileID: 8657490921968668001, guid: 550f08d5410e1424989ef02e90821f59,
+      type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
   m_SchemaSet:

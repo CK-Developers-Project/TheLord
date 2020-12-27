@@ -21,6 +21,8 @@ public class LoadManager : MonoSingleton<LoadManager>
 
         CharacterData,      // ScriptableObject
         AbilityData,    // ScriptableObject
+        MusicData,      //ScriptableObject
+        SFXData,        //ScriptableObject
     }
 
     private class ResourceComplete 
@@ -87,6 +89,16 @@ public class LoadManager : MonoSingleton<LoadManager>
                         key = (int)LoadType.AbilityData * Multiply_Index;
                         ability.Initialize ( );
                         Add ( key, ability );
+                        break;
+
+                    case MusicData music:
+                        key = (int)LoadType.MusicData * Multiply_Index;
+                        Add ( key, music );
+                        break;
+
+                    case SFXData sfx:
+                        key = (int)LoadType.SFXData * Multiply_Index;
+                        Add ( key, sfx );
                         break;
                 }
             }
@@ -260,6 +272,32 @@ public class LoadManager : MonoSingleton<LoadManager>
             if(ability.index == index)
             {
                 return ability;
+            }
+        }
+        return null;
+    }
+
+    public MusicData GetMusicData(MusicType type)
+    {
+        List<Object> abilityList = hashtable[(int)LoadType.MusicData * Multiply_Index];
+        foreach ( MusicData music in abilityList )
+        {
+            if ( music.type == type )
+            {
+                return music;
+            }
+        }
+        return null;
+    }
+
+    public SFXData GetSFXData(SFXType type)
+    {
+        List<Object> abilityList = hashtable[(int)LoadType.SFXData * Multiply_Index];
+        foreach ( SFXData sfx in abilityList )
+        {
+            if ( sfx.type == type )
+            {
+                return sfx;
             }
         }
         return null;

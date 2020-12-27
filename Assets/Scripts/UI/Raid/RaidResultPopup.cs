@@ -39,6 +39,7 @@ public class RaidResultPopup : BasePopup
 
     public void Confirm()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         var packet = new ResultRaidRankingRequest ( );
         packet.score = gameMode.score;
         packet.SendPacket ( );

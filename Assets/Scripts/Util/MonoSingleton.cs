@@ -67,7 +67,15 @@ namespace Developers.Util
                     DontDestroyOnLoad ( gameObject );
                 }
             }
-            else
+            else if(instance == this)
+            {
+                if ( dontDestroy )
+                {
+                    DontDestroyOnLoad ( gameObject );
+                }
+            }
+
+            if(instance != this)
             {
                 Destroy ( gameObject );
             }

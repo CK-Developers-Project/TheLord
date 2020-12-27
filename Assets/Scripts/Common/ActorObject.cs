@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Developers.Structure;
 
 public class ActorObject : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class ActorObject : MonoBehaviour
     public void Anim_Event()
     {
         Owner.Anim_Event = true;
+    }
+
+    public void Anim_Sound ( SFXType type )
+    {
+        Owner.Audio.play ( LoadManager.Instance.GetSFXData ( type ).clip, 1F, 0F, 1F );
     }
     #endregion
 

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Developers.Structure;
 
 public class TooltipBox : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class TooltipBox : MonoBehaviour
         gameObject.SetActive ( true );
         tooltipText.text = msg;
         button.onClick.AddListener ( 
-            ( ) => action.Invoke ( ) );
+            ( ) => {
+                SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+                action.Invoke ( ); 
+            } );
     }
 
     public void OnTooltip(string msg, float lifeTime)

@@ -40,6 +40,11 @@ public class RaidBattlePage : BasePage
         gameMode = GameManager.Instance.GameMode as RaidGameMode;
     }
 
+    protected override void Construct ( )
+    {
+        SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.RaidBattle ).clip );
+    }
+
 
     public override void OnUpdate ( )
     {

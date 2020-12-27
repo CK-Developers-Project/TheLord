@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Music
+  m_EditorClassIdentifier: 
+  m_GroupName: Music
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 12f81b6c4e2e4df49ab21e296b4e208c
+  m_SerializeEntries:
+  - m_GUID: c568113f396af844081276ffb60229d3
+    m_Address: Assets/Addressables/ScriptableObjects/Music/RaidBattle_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: c568113f396af844081276ffb60229d3, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c568113f396af844081276ffb60229d3, type: 2}
+  - m_GUID: 22aea5a51a4db1d42a5f8ec385193bf7
+    m_Address: Assets/Addressables/ScriptableObjects/Music/MainLobby_Elf_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 22aea5a51a4db1d42a5f8ec385193bf7, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 22aea5a51a4db1d42a5f8ec385193bf7, type: 2}
+  - m_GUID: 102714ab8d8bf1a418b80a63e498c98d
+    m_Address: Assets/Addressables/ScriptableObjects/Music/MainLobby_Human_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 102714ab8d8bf1a418b80a63e498c98d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 102714ab8d8bf1a418b80a63e498c98d, type: 2}
+  - m_GUID: baa45f58f749deb4793ec765fe24231f
+    m_Address: Assets/Addressables/ScriptableObjects/Music/MainLobby_Undead_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: baa45f58f749deb4793ec765fe24231f, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: baa45f58f749deb4793ec765fe24231f, type: 2}
+  - m_GUID: cec1d5bb5dd3a6d4983c866e88a5afae
+    m_Address: Assets/Addressables/ScriptableObjects/Music/Login_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: cec1d5bb5dd3a6d4983c866e88a5afae, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: cec1d5bb5dd3a6d4983c866e88a5afae, type: 2}
+  - m_GUID: 563e0a335aec08145a7325d7cfe34cd9
+    m_Address: Assets/Addressables/ScriptableObjects/Music/Story_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: 563e0a335aec08145a7325d7cfe34cd9, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 563e0a335aec08145a7325d7cfe34cd9, type: 2}
+  - m_GUID: c26c3ebc4d5f6a84d897d8534d1bd1a2
+    m_Address: Assets/Addressables/ScriptableObjects/Music/RaidLobby_Music.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 11400000, guid: c26c3ebc4d5f6a84d897d8534d1bd1a2, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: c26c3ebc4d5f6a84d897d8534d1bd1a2, type: 2}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c7de6bb9e49ac9e41826d7a8de6d0045, type: 2}
+    - {fileID: 11400000, guid: e3bf97b9aa3b80a4da4aac5fced2c930, type: 2}

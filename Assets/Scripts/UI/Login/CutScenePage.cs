@@ -33,7 +33,9 @@ public class CutScenePage : BasePage
 
     public void Skip()
     {
-        if (isSkip)
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+
+        if ( isSkip)
             return;
 
         isSkip = true;
@@ -131,5 +133,15 @@ public class CutScenePage : BasePage
 
         story = textList[textCnt++];
         storyText.CrossFadeAlpha(1f, 0.3f, true);
+    }
+
+    protected override void Construct ( )
+    {
+        SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.Story ).clip );
+    }
+
+    protected override void Hidden ( )
+    {
+        SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.Login ).clip );
     }
 }

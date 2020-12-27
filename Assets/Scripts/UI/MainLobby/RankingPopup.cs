@@ -56,17 +56,34 @@ public class RankingPopup : BasePopup
 
     public void Cancel()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         gameObject.SetActive ( false );
+        switch ( GameManager.Instance.LocalPlayer.playerInfo.Race )
+        {
+            case Race.Elf:
+                SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.MainLobby_Elf ).clip );
+                break;
+
+            case Race.Human:
+                SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.MainLobby_Human ).clip );
+                break;
+
+            case Race.Undead:
+                SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.MainLobby_Undead ).clip );
+                break;
+        }
     }
 
     public void Raid()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         var packet = new EnterContentRequest ( );
         packet.SendPacket ( );
     }
 
     public void Reward()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         // 여긴 아마 없을듯?
     }
 
@@ -75,6 +92,8 @@ public class RankingPopup : BasePopup
         base.OnEnable ( );
         var packet = new RequestRaidRankingRequest ( );
         packet.SendPacket ( );
+
+        SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.RaidLobby ).clip );
     }
 
     public override void OnUpdate()

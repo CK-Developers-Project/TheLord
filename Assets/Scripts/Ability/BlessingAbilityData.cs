@@ -43,6 +43,8 @@ public class BlessingAbilityData : AbilityData
 
     IEnumerator Blessing ( BaseCharacter owner, AbilityInfo info )
     {
+        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.HumanSkill ).clip, 1F, 0F, 1F );
+
         if ( info.isUse )
         {
             yield break;

@@ -56,12 +56,14 @@ public class LoginPage : BasePage
     
     public void OnTouchMe()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         touchMe.gameObject.SetActive(false);
         StartCoroutine ( OnConnect ( ) );
     }
 
     public void Join(string id, string pwd)
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         if ( !PhotonEngine.Instance.isServerConnect )
         {
             StartCoroutine ( OnConnect ( ) );
@@ -90,6 +92,7 @@ public class LoginPage : BasePage
     protected override void Construct ( )
     {
         touchMe.gameObject.SetActive ( true );
+        SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.Login ).clip );
     }
 
     protected override void Hidden ( )

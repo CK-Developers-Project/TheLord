@@ -45,6 +45,7 @@ public class SmashAbilityData : AbilityData
         float atk = info.damage * (abilityInfo.amount[0] * 0.01f);
         info.trueDamage += atk;
 
+        source.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.UndeadSkill ).clip, 1F, 0F, 1F );
         // TODO 이펙트 추가
 
         abilityInfo.isUse = false;

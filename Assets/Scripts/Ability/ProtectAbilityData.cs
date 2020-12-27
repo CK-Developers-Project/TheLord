@@ -48,6 +48,7 @@ public class ProtectAbilityData : AbilityData
 
     IEnumerator Protected(BaseCharacter owner, AbilityInfo info)
     {
+        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.ElfSkill ).clip, 1F, 0F, 1F );
         if ( info.isUse )
         {
             yield break;

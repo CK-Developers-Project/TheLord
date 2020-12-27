@@ -24,6 +24,7 @@ public class MainLobbyPage : BasePage
 
     public void OnRaidButton()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         rankingPopup.gameObject.SetActive ( true );
     }
 
@@ -75,5 +76,20 @@ public class MainLobbyPage : BasePage
     protected override void Construct ( )
     {
         OnUpdate ( );
+        
+        switch(GameManager.Instance.LocalPlayer.playerInfo.Race)
+        {
+            case Race.Elf:
+                SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.MainLobby_Elf ).clip );
+                break;
+
+            case Race.Human:
+                SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.MainLobby_Human ).clip );
+                break;
+
+            case Race.Undead:
+                SoundManager.Instance.on_music ( LoadManager.Instance.GetMusicData ( MusicType.MainLobby_Undead ).clip );
+                break;
+        }
     }
 }

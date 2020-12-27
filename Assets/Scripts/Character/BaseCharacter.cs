@@ -20,6 +20,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public ActorPath Path { get; protected set; }
     public ActorCollider ACollider { get; protected set; }
     public CharacterAI AI { get; set; }
+    public SfxAudio Audio { get; set; }
 
     public GamePlayer Owner { get; set; }
     public int Index { get => data.index; }
@@ -274,6 +275,8 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         Actor = GetComponentInChildren<ActorObject> ( );
         Path = GetComponentInChildren<ActorPath> ( );
         ACollider = GetComponentInChildren<ActorCollider> ( );
+        Audio = Actor.GetComponentInChildren<SfxAudio> ( );
+
         caster.Owner = this;
         damageCalculator.Owner = this;
 

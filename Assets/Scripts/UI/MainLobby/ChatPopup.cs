@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Developers.Net.Protocol;
 using TMPro;
+using Developers.Structure;
 
 public class ChatPopup : MonoBehaviour
 {
@@ -28,12 +29,14 @@ public class ChatPopup : MonoBehaviour
 
     public void Active()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         chatBG.SetActive(!chatBG.activeSelf);
         StartCoroutine(FocusChat());
     }
 
     public void SendChat()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         string chat = msg.text;
 
         if (isTime || string.IsNullOrEmpty(chat))
@@ -41,13 +44,7 @@ public class ChatPopup : MonoBehaviour
             return;
         }
 
-        if( chat.IndexOf ( "/slomo" ) != 0 )
-        {
-            Time.timeScale = int.Parse ( chat.Substring ( 7 ) );
-            return;
-        }
-
-            var info = GameManager.Instance.LocalPlayer.playerInfo;
+        var info = GameManager.Instance.LocalPlayer.playerInfo;
         var packet = new SendChat();
         packet.index = (int)info.Race - 1;
         packet.nick = info.Nickname;

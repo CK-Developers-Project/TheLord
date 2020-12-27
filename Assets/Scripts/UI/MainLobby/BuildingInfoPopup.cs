@@ -158,7 +158,8 @@ public class BuildingInfoPopup : BasePopup
 
     public void LevelUp()
     {
-        if(info == null)
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        if ( info == null)
         {
             return;
         }
@@ -171,7 +172,8 @@ public class BuildingInfoPopup : BasePopup
 
     public void UnitBuy()
     {
-        if (info == null)
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        if ( info == null)
         {
             return;
         }
@@ -183,6 +185,7 @@ public class BuildingInfoPopup : BasePopup
 
     public void Cancel()
     {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         gameObject.SetActive ( false );
     }
 
