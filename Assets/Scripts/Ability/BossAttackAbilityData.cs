@@ -48,10 +48,12 @@ public class BossAttackAbilityData : AbilityData
             }
             targets.Insert ( Random.Range(0, targets.Count + 1), character );
         }
-        
 
-        foreach(var t in targets)
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.BossSkill );
+
+        foreach ( var t in targets)
         {
+            Instantiate ( vfx, t.Position, Quaternion.identity );
             source.damageCalculator.Damaged ( t, info );
             if(--cnt == 0 )
             {

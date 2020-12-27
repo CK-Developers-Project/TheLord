@@ -38,6 +38,7 @@ namespace Developers.Net.Event
 
             RankingPopup popup = page.rankingPopup;
 
+            popup.SetRemainTime ( data.tick );
             popup.SetInfoForMyRanking ( data.myRankingData );
             popup.SetInfoForLastHitRnaking ( data.lastHitRankingData );
             popup.SetInfo ( data.rankingDataList );

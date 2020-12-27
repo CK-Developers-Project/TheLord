@@ -48,11 +48,15 @@ public class ProtectAbilityData : AbilityData
 
     IEnumerator Protected(BaseCharacter owner, AbilityInfo info)
     {
-        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.ElfSkill ).clip, 1F, 0F, 1F );
         if ( info.isUse )
         {
             yield break;
         }
+
+        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.ElfSkill ).clip, 1F, 0F, 1F );
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.ElfSkill );
+        Instantiate ( vfx, owner.Actor.transform ).transform.localPosition = Vector3.zero;
+
         info.isUse = true;
         owner.Invincible = true;
         float dur = info.Duration;

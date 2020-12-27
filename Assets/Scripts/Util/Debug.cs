@@ -1,4 +1,4 @@
-//#define UNITY_Developer;
+#define UNITY_Developer
 
 using UnityEngine;
 using System;

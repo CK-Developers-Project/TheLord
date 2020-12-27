@@ -116,8 +116,7 @@ public class RaidGameMode : BaseGameMode
             return;
         }
 
-        RaidBoss.Hp = raidEnterData.raidBossData.hp;
-
+        RaidBoss.InitializeHP = raidEnterData.raidBossData.hp;
         foreach(var charactertData in raidEnterData.characterDataList)
         {
             PushCharacterIndex ( charactertData.index, charactertData.amount );
@@ -203,9 +202,9 @@ public class RaidGameMode : BaseGameMode
         {
             StartCoroutine ( SpawnPlayerCharacter ( waveCount ) );
         }
-        else if( (characterIndex.Count == 0 && ownerPlayer.GetCharacterAll ( ).Count == 0) )
+        else if( (characterIndex.Count == 0 && ownerPlayer.GetCharacterAll ( ).Count == 0) || RaidBoss == null )
         {
-
+            // 패배
             gameEnd = true;
         }
     }

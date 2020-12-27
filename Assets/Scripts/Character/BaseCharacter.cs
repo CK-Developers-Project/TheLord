@@ -63,6 +63,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     public event FOnHit @Hit = null;
     public event FOnDamaged @Damaged = null;
 
+    public float InitializeHP = 0F;
     protected float hp;
     public float Hp {
         get => hp;
@@ -196,7 +197,14 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     #region IActor Function
     public virtual void Initialize ( )
     {
-        hp = status.Get ( ActorStatus.HP, true, true, true );
+        if ( InitializeHP > 0F )
+        {
+            hp = InitializeHP;
+        }
+        else
+        {
+            hp = status.Get ( ActorStatus.HP, true, true, true );
+        }
         Initialized = true;
     }
 
@@ -253,7 +261,10 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
 
     public virtual void OnHit ( BaseCharacter source, BaseCharacter target, DamageCalculator.DamageInfo info )
     {
-        if(@Hit != null)
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.Attack );
+        Instantiate ( vfx, target.Actor.transform ).transform.position = (Vector2)target.Center + (UnityEngine.Random.insideUnitCircle * Radius);
+
+        if ( @Hit != null)
         {
             @Hit ( source, target, info );
         }
@@ -288,7 +299,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
     IEnumerator Start ( )
     {
         yield return new WaitUntil ( ( ) => GameManager.Instance.IsGameStart );
-        if(!data.isLoad )
+        if ( !data.isLoad )
         {
             data.Initialize ( );
         }

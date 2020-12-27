@@ -62,8 +62,10 @@ public class BossSkillAbilityData : AbilityData
             targets.Insert ( Random.Range ( 0, targets.Count + 1 ), character );
         }
 
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.BossSkill );
         foreach ( var t in targets )
         {
+            Instantiate ( vfx, t.Position, Quaternion.identity );
             DamageCalculator.DamageInfo damageInfo = new DamageCalculator.DamageInfo ( DamageCalculator.DamageType.Magic );
             damageInfo.damage = (int)owner.status.Get ( ActorStatus.Atk, true, true, true );
             owner.damageCalculator.Damaged ( t, damageInfo );

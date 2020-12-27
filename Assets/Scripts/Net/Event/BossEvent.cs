@@ -12,11 +12,13 @@ namespace Developers.Net.Event
         public override void AddListener ( )
         {
             EventMedia.AddListener ( EventCode.UpdateRaidBoss, OnUpdateRaidBoss );
+            EventMedia.AddListener ( EventCode.ExitRaidBoss, OnExitRaidBoss );
         }
 
         public override void RemoveListener ( )
         {
             EventMedia.RemoveAllListener ( EventCode.UpdateRaidBoss );
+            EventMedia.RemoveAllListener ( EventCode.ExitRaidBoss );
         }
 
         void OnUpdateRaidBoss ( EventData eventData )
@@ -45,6 +47,17 @@ namespace Developers.Net.Event
                     }
                     break;
             }
+        }
+
+        void OnExitRaidBoss( EventData eventData )
+        {
+            RaidGameMode gameMode = GameManager.Instance.GameMode as RaidGameMode;
+            if( gameMode == null)
+            {
+                return;
+            }
+            string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+            TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Slide );
         }
     }
 }

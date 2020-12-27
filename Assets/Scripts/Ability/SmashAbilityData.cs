@@ -46,7 +46,8 @@ public class SmashAbilityData : AbilityData
         info.trueDamage += atk;
 
         source.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.UndeadSkill ).clip, 1F, 0F, 1F );
-        // TODO 이펙트 추가
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.UndeadSkill );
+        Instantiate ( vfx, target.Center, Quaternion.identity );
 
         abilityInfo.isUse = false;
     }

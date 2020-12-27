@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: VFX
+  m_EditorClassIdentifier: 
+  m_GroupName: VFX
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e4fb1b3d9cf381549b064e4e505ab117
+  m_SerializeEntries:
+  - m_GUID: 02fef195dd778a84d9ec01363ba51d19
+    m_Address: Assets/Addressables/Prefabs/VFX/ScreenTouch_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 3661007061589058962, guid: 02fef195dd778a84d9ec01363ba51d19,
+      type: 3}
+    m_TargetAsset: {fileID: 3661007061589058962, guid: 02fef195dd778a84d9ec01363ba51d19,
+      type: 3}
+  - m_GUID: 8fa1c233952f8c54393211a902366ce6
+    m_Address: Assets/Addressables/Prefabs/VFX/UndeadSkill_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 4209917724401424022, guid: 8fa1c233952f8c54393211a902366ce6,
+      type: 3}
+    m_TargetAsset: {fileID: 4209917724401424022, guid: 8fa1c233952f8c54393211a902366ce6,
+      type: 3}
+  - m_GUID: 66cd765ad751099458b0c7e0e030ac19
+    m_Address: Assets/Addressables/Prefabs/VFX/HumanSkill_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2684165401564313442, guid: 66cd765ad751099458b0c7e0e030ac19,
+      type: 3}
+    m_TargetAsset: {fileID: 2684165401564313442, guid: 66cd765ad751099458b0c7e0e030ac19,
+      type: 3}
+  - m_GUID: 1a64539cde5adbe41a1da04253a0d485
+    m_Address: Assets/Addressables/Prefabs/VFX/ElfSkill_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7782782837546179667, guid: 1a64539cde5adbe41a1da04253a0d485,
+      type: 3}
+    m_TargetAsset: {fileID: 7782782837546179667, guid: 1a64539cde5adbe41a1da04253a0d485,
+      type: 3}
+  - m_GUID: a9a890c340481f64d9d09434c0e540e4
+    m_Address: Assets/Addressables/Prefabs/VFX/BlackDust_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 8594349872652514767, guid: a9a890c340481f64d9d09434c0e540e4,
+      type: 3}
+    m_TargetAsset: {fileID: 8594349872652514767, guid: a9a890c340481f64d9d09434c0e540e4,
+      type: 3}
+  - m_GUID: 7924237c5d5e8924eabb202bd47e4741
+    m_Address: Assets/Addressables/Prefabs/VFX/Attack_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 3411970225726240236, guid: 7924237c5d5e8924eabb202bd47e4741,
+      type: 3}
+    m_TargetAsset: {fileID: 3411970225726240236, guid: 7924237c5d5e8924eabb202bd47e4741,
+      type: 3}
+  - m_GUID: 3673c0e64dd04114490182e7b6c5d9d2
+    m_Address: Assets/Addressables/Prefabs/VFX/BossSkill_VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 7576181521426330497, guid: 3673c0e64dd04114490182e7b6c5d9d2,
+      type: 3}
+    m_TargetAsset: {fileID: 7576181521426330497, guid: 3673c0e64dd04114490182e7b6c5d9d2,
+      type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a5661e58b0517ec4ebe6688c334ad049, type: 2}
+    - {fileID: 11400000, guid: ae3eb28a4658e3644be49064ca52e136, type: 2}

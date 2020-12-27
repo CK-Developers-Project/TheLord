@@ -43,12 +43,13 @@ public class BlessingAbilityData : AbilityData
 
     IEnumerator Blessing ( BaseCharacter owner, AbilityInfo info )
     {
-        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.HumanSkill ).clip, 1F, 0F, 1F );
-
         if ( info.isUse )
         {
             yield break;
         }
+        owner.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.HumanSkill ).clip, 1F, 0F, 1F );
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.HumanSkill );
+        Instantiate ( vfx, owner.Actor.transform ).transform.localPosition = Vector3.zero;
 
         float atk = owner.status.Get ( ActorStatus.Atk, true, true );
         float rateAtk = info.amount[0] * 0.01F;

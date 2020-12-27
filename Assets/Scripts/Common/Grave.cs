@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Developers.Structure;
 
 public class Grave : MonoBehaviour
 {

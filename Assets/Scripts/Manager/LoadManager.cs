@@ -18,6 +18,7 @@ public class LoadManager : MonoSingleton<LoadManager>
         Actor,          // Prefab
         UI,             // Prefab
         Grave,          // Prefab
+        VFX,            // Prefab
 
         CharacterData,      // ScriptableObject
         AbilityData,    // ScriptableObject
@@ -74,6 +75,13 @@ public class LoadManager : MonoSingleton<LoadManager>
                         else if(gameObject.GetComponent<Grave>() != null)
                         {
                             key = (int)LoadType.Grave * Multiply_Index;
+                            Add ( key, gameObject );
+                        }
+                        #endregion
+                        #region VFX
+                        else if(gameObject.GetComponent<VFXObject>() != null)
+                        {
+                            key = (int)LoadType.VFX * Multiply_Index;
                             Add ( key, gameObject );
                         }
                         #endregion
@@ -250,6 +258,19 @@ public class LoadManager : MonoSingleton<LoadManager>
         return null;
     }
 
+    public GameObject GetVFX(VFXType type)
+    {
+        List<Object> vfxList = hashtable[(int)LoadType.VFX * Multiply_Index];
+        foreach ( GameObject vfx in vfxList )
+        {
+            if ( vfx.GetComponent<VFXObject> ( ).type == type )
+            {
+                return vfx;
+            }
+        }
+        return null;
+    }
+
     public CharacterData GetCharacterData(int index)
     {
         List<Object> CharacterList = hashtable[(int)LoadType.CharacterData * Multiply_Index];
@@ -279,8 +300,8 @@ public class LoadManager : MonoSingleton<LoadManager>
 
     public MusicData GetMusicData(MusicType type)
     {
-        List<Object> abilityList = hashtable[(int)LoadType.MusicData * Multiply_Index];
-        foreach ( MusicData music in abilityList )
+        List<Object> musicList = hashtable[(int)LoadType.MusicData * Multiply_Index];
+        foreach ( MusicData music in musicList )
         {
             if ( music.type == type )
             {
@@ -292,8 +313,8 @@ public class LoadManager : MonoSingleton<LoadManager>
 
     public SFXData GetSFXData(SFXType type)
     {
-        List<Object> abilityList = hashtable[(int)LoadType.SFXData * Multiply_Index];
-        foreach ( SFXData sfx in abilityList )
+        List<Object> sfxList = hashtable[(int)LoadType.SFXData * Multiply_Index];
+        foreach ( SFXData sfx in sfxList )
         {
             if ( sfx.type == type )
             {

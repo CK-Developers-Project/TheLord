@@ -63,4 +63,15 @@ namespace Developers.Structure
         Tabsound,
         UndeadSkill,
     }
+
+    public enum VFXType
+    {
+        Attack,
+        BossSkill,
+        BlackDust,
+        ElfSkill,
+        HumanSkill,
+        ScreenTouch,
+        UndeadSkill,
+    }
 }

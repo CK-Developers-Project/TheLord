@@ -4,7 +4,10 @@ using UnityEngine;
 using Developers.Structure;
 using Developers.Net.Protocol;
 using UnityEngine.UI;
+using Developers.Util;
 using Developers.Table;
+using TMPro;
+using System;
 
 public class RankingPopup : BasePopup
 {
@@ -12,10 +15,26 @@ public class RankingPopup : BasePopup
     [SerializeField] RectTransform content = null;
     [SerializeField] Image HPImage = null;
 
+    [SerializeField] TextMeshProUGUI remainTimeText = null;
     [SerializeField] RankContainer myRanking = null;
     [SerializeField] RankContainer lastHitRanking = null;
     public List<RankContainer> rankContainers = new List<RankContainer> ( );
     [SerializeField] List<TierSprite> tierSpriteList = new List<TierSprite> ( );
+
+    DateTime remainTime;
+
+    public void SetRemainTime(long tick)
+    {
+        remainTime = GameUtility.Now() + new TimeSpan ( tick );
+    }
+
+    public void UpdateRemainTime(TimeSpan time)
+    {
+        string day = time.Days.ToString ( );
+        string hour = time.Hours.ToString ( );
+        string min = time.Minutes.ToString ( );
+        remainTimeText.text = string.Format ( "{0}일 {1}시간 {2}분 남음", day, hour, min );
+    }
 
     public void SetInfoForMyRanking(ProtoData.RaidRankingData.RankingData rankingData)
     {
@@ -98,8 +117,10 @@ public class RankingPopup : BasePopup
 
     public override void OnUpdate()
     {
-
     }
 
-
+    private void Update ( )
+    {
+        UpdateRemainTime ( remainTime - GameUtility.Now() );
+    }
 }

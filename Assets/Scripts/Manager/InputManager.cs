@@ -4,6 +4,7 @@ using Developers.Util;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using Developers.Structure;
 
 public class InputManager : MonoSingleton<InputManager>
 {
@@ -70,6 +71,7 @@ public class InputManager : MonoSingleton<InputManager>
         {
             return;
         }
+
         isStarted = true;
         StartPoint = new Vector2 ( Position.x, Position.y );
     }
@@ -83,6 +85,8 @@ public class InputManager : MonoSingleton<InputManager>
         {
             return;
         }
+        GameObject vfx = LoadManager.Instance.GetVFX ( VFXType.ScreenTouch );
+        Instantiate ( vfx, pos, Quaternion.identity );
 
         RaycastHit2D hit = Physics2D.CircleCast ( pos, 0.2f, Vector2.zero, Mathf.Infinity, layerMask );
         if ( hit )
