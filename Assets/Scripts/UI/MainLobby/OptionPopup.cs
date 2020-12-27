@@ -2,7 +2,7 @@
 using TMPro;
 using Developers.Structure;
 
-public class OptionPopup : MonoBehaviour
+public class OptionPopup : BasePopup
 {
     public void Active()
     {
@@ -13,7 +13,7 @@ public class OptionPopup : MonoBehaviour
     public void Logout()
     {
         SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
-
+        Developers.Net.PhotonEngine.Instance.Disconnect();
     }
 
     public void EndGame()
