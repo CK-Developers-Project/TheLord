@@ -5,11 +5,13 @@ using System;
 using Developers.Net.Protocol;
 using Developers.Structure;
 using Developers.Util;
+using TMPro;
 
 public class WorkTimer : MonoBehaviour
 {
     Canvas canvas = null;
     [SerializeField] Image progressBar = null;
+    [SerializeField] TextMeshProUGUI WorkTimeText;
 
     TimeSpan totalTime;
     DateTime realTime;
@@ -50,7 +52,6 @@ public class WorkTimer : MonoBehaviour
         gameObject.SetActive ( false );
     }
 
-
     IEnumerator Runnable()
     {
         if(isWork)
@@ -78,6 +79,7 @@ public class WorkTimer : MonoBehaviour
             TimeSpan remainTime = realTime - GameUtility.Now ( );
             TimeSpan current = totalTime - remainTime;
             progressBar.fillAmount = (float)( current.TotalSeconds / totalTime.TotalSeconds );
+            WorkTimeText.SetText(string.Format("{0}:{1:D2}", (int)remainTime.TotalMinutes, remainTime.Seconds));
 
             if ( progressBar.fillAmount >= 1f)
             {
