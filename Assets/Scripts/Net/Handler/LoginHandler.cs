@@ -88,7 +88,20 @@ namespace Developers.Net.Handler
                 return;
             }
 
-            GameManager.Instance.GameMode.OnSynchronize ( BinSerializer.ConvertData<ProtoData.DBLoadData> ( response.Parameters ) );
+            var data = BinSerializer.ConvertData<ProtoData.DBLoadData> ( response.Parameters );
+
+            if ( data.buildingDataList == null || data.buildingDataList.Count == 0 )
+            {
+                new LobbyEnterRequest ( ).SendPacket ( );
+                Debug.LogError ( "건물 데이터를 받는데 실패했습니다." );
+            }
+            else if ( data.resourceData == null )
+            {
+                new LobbyEnterRequest ( ).SendPacket ( );
+                Debug.LogError ( "유저 자원 데이터를 받는데 실패했습니다." );
+            }
+
+            GameManager.Instance.GameMode.OnSynchronize ( data );
         }
     }
 }

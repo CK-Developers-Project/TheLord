@@ -70,7 +70,14 @@ namespace Developers.Net
                 || statusCode == StatusCode.DisconnectByServerLogic || statusCode == StatusCode.DisconnectByServerUserLimit
                 || statusCode == StatusCode.TimeoutDisconnect))
             {
-                TransitionManager.instance.OnSceneTransition(SceneName.Login, TransitionType.Slide);
+                TransitionManager.instance.OnSceneTransition(SceneName.Login, TransitionType.Slide, () => {
+
+                    GameManager.instance.gamePlayers.Clear ( );
+                    for(int i = 0; i < GameManager.instance.transform.childCount; ++i )
+                    {
+                        Destroy ( GameManager.instance.transform.GetChild ( i ).gameObject );
+                    }
+                } );
             }    
         }
 
