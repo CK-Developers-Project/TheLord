@@ -94,6 +94,7 @@ namespace Developers.Net
             // Peer가 비어있지 않고 연결중인 경우 연결을 끊습니다.
             if ( Peer != null && Peer.PeerState == PeerStateValue.Connected )
             {
+                Destroy ( GameManager.instance.LocalPlayer.gameObject );
                 Peer.Disconnect ( );
             }
         }

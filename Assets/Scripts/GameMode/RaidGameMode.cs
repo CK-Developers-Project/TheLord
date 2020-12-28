@@ -211,7 +211,7 @@ public class RaidGameMode : BaseGameMode
 
     public override void OnExit ( )
     {
-        // 패널티 발생
+        Destroy ( enemyPlayer.gameObject.gameObject );
         ReleaseInput ( );
     }
 

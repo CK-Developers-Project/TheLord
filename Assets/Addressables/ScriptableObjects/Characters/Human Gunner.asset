@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Human Gunner
   m_EditorClassIdentifier: 
   index: 9
-  illust: {fileID: 21300000, guid: 48d4a6a0d6186ab408e6808d10c3b8fb, type: 3}
+  illust: {fileID: 21300000, guid: e278f2803dcb7d44dbe00930d0d90cab, type: 3}
   asset: {fileID: 11400000, guid: 577ff8f153f645b4e98b332a137642e0, type: 2}
-  isLoad: 0
+  isLoad: 1

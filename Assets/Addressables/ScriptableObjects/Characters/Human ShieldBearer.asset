@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Human ShieldBearer
   m_EditorClassIdentifier: 
   index: 8
-  illust: {fileID: 21300000, guid: 38df1ff54f320854eb27ee059146afc8, type: 3}
+  illust: {fileID: 21300000, guid: 8759d60c16ef46245a4f81e8b074b503, type: 3}
   asset: {fileID: 11400000, guid: 0d06a80f410761a46b630b09b213074a, type: 2}
-  isLoad: 0
+  isLoad: 1

@@ -25,7 +25,6 @@ public class RaidBattlePage : BasePage
             hpImage.fillAmount = 0F;
             return;
         }
-        Debug.LogFormat ( "체력 : {0} / {1}", gameMode.RaidBoss.Hp, (int)gameMode.RaidBoss.status.Get ( ActorStatus.HP, true, true, true ) );
         hpImage.fillAmount = gameMode.RaidBoss.Hp / gameMode.RaidBoss.status.Get ( ActorStatus.HP, true, true, true );
     }
 
