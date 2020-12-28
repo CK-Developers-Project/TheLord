@@ -96,6 +96,7 @@ MonoBehaviour:
     type: 3}
   content: {fileID: 3892992158713273507}
   HPImage: {fileID: 5849999458460872275}
+  remainTimeText: {fileID: 1782615657468011191}
   myRanking: {fileID: 2973259743035215150}
   lastHitRanking: {fileID: 2082971066401987171}
   rankContainers: []
