@@ -70,7 +70,10 @@ public class MainLobbyPage : BasePage
     public override void OnUpdate()
     {
         base.OnUpdate ( );
-        Nickname.text = GameManager.Instance.LocalPlayer.playerInfo.Nickname;
+
+        var localPlayer = GameManager.Instance.LocalPlayer;
+        Nickname.text = localPlayer.playerInfo.Nickname;
+        SetInfoTier ( localPlayer.playerInfo.Tier );
     }
 
     protected override void Construct ( )

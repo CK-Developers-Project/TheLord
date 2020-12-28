@@ -30,13 +30,13 @@ namespace Developers.Net.Event
             GamePlayer localPlayer = GameManager.Instance.LocalPlayer;
             localPlayer.SetGold ( ResourceType.Gold, data.gold );
             localPlayer.SetGold ( ResourceType.Cash, data.cash );
+            localPlayer.playerInfo.Tier = (TierType)data.tier;
 
             MainLobbyPage page = gameMode.CurrentPage as MainLobbyPage;
             if(page == null)
             {
                 return;
             }
-            page.SetInfoTier ( (TierType)data.tier );
             GameManager.Instance.GameMode.CurrentPage.OnUpdate ( );
         }
     }

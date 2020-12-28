@@ -128,10 +128,7 @@ public class Building : MonoBehaviour, IActor
         }
     }
 
-    public virtual void OnUpdate ( )
-    {
-
-    }
+    public virtual void OnUpdate ( ) { }
 
     public virtual void OnSelect ( )
     {

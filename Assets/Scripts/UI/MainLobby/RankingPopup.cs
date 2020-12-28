@@ -14,6 +14,11 @@ public class RankingPopup : BasePopup
     [SerializeField] GameObject Prefab_RankContainer = null;
     [SerializeField] RectTransform content = null;
     [SerializeField] Image HPImage = null;
+    [SerializeField] GameObject TutorialPopup;
+    [SerializeField] GameObject RaidTutorialPoup01;
+    [SerializeField] GameObject RaidTutorialPoup02;
+    [SerializeField] GameObject RewardTutorialPoup01;
+    [SerializeField] GameObject RewardTutorialPoup02;
 
     [SerializeField] TextMeshProUGUI remainTimeText = null;
     [SerializeField] RankContainer myRanking = null;
@@ -104,6 +109,46 @@ public class RankingPopup : BasePopup
     {
         SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
         // 여긴 아마 없을듯?
+    }
+
+    public void RaidTutorial()
+    {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        TutorialPopup.SetActive ( true );
+        RaidTutorialPoup01.SetActive ( true );
+        RaidTutorialPoup02.SetActive ( false );
+        RewardTutorialPoup01.SetActive ( false );
+        RewardTutorialPoup02.SetActive ( false );
+    }
+
+    public void RaidTutorialNotice()
+    {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        RaidTutorialPoup01.SetActive ( false );
+        RaidTutorialPoup02.SetActive ( true );
+    }
+
+    public void RewardTutorial ( )
+    {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        TutorialPopup.SetActive ( true );
+        RaidTutorialPoup01.SetActive ( false );
+        RaidTutorialPoup02.SetActive ( false );
+        RewardTutorialPoup01.SetActive ( true );
+        RewardTutorialPoup02.SetActive ( false );
+    }
+
+    public void RewardTutorialNotice ( )
+    {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        RewardTutorialPoup01.SetActive ( false );
+        RewardTutorialPoup02.SetActive ( true );
+    }
+
+    public void TutorialCancle ( )
+    {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        TutorialPopup.SetActive ( false );
     }
 
     protected override void OnEnable ( )

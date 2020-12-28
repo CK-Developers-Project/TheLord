@@ -15,6 +15,7 @@ namespace Developers.Structure
         public string Nickname { get; set; }
 
         public Race Race { get; set; }
+        public TierType Tier { get; set; }
 
         Dictionary<ResourceType, BigInteger> resource = new Dictionary<ResourceType, BigInteger> ( );
 

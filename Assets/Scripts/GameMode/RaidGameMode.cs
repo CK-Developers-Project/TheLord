@@ -21,7 +21,6 @@ public class RaidGameMode : BaseGameMode
 
     List<int> characterIndex = new List<int> ( );
 
-
     int waveCount = 0;
     float waveTimer = 0F;
     bool operateWave = false;
@@ -121,7 +120,7 @@ public class RaidGameMode : BaseGameMode
         {
             PushCharacterIndex ( charactertData.index, charactertData.amount );
         }
-        waveCount = Mathf.RoundToInt ( characterIndex.Count / 3F );
+        waveCount = Mathf.CeilToInt ( characterIndex.Count / 3F );
 
         score = 0;
         totalScore = raidEnterData.totalScore;

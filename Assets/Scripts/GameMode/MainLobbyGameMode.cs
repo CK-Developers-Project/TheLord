@@ -29,8 +29,11 @@ public class MainLobbyGameMode : BaseGameMode
             Debug.LogError ( "[MainLobbyGameMode] 싱크로할 수 없습니다." );
             return;
         }
-        GameManager.Instance.LocalPlayer.SetGold ( ResourceType.Gold, DBLoadData.resourceData.gold );
-        GameManager.Instance.LocalPlayer.SetGold ( ResourceType.Cash, DBLoadData.resourceData.cash );
+        var localPlayer = GameManager.Instance.LocalPlayer;
+
+        localPlayer.SetGold ( ResourceType.Gold, DBLoadData.resourceData.gold );
+        localPlayer.SetGold ( ResourceType.Cash, DBLoadData.resourceData.cash );
+        localPlayer.playerInfo.Tier = (TierType)DBLoadData.resourceData.tier;
 
         List<BuildingInfo> buildingInfoList = new List<BuildingInfo> ( );
         foreach(var buildingData in DBLoadData.buildingDataList )

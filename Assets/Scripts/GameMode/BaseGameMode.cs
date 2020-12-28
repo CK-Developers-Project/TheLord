@@ -22,6 +22,7 @@ public abstract class BaseGameMode : MonoBehaviour
     {
         TransitionManager.Instance.OnWaitSigh ( false );
         GameManager.Instance.OnStart ( );
+        currentPage?.OnUpdate ( );
         yield break;
     }
 

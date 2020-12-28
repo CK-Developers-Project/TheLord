@@ -15,6 +15,7 @@ public class TooltipBox : MonoBehaviour
 
     public void End()
     {
+        button.onClick.RemoveAllListeners ( );
         animator.SetTrigger ( "End" );
     }
 

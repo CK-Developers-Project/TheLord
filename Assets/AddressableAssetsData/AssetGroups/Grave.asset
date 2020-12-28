@@ -22,18 +22,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Normal
-    m_MainAsset: {fileID: 4525848869392423998, guid: d94288f0c94a8104f8c5dde061232bee,
-      type: 3}
-    m_TargetAsset: {fileID: 4525848869392423998, guid: d94288f0c94a8104f8c5dde061232bee,
-      type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: ad005ae4fbdfd6d44916f588b98fb1f9
     m_Address: Assets/Addressables/Prefabs/Grave/Undead Grave.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Normal
-    m_MainAsset: {fileID: 6330352832959927773, guid: ad005ae4fbdfd6d44916f588b98fb1f9,
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9a03c7abe4f919f499c27e9719fc7d2e
+    m_Address: Assets/Addressables/Prefabs/Grave/Human Grave.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Normal
+    m_MainAsset: {fileID: 2980666429571483788, guid: 9a03c7abe4f919f499c27e9719fc7d2e,
       type: 3}
-    m_TargetAsset: {fileID: 6330352832959927773, guid: ad005ae4fbdfd6d44916f588b98fb1f9,
+    m_TargetAsset: {fileID: 2980666429571483788, guid: 9a03c7abe4f919f499c27e9719fc7d2e,
       type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}

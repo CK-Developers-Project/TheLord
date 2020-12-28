@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Undead Necromancer
   m_EditorClassIdentifier: 
   index: 14
-  illust: {fileID: 21300000, guid: 7f063f305bd6f4446a39ef27923ddfb3, type: 3}
+  illust: {fileID: 21300000, guid: df1a423eb4231c147b6e05b02eeec202, type: 3}
   asset: {fileID: 11400000, guid: 14e228af9b297d74e9ac74c4c5846367, type: 2}
   isLoad: 0

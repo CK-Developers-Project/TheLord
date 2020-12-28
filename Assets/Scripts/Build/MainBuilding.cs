@@ -37,6 +37,13 @@ public class MainBuilding : Building
                 tooltipBox.OnTooltip ( "레벨업 가능!", ( ) => LevelUP ( ) );
             }
         }
+        else
+        {
+            if( tooltipBox.gameObject.activeInHierarchy && Owner.GetGold ( ResourceType.Gold ) < possiveNextLevelGold )
+            {
+                tooltipBox.End ( );
+            }
+        }
     }
 
     public override void OnSelect ( )

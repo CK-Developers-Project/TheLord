@@ -41,6 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
     public GamePlayer LocalPlayer {
         get
         {
+            gamePlayers.RemoveAll ( x => x == null );
             return gamePlayers.Count > 0 ? gamePlayers[0] : null;
         }
     }
@@ -55,10 +56,8 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
-    
-
-    public bool IsGameStart { get; private set; }
-    public bool IsSynchronized { get; set; }
+    public bool IsGameStart;
+    public bool IsSynchronized;
 
 
     public IEnumerator Initialize ( )
@@ -75,7 +74,6 @@ public class GameManager : MonoSingleton<GameManager>
             BaseGameMode com = GameObject.FindGameObjectWithTag ( "GameMode" ).GetComponent<BaseGameMode> ( );
             gameMode = com;
         }
-        Debug.Log ( "[Unity] GameMode Load" );
         GameMode.Load ( );
         yield return new WaitUntil ( ( ) => IsGameStart );
         GameMode.OnEnter ( );

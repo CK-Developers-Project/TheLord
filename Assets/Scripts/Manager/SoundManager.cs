@@ -33,6 +33,8 @@ public class SoundManager : MonoSingleton<SoundManager>
     private List<GameAudio> sfx_audio_list = new List<GameAudio>();
     private int next_index = 0;
 
+    Queue<AudioClip> musicQueue = new Queue<AudioClip> ( );
+
     private enum MixerParameter
     {
         SFX_Vol,
@@ -155,12 +157,22 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void on_music()
     {
-        StartCoroutine(Emusic_on());
+        if( main_audio.source.clip == null)
+        {
+            return;
+        }
+        musicQueue.Enqueue ( main_audio.source.clip );
+        StartCoroutine (Emusic_on());
     }
 
     public void on_music(AudioClip clip)
     {
-        StartCoroutine(Emusic_on( clip ) );
+        if(clip == null)
+        {
+            return;
+        }
+        musicQueue.Enqueue ( clip );
+        StartCoroutine ( Emusic_on( ) );
     }
 
 
@@ -198,23 +210,23 @@ public class SoundManager : MonoSingleton<SoundManager>
     }
 
 
-    private IEnumerator Emusic_on ( AudioClip clip = null )
+    private IEnumerator Emusic_on ( )
     {
-        if ( is_changed )
+        while ( musicQueue.Count > 0 )
         {
+            if(is_running == false)
+            {
+                is_running = true;
+                break;
+            }
             yield return null;
         }
-        is_changed = true;
-        yield return StartCoroutine ( Emusic_off ( ) );
-        is_running = true;
-        if ( clip != null )
-        {
-            set_music ( clip );
-        }
+        yield return StartCoroutine ( Emusic_erasure ( 0f ) );
+        main_audio.source.Stop ( );
+        set_music ( musicQueue.Dequeue() );
         main_audio.play ( AudioSettings.dspTime + Time.deltaTime, 0f, 1f );
         yield return StartCoroutine ( Emusic_erasure ( 1f ) );
         StartCoroutine ( Emusic_play ( ) );
-        is_changed = false;
     }
 
 
@@ -234,11 +246,16 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         while (is_running)
         {
+            if( musicQueue.Count > 0)
+            {
+                is_running = false;
+                yield break;
+            }
             if (main_audio.state == ASREnvelope.State.Idle)
             {
                 main_audio.play(AudioSettings.dspTime + Time.deltaTime, 0f, 1f);
             }
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(1F);
         }
     }
 

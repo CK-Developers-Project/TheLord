@@ -241,7 +241,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
                 Grave.Create ( Grave.GraveType.Elf, Position, 3F );
                 break;
             case Race.Human:
-                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
+                Grave.Create ( Grave.GraveType.Human, Position, 3F );
                 break;
             case Race.Undead:
                 Grave.Create ( Grave.GraveType.Undead, Position, 3F );
