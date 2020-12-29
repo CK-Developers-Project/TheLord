@@ -26,7 +26,7 @@ public abstract class BaseGameMode : MonoBehaviour
         yield break;
     }
 
-    public virtual void OnSynchronize<T> ( T data )
+    public virtual void OnSynchronize ( object data )
     {
         GameManager.Instance.IsSynchronized = true;
         currentPage?.OnUpdate ( );

@@ -43,7 +43,8 @@ namespace Developers.Net.Handler
             ReturnCode rc = (ReturnCode)response.ReturnCode;
             if ( rc == ReturnCode.Failed )
             {
-                // TODO 다시 로그인 씬으로
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
                 Debug.LogError ( "로비 데이터를 받는데 실패했습니다." );
                 return;
             }

@@ -21,9 +21,9 @@ public class MainLobbyGameMode : BaseGameMode
         yield return base.OnStart ( );
     }
 
-    public override void OnSynchronize<T> ( T data )
+    public override void OnSynchronize( object data )
     {
-        ProtoData.DBLoadData DBLoadData = data as ProtoData.DBLoadData;
+        ProtoData.DBLoadData DBLoadData = (ProtoData.DBLoadData)data;
         if(DBLoadData == null)
         {
             Debug.LogError ( "[MainLobbyGameMode] 싱크로할 수 없습니다." );

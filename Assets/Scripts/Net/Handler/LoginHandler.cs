@@ -94,14 +94,24 @@ namespace Developers.Net.Handler
             {
                 new LobbyEnterRequest ( ).SendPacket ( );
                 Debug.LogError ( "건물 데이터를 받는데 실패했습니다." );
+                return;
             }
             else if ( data.resourceData == null )
             {
                 new LobbyEnterRequest ( ).SendPacket ( );
                 Debug.LogError ( "유저 자원 데이터를 받는데 실패했습니다." );
+                return;
             }
 
-            GameManager.Instance.GameMode.OnSynchronize ( data );
+            MainLobbyGameMode gamemode = GameManager.Instance.GameMode as MainLobbyGameMode;
+            if(gamemode == null)
+            {
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
+                return;
+            }
+
+            gamemode.OnSynchronize ( data );
         }
     }
 }

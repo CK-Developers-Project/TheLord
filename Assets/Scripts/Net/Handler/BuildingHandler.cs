@@ -53,6 +53,8 @@ namespace Developers.Net.Handler
             }
             else
             {
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
                 // 실패
             }
             TransitionManager.Instance.OnWaitSigh ( false );
@@ -66,6 +68,8 @@ namespace Developers.Net.Handler
             }
             else
             {
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
                 // 실패
             }
             TransitionManager.Instance.OnWaitSigh ( false );
@@ -78,6 +82,8 @@ namespace Developers.Net.Handler
             }
             else
             {
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
                 // 실패
             }
             TransitionManager.Instance.OnWaitSigh(false);
@@ -113,14 +119,16 @@ namespace Developers.Net.Handler
                 var building = gameMode.Buildings.Find ( x => (int)x.info.index == buildingConfirmData.index );
                 if( building == null)
                 {
-                    // 건물이 없음
+                    string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                    TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
                     return;
                 }
                 building.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.BuildClear ).clip, 1F, 0F, 1F );
             }
             else
             {
-                // 실패
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
             }
             TransitionManager.Instance.OnWaitSigh ( false );
         }
@@ -138,14 +146,16 @@ namespace Developers.Net.Handler
                 var building = gameMode.Buildings.Find ( x => (int)x.info.index == buildingConfirmData.index );
                 if ( building == null )
                 {
-                    // 건물이 없음
+                    string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                    TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
                     return;
                 }
                 building.Audio.play ( LoadManager.Instance.GetSFXData ( SFXType.BuildClear ).clip, 1F, 0F, 1F );
             }
             else
             {
-                // 실패
+                string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+                TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
             }
             TransitionManager.Instance.OnWaitSigh ( false );
         }

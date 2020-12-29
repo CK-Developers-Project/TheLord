@@ -45,7 +45,7 @@ public class CharacterAIForRaid : CharacterAI
             for (int i = 0; i < actors; ++i )
             {
                 BaseCharacter character = col[i].transform.GetComponentInParent<BaseCharacter> ( );
-                if(character == null || character.Equals(pawn))
+                if(character == null || character.Equals(pawn) || character.IsDeath)
                 {
                     continue;
                 }
@@ -74,7 +74,7 @@ public class CharacterAIForRaid : CharacterAI
         BaseCharacter obstacle = null;
         foreach(var character in holdCharacters)
         {
-            if(pawn.Owner.IsEnemy(character.Owner))
+            if(pawn.Owner.IsEnemy(character.Owner) &&  character.IsDeath == false )
             {
                 obstacle = character;
                 break;
@@ -86,6 +86,12 @@ public class CharacterAIForRaid : CharacterAI
             Vector2 dir = obstacle.Position - pawn.Position;
             pawn.LookAtRight = dir.x >= 0 ? true : false;
             SetOrder ( AbilityOrder.Attack, obstacle );
+        }
+        else if(AttackDistance >= Vector2.Distance(target.Position, pawn.Position))
+        {
+            Vector2 dir = target.Position - pawn.Position;
+            pawn.LookAtRight = dir.x >= 0 ? true : false;
+            SetOrder ( AbilityOrder.Attack, target );
         }
         else
         {

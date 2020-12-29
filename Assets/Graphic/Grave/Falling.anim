@@ -363,7 +363,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.38333333
+  - time: 0.41666666
     functionName: Anim_VFX
     data: 
     objectReferenceParameter: {fileID: 0}

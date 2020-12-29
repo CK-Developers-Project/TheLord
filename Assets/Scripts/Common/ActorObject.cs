@@ -5,7 +5,7 @@ using Developers.Structure;
 
 public class ActorObject : MonoBehaviour
 {
-    public IActor Owner { get; private set; }
+    public BaseCharacter Owner { get; private set; }
     const string ANIM_ID = "Id";
     const string ANIM_ACTION = "Action";
 
@@ -24,6 +24,16 @@ public class ActorObject : MonoBehaviour
     public void Anim_Sound ( SFXType type )
     {
         Owner.Audio.play ( LoadManager.Instance.GetSFXData ( type ).clip, 1F, 0F, 1F );
+    }
+
+    public void Anim_Grave(Grave.GraveType type)
+    {
+        Grave.Create ( type, transform.position, 3F );
+    }
+
+    public void Anim_Destroy()
+    {
+        Destroy ( Owner.gameObject );
     }
     #endregion
 
@@ -75,7 +85,7 @@ public class ActorObject : MonoBehaviour
 
     private void Awake ( )
     {
-        Owner = GetComponentInParent<IActor> ( );
+        Owner = GetComponentInParent<BaseCharacter> ( );
         Animator = GetComponent<Animator> ( );
     }
 

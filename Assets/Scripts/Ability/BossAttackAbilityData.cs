@@ -42,7 +42,7 @@ public class BossAttackAbilityData : AbilityData
         for(int i = 0; i < actors; ++i )
         {
             BaseCharacter character = col[i].GetComponentInParent<BaseCharacter> ( );
-            if(character == null || character.Equals(source) || character.Equals(target) || source.Owner.IsAlliance(character.Owner))
+            if(character == null || character.Equals(source) || character.Equals(target) || source.Owner.IsAlliance(character.Owner) || character.IsDeath )
             {
                 continue;
             }

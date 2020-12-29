@@ -33,17 +33,19 @@ public class RaceSelectPage : BasePage
     public void Confirm()
     {
         SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
-        UserResistrationRequest request = new UserResistrationRequest ( Nickname, (int)Race );
         int lenth = Nickname.Length;
         if ( lenth > Nickname_Max_Lenth  || lenth < Nickname_Min_Lenth )
         {
             string msg = string.Format ( "닉네임이 잘못되었습니다.\n({0} ~ {1}글자)", Nickname_Min_Lenth, Nickname_Max_Lenth );
             OnMessageBox ( msg, true, null, "확인" );
+            return;
         }
         else if( Race == 0 || Race >= Race.End )
         {
             OnMessageBox ( "종족을 선택하세요.", true, null, "확인" );
+            return;
         }
+        UserResistrationRequest request = new UserResistrationRequest ( Nickname, (int)Race );
         request.SendPacket ( );
     }
 

@@ -235,20 +235,7 @@ public abstract class BaseCharacter : MonoBehaviour, IActor
         hp = 0F;
         isDeath = true;
 
-        switch ( data.Race )
-        {
-            case Race.Elf:
-                Grave.Create ( Grave.GraveType.Elf, Position, 3F );
-                break;
-            case Race.Human:
-                Grave.Create ( Grave.GraveType.Human, Position, 3F );
-                break;
-            case Race.Undead:
-                Grave.Create ( Grave.GraveType.Undead, Position, 3F );
-                break;
-        }
-        Destroy ( gameObject ); // 우선 그냥 바로 삭제함
-        //Actor.Set ( -1 );
+        Actor.Set ( -1 );
     }
 
     public virtual void OnAttack(BaseCharacter target )

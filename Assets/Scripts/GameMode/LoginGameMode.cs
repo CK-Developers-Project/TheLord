@@ -19,6 +19,12 @@ public class LoginGameMode : BaseGameMode
 
     public override void OnEnter ( )
     {
+        GameManager.Instance.gamePlayers.Clear ( );
+        for ( int i = 0; i < GameManager.Instance.transform.childCount; ++i )
+        {
+            Destroy ( GameManager.Instance.transform.GetChild ( i ).gameObject );
+        }
+
         SetPage ( loginPage );
     }
 }

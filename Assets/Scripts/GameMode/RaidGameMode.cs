@@ -106,9 +106,9 @@ public class RaidGameMode : BaseGameMode
         yield return base.OnStart ( );
     }
 
-    public override void OnSynchronize<T> ( T data )
+    public override void OnSynchronize ( object data )
     {
-        var raidEnterData = data as ProtoData.RaidEnterData;
+        var raidEnterData = (ProtoData.RaidEnterData)data;
         if(raidEnterData == null)
         {
             Debug.LogError ( "[RaidGameMode] 싱크로 할 수 없습니다.", this );

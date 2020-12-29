@@ -55,7 +55,7 @@ public class BossSkillAbilityData : AbilityData
         for ( int i = 0; i < actors; ++i )
         {
             BaseCharacter character = col[i].GetComponentInParent<BaseCharacter> ( );
-            if ( character == null || character.Equals ( owner ) || owner.Owner.IsAlliance ( character.Owner ) )
+            if ( character == null || character.Equals ( owner ) || owner.Owner.IsAlliance ( character.Owner ) || character.IsDeath )
             {
                 continue;
             }

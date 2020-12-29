@@ -16,6 +16,13 @@ public class OptionPopup : BasePopup
         Developers.Net.PhotonEngine.Instance.Disconnect();
     }
 
+    public void MainLobby()
+    {
+        SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
+        string sceneName = SceneName.GetMainLobby ( GameManager.Instance.LocalPlayer.playerInfo.Race );
+        TransitionManager.Instance.OnSceneTransition ( sceneName, TransitionType.Loading01_Blank, null );
+    }
+
     public void EndGame()
     {
         SoundManager.Instance.play ( LoadManager.Instance.GetSFXData ( SFXType.Tabsound ).clip, AudioSettings.dspTime + Time.deltaTime, 0F, 1F );
