@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroy: 1
-  characterTable: {fileID: 4900000, guid: cb1ec827b47d3aa4a975f4d8aa78eb22, type: 3}
-  abilityTable: {fileID: 4900000, guid: 16a432ff179a1f34caa4fad0a8100604, type: 3}
-  buildingTable: {fileID: 4900000, guid: 823e6a98bc8425d45b87fa65a05693da, type: 3}
+  characterTable: {fileID: 4900000, guid: 327a00a5396aa6141a4a82a3c3b979da, type: 3}
+  abilityTable: {fileID: 4900000, guid: ed96af4fc3f2a4f4b9abe95fbb4f7624, type: 3}
+  buildingTable: {fileID: 4900000, guid: 25bfc57af64f9584db0b3c6687bc16d5, type: 3}
+  isLoad: 0

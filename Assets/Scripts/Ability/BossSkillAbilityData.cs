@@ -67,7 +67,7 @@ public class BossSkillAbilityData : AbilityData
         {
             Instantiate ( vfx, t.Position, Quaternion.identity );
             DamageCalculator.DamageInfo damageInfo = new DamageCalculator.DamageInfo ( DamageCalculator.DamageType.Magic );
-            damageInfo.damage = (int)owner.status.Get ( ActorStatus.Atk, true, true, true );
+            damageInfo.damage = 99999999;
             owner.damageCalculator.Damaged ( t, damageInfo );
             if ( --cnt == 0 )
             {
