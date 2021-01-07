@@ -17,6 +17,7 @@ public class MainLobbyGameMode : BaseGameMode
     public override IEnumerator OnStart ( )
     {
         new LobbyEnterRequest ( ).SendPacket ( false );
+        GameManager.Instance.IsSynchronized = false;
         yield return new WaitUntil ( ( ) => GameManager.Instance.IsSynchronized );
         yield return base.OnStart ( );
     }
@@ -46,6 +47,11 @@ public class MainLobbyGameMode : BaseGameMode
             buildingInfoList.Add ( info );
         }
         GameManager.Instance.synchronizeData.SetBuildingInfo ( buildingInfoList );
+
+        foreach(var building in buildings)
+        {
+            building.Synchronized = false;
+        }
 
         base.OnSynchronize ( data );
     }
